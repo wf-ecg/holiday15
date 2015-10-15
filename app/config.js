@@ -10,12 +10,9 @@ require.config({
     baseUrl: 'scripts',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
-        lib: 'libs',
-        ven: '../vendor',
-        jquery: '/lib/jquery/1.8.2/jquery',
-        lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
-        modern: '/lib/modernizr/2.6.2/modernizr.min',
-        videojs: '/lib/video-js/ecg/video',
+        jquery: '../vendor/jquery',
+        lodash: '../vendor/lodash',
+        modern: '../vendor/modernizr',
         //
         beacon: 'libs/ecg-beacon',
         console: 'libs/console',
