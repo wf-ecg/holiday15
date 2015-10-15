@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'modal'], function
-    MAIN($, Modal) {
+define(['jquery', 'modal', 'jumble'], function
+    MAIN($, Modal, Jumble) {
     'use strict';
 
     var Nom = 'Main';
@@ -54,6 +54,8 @@ define(['jquery', 'modal'], function
         });
 
         watchInputDevice();
+
+        C.log(W.J = Jumble.test());
     });
 
 });
