@@ -1,0 +1,35 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+// DEFS
+
+$blue : #0095c8;
+$sans : 'myriad-pro', sans-serif;
+$serif : 'Archer SSm A', 'Archer SSm B', serif;
+$lib : '/lib/';
+$break: 750px;
+
+@mixin clearfix() {
+    &:after {
+        border-collapse: collapse; clear: both; content: '';
+        display: table; /* clearfix */
+    }
+}
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+// IMPORTS
+$foo: $lib + 'fonts/archer.ssm.css'; @import url($foo);
+$foo: $lib + 'fonts/myriad.css';     @import url($foo);
+$foo: $lib + 'fonts/myriad.con.css'; @import url($foo);
+//@import url($lib + 'bootstrap/3.2.0/bootstrap.min.css');
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* reset */
+@import 'compass/css3';
+@import 'compass/reset';
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+@import './_ada';
+@import './_base';
+@import './_header';
+@import './_modal';
+@import './_response';
+@import './_misc';
+
+/* >^!^< */
