@@ -36,13 +36,18 @@ define(['jquery', 'modal', 'jumble'], function
         });
     }
 
-
 //  INIT
     $(function () {
         if (Db) {
-            W.main = Main;
-            Main.Modal = Modal; // expose for dev
+            W.main = Main; // expose for dev
+            $.extend(Main, {
+                modal: Modal,
+                jumble: Jumble,
+            });
+
             C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
+
+            require(['jumble.test']);
         }
 
         Main.mobile = !PC;
@@ -54,8 +59,6 @@ define(['jquery', 'modal', 'jumble'], function
         });
 
         watchInputDevice();
-
-        C.log(W.J = Jumble.test());
     });
 
 });

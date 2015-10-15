@@ -14,103 +14,80 @@ define(['lodash'], function
     KLASS(_) { // closure
     'use strict';
 
-//CLASS
+//  CLASS
     var Nom = 'Jumble';
+    var Self = Jumble;
     var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 0;
+    var db = function (num) {
+        return W.debug > (num || 0);
+    };
 
-//  PRIVATE
     function random(max) {
         return Math.floor(Math.random() * max);
     }
 
 //CONSTRUCT
     function Jumble(correct) {
-        var api;
+        var api, self = this;
 
-        this.correct = correct;
+        if (self.constructor !== Self) {
+            throw new Error('not a constructor call');
+        }
 
-///     PUBLIC
-        function bindAnything() {
-            _bind();
+///     INSTANCE
+        function checkInit() {
+            if (!self.isInited)
+                throw new Error('not inited');
+        }
+        function addJumble(str) {
+            self._jumbles.push(str);
+        }
+        function getJumble() {
+            var len = self.getLength();
+            var num = arguments[0];
+
+            checkInit();
+
+            if (!len) {
+                throw new Error('out of jumbles');
+            } else if (typeof num !== 'number') {
+                num = random(len);
+            }
+            return self.jumbles.splice(num, 1);
         }
 
         api = {
+            _correct: correct,
             _jumbles: [],
-            correct: '',
-            played: [],
             isInited: false,
-            jumbles: null,
-            checkInit: function () {
-                if (!this.isInited)
-                    throw new Error('not inited');
-            },
-            addJumble: function (str) {
-                this._jumbles.push(str);
-            },
+            jumbles: false,
+            played: false,
+            add: addJumble,
+            get: getJumble,
             getLength: function () {
-                return this.jumbles.length;
-            },
-            getJumble: function () {
-                var len = this.getLength();
-                var num = arguments[0];
-
-                this.checkInit();
-
-                if (!len) {
-                    throw new Error('out of jumbles');
-                } else if (typeof num !== 'number') {
-                    num = random(len);
-                }
-                return this.jumbles.splice(num, 1);
+                return self.jumbles.length;
             },
             init: function () {
-                if (this.isInited) {
+                if (self.isInited) {
                     return 'inited';
                 }
-                this.reset();
-                this.isInited = true;
+                self.reset();
+                self.isInited = true;
             },
             reset: function () {
-                this.jumbles = this._jumbles.concat();
-                this.played = [];
+                self.jumbles = self._jumbles.concat();
+                self.played = [];
             },
         };
 
 //      INIT
-        _.extend(this, api);
+        _.extend(self, api);
+        if (db()) {
+            C.warn(Nom, self);
+        }
     }
-
-    Jumble.test = function () {
-        var x = new Jumble('abc def');
-
-        function compare(a, b) {
-            C.log(Nom, 'compare', [a.toString(), b.toString()]);
-            return a.toString() === b.toString();
-        }
-
-        x.addJumble('def abc');
-        x.addJumble('de fab c');
-        C.assert(x.init() === undefined);
-        x.addJumble('123');
-        C.assert(x.init() === "inited");
-        C.assert(compare(x.getJumble(0), "def abc"));
-        C.assert(compare(x.getJumble(0), "de fab c"));
-        try {
-            x.getJumble();
-            C.assert(false, 'should fail');
-        } catch (err) {
-            C.debug('should and did fail');
-        }
-        C.assert(x.reset() === undefined);
-        C.assert(compare(x.getJumble(1), "de fab c"));
-        C.assert(compare(x.getJumble(0), "def abc"));
-        C.assert(compare(x.getJumble(), "123"));
-
-        return x;
-    };
-
     return Jumble;
+
 });
 /*
 
