@@ -10,8 +10,8 @@
  ...
  */
 
-define(['lodash'], function
-    KLASS(_) { // closure
+define(['jquery'], function
+    KLASS($) { // closure
     'use strict';
 
 // CLASS
@@ -21,6 +21,7 @@ define(['lodash'], function
     var Df = {
         inited: false,
         jumbles: [],
+        _jumbles: [], // backup
         played: false,
     };
 
@@ -42,8 +43,7 @@ define(['lodash'], function
             throw new Error('no initial phrase');
         }
 /// INSTANCE
-        cf = _.extend({
-            _jumbles: [],
+        cf = $.extend(true, {
             correct: phrase,
         }, Df, cf);
 
@@ -69,7 +69,7 @@ define(['lodash'], function
             return cf.jumbles.splice(num, 1);
         }
 /// API
-        _.extend(self, {
+        $.extend(self, {
             add: addJumble,
             get: getJumble,
             init: function () {
