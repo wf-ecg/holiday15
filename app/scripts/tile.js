@@ -45,6 +45,12 @@ define(['jquery'], function
         }, Df, cf);
 
 /// METHODS
+        function dump() {
+            self._ = JSON.stringify(cf)
+                .replace(/,/g, '", ')
+                .replace(/\"/g, '');
+            return self;
+        }
 
 /// API
         $.extend(self, {
@@ -69,11 +75,11 @@ define(['jquery'], function
             reveal: function () {
                 // activate cf.revealed
             },
+            dump: db() ? dump : $.noop,
         });
 
 /// INIT
         if (db()) {
-            C.warn(Nom, self);
         }
     }
 

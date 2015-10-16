@@ -14,14 +14,17 @@ define(['timer'], function (Timer) {
         return a.toString() === b.toString();
     }
 
-    function test1() {
-        var x = new Timer('test');
+    function test1(cf) {
+        var x = new Timer(cf);
 
+        C.group(x);
+        C.groupEnd();
 
-        C.log(x);
+        x.start();
     }
-    test1();
-    test1();
+
+    test1({time: 3});
+    test1({time: 5});
 });
 /*
 

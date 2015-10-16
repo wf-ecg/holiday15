@@ -17,6 +17,8 @@ define(['jumble'], function (Jumble) {
     function test1() {
         var x = new Jumble('test');
 
+        C.groupCollapsed(x);
+
         x.add('def abc');
         x.add('de fab c');
 
@@ -44,8 +46,9 @@ define(['jumble'], function (Jumble) {
         C.assert(x.verify("test"));
 
         C.log(x.dump());
+        C.groupEnd();
     }
-    test1();
+
     test1();
 });
 /*

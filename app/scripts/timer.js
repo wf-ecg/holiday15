@@ -20,7 +20,11 @@ define(['jquery'], function
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Df = {
         inited: false,
-        time: 0,
+        time: 10,
+        prefix: 'Timer ',
+        cb: function () {
+            C.error(Nom, 'done');
+        },
     };
 
     function db(num) {
@@ -28,46 +32,56 @@ define(['jquery'], function
     }
 
 // CONSTRUCT
-    function Timer(num, cf) {
+    function Timer(cf) {
         var self = this;
 
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
-        if (!num) {
-            throw new Error('no initial num');
-        }
+
 /// INSTANCE
-        cf = $.extend(true, {
-            time: num,
-        }, Df, cf);
+        cf = $.extend(true, {}, Df, cf);
 
 /// METHODS
+        function tick() {
+            self.update();
+            if (cf.time <= 0) {
+                self.finish();
+                return;
+            }
+            cf.time--;
+            cf.timeout = W.setTimeout(tick, 1e3);
+        }
+        function format() {
+            var min, sec;
+
+            sec = ('00' + cf.time % 60).slice(-2);
+            min = Math.floor(cf.time / 60) || '';
+
+            return cf.prefix + min + ':' + sec;
+        }
+        function dump() {
+            self._ = JSON.stringify(cf)
+                .replace(/,/g, '", ')
+                .replace(/\"/g, '');
+            return self;
+        }
 
 /// API
         $.extend(self, {
             finish: function () {
-                alert('done');
+                self.stop();
+                cf.cb();
             },
-            start: function (num, cb) {
-                this.set(num || 15);
-                if (cb) {
-                    this.finish = cb;
-                }
+            start: function () {
+                tick();
+                return self;
             },
             stop: function () {
-
+                W.clearTimeout(cf.timeout);
             },
             update: function () {
-
-            },
-            tick: function () {
-                cf.time--;
-                this.update();
-                if (cf.time <= 0) {
-                    this.stop();
-
-                }
+                self.display();
             },
             set: function (num) {
                 cf.time = num || 0;
@@ -75,30 +89,19 @@ define(['jquery'], function
             get: function () {
                 return cf.time;
             },
-            format: function () {
-                var min, sec;
-                sec = cf.time % 60;
-                min = Math.floor(cf.time / 60) || '';
-                return min + ':' + sec;
-            },
             display: function () {
-
+                C.debug(format());
             },
+            dump: db() ? dump : $.noop,
         });
 
 /// INIT
         if (db()) {
-            C.warn(Nom, self);
         }
     }
-
     return Timer;
 });
 /*
-
- take a phrase
- load anagrams
- display
 
 
 

@@ -42,6 +42,7 @@ define(['jquery'], function
         if (!phrase) {
             throw new Error('no initial phrase');
         }
+
 /// INSTANCE
         cf = $.extend(true, {
             correct: phrase,
@@ -51,6 +52,7 @@ define(['jquery'], function
             if (!cf.inited)
                 throw new Error('not inited');
         }
+
 /// METHODS
         function addJumble(str) {
             cf._jumbles.push(str);
@@ -68,6 +70,13 @@ define(['jquery'], function
             }
             return cf.jumbles.splice(num, 1);
         }
+        function dump() {
+            self._ = JSON.stringify(cf)
+                .replace(/,/g, '", ')
+                .replace(/\"/g, '');
+            return self;
+        }
+
 /// API
         $.extend(self, {
             add: addJumble,
@@ -89,27 +98,17 @@ define(['jquery'], function
             verify: function (str) {
                 return str === cf.correct;
             },
-            dump: function () {
-                self._ = JSON.stringify(cf)
-                    .replace(/,/g, '", ')
-                    .replace(/\"/g, '');
-                return self;
-            },
+            dump: db() ? dump : $.noop,
         });
 
 /// INIT
         if (db()) {
-            C.warn(Nom, self.dump());
         }
     }
 
     return Jumble;
 });
 /*
-
- take a phrase
- load anagrams
- display
 
 
 

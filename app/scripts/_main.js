@@ -41,14 +41,16 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer'], function
         if (Db) {
             W.main = Main; // expose for dev
             $.extend(Main, {
-                modal: Modal,
-                jumble: Jumble,
+                Modal: Modal,
+                Jumble: Jumble,
+                Tile: Tile,
+                Timer: Timer,
             });
 
             C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
 
-            require(['jumble.test']);
-            require(['tile.test']);
+            //require(['jumble.test']);
+            //require(['tile.test']);
             require(['timer.test']);
         }
 

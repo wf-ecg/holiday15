@@ -17,10 +17,12 @@ define(['tile'], function (Tile) {
     function test1() {
         var x = new Tile('test');
 
+        C.group(x);
 
-        C.log(x);
+        C.log(x.dump());
+        C.groupEnd();
     }
-    test1();
+
     test1();
 });
 /*
