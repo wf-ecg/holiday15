@@ -14,36 +14,49 @@ define(['lodash'], function
     KLASS(_) { // closure
     'use strict';
 
-//  CLASS
+// CLASS
     var Nom = 'Jumble';
     var Self = Jumble;
     var W = (W && W.window || window), C = (W.C || W.console || {});
-    var db = function (num) {
-        return W.debug > (num || 0);
+    var Df = {
+        inited: false,
+        jumbles: [],
+        played: false,
     };
 
     function random(max) {
         return Math.floor(Math.random() * max);
     }
+    function db(num) {
+        return W.debug > (num || 1);
+    }
 
-//CONSTRUCT
-    function Jumble(correct) {
-        var api, self = this;
+// CONSTRUCT
+    function Jumble(phrase, cf) {
+        var self = this;
 
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
+        if (!phrase) {
+            throw new Error('no initial phrase');
+        }
+/// INSTANCE
+        cf = _.extend({
+            _jumbles: [],
+            correct: phrase,
+        }, Df, cf);
 
-///     INSTANCE
         function checkInit() {
-            if (!self.isInited)
+            if (!cf.inited)
                 throw new Error('not inited');
         }
+/// METHODS
         function addJumble(str) {
-            self._jumbles.push(str);
+            cf._jumbles.push(str);
         }
         function getJumble() {
-            var len = self.getLength();
+            var len = self.length();
             var num = arguments[0];
 
             checkInit();
@@ -53,41 +66,44 @@ define(['lodash'], function
             } else if (typeof num !== 'number') {
                 num = random(len);
             }
-            return self.jumbles.splice(num, 1);
+            return cf.jumbles.splice(num, 1);
         }
-
-        api = {
-            _correct: correct,
-            _jumbles: [],
-            isInited: false,
-            jumbles: false,
-            played: false,
+/// API
+        _.extend(self, {
             add: addJumble,
             get: getJumble,
-            getLength: function () {
-                return self.jumbles.length;
-            },
             init: function () {
-                if (self.isInited) {
+                if (cf.inited) {
                     return 'inited';
                 }
                 self.reset();
-                self.isInited = true;
+                cf.inited = true;
+            },
+            length: function () {
+                return cf.jumbles.length;
             },
             reset: function () {
-                self.jumbles = self._jumbles.concat();
-                self.played = [];
+                cf.jumbles = cf._jumbles.concat();
+                cf.played = [];
             },
-        };
+            verify: function (str) {
+                return str === cf.correct;
+            },
+            dump: function () {
+                self._ = JSON.stringify(cf)
+                    .replace(/,/g, '", ')
+                    .replace(/\"/g, '');
+                return self;
+            },
+        });
 
-//      INIT
-        _.extend(self, api);
+/// INIT
         if (db()) {
-            C.warn(Nom, self);
+            C.warn(Nom, self.dump());
         }
     }
-    return Jumble;
 
+    return Jumble;
 });
 /*
 

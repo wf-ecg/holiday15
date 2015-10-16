@@ -34,11 +34,14 @@ define(['jumble'], function (Jumble) {
     }
 
     C.assert(x.reset() === undefined);
+
     C.assert(compare(x.get(1), "de fab c"));
     C.assert(compare(x.get(0), "def abc"));
     C.assert(compare(x.get(), "123"));
 
-    C.log(x);
+    C.assert(x.verify("test"));
+
+    C.log(x.dump());
 
 });
 /*
