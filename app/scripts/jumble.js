@@ -107,6 +107,10 @@ define(['jquery'], function
 });
 /*
 
+ take a phrase
+ load anagrams
+ display
+
 
 
  */

@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'modal', 'jumble'], function
-    MAIN($, Modal, Jumble) {
+define(['jquery', 'modal', 'jumble', 'tile', 'timer'], function
+    MAIN($, Modal, Jumble, Tile, Timer) {
     'use strict';
 
     var Nom = 'Main';
@@ -48,6 +48,8 @@ define(['jquery', 'modal', 'jumble'], function
             C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
 
             require(['jumble.test']);
+            require(['tile.test']);
+            require(['timer.test']);
         }
 
         Main.mobile = !PC;
