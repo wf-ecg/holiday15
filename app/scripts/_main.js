@@ -49,10 +49,17 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer'], function
 
             C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
 
-            //require(['jumble.test']);
-            //require(['tile.test']);
-            //require(['timer.test']);
+//            require(['jumble.test']);
+//            require(['tile.test']);
+//            require(['timer.test']);
         }
+        Main.t = new Timer({
+            div: '.jumble .timer',
+            time: 3,
+            cb: function () {
+                this.div.css('color', 'red');
+            },
+        }).start();
 
         Main.mobile = !PC;
         $.scrollMain(0); // reset page position

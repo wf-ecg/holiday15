@@ -22,8 +22,9 @@ define(['jquery'], function
         inited: false,
         time: 10,
         prefix: 'Timer ',
+        div: '#Timer',
         cb: function () {
-            C.error(Nom, 'done');
+            C.info(Nom, 'done');
         },
     };
 
@@ -41,6 +42,9 @@ define(['jquery'], function
 
 /// INSTANCE
         cf = $.extend(true, {}, Df, cf);
+        if (db()) {
+            self._ = cf;
+        }
 
 /// METHODS
         function tick() {
@@ -90,14 +94,18 @@ define(['jquery'], function
                 return cf.time;
             },
             display: function () {
-                C.debug(format());
+                var txt = format();
+
+                if (db()) {
+                    C.debug(Nom, [cf.div.prevObject.selector], [txt]);
+                }
+                cf.div.html(txt);
             },
             dump: db() ? dump : $.noop,
         });
 
 /// INIT
-        if (db()) {
-        }
+        cf.div = $(cf.div).first();
     }
     return Timer;
 });

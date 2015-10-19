@@ -44,9 +44,7 @@ $serf2: 800 18px/1 $serif;
         opacity: 0.5;
     }
     span {
-        cursor: pointer;
         display: inline-block;
-
     }
     // TOP
     .revealer {
@@ -80,6 +78,7 @@ $serf2: 800 18px/1 $serif;
 
             &:hover {
                 border-color: $blueL;
+                cursor: pointer;
             }
 
             &.used {
