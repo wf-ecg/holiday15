@@ -31,26 +31,33 @@ $serf2: 800 18px/1 $serif;
     margin: auto;
     min-width: 320px;
     max-width: 640px;
-    padding: 2em;
+    padding: 3em 2em 2em;
+    width: 33%;
 
     div, span {
-        padding: 0.5em;
     }
     hr {
         background-color: $blueL;
         border: 0;
         height: $line;
-        margin: 1em;
+        margin: 1rem;
         opacity: 0.5;
     }
     span {
         display: inline-block;
+        margin: 0.25em 0.125em;
+        padding: 0.5em;
+    }
+    .revealer > div,
+    .tiler > div {
+        display: inline-block;
+        margin: 0 0.5em;
     }
     // TOP
     .revealer {
         font: $serf1;
 
-        span {
+        span:not(.space) {
             background-color: $bkgr;
             border: $line outset $blueB;
             border-radius: 3px;
@@ -69,19 +76,19 @@ $serf2: 800 18px/1 $serif;
     .tiler {
         font: $sans1;
 
-        span {
+        span:not(.space) {
             background-color: $blueL;
             border: $line outset $blueB;
             border-radius: 3px;
             opacity: 0.8;
             text-shadow: $shadL;
 
-            &:hover {
+            &:not(.used):hover {
                 border-color: $blueL;
                 cursor: pointer;
             }
-
             &.used {
+                border-color: $blueL;
                 color: white;
                 text-shadow: $shadD;
             }
