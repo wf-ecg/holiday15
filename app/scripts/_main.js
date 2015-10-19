@@ -51,7 +51,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer'], function
 
             //require(['jumble.test']);
             //require(['tile.test']);
-            require(['timer.test']);
+            //require(['timer.test']);
         }
 
         Main.mobile = !PC;

@@ -17,9 +17,9 @@ require.config({
         //
         beacon: 'libs/ecg-beacon',
         console: 'libs/console',
+        jqxtn: 'libs/jq-xtn',
         modal: 'libs/modal',
         stats: 'libs/ecg-stats',
-        jqxtn: 'libs/jq-xtn',
         //
     },
 });

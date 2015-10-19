@@ -17,6 +17,20 @@
                 data-main="./config"
                 data-main="./build/app"
         ></script>
+        <style>
+            * {
+                box-sizing: border-box;
+                text-align: center;
+            }
+            div, span {
+                border: 1px solid gray;
+                padding: 1em;
+            }
+            .jumble {
+                margin: auto;
+                width: 33em;
+            }
+        </style>
     </head>
     <body><div data-role="page">
             <!--[if lt IE 8]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
@@ -24,25 +38,46 @@
             browser</a> to improve your web experience.</p> </div><![endif]-->
 
             <header>
-                header
+                <img src="./images/icons/wf_mobile.png" alt="Wells Fargo">
             </header>
 
-            <div class="ada" id="Content">
-                Content
+            <!-- JUMBLE -->
+
+            <div class="jumble">
+
+                <div class="revealer">
+
+                    <span>X</span>
+                    <span>X</span>
+                    <span>X</span>
+
+                </div>
+
+                <hr>
+
+                <div class="tiler">
+
+                    <span>X</span>
+                    <span>X</span>
+                    <span>X</span>
+
+                </div>
+
+                <div class="timer">
+                    time
+                </div>
+
             </div>
 
-            <article>
-                article
-            </article>
+            <!-- END JUMBLE -->
 
             <footer>
-                footer
+                @ 2015
             </footer>
-        </div>
 
-        <div class="modal lightbox">
+            <div class="modal">
 
-        </div>
+            </div>
 
         </div></body>
 </html>
