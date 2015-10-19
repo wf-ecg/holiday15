@@ -13,11 +13,19 @@ $grey: lighten($gray, 20%);
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
 
-$blue: #0095c8;
 $sans: 'myriad-pro', sans-serif;
 $serif: 'Archer SSm A', 'Archer SSm B', serif;
 $lib: '/lib/';
 $break: 750px;
+
+.ui-page {
+    height: 100%;
+    text-align: center;
+}
+footer {
+    bottom: 0;
+    position: relative;
+}
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'proj/_ada';

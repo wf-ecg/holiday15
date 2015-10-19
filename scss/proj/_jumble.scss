@@ -1,14 +1,98 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* PROJ/_jumble.scss */
 
+$bkgr: #1c6c84;
+$line: 3px;
+$trans: transparent;
+
+// BLUE
+$blueB: #5298ad;//69c;
+$blueD: #165267;
+$blueM: #2394a0;
+$blueL: #9dc1cc;
+
+// GRAY
+$gray5: #555;
+$grayC: #ccc;
+
+// SHADOWS
+$shadD: 0 0px 1px $gray5;
+$shadL: 0 1px 1px $grayC;
+
+// FONT
+$sans1: 800 24px/1 $sans;
+$sans2: 600 18px/1 $sans;
+$serf1: 800 24px/1 $serif;
+$serf2: 800 18px/1 $serif;
+
 .jumble {
-    padding: 3em;
+    @include vgrad($blueD, $blueL);
+    box-shadow: inset 0 0px 6px black;
     margin: auto;
     min-width: 320px;
     max-width: 640px;
+    padding: 2em;
 
     div, span {
-        padding: 1em;
+        padding: 0.5em;
+    }
+    hr {
+        background-color: $blueL;
+        border: 0;
+        height: $line;
+        margin: 1em;
+        opacity: 0.5;
+    }
+    span {
+        cursor: pointer;
+        display: inline-block;
+
+    }
+    // TOP
+    .revealer {
+        font: $serf1;
+
+        span {
+            background-color: $bkgr;
+            border: $line outset $blueB;
+            border-radius: 3px;
+            color: $trans;
+            opacity: 0.5;
+
+            &.used {
+                background-color: $trans;
+                border: 0.2em outset $trans;
+                color: white;
+                opacity: 1;
+            }
+        }
+    }
+    // BOTTOM
+    .tiler {
+        font: $sans1;
+
+        span {
+            background-color: $blueL;
+            border: $line outset $blueB;
+            border-radius: 3px;
+            opacity: 0.8;
+            text-shadow: $shadL;
+
+            &:hover {
+                border-color: $blueL;
+            }
+
+            &.used {
+                color: white;
+                text-shadow: $shadD;
+            }
+        }
+    }
+    .timer {
+        color: white;
+        font: $sans2;
+        margin-top: 3em;
+        text-transform: uppercase;
     }
 }
 

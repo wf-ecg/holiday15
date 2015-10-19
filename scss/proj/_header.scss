@@ -2,21 +2,10 @@
 /* PROJ/_header.scss */
 
 header {
+    background-size: cover;
+    box-shadow: 0 2px 4px black;
     color: white;
-    // header
-    .logo.mobile {
-        background-image: url('../images/icons/wf_mobile_bg.png');
-        background-size: 100% 100%;
-        display: block;
-        text-align: center;
-    }
-    .logo img {
-        display: inline-block;
-        height: 40px;
-    }
-    header {
-        background-size: cover;
-    }
+    position: relative;
 
     a {
         color: white;
@@ -32,40 +21,21 @@ header {
         font-weight: 700;
     }
 
-    .contact {
-        p {
-            top: 1.5em;
-            position: relative;
-        }
-        .address {
-            float: right;
-            font-size: 24px;
-            a {
-                margin: 0 0.5em;
-            }
-
-        }
-
+    .logo.mobile {
+        background-image: url('../images/icons/wf_mobile_bg.png');
+        background-size: 100% 100%;
+        display: block;
+        text-align: center;
     }
-    .inline {
-        font-family: $sans;
-        line-height: 1.2;
-        p {
-            display: inline-block;
-            font-size: 2em;
-            margin: 1em 3em 1em 0;
-            vertical-align: top;
-        }
-
+    .logo img {
+        display: inline-block;
+        height: 40px;
+        vertical-align: middle
     }
-    .mid {
-        background: none;
-        padding: 3em 6em;
-    }
-
 }
 
 footer {
+    padding: 1em;
     a {
         color: black;
         text-decoration: none;
