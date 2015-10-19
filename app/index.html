@@ -2,82 +2,80 @@
 <!--[if lt IE 8]>       <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>          <html lang="en" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->  <html lang="en" class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>INDEX</title>
-        <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>INDEX</title>
+    <meta name="viewport" content="width=device-width">
         <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
             (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
-        <!--  -->
-        <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
-        <link rel="stylesheet" href="./build/main.css">
+    <!--  -->
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
+    <link rel="stylesheet" href="./build/main.css">
 
-        <script src="/lib/requirejs/2.1.17/require.js"
-                data-main="./config"
-                data-main="./build/app"
-        ></script>
-        <style>
-            * {
-                box-sizing: border-box;
-                text-align: center;
-            }
-            div, span {
-                border: 1px solid gray;
-                padding: 1em;
-            }
-            .jumble {
-                margin: auto;
-                width: 33em;
-            }
-        </style>
-    </head>
-    <body><div data-role="page">
-            <!--[if lt IE 8]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
-            <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
-            browser</a> to improve your web experience.</p> </div><![endif]-->
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
+    <style>
+      * {
+          box-sizing: border-box;
+          text-align: center;
+      }
+      html {
+          font-size: 18px;
+      }
+      .jumble div, .jumble span {
+          padding: 1em;
+      }
+      .jumble {
+          margin: auto;
+          width: 33em;
+      }
+    </style>
+  </head>
+  <body><div data-role="page">
+      <!--[if lt IE 8]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+      <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+      browser</a> to improve your web experience.</p> </div><![endif]-->
 
-            <header>
-                <img src="./images/icons/wf_mobile.png" alt="Wells Fargo">
-            </header>
+      <header>
+        <div class="logo mobile">
+          <img src="./images/icons/wf_mobile.png" alt="Wells Fargo">
+        </div>
+      </header>
 
-            <!-- JUMBLE -->
+      <!-- JUMBLE -->
+      <div class="jumble">
 
-            <div class="jumble">
+        <div class="revealer">
+          <span>X</span>
+          <span>X</span>
+          <span>X</span>
+        </div>
 
-                <div class="revealer">
+        <hr>
 
-                    <span>X</span>
-                    <span>X</span>
-                    <span>X</span>
+        <div class="tiler">
+          <span>X</span>
+          <span>X</span>
+          <span>X</span>
+        </div>
 
-                </div>
+        <div class="timer">
+          time
+        </div>
 
-                <hr>
+      </div>
+      <!-- END JUMBLE -->
 
-                <div class="tiler">
+      <footer>
+        © 2015 Wells Fargo Bank, N.A. All rights reserved. ECG-1261325
+      </footer>
 
-                    <span>X</span>
-                    <span>X</span>
-                    <span>X</span>
+      <div class="modal">
 
-                </div>
+      </div>
 
-                <div class="timer">
-                    time
-                </div>
-
-            </div>
-
-            <!-- END JUMBLE -->
-
-            <footer>
-                @ 2015
-            </footer>
-
-            <div class="modal">
-
-            </div>
-
-        </div></body>
+    </div></body>
 </html>

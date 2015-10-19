@@ -1,10 +1,10 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
 
-$blue : #0095c8;
-$sans : 'myriad-pro', sans-serif;
-$serif : 'Archer SSm A', 'Archer SSm B', serif;
-$lib : '/lib/';
+$blue: #0095c8;
+$sans: 'myriad-pro', sans-serif;
+$serif: 'Archer SSm A', 'Archer SSm B', serif;
+$lib: '/lib/';
 $break: 750px;
 
 @mixin clearfix() {

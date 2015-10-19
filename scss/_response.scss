@@ -3,75 +3,24 @@
 
 // SMALL
 @media (max-width: $break), (max-device-width: $break) {
-    html {
-        font-size: 15px;
-        position: absolute;
-        zoom: 1.0;
-    }
     .desktop {
-        display: none !important;
-    }
-    .button img {
-        zoom: 1.5;
-    }
-    .mid {
-        text-align: center;
-        width: 100%;
-    }
-    .pad {
-        padding-top: 2em;
-    }
-    // header
-    .logo.mobile {
-        background-image: url('../images/icons/wf_mobile_bg.png');
-        display: block;
-        text-align: center;
-    }
-    .logo img {
-        display: inline-block;
-        height: 55px;
-    }
-    header {
-        background-size: cover;
+        //display: none !important;
     }
 }
 @media (max-width: $break) and (orientation: portrait),
 (max-device-width: $break) and (orientation: portrait) {
-    .logo.mobile {
-        position: fixed;
-        width: 100%;
-    }
-    header {
-        padding-top: 50px;
-    }
 }
 
 // NORMAL
 @media (min-width: $break + 1) and (min-device-width: $break + 1) {
     .mobile {
-        display: none !important;
-    }
-    .col1, .col2 {
-        display : inline-block;
-        float : left;
-        width : 44%;
-        > img {
-            margin : 1em 0 0 -1em;
-        }
-    }
-    .col2 {
-        float: right;
-        margin-left : 10%;
-    }
-    .pad {
-        padding-top: 5em;
+        //display: none !important;
     }
 }
 
 // WIDE
 @media (min-width: 1400px) {
     html {
-        zoom: 1.0;
     }
 }
 
