@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'modal', 'jumble', 'tile', 'timer'], function
-    MAIN($, Modal, Jumble, Tile, Timer) {
+define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
+    MAIN($, Modal, Jumble, Tile, Timer, Data) {
     'use strict';
 
     var Nom = 'Main';
@@ -52,6 +52,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer'], function
 //            require(['jumble.test']);
 //            require(['tile.test']);
 //            require(['timer.test']);
+            require(['data.test']);
         }
         Main.t = new Timer({
             div: '.jumble .timer',
