@@ -18,6 +18,7 @@ require.config({
         console: 'libs/console',
         modal: 'libs/modal',
         stats: 'libs/ecg-stats',
+        jqxtn: 'libs/jq-xtn',
         //
     },
 });
