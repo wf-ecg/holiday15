@@ -1,5 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* _response.scss */
+/* PROJ/_response.scss */
 
 // SMALL
 @media (max-width: $break), (max-device-width: $break) {
@@ -7,6 +7,7 @@
         //display: none !important;
     }
 }
+// SMALL PORTRAIT
 @media (max-width: $break) and (orientation: portrait),
 (max-device-width: $break) and (orientation: portrait) {
 }

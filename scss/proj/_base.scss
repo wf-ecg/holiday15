@@ -1,0 +1,41 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PROJ/_base.scss */
+
+* {
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+html {
+    font-size: 10px;
+}
+body {
+    background-color: white;
+    font-family: $serif;
+    line-height: 1;
+    margin: 0;
+}
+header, footer {
+    font-family: $sans;
+}
+footer {
+    font-size: 10px;
+}
+h2 {
+    color: $blue;
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+h3 {
+    font-size: 2.4em;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+p {
+    font-size: 2.5em;
+    line-height: 1.4;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
