@@ -10,9 +10,10 @@ require.config({
     baseUrl: 'scripts',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
-        jquery: '../vendor/jquery',
-        lodash: '../vendor/lodash',
-        modern: '../vendor/modernizr',
+        jquery: '/lib/jquery/1.11.3/jquery',
+        jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
+        lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
+        modern: '/lib/modernizr/2.6.2/modernizr',
         //
         beacon: 'libs/ecg-beacon',
         console: 'libs/console',
@@ -45,7 +46,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', '_main'], function (_) {
+    require(['lodash', 'jqmobi', 'jqxtn', '_main'], function (_) {
 
         _.delay(function () {
             if (W.debug < 2) {
