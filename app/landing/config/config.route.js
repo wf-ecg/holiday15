@@ -9,6 +9,6 @@ function config($routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'MasonryController',
-            templateUrl: 'app/layout/index.html',
+            templateUrl: './layout/index.html',
         });
 }
