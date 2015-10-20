@@ -1,57 +1,57 @@
 <div class="container" ng-controller="MasonryController">
-    <div data-ng-include="'app/layout/top-nav.html'"></div>
-    <div data-ng-include="'app/layout/top-slider.html'"></div>
-        <div class="row hidden">
-            <section class="col-lg-12">
-                <input type="text" ng-model="nameFilter" />
-                <a href="#" ng-click="order = 'id'">Order by id</a>
-                <a href="#" ng-click="order = 'name'">Order by name</a>
-                <a href="#" ng-click="order = 'age'">Order by age</a>
-            </section>
-        </div>
-        
-        <div class="row">
+  <div data-ng-include="'app/layout/top-nav.html'"></div>
+  <div data-ng-include="'app/layout/top-slider.html'"></div>
+  <div class="row hidden">
+    <section class="col-lg-12">
+      <input type="text" ng-model="nameFilter" />
+      <a href="#" ng-click="order = 'id'">Order by id</a>
+      <a href="#" ng-click="order = 'name'">Order by name</a>
+      <a href="#" ng-click="order = 'age'">Order by age</a>
+    </section>
+  </div>
+
+  <div class="row">
 
 
-            <section class="col-lg-1 hidden-sm hidden-xs hidden-md">
-                <img ng-src="app/images/share.png" class="img-social img-responsive">
-            </section>
-            
-            <section class="col-lg-11 col-md-12 col-sm-12 col-sx-12">
-                <div class="masonry-container" masonry="true">
-                    <div class="tile" ng-repeat="item in items | filter: { name: nameFilter } | orderBy: order">
+    <section class="col-lg-1 hidden-sm hidden-xs hidden-md">
+      <img ng-src="app/images/share.png" class="img-social img-responsive">
+    </section>
 
-                        <section class="sq sq-{{item.size}} bg-wf-{{item.color}} text-center center-block">
+    <section class="col-lg-11 col-md-12 col-sm-12 col-sx-12">
+      <div class="masonry-container" masonry="true">
+        <div class="tile" ng-repeat="item in items | filter: { name: nameFilter } | orderBy: order">
 
-                                <p class="message-{{item.size}}">
-                                    {{item.message}}
-                                </p>
+          <section class="sq sq-{{item.size}} bg-wf-{{item.color}} text-center center-block">
 
-                                <button class="btn-tile {{item.color}}" ng-href="{{this.link}}">Play</button>
-                            
-                        </section>
+            <p class="message-{{item.size}}">
+              {{item.message}}
+            </p>
 
-                    </div><!-- tile -->
-                </div><!-- masonry-container -->
-            </section>
+            <button class="btn-tile {{item.color}}" ng-href="{{this.link}}">Play</button>
 
-        </div><!-- row -->
+          </section>
+
+        </div><!-- tile -->
+      </div><!-- masonry-container -->
+    </section>
+
+  </div><!-- row -->
 
 
-       
 
-    <div data-ng-include="'app/layout/footer.html'"></div>
+
+  <div data-ng-include="'app/layout/footer.html'"></div>
 </div>
 
 
 
 
-    <div class="container">
-        <div class="codrops-top clearfix">
-            <br>
-            <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/DirectionAwareHoverEffect/index.html">DemoGroup1</a><br>
-            <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/GridLoadingEffects/index.html">DemoGroup2</a><br>
-            <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/OriginalHoverEffects/index.html">DemoGroup3</a><br>
-            <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/ProgressButtonStyles/index.html">DemoGroup4</a><br>
-        </div>
-    </div>
+<div class="container">
+  <div class="codrops-top clearfix">
+    <br>
+    <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/DirectionAwareHoverEffect/index.html">DemoGroup1</a><br>
+    <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/GridLoadingEffects/index.html">DemoGroup2</a><br>
+    <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/OriginalHoverEffects/index.html">DemoGroup3</a><br>
+    <a href="http://ecg.hosting.wellsfargo.com/mfal/roberts2/holidayApp/builds/dev/demo/ProgressButtonStyles/index.html">DemoGroup4</a><br>
+  </div>
+</div>

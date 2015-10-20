@@ -1,15 +1,15 @@
 html, body {
-  line-height: 1;
-  min-height: 100%;
-  font-family: 'myriad-pro', sans-serif;
-  font-weight: 700;
+    line-height: 1;
+    min-height: 100%;
+    font-family: 'myriad-pro', sans-serif;
+    font-weight: 700;
 }
 
 .navbar {
-  margin-bottom: 0!important;
-  background-color: #fff!important;;
-  background: #fff!important;
-  border: none;
+    margin-bottom: 0!important;
+    background-color: #fff!important;;
+    background: #fff!important;
+    border: none;
 }
 
 .navbar-default {
@@ -24,7 +24,7 @@ html, body {
 }
 
 .img-social {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 
 .carousel-control.left, .carousel-control.right {
@@ -35,72 +35,72 @@ html, body {
 }
 
 .bg-white {
-  background-color: #ffffff!important;
+    background-color: #ffffff!important;
 }
 
 .bg-wf-gray {
-  background: #44464a;
+    background: #44464a;
 }
 
 .bg-wf-purple {
-  background:  #ae1e23;
+    background:  #ae1e23;
 }
 
 .bg-wf-blue {
-  background: #00698c;
+    background: #00698c;
 }
 
 .bg-wf-red {
-  background: #ae1e23;
+    background: #ae1e23;
 }
 
 .bg-wf-orange {
-  background: #ce4c00;
+    background: #ce4c00;
 }
 
 .bg-wf-green {
-  background: #007337;
+    background: #007337;
 }
 
 .sq {
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
-  color: #fff;
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    color: #fff;
 }
 
 .sq-sm {
-  height: 220px;
-  width: 220px;
-  padding-top: 100px;
+    height: 220px;
+    width: 220px;
+    padding-top: 100px;
 }
 
 .sq-lg {
-  height:465px;
-  width: 465px;
+    height:465px;
+    width: 465px;
 }
 
 .sq-lg.top {
-  width: 100%;
-  height: 220px;
-  margin: 0;
-  padding: 0;
+    width: 100%;
+    height: 220px;
+    margin: 0;
+    padding: 0;
 }
 
 .sq-lg.bottom {
-  width: 100%;
-  height: 220px;
-  margin: 0;
-  padding-top: 20px;
+    width: 100%;
+    height: 220px;
+    margin: 0;
+    padding-top: 20px;
 }
 
 .sq-lg img {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .sq-sm button, .sq-lg button {
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .ng-hide {
@@ -115,12 +115,12 @@ html, body {
 }
 
 img.stagecoach-logo {
-  height: 90px;
-  width: 310px;
+    height: 90px;
+    width: 310px;
 }
 
 footer {
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
     background: #44464a;
     color: #fff;
     font-size: 12px;
@@ -152,48 +152,48 @@ footer {
 }
 
 .message-sm {
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-  font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
-  font-style: normal;
-  font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
 .message-lg {
-  text-align: left;
-  font-size: 33px;
-  color: #fff;
-  padding: 20px;
-  line-height: 1.2;
-  font-weight: normal;
+    text-align: left;
+    font-size: 33px;
+    color: #fff;
+    padding: 20px;
+    line-height: 1.2;
+    font-weight: normal;
 }
 
 button {
-  color: #fff;
-  padding: 3px 30px;
-  font-size: 19.5px;
-  border: none;
+    color: #fff;
+    padding: 3px 30px;
+    font-size: 19.5px;
+    border: none;
 }
 
 button.btn-tile.purple {
-  color: #fff;
-  background-color: #ae2573;
+    color: #fff;
+    background-color: #ae2573;
 }
 
 button.btn-tile.red {
-  color: #fff;
-  background-color: #ec1c29;
+    color: #fff;
+    background-color: #ec1c29;
 }
 
 button.btn-tile.blue {
-  color: #fff;
-  background-color: #0095c8;
+    color: #fff;
+    background-color: #0095c8;
 }
 
 button.btn-tile.orange {
-  color: #fff;
-  background-color: #ed8800;
+    color: #fff;
+    background-color: #ed8800;
 }
 
 
@@ -202,10 +202,10 @@ button.btn-tile.orange {
 .masonry,
 .masonry div { /* apply before masonry add class */
     position: absolute; /* important to add it before enter animation start */
-    
+
     -webkit-transition-duration: .7s;
     transition-duration: .7s;
-    
+
     -webkit-transition-property: all;
     transition-property: all;
 }
@@ -234,12 +234,12 @@ button.btn-tile.orange {
 
 /*  tile animations on hover */
 section.sq {
-  -webkit-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -webkit-transform: scale(1.00);
-  transform: scale(1.00);
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transform: scale(1.00);
+    transform: scale(1.00);
 }
 
 section.sq:hover, section.sq:active  {
@@ -254,57 +254,57 @@ section.sq:hover, section.sq:active  {
 
 
 .view-container {
-  position: relative;
+    position: relative;
 }
 
 .view-frame.ng-enter, .view-frame.ng-leave {
-  background: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .view-frame.ng-enter {
-  -webkit-animation: 0.5s fade-in;
-  -moz-animation: 0.5s fade-in;
-  -o-animation: 0.5s fade-in;
-  animation: 0.5s fade-in;
-  z-index: 100;
+    -webkit-animation: 0.5s fade-in;
+    -moz-animation: 0.5s fade-in;
+    -o-animation: 0.5s fade-in;
+    animation: 0.5s fade-in;
+    z-index: 100;
 }
 
 .view-frame.ng-leave {
-  -webkit-animation: 0.5s fade-out;
-  -moz-animation: 0.5s fade-out;
-  -o-animation: 0.5s fade-out;
-  animation: 0.5s fade-out;
-  z-index:99;
+    -webkit-animation: 0.5s fade-out;
+    -moz-animation: 0.5s fade-out;
+    -o-animation: 0.5s fade-out;
+    animation: 0.5s fade-out;
+    z-index:99;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 @-moz-keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 @-webkit-keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 @-moz-keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 @-webkit-keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 

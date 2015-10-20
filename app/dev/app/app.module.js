@@ -1,10 +1,10 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
-angular
-    .module('app', [
-        'app.core',
-        'app.masonry'
-    ]);
+    angular
+        .module('app', [
+            'app.core',
+            'app.masonry'
+        ]);
 })();
 
