@@ -15,8 +15,17 @@
 }
 
 .navbar-brand {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 0.5em;
+
+    a {
+        color: white;
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

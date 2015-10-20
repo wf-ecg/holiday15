@@ -9,7 +9,6 @@
     font-weight: 400;
     text-align: center;
 }
-
 .message-lg {
     color: white;
     font-size: 33px;
@@ -25,9 +24,11 @@
 
 
 .img-social {
-    margin-top: 25px;
+    left: 0;
+    position: absolute;
+    top: 40%;
+    width: 50px;
 }
-
 
 .stagecoach-footer {
     border-bottom: 6px solid #bfc0be;
@@ -37,8 +38,7 @@
 }
 
 img.stagecoach-logo {
-    height: 90px;
-    width: 310px;
+    height: 80px;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
