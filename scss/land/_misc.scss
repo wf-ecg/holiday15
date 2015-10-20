@@ -5,12 +5,15 @@
     position: relative;
 }
 
-
 .img-social {
-    left: 0;
+    left: -1px;
     position: absolute;
     top: 40%;
     width: 50px;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .stagecoach-footer {

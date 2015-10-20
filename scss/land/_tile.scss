@@ -24,6 +24,11 @@
     font-family: $sans;
     padding: 1em;
     text-align: left;
+
+    button {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 .sq-sm {
     height: 220px;
@@ -51,12 +56,6 @@
         padding: 0;
         width: 100%;
     }
-}
-
-.sq-sm button,
-.sq-lg button {
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* tile animations on hover */
