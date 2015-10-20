@@ -34,8 +34,8 @@ define(['jquery'], function
 
 // CONSTRUCT
     function Timer(cf) {
-        var self = this;
-
+        var self = this
+        ;
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
@@ -57,8 +57,8 @@ define(['jquery'], function
             cf.timeout = W.setTimeout(tick, 1e3);
         }
         function format() {
-            var min, sec;
-
+            var min, sec
+            ;
             sec = ('00' + cf.time % 60).slice(-2);
             min = Math.floor(cf.time / 60) || '';
 
@@ -66,11 +66,18 @@ define(['jquery'], function
         }
         function dump() {
             self._ = JSON.stringify(cf)
-                .replace(/,/g, '", ')
+                .replace(/,/g, '", ') // kill quotes
                 .replace(/\"/g, '');
             return self;
         }
-
+        function display() {
+            var txt = format()
+            ;
+            if (db()) {
+                C.debug(Nom, [cf.div.prevObject.selector], [txt]);
+            }
+            cf.div.html(txt);
+        }
 /// API
         $.extend(self, {
             finish: function () {
@@ -93,19 +100,15 @@ define(['jquery'], function
             get: function () {
                 return cf.time;
             },
-            display: function () {
-                var txt = format();
-
-                if (db()) {
-                    C.debug(Nom, [cf.div.prevObject.selector], [txt]);
-                }
-                cf.div.html(txt);
+            assign: function (sel) {
+                cf.div = $(sel).first();
             },
+            display: display,
             dump: db() ? dump : $.noop,
         });
 
 /// INIT
-        cf.div = $(cf.div).first();
+        self.assign(cf.div);
     }
     return Timer;
 });

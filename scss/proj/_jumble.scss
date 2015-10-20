@@ -57,14 +57,14 @@ $serf2: 800 18px/1 $serif;
     .revealer {
         font: $serf1;
 
-        span:not(.space) {
+        span {
             background-color: $bkgr;
             border: $line outset $blueB;
             border-radius: 3px;
             color: $trans;
             opacity: 0.5;
 
-            &.used {
+            &.active {
                 background-color: $trans;
                 border: 0.2em outset $trans;
                 color: white;
@@ -76,7 +76,7 @@ $serf2: 800 18px/1 $serif;
     .tiler {
         font: $sans1;
 
-        span:not(.space) {
+        span {
             background-color: $blueL;
             border: $line outset $blueB;
             border-radius: 3px;
