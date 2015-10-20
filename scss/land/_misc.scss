@@ -1,23 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
-.message-sm {
-    color: #fff;
-    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    text-align: center;
-}
-.message-lg {
-    color: white;
-    font-size: 33px;
-    font-weight: normal;
-    line-height: 1.2;
-    padding: 20px;
-    text-align: left;
-}
-
 .view-container {
     position: relative;
 }
@@ -31,9 +14,7 @@
 }
 
 .stagecoach-footer {
-    border-bottom: 6px solid #bfc0be;
     margin-top: 50px;
-    margin-bottom: 4px;
     width: 100%;
 }
 

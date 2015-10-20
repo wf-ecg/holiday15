@@ -5,8 +5,11 @@
 button {
     border: none;
     color: white;
-    font-size: 19.5px;
+    display: block;
+    font-size: 20px;
+    margin: auto;
     padding: 3px 30px;
+    text-align: center;
 }
 
 button.btn-tile {
