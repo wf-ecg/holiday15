@@ -2,7 +2,7 @@ html, body {
     line-height: 1;
     min-height: 100%;
     font-family: 'myriad-pro', sans-serif;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .navbar {
@@ -120,14 +120,21 @@ img.stagecoach-logo {
 }
 
 footer {
-    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    font-family: 'myriad-pro', sans-serif;
+    text-align: center;
     background: #44464a;
     color: #fff;
     font-size: 12px;
     padding: 15px;
-    height: 40px;
 }
-
+footer nav ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 0.5em;
+}
+footer a {
+    color: white;
+}
 .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block;
     width: 100%;
