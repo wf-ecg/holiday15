@@ -2,12 +2,15 @@
 /* LAND/_misc.scss */
 
 .view-container {
+    background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
+}
+.view-container {
     position: relative;
 }
 
 .img-social {
     left: -1px;
-    position: absolute;
+    position: fixed;
     top: 40%;
     width: 50px;
 
