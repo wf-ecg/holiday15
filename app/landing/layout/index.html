@@ -1,41 +1,26 @@
 <div class="container" ng-controller="MasonryController">
 
   <div data-ng-include="'./layout/top-nav.html'"></div>
-
   <div data-ng-include="'./layout/top-slider.html'"></div>
 
   <div class="img-social">
     <img ng-src="./images/share.png" class=" img-responsive">
   </div>
 
+  <section class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+    <div class="masonry-container" masonry="true">
 
-  <div class="row">
+      <div class="tile" ng-repeat="item in items">
+        <section class="sq sq-{{item.size}} bg-wf-{{item.color}} text-center center-block">
 
-    <section class="col-lg-11 col-md-12 col-sm-12 col-sx-12">
+          <p class="message-{{item.size}}">{{item.message}}</p>
+          <button class="btn-tile {{item.color}}" ng-href="{{this.link}}">Play</button>
 
-      <div class="masonry-container" masonry="true">
-        <div class="tile" ng-repeat="item in items| filter: { name: nameFilter } | orderBy: order">
+        </section>
+      </div><!-- tile -->
 
-          <section class="sq sq-{{item.size}} bg-wf-{{item.color}} text-center center-block">
-
-            <p class="message-{{item.size}}">
-              {{item.message}}
-            </p>
-
-            <button class="btn-tile {{item.color}}" ng-href="{{this.link}}">Play</button>
-
-          </section>
-
-        </div><!-- tile -->
-
-      </div><!-- masonry-container -->
-
-    </section>
-
-  </div><!-- row -->
-
+    </div><!-- masonry-container -->
+  </section>
 
 </div>
-
 <div data-ng-include="'./layout/footer.html'"></div>
-

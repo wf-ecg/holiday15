@@ -10,11 +10,29 @@ html, body {
 
 footer {
     background: #44464a;
-    border-top: 6px solid #bfc0be;
+    border-top: 0.5em solid #bfc0be;
     color: #fff;
     text-align: center;
     font-size: 12px;
     padding: 15px;
+
+
+    nav ul li {
+        list-style: none;
+        display: inline;
+        margin: 0 0.5em;
+
+        a {
+            color: white;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+    > * {
+        margin: 1.5em;
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
