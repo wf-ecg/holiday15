@@ -1,12 +1,14 @@
+/*jslint white:false */
+/*global angular */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 (function () {
-
-    'use-strict';
-
+    'use strict';
 
     angular
         .module('app.masonry', [])
         .directive("masonry", function () {
             var NGREPEAT_SOURCE_RE = '<!-- ngRepeat: ((.*) in ((.*?)( track by (.*))?)) -->';
+
             return {
                 compile: function (element, attrs) {
                     // auto add animation to brick element
@@ -39,15 +41,15 @@
                             element.masonry(options);
 
                             element.on("$destroy", function () {
-                                element.masonry('destroy')
+                                element.masonry('destroy');
                             });
 
                             if (options.model) {
                                 scope.$apply(function () {
                                     scope.$watchCollection(options.model, function (_new, _old) {
-                                        if (_new == _old)
+                                        if (_new === _old) {
                                             return;
-
+                                        }
                                         // Wait inside directives to render
                                         setTimeout(function () {
                                             element.masonry("reload");
@@ -59,8 +61,6 @@
                     };
                 }
             };
-        })
+        });
 
-
-
-})()
+})();
