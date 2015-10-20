@@ -1,4 +1,6 @@
-// route-config.js
+/*jslint white:false */
+/*global angular */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 angular
     .module('app')
     .config(config);
@@ -6,7 +8,7 @@ angular
 function config($routeProvider) {
     $routeProvider
         .when('/', {
+            controller: 'MasonryController',
             templateUrl: 'app/layout/index.html',
-            controller: 'MasonryController'
         });
 }

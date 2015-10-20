@@ -1,3 +1,6 @@
+/*jslint white:false */
+/*global angular */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 (function () {
     'use strict';
 
