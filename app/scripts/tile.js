@@ -20,6 +20,9 @@ define(['jquery'], function
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Df = {
         inited: false,
+        display: '<div>',
+        reveal: '<div>',
+        letter: 'Y',
         used: false,
         revealed: false,
     };
@@ -29,48 +32,52 @@ define(['jquery'], function
     }
 
 // CONSTRUCT
-    function Tile(char, cf) {
+    function Tile(cf) {
         var self = this;
 
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
-        if (!char) {
-            throw new Error('no initial char');
-        }
 
 /// INSTANCE
-        cf = $.extend(true, {
-            letter: char,
-        }, Df, cf);
+        cf = $.extend(true, {}, Df, cf);
+        if (db()) {
+            self._ = cf;
+        }
 
 /// METHODS
         function dump() {
             self._ = JSON.stringify(cf)
-                .replace(/,/g, '", ')
+                .replace(/,/g, '", ') // kill quotes
                 .replace(/\"/g, '');
             return self;
         }
 
 /// API
         $.extend(self, {
-            eles: {
-                display: '<div>',
-                reveal: '<div>',
-            },
             pressing: function () {
                 // change style
                 // if not active
                 // return
-
                 this.reveal();
                 this.deactivate();
             },
+            assignDisplay: function (sel) {
+                cf.display = $(sel).first();
+            },
+            assignReveal: function (sel) {
+                cf.reveal = $(sel).first();
+            },
+            assignLetter: function (str) {
+                cf.reveal.add(cf.display).text(str);
+            },
             activate: function () {
-
+                cf.reveal.addClass('active');
+                cf.display.addClass('used');
             },
             deactivate: function () {
-
+                cf.reveal.removeClass('active');
+                cf.display.removeClass('used');
             },
             reveal: function () {
                 // activate cf.revealed
@@ -79,8 +86,9 @@ define(['jquery'], function
         });
 
 /// INIT
-        if (db()) {
-        }
+        self.assignDisplay(cf.display);
+        self.assignReveal(cf.reveal);
+        self.assignLetter(cf.letter);
     }
 
     return Tile;
