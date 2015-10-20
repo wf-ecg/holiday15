@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Holiday Game Experience 0.1.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      @import url("/lib/fonts/archer.ssm.css");
+      @import url("/lib/fonts/myriad.css");
+      @import url("/lib/fonts/myriad.con.css");
+    </style>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/content/css/app.css">
+    <link rel="stylesheet" href="app/content/css/animate.css">
+  </head>
+  <body>
+
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js"></script>
+
+    <script src="bower_components/angular/angular.js"></script>
+
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+
+
+    <script src="app/app.module.js"></script>
+
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/core.constant.js"></script>
+
+    <script src="app/config/config.route.js"></script>
+
+    <script src="app/masonry/masonry.module.js"></script>
+    <script src="app/masonry/masonry.directive.js"></script>
+    <script src="app/masonry/masonry.controller.js"></script>
+
+  </body>
+</html>
