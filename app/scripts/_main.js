@@ -54,13 +54,18 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
 //            require(['timer.test']);
             require(['data.test']);
         }
-        Main.t = new Timer({
+        Main.testTimer = new Timer({
             div: '.jumble .timer',
             time: 3,
             cb: function () {
                 this.div.css('color', 'red');
             },
         }).start();
+
+        Main.testTile = new Tile({
+            reveal: $('.jumble .revealer span').eq(7),
+            display: $('.jumble .tiler span').eq(3),
+        }).activate();
 
         Main.mobile = !PC;
         $.scrollMain(0); // reset page position
