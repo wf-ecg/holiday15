@@ -1,0 +1,21 @@
+
+<div class="grid js-masonry masonry-container"
+     data-masonry-options="{ columnWidth: 200, itemSelector: '.tile' }"
+     masonry="true">
+
+  <div class="tile" ng-repeat="item in items">
+    <section class="sq
+             sq-{{item.size}}
+             bg-wf-{{item.color}}">
+
+      <p class="message-{{item.size}}">{{item.message}}</p>
+      <button
+          class="btn-tile {{item.color}}"
+          ng-href="{{this.link}}">Play</button>
+
+    </section>
+    <!-- tile -->
+  </div>
+  <!-- masonry-container -->
+</div>
+

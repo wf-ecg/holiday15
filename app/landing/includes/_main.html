@@ -12,31 +12,7 @@
       <img ng-src="./images/share.png" class="img-responsive">
     </div>
 
-    <section class="
-             col-lg-12
-             col-md-12
-             col-sm-12
-             col-sx-12">
-
-      <div class="masonry-container" masonry="true">
-        <div class="tile" ng-repeat="item in items">
-          <section class="sq
-                   sq-{{item.size}}
-                   bg-wf-{{item.color}}
-                   text-center
-                   center-block">
-
-            <p class="message-{{item.size}}">{{item.message}}</p>
-            <button
-                class="btn-tile {{item.color}}"
-                ng-href="{{this.link}}">Play</button>
-
-          </section>
-          <!-- tile -->
-        </div>
-        <!-- masonry-container -->
-      </div>
-    </section>
+    <div data-ng-include="'./includes/main_mason.html'"></div>
 
   </div>
 
