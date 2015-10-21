@@ -1,66 +1,62 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_tile.scss */
 
-.message-sm,
-.message-lg {
-    color: white;
-    font-weight: normal;
-}
-.message-sm {
-    font-family: $sans;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.4;
-}
-.message-lg {
-    font-family: $serif;
-    font-size: 33px;
-    line-height: 1.2;
-    padding: 20px;
-    text-align: center;
-}
-.sq-sm,
-.sq-lg {
-    color: white;
-    font-family: $sans;
-    padding: 1.5em;
-    text-align: left;
+.tile {
+    margin-top: 30px;
 
-    button {
-        margin-left: auto;
-        margin-right: auto;
+    .message-sm,
+    .message-lg {
+        color: white;
+        font-weight: normal;
     }
-}
-.sq-sm {
-    height: 220px;
-    padding-top: 100px;
-}
-.sq-lg {
-    height: 465px;
-
-    img {
-        margin: 0;
-        padding: 0;
+    .message-sm {
+        font-family: $sans;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
     }
-}
+    .message-lg {
+        font-family: $serif;
+        font-size: 33px;
+        line-height: 1.2;
+        padding: 20px;
+        text-align: center;
+    }
+    .sq-sm,
+    .sq-lg {
+        color: white;
+        font-family: $sans;
+        padding: 1.5em;
+        text-align: left;
 
-/* tile animations on hover */
-section.sq {
-    -webkit-transition-duration: 0.25s;
-    -webkit-transition-property: all;
-    -webkit-transform: scale(1.00);
-    transition-duration: 0.25s;
-    transition-property: all;
-    transform: scale(1.00);
-}
+        button {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .sq-sm {
+        height: 220px;
+        padding-top: 100px;
+    }
+    .sq-lg {
+        height: 470px;
 
-section.sq:hover, section.sq:active {
-    -webkit-transition-duration: 0.25s;
-    -webkit-transition-property: all;
-    -webkit-transform: scale(1.07);
-    transition-duration: 0.25s;
-    transition-property: all;
-    transform: scale(1.07);
+        img {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    /* tile animations on hover */
+    section.sq-sm,
+    section.sq-lg {
+        @include transition(all 0.25s);
+        @include transform(scale(1.00));
+
+        &:hover, &:active {
+            @include transform(scale(1.05));
+        }
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
