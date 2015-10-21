@@ -7,7 +7,5 @@
     angular
         .module('app.core', [
             'ngRoute',
-            'ngAnimate',
-            'ngTouch'
         ]);
 })();
