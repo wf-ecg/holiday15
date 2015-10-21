@@ -3,13 +3,14 @@
 
 .view-container {
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
-}
-.view-container {
     position: relative;
+}
+.container {
+    padding-left: 30px;
 }
 
 .img-social {
-    left: -1px;
+    left: -10px;
     position: fixed;
     top: 40%;
     width: 50px;
