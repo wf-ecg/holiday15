@@ -34,4 +34,16 @@
         top: 45%;
     }
 }
+
+#Carousel .carousel-inner .full {
+    height: 300px;
+
+    img {
+        left: -50%;
+        margin: auto;
+        max-height: 105%;
+        position: absolute;
+        right: -50%;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
