@@ -14,9 +14,9 @@
                     var animation, $brick, type, itemSelector;
 
                     // auto add animation to brick element
-                    animation = attrs.ngAnimate || "'masonry'";
+                    animation = attrs.ngAnimate || 'masonry';
                     $brick = element.children();
-                    $brick.attr("ng-animate", animation);
+                    $brick.attr('ng-animate', animation);
                     // generate item selector (exclude leaving items)
                     type = $brick.prop('tagName');
                     itemSelector = type + ":not([class$='-leave-active'])";
@@ -43,7 +43,7 @@
                         setTimeout(function () {
                             element.masonry(options);
 
-                            element.on("$destroy", function () {
+                            element.on('$destroy', function () {
                                 element.masonry('destroy');
                             });
 
@@ -53,7 +53,7 @@
                                         if (_new !== _old) {
                                             // Wait inside directives to render
                                             setTimeout(function () {
-                                                element.masonry("reload");
+                                                element.masonry('reload');
                                             });
                                         }
                                     });

@@ -2,15 +2,17 @@
 /*global angular */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 (function () {
-angular
-    .module('app')
-    .config(config);
+    'use strict';
 
-function config($routeProvider) {
-    $routeProvider
-        .when('/', {
-            controller: 'MasonryController',
-            templateUrl: './includes/_main.html',
-        });
-}
+    angular
+        .module('app')
+        .config(config);
+
+    function config($routeProvider) {
+        $routeProvider
+            .when('/', {
+                controller: 'MasonryController',
+                templateUrl: './includes/_main.html',
+            });
+    }
 })();
