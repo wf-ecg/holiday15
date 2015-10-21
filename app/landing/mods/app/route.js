@@ -11,7 +11,6 @@
     function config($routeProvider) {
         $routeProvider
             .when('/', {
-                controller: 'MasonryController',
                 templateUrl: './includes/_main.html',
             });
     }
