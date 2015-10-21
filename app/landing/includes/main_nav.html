@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar navbar-default">
 
   <div class="navbar-header">
 
@@ -20,7 +20,11 @@
   </div>
 
   <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav"></ul>
+
+    <nav class="navbar-nav">
+        <div data-ng-include="'./includes/nav_list.html'"></div>
+    </nav>
+
     <!-- /.navbar-collapse -->
   </div>
 
