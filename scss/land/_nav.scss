@@ -24,6 +24,11 @@ nav ul li {
 
 }
 
+header {
+    display: none;
+    z-index: 1;
+}
+
 .navbar {
     background: none !important;
     border: none;
@@ -41,6 +46,7 @@ nav ul li {
 }
 
 @media (max-width: 767px) {
+
     .navbar nav {
         display: block;
 
@@ -55,6 +61,42 @@ nav ul li {
             padding: 1em;
         }
     }
+
+    header {
+        background-size: cover;
+        box-shadow: 0 2px 4px black;
+        color: white;
+        display: block;
+        position: fixed;
+        width: 100%;
+
+        a {
+            color: white;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+
+        }
+        h3 {
+            font-family: $serif;
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .logo.mobile {
+            background-image: url('../images/icons/wf_mobile_bg.png');
+            background-size: 100% 100%;
+            display: block;
+            text-align: center;
+        }
+        .logo img {
+            display: inline-block;
+            height: 40px;
+            vertical-align: middle
+        }
+    }
+
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
