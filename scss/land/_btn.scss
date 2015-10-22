@@ -1,0 +1,34 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* LAND/_btn.scss */
+
+
+button {
+    border: none;
+    color: white;
+    display: block;
+    font-size: 20px;
+    margin: auto;
+    padding: 3px 30px;
+    text-align: center;
+}
+
+button.btn-tile {
+    &.purple {
+        background-color: #ae2573;
+        color: white;
+    }
+    &.red {
+        background-color: #ec1c29;
+        color: white;
+    }
+    &.blue {
+        background-color: #0095c8;
+        color: white;
+    }
+    &.orange {
+        background-color: #ed8800;
+        color: white;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

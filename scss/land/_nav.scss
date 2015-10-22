@@ -1,0 +1,60 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* LAND/_nav.scss */
+
+nav ul li {
+    display: inline;
+    list-style: none;
+
+    a {
+        color: white;
+
+        &:hover {
+            color: white;
+        }
+    }
+    footer & {
+        border-left: 1px solid white;
+        margin-right: 1em;
+        padding-left: 1em;
+
+        &:first-child {
+            border: none;
+        }
+    }
+
+}
+
+.navbar {
+    background: none !important;
+    border: none;
+    margin-bottom: 0 !important;
+
+    button {
+        margin: 1em;
+    }
+    nav {
+        display: none;
+    }
+    .navbar-brand {
+        height: 80px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar nav {
+        display: block;
+
+        ul {
+            padding: 0 1em;
+        }
+        a {
+            display: block;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 0.5em;
+            margin: 1px;
+            padding: 1em;
+        }
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
