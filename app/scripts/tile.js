@@ -63,7 +63,17 @@ define(['jquery'], function
                 this.deactivate();
             },
             assignDisplay: function (sel) {
-                cf.display = $(sel).first();
+                var me = $(sel).first();
+
+                me.data(Nom, self) //
+                .on('click', function () {
+                    if (me.is('.used')) {
+                        self.deactivate();
+                    } else {
+                        self.activate();
+                    }
+                });
+                cf.display = me;
             },
             assignReveal: function (sel) {
                 cf.reveal = $(sel).first();
@@ -74,6 +84,7 @@ define(['jquery'], function
             activate: function () {
                 cf.reveal.addClass('active');
                 cf.display.addClass('used');
+                return self;
             },
             deactivate: function () {
                 cf.reveal.removeClass('active');

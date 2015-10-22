@@ -21,6 +21,8 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
 //EXTEND
+    Main.mobile = !PC;
+
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
     };
@@ -35,47 +37,63 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
             $(this).addClass('mouse');
         });
     }
-
-//  INIT
-    $(function () {
-        if (Db) {
-            W.main = Main; // expose for dev
-            $.extend(Main, {
-                Modal: Modal,
-                Jumble: Jumble,
-                Tile: Tile,
-                Timer: Timer,
-            });
-
-            C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
-
-//            require(['jumble.test']);
-//            require(['tile.test']);
-//            require(['timer.test']);
-            require(['data.test']);
-        }
+    function startTimer(sec) {
         Main.testTimer = new Timer({
             div: '.jumble .timer',
-            time: 3,
+            time: sec || 3,
             cb: function () {
                 this.div.css('color', 'red');
             },
         }).start();
-
-        Main.testTile = new Tile({
-            reveal: $('.jumble .revealer span').eq(7),
-            display: $('.jumble .tiler span').eq(3),
-        }).activate();
-
-        Main.mobile = !PC;
-        $.scrollMain(0); // reset page position
-
-        $('a.center').click(function (evt) {
-            evt.preventDefault();
-            $.scrollMain(333); // just to main area
+    }
+    function doBindings() {
+        watchInputDevice();
+    }
+    function expose() {
+        W.main = Main; // expose for dev
+        $.extend(Main, {
+            Modal: Modal,
+            Jumble: Jumble,
+            Tile: Tile,
+            Timer: Timer,
         });
 
-        watchInputDevice();
+        C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
+    }
+    function connectTiles(a, b, c) {
+        return new Tile({
+            display: a,
+            reveal: b,
+            letter: c,
+        });
+    }
+    function pairAll() {
+        var allA = $('.jumble .tiler span');
+        var allB = $('.jumble .revealer span');
+
+        Main.testTiles = [];
+        allA.each(function (i) {
+            Main.testTiles[i] = connectTiles(
+                allA.eq(i),
+                allB.eq(i),
+                'abcdefghijklm'[i]
+            );
+        });
+    }
+    function runTests() {
+        // require(['jumble.test']);
+        // require(['tile.test']);
+        // require(['timer.test']);
+        // require(['data.test']);
+        pairAll();
+    }
+//  INIT
+    $(function () {
+        if (Db) {
+            expose();
+            runTests();
+        }
+        doBindings();
     });
 
 });

@@ -23,7 +23,6 @@ define(['timer'], function (Timer) {
         x.start();
     }
 
-    test1({time: 3});
     test1({time: 5});
 });
 /*
