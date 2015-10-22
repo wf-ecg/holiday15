@@ -1,0 +1,32 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* LAND/_misc.scss */
+
+.view-container {
+    background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
+    position: relative;
+}
+.container {
+    padding-left: 30px;
+}
+
+.img-social {
+    left: -10px;
+    position: fixed;
+    top: 40%;
+    width: 50px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.stagecoach-footer {
+    margin-top: 50px;
+    width: 100%;
+}
+
+img.stagecoach-logo {
+    height: 80px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

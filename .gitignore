@@ -1,3 +1,5 @@
 /.sass-cache/
 /app/build/
 /node_modules/
+/app/dev/bower_components/
+/app/dev/Ω/
