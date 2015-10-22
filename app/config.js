@@ -4,25 +4,24 @@
 var W = (W && W.window || window), C = (W.C || W.console || {});
 
 W.SHIET = {};
-W.debug = Number(new Date('2015/10/01') > new Date());
+W.debug = Number(new Date('2015/11/01') > new Date());
 
 require.config({
     baseUrl: 'scripts',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
-        lib: 'libs',
-        ven: '../vendor',
-        jquery: '/lib/jquery/1.8.2/jquery',
+        jquery: '/lib/jquery/1.11.3/jquery',
+        jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
-        modern: '/lib/modernizr/2.6.2/modernizr.min',
-        videojs: '/lib/video-js/ecg/video',
+        modern: '/lib/modernizr/2.6.2/modernizr',
         //
         beacon: 'libs/ecg-beacon',
         console: 'libs/console',
+        jqxtn: 'libs/jq-xtn',
         modal: 'libs/modal',
         stats: 'libs/ecg-stats',
         //
-    }
+    },
 });
 
 require(['modern', 'console'], function () {
@@ -47,8 +46,8 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
+    require(['lodash', 'jqmobi', 'jqxtn', '_main'], function (_) {
 
-    require(['lodash', '_main'], function (_) {
         _.delay(function () {
             if (W.debug < 2) {
                 require(['stats'], function (stats) {

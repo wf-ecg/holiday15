@@ -1,0 +1,28 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PROJ/_response.scss */
+
+// SMALL
+@media (max-width: $break), (max-device-width: $break) {
+    .desktop {
+        //display: none !important;
+    }
+}
+// SMALL PORTRAIT
+@media (max-width: $break) and (orientation: portrait),
+(max-device-width: $break) and (orientation: portrait) {
+}
+
+// NORMAL
+@media (min-width: $break + 1) and (min-device-width: $break + 1) {
+    .mobile {
+        //display: none !important;
+    }
+}
+
+// WIDE
+@media (min-width: 1400px) {
+    html {
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

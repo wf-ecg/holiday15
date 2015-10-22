@@ -1,0 +1,62 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PROJ/_header.scss */
+
+header {
+    background-size: cover;
+    box-shadow: 0 2px 4px black;
+    color: white;
+    position: relative;
+
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+
+    }
+    h3 {
+        font-family: $serif;
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    .logo.mobile {
+        background-image: url('../images/icons/wf_mobile_bg.png');
+        background-size: 100% 100%;
+        display: block;
+        text-align: center;
+    }
+    .logo img {
+        display: inline-block;
+        height: 40px;
+        vertical-align: middle
+    }
+}
+
+footer {
+    padding: 1em;
+    a {
+        color: black;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+
+    }
+    .mid {
+        background-color: rgba(111, 111, 111, 0.4);
+        text-align: left;
+    }
+
+    .legal {
+        font-family: $sans;
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin-top: 2em;
+        padding-bottom: 4em;
+    }
+
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
