@@ -7,6 +7,10 @@
     <!--  -->
     <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../build/land.css">
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
   </head>
   <body>
 
@@ -28,6 +32,22 @@
 
     <script type="text/javascript"
             src="http://localhost:7325/livereload.js?snipver=1"></script>
+
+    <div class="modal">
+
+      <div id="Video1">
+        <video class="video-js vjs-default-skin"
+               controls data-setup="{}"
+               poster="http://www.wellsfargomedia.com/currencyteller/images/photos/poster-1.png"
+               width="960" height="540" alt="Play Video">
+          <source src="http://www.wellsfargomedia.com/currencyteller/videos/1243156_Overview.mp4" type="video/mp4">
+          <track kind="captions" src="./videos/1243156_Overview.vtt" srclang="en" label="English">
+          <p class="vjs-no-js">To view this video please enable JavaScript, and consider a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+        </video>
+      </div>
+
+    </div>
 
   </body>
 </html>
