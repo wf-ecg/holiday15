@@ -5,21 +5,6 @@
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
     position: relative;
 }
-.container {
-    padding-left: 30px;
-}
-
-.img-social {
-    left: -10px;
-    position: fixed;
-    top: 40%;
-    width: 50px;
-    z-index: 9;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
 
 .stagecoach-footer {
     margin-top: 50px;
@@ -30,4 +15,14 @@ img.stagecoach-logo {
     height: 80px;
 }
 
+@media (min-width: 768px) {
+    .container {
+        padding-left: 30px;
+    }
+}
+@media (max-width: 479px) {
+    .container {
+        padding: 0px;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

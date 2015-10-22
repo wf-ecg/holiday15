@@ -7,6 +7,7 @@ nav ul li {
 
     a {
         color: white;
+        white-space: nowrap;
 
         &:hover {
             color: white;
@@ -24,7 +25,7 @@ nav ul li {
 
 }
 
-header {
+header .mobile {
     display: none;
     z-index: 1;
 }
@@ -45,58 +46,55 @@ header {
     }
 }
 
+.img-social {
+    left: -10px;
+    position: fixed;
+    top: 40%;
+    width: 50px;
+    z-index: 9;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 @media (max-width: 767px) {
 
-    .navbar nav {
-        display: block;
-
-        ul {
-            padding: 0 1em;
-        }
-        a {
-            display: block;
-            background-color: rgba(0,0,0,0.3);
-            border-radius: 0.5em;
-            margin: 1px;
-            padding: 1em;
-        }
-    }
-
     header {
-        background-size: cover;
-        box-shadow: 0 2px 4px black;
-        color: white;
-        display: block;
-        position: fixed;
-        width: 100%;
-
-        a {
-            color: white;
-            text-decoration: none;
-            &:hover {
-                text-decoration: underline;
-            }
-
+        .desktop {
+            display: none;
         }
-        h3 {
-            font-family: $serif;
-            font-size: 2em;
-            font-weight: 700;
-        }
-
-        .logo.mobile {
+        .mobile {
             background-image: url('../images/icons/wf_mobile_bg.png');
             background-size: 100% 100%;
+            box-shadow: 0 2px 4px black;
             display: block;
+            position: fixed;
+            width: 100%;
             text-align: center;
         }
-        .logo img {
-            display: inline-block;
-            height: 40px;
-            vertical-align: middle
+    }
+    .navbar {
+        nav {
+            display: block;
+
+            ul {
+                padding: 0 1em;
+            }
+            a {
+                display: block;
+                background-color: rgba(0,0,0,0.3);
+                border-radius: 0.5em;
+                margin: 1px;
+                padding: 1em;
+            }
+        }
+        button {
+            position: fixed;
+            margin: 0.25em;
+            z-index: 2;
         }
     }
-
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

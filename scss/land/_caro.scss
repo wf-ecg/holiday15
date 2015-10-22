@@ -53,4 +53,10 @@
         right: -50%;
     }
 }
+@media (max-width: 767px) {
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right {
+        display: none !important;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

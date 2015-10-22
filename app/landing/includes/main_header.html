@@ -1,41 +1,49 @@
+
 <header>
-  <div class="logo mobile">
-    <img src="../images/icons/wf_mobile.png" alt="Wells Fargo">
+
+  <div class="mobile">
+    <img class="logo" src="../images/icons/wf_mobile.png" alt="Wells Fargo">
   </div>
-</header>
 
-<div class="container">
+  <div class="container">
+    <div class="row">
 
-  <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default">
 
-    <div class="navbar-header">
+        <div class="navbar-header">
 
-      <button type="button"
-              class="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#myNavbar"
-              aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+          <a class="desktop navbar-brand">
+            <img class="logo" alt="Wells Fargo" src="./images/wf_logo_50px.png">
+          </a>
 
-      <a class="navbar-brand" ng-href="/index.html">
-        <img alt="Wells Fargo" ng-src="./images/wf_logo_50px.png">
-      </a>
-      <!-- /.navbar-header -->
-    </div>
+          <button type="button"
+                  class="navbar-toggle collapsed"
+                  data-toggle="collapse"
+                  data-target="#myNavbar"
+                  aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-    <div class="collapse navbar-collapse" id="myNavbar">
+          <!-- /.navbar-header -->
+        </div>
 
-      <nav class="navbar-nav">
-        <div data-ng-include="'./includes/nav_list.html'"></div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <nav class="navbar-nav">
+            <div data-ng-include="'./includes/nav_list.html'"></div>
+          </nav>
+        </div>
+
       </nav>
 
-      <!-- /.navbar-collapse -->
+      <!-- container/row -->
     </div>
+  </div>
 
-  </nav>
+  <div class="desktop img-social">
+    <img src="./images/share.png" class="img-responsive">
+  </div>
 
-</div>
+</header>
