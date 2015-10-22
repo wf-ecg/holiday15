@@ -74,6 +74,7 @@ define(['jquery'], function
             activate: function () {
                 cf.reveal.addClass('active');
                 cf.display.addClass('used');
+                return self;
             },
             deactivate: function () {
                 cf.reveal.removeClass('active');
