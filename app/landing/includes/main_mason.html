@@ -1,80 +1,66 @@
 
-<div class="masonry-container">
+<div class="container">
+  <div class="row">
 
-  <div class="tile stamp col-lg-6  col-md-8  col-sm-12  col-xs-12">
-    <section class="sq-lg bg-wf-blue">
+    <div class="masonry-container">
 
-      <p class="message-lg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-      <button class="btn-tile blue" ng-href="">Play</button>
+      <div class="tile stamp col-lg-6  col-md-8  col-sm-12  col-xs-12">
+        <section class="sq-lg bg-wf-blue">
 
-    </section>
+          <p class="message-lg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          <button class="btn-tile blue" ng-href="">Play</button>
+
+        </section>
+      </div>
+
+      <div class="tile  col-lg-3  col-md-4  col-sm-6  col-xs-6">
+        <section class="sq-sm bg-wf-red">
+
+          <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          <button class="btn-tile red" ng-href="">Play</button>
+
+        </section>
+      </div>
+
+      <div class="tile  col-lg-3  col-md-4  col-sm-6  col-xs-6">
+        <section class="sq-sm bg-wf-blue">
+
+          <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          <button class="btn-tile blue" ng-href="">Play</button>
+
+        </section>
+      </div>
+
+      <div class="tile  col-lg-6  col-md-6  col-sm-12  col-xs-12">
+        <section class="sq-sm bg-wf-orange">
+
+          <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          <button class="btn-tile red" ng-href="">Play</button>
+
+        </section>
+      </div>
+
+      <div class="tile  col-lg-6  col-md-3  col-sm-6  col-xs-12">
+        <section class="sq-sm bg-wf-red">
+
+          <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          <button class="btn-tile orange" ng-href="">Play</button>
+
+        </section>
+      </div>
+
+      <div class="tile  col-lg-6  col-md-3  col-sm-6  col-xs-12">
+        <section class="sq-sm bg-wf-purple">
+
+          <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          <button class="btn-tile purple" ng-href="">Play</button>
+
+        </section>
+      </div>
+
+      <!-- masonry -->
+    </div>
+
+    <!-- container/row -->
   </div>
-
-  <div class="tile  col-lg-3  col-md-4  col-sm-6  col-xs-6">
-    <section class="sq-sm bg-wf-red">
-
-      <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-      <button class="btn-tile red" ng-href="">Play</button>
-
-    </section>
-  </div>
-
-  <div class="tile  col-lg-3  col-md-4  col-sm-6  col-xs-6">
-    <section class="sq-sm bg-wf-blue">
-
-      <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-      <button class="btn-tile blue" ng-href="">Play</button>
-
-    </section>
-  </div>
-
-  <div class="tile  col-lg-6  col-md-6  col-sm-12  col-xs-12">
-    <section class="sq-sm bg-wf-orange">
-
-      <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-      <button class="btn-tile red" ng-href="">Play</button>
-
-    </section>
-  </div>
-
-  <div class="tile  col-lg-6  col-md-3  col-sm-6  col-xs-12">
-    <section class="sq-sm bg-wf-red">
-
-      <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-      <button class="btn-tile orange" ng-href="">Play</button>
-
-    </section>
-  </div>
-
-  <div class="tile  col-lg-6  col-md-3  col-sm-6  col-xs-12">
-    <section class="sq-sm bg-wf-purple">
-
-      <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-      <button class="btn-tile purple" ng-href="">Play</button>
-
-    </section>
-  </div>
-
-  <!-- masonry-container -->
 </div>
-
-<script>
-  function getMasony() {
-      $('.masonry-container').masonry({
-          itemSelector: '.tile',
-          gutter: 0,
-          columnWidth: 30,
-      });
-  }
-  window.setTimeout(function () {
-      $('.stagecoach-logo').dblclick(getMasony);
-  }, 999);
-
-</script>
-
-<!--
-<div class="row">
-  <div class=" col-md-9  col-md-push-3">. col-md-9 . col-md-push-3</div>
-  <div class=" col-md-3  col-md-pull-9">. col-md-3 . col-md-pull-9</div>
-</div>
--->
