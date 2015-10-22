@@ -60,18 +60,32 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
 
         C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
     }
-    function connectTiles(a, b) {
+    function connectTiles(a, b, c) {
         return new Tile({
-            display: $('.jumble .tiler span').eq(a || 3),
-            reveal: $('.jumble .revealer span').eq(b || 7),
-        })
+            display: a,
+            reveal: b,
+            letter: c,
+        });
+    }
+    function pairAll() {
+        var allA = $('.jumble .tiler span');
+        var allB = $('.jumble .revealer span');
+
+        Main.testTiles = [];
+        allA.each(function (i) {
+            Main.testTiles[i] = connectTiles(
+                allA.eq(i),
+                allB.eq(i),
+                'abcdefghijklm'[i]
+            );
+        });
     }
     function runTests() {
         // require(['jumble.test']);
         // require(['tile.test']);
         // require(['timer.test']);
         // require(['data.test']);
-        Main.testTile = connectTiles(3, 7).activate();
+        pairAll();
     }
 //  INIT
     $(function () {
