@@ -1,8 +1,15 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_tile.scss */
 
+.container * {
+    @include transform(scale(1.00));
+    @include transition(all 0.25s);
+    @include transform-style( preserve-3d );
+}
+
 .tile {
     margin-top: 30px;
+    position: relative;
 
     .message-sm,
     .message-lg {
@@ -26,7 +33,7 @@
     .sq-lg {
         color: white;
         font-family: $sans;
-        padding: 1.5em;
+        padding: 0 1.5em;
         text-align: left;
 
         button {
@@ -50,8 +57,8 @@
     /* tile animations on hover */
     section.sq-sm,
     section.sq-lg {
-        @include transition(all 0.25s);
-        @include transform(scale(1.00));
+        position: relative;
+        bottom: 0;
 
         &:hover, &:active {
             @include transform(scale(1.05));

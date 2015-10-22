@@ -16,7 +16,6 @@
     &.left,
     &.right {
         background-image: none;
-        width: 0;
     }
 
     .glyphicon-chevron-left::before {
@@ -28,16 +27,19 @@
 
     .glyphicon-chevron-left,
     .glyphicon-chevron-right {
-        background: gray;
-        font-size: 24px;
-        padding: 0.5em 0 1.5em 0;
-        top: 45%;
+        @include transform( scaleX(0.5) );
+        background: rgba(0,0,0,0.3);
+        font-size: 42px;
+        height: 2em;
+        padding-top: 0.5em;
+        top: 40%;
+        width: 3em;
     }
     .glyphicon-chevron-left {
-        border-radius: 1em 0 0 1em;
+        left: 0em;
     }
     .glyphicon-chevron-right {
-        border-radius: 0 1em 1em 0;
+        right: 0em;
     }
 }
 
@@ -46,9 +48,10 @@
     height: 300px;
 
     img {
+        bottom: -9%;
         left: -50%;
         margin: auto;
-        max-height: 105%;
+        max-height: 118%;
         position: absolute;
         right: -50%;
     }
