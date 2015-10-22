@@ -15,6 +15,21 @@ img.stagecoach-logo {
     height: 80px;
 }
 
+.big-, .big-red-ital, .big-white {
+    font-family: $serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+    //text-shadow: 0 0 3px gray;
+}
+.big-red-ital {
+    color: $a_warmred;
+    font-style: italic;
+}
+.big-white {
+    color: white;
+}
+
 @media (min-width: 768px) {
     .container {
         padding-left: 30px;
