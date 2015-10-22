@@ -12,10 +12,6 @@
 
         <div class="navbar-header">
 
-          <a class="desktop navbar-brand">
-            <img class="logo" alt="Wells Fargo" src="./images/wf_logo_50px.png">
-          </a>
-
           <button type="button"
                   class="navbar-toggle collapsed"
                   data-toggle="collapse"
@@ -27,14 +23,18 @@
             <span class="icon-bar"></span>
           </button>
 
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <nav class="navbar-nav">
+              <div data-ng-include="'./includes/nav_list.html'"></div>
+            </nav>
+          </div>
+
           <!-- /.navbar-header -->
         </div>
 
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <nav class="navbar-nav">
-            <div data-ng-include="'./includes/nav_list.html'"></div>
-          </nav>
-        </div>
+        <a class="desktop navbar-brand" href="/index.html">
+          <img class="logo" alt="Wells Fargo" src="./images/wf_logo_50px.png">
+        </a>
 
       </nav>
 

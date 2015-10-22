@@ -27,7 +27,6 @@ nav ul li {
 
 header .mobile {
     display: none;
-    z-index: 1;
 }
 
 .navbar {
@@ -61,6 +60,10 @@ header .mobile {
 @media (max-width: 767px) {
 
     header {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+
         .desktop {
             display: none;
         }
@@ -70,29 +73,51 @@ header .mobile {
             box-shadow: 0 2px 4px black;
             display: block;
             position: fixed;
-            width: 100%;
             text-align: center;
+            width: 100%;
         }
     }
     .navbar {
         nav {
             display: block;
+            margin-top: 0;
 
             ul {
-                padding: 0 1em;
+                background-color: black;
+                padding: 3em 1em 1em;
             }
             a {
+                background-color: rgba(33,33,33,0.8);
+                border-radius: 0.6em;
                 display: block;
-                background-color: rgba(0,0,0,0.3);
-                border-radius: 0.5em;
-                margin: 1px;
+                margin: 2px 0;
                 padding: 1em;
+
+                &:hover {
+                    background-color: rgba(33,33,33,1);
+                    text-decoration: none;
+                }
             }
         }
         button {
+            margin: 0.2em 0.4em;
             position: fixed;
-            margin: 0.25em;
             z-index: 2;
+        }
+        .navbar-toggle {
+            border: 0;
+
+            span.icon-bar {
+                background-color: $wf_red;
+            }
+            &:focus, &:hover {
+                background: none;
+            }
+            &.collapsed {
+                span.icon-bar {
+                    background-color: $wf_yellow;
+                }
+            }
         }
     }
 }
