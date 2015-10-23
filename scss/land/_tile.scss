@@ -37,12 +37,21 @@
         line-height: 1.2;
         padding: 20px;
     }
+}
     .sq-sm,
     .sq-lg {
-        color: white;
-        font-family: $sans;
-        padding: 0 1.5em;
+        section {
+            color: white;
+            font-family: $sans;
+            padding: 0 1.5em;
+            height: 100%;
 
+            div {
+                left: 1.5em;
+                position: absolute;
+                right: 1.5em;
+            }
+        }
         button {
             margin-left: auto;
             margin-right: auto;
@@ -50,11 +59,17 @@
     }
     .sq-sm {
         height: 220px;
-        padding-top: 100px;
+
+        div {
+            bottom: 1em;
+        }
     }
     .sq-lg {
         height: 470px;
 
+        div {
+            top: 33%;
+        }
         img {
             margin: 0;
             padding: 0;
@@ -62,8 +77,8 @@
     }
 
     /* tile animations on hover */
-    section.sq-sm,
-    section.sq-lg {
+    .sq-sm,
+    .sq-lg {
         position: relative;
         bottom: 0;
 
@@ -71,6 +86,4 @@
             @include transform(scale(1.05));
         }
     }
-}
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
