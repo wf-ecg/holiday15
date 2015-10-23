@@ -47,7 +47,7 @@ require(['modern', 'console'], function () {
     require(['lodash', '_main'], function (_) {
 
         _.delay(function () {
-            if (W.debug < 2) {
+            if (W.debug < -2) {
                 require(['stats'], function (stats) {
                     stats.init('JUMBLE');
                 });
