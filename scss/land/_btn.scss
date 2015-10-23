@@ -4,6 +4,7 @@
 
 button {
     border: none;
+    border-radius: 3px;
     color: white;
     display: block;
     font-size: 20px;
@@ -14,19 +15,19 @@ button {
 
 button.btn-tile {
     &.purple {
-        background-color: #ae2573;
+        background-color: $a_magenta;
         color: white;
     }
     &.red {
-        background-color: #ec1c29;
+        background-color: $a_warmred;
         color: white;
     }
     &.blue {
-        background-color: #0095c8;
+        background-color: $a_teal;
         color: white;
     }
     &.orange {
-        background-color: #ed8800;
+        background-color: $a_orange;
         color: white;
     }
 }
