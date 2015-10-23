@@ -1,41 +1,30 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'compass/css3';
 @import 'core/all';
-@import 'compass/reset';
-
-// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-// TRANSLATE
-
-$link:  #3366cc;
-$gray:  $wf_gray;
-$grey: lighten($gray, 20%);
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
 
 $sans: 'myriad-pro', sans-serif;
 $serif: 'Archer SSm A', 'Archer SSm B', serif;
-$lib: '/lib/';
-$break: 750px;
 
-.ui-page {
-    height: 100%;
-    text-align: center;
-}
-footer {
-    bottom: 0;
-    position: relative;
-}
+.bg-white { background-color: white !important; }
+.bg-wf-gray { background: $a_d_coolgray; }
+.bg-wf-purple { background:  $a_d_red; }
+.bg-wf-blue { background: $a_d_teal; }
+.bg-wf-red { background: $a_d_red; }
+.bg-wf-orange { background: $a_d_orange; }
+.bg-wf-green { background: $a_d_green; }
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import '_ada';
-@import 'proj/_ani';
-@import 'proj/_base';
-@import 'proj/_header';
-@import 'proj/_jumble';
-@import 'proj/_response';
-
-@import './_modal';
-@import './_misc';
+@import 'land/_base';
+@import 'land/_btn';
+@import 'land/_caro';
+@import 'land/_head';
+@import 'land/_mason';
+@import 'land/_modal';
+@import 'land/_misc';
+@import 'land/_tile';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */

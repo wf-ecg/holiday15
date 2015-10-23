@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head>
+    <meta charset="UTF-8">
+    <title>Holiday Game Experience 0.1.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  -->
+    <link rel="stylesheet" href="./libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/video-js/ecg/video-js.css">
+    <link rel="stylesheet" href="../build/land.css">
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
+  </head>
+  <body>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+    <script src="./libs/jq/jquery.min.js"></script>
+    <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./libs/jq/jquery.masonry.min.js"></script>
+
+    <script src="./libs/ng/angular.min.js"></script>
+    <script src="./libs/ng/angular-route.min.js"></script>
+
+    <script src="./mods/app/module.js"></script>
+    <script src="./mods/app/route.js"></script>
+
+    <script src="./mods/core/module.js"></script>
+
+    <script type="text/javascript" src="http://localhost:7325/livereload.js?snipver=1"></script>
+
+    <div class="modal">
+
+      <div id="Video1">
+        <video class="video-js vjs-default-skin"
+               controls data-setup="{}"
+               poster="http://www.wellsfargomedia.com/currencyteller/images/photos/poster-1.png"
+               width="960" height="540" alt="Play Video">
+          <source src="http://www.wellsfargomedia.com/currencyteller/videos/1243156_Overview.mp4" type="video/mp4">
+          <track kind="captions" src="./videos/1243156_Overview.vtt" srclang="en" label="English">
+          <p class="vjs-no-js">To view this video please enable JavaScript, and consider a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+        </video>
+      </div>
+
+    </div>
+
+  </body>
+</html>

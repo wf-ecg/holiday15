@@ -1,0 +1,82 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* LAND/_caro.scss */
+
+.carousel-indicators {
+    bottom: 0px;
+
+    li {
+        border-radius: 0;
+        height: 15px !important;
+        margin: 0 0 0 9px !important;
+        padding-right: 1em;
+        width: 12px;
+    }
+}
+.carousel {
+    .carousel-control {
+        opacity: 0.1;
+    }
+    &:focus, &:hover {
+        .carousel-control {
+            opacity: 0.4;
+
+            &:focus, &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.carousel-control {
+
+    &.left,
+    &.right {
+        background-image: none;
+    }
+
+    .glyphicon-chevron-left::before {
+        content: "\e257";
+    }
+    .glyphicon-chevron-right::before {
+        content: "\e258";
+    }
+
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right {
+        @include transform( scaleX(0.5) );
+        background: rgba(0,0,0,0.3);
+        font-size: 42px;
+        height: 2em;
+        padding-top: 0.5em;
+        top: 40%;
+        width: 2.5em;
+    }
+    .glyphicon-chevron-left {
+        left: 0em;
+    }
+    .glyphicon-chevron-right {
+        right: 0em;
+    }
+}
+
+.carousel .carousel-inner .full {
+    background-image: linear-gradient(to top, #ddd 22%, #eee 55%, #ddd 88%);
+
+    .container {
+        left: 0; right: 0; bottom: 0; top: 0;
+        margin: auto;
+        position: absolute;
+
+    }
+    img {
+        min-height: 300px;
+        min-width: 999px;
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .carousel {
+        margin-top: 3em;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -14,12 +14,10 @@ require.config({
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
+        videojs: '/lib/video-js/ecg/video',
         //
-        beacon: 'libs/ecg-beacon',
         console: 'libs/console',
-        jqxtn: 'libs/jq-xtn',
         modal: 'libs/modal',
-        stats: 'libs/ecg-stats',
         //
     },
 });
@@ -46,10 +44,10 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', 'jqmobi', 'jqxtn', '_main'], function (_) {
+    require(['lodash', '_main'], function (_) {
 
         _.delay(function () {
-            if (W.debug < 2) {
+            if (W.debug < -2) {
                 require(['stats'], function (stats) {
                     stats.init('JUMBLE');
                 });
