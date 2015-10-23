@@ -1,6 +1,7 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'compass/css3';
 @import 'core/all';
+@import '_ada';
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
@@ -9,7 +10,6 @@ $sans: 'myriad-pro', sans-serif;
 $serif: 'Archer SSm A', 'Archer SSm B', serif;
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import '_ada';
 @import 'shuf/_base';
 @import 'shuf/_junk';
 @import 'shuf/_misc';

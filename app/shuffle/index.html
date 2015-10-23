@@ -40,21 +40,6 @@
 
 
 
-          <!--  this works but try the jsfiddle letter swap instead
-
-
-          <div id="main" class="flex-container">
-           <div id="message">
-             <h1 id="encoded"></h1>
-           </div>
-           <div id="message">
-             <h1 id="decoded"></h1>
-           </div>
-          </div>
-
-          -->
-
-
 
           <div id="main" class="flex-container">
 
@@ -136,17 +121,8 @@
       //  if ( r2 == 0 ) { alert("We added 1 to tempRand"); r2 ++ }
       if (r2 == 0) {
           alert("We added 1 to tempRand");
-          r2++
+          r2++;
       }
-
-      //console.log("r2: " +r2);
-      //console.log("r1: " +r1);
-
-
-
-
-
-
 
       /* MASTER PHRASE OBJECT CONSTRUCTOR */
       function Phrase(sp, ep) {
@@ -161,18 +137,10 @@
           console.log("The Secret Phrase is:", this.sp);
 
           var phraseString = this.sp;
-          //console.log("The Secret Phrase is:" , phraseString);
 
           var phraseString = this.sp.toString();
 
           var phraseStringLength = phraseString.length;
-          //console.log(phraseStringLength);
-          //console.log(phraseString);
-          //var newDecoded = phraseString.substr(0,1);
-          //console.log(newDecoded);
-
-          var newDecoded = phraseString.split();
-          //console.log(newDecoded);
       }
 
 
@@ -189,7 +157,7 @@
           var res = phraseString.toLocaleLowerCase();
           //console.log(phraseStringLength);
           //console.log(res);
-      }
+      };
 
 
 
@@ -213,7 +181,7 @@
               this.phrases[currentIndex] = this.phrases[randomIndex];
               this.phrases[randomIndex] = temporaryValue;
           }
-      }
+      };
 
 
 
@@ -221,23 +189,7 @@
 
       p1.logSecretPhrase();
       p1.logEncodedPhrase();
-      //p1.deal();
-      //p1.shuffle();
 
-
-
-      /*
-
-       var spString = p1.sp.string;
-       var epString = p1.ep.string;
-       alert(spString);
-
-       var spLength = p1.sp.length;
-       var epLength = p1.ep.length;
-
-       console.log(spLength);
-       console.log(epLength);
-       */
 
       var spUpper = p1.sp.toLocaleUpperCase();
       var epUpper = p1.ep.toLocaleUpperCase();
@@ -287,14 +239,10 @@
               while (myChar < totalChar) {
                   myChar++;
 
-                  //console.log(myChar);
-                  //console.log(totalChar);
 
                   var eLetter = ePhrase.charAt(myChar);
                   var sLetter = sPhrase.charAt(myChar);
 
-                  //encodedDisplay.innerHTML = eLetter;
-                  //decodedDisplay.innerHTML = sLetter;
 
               }
           } //addLetter
@@ -337,7 +285,7 @@
               m += 40;
 
           }
-      }
+      };
 
       // Call function, passing in the array you defined:
       myFunc(p1.ep.toLocaleUpperCase());
@@ -351,6 +299,7 @@
 
 
     </script>
+
     <script type="text/javascript">
       skrollr.init();
     </script>
