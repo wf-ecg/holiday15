@@ -37,7 +37,7 @@ define(['jquery', 'videojs', 'modal'], function
     }
 
     function bindVids() {
-        Modal.bind('.btn-tile.red', '#Video1', playvid, pausevids);
+        Modal.bind('.glyphicon-play-circle', '#Video1', playvid, pausevids);
 
         if (Main.mobile) {
             $.each(videojs.players, function () {

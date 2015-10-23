@@ -1,6 +1,10 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
+a:hover {
+    text-decoration: none;
+}
+
 .view-container {
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
     position: relative;

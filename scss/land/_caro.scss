@@ -12,7 +12,23 @@
         width: 12px;
     }
 }
+.carousel {
+    .carousel-control {
+        opacity: 0.1;
+    }
+    &:focus, &:hover {
+        .carousel-control {
+            opacity: 0.4;
+
+            &:focus, &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
 .carousel-control {
+
     &.left,
     &.right {
         background-image: none;
@@ -43,7 +59,7 @@
     }
 }
 
-#Carousel .carousel-inner .full {
+.carousel .carousel-inner .full {
     background-image: linear-gradient(to top, #ddd 22%, #eee 55%, #ddd 88%);
     height: 300px;
 
@@ -57,12 +73,8 @@
     }
 }
 @media (max-width: 767px) {
-    #Carousel {
+    .carousel {
         margin-top: 3em;
-    }
-    .glyphicon-chevron-left,
-    .glyphicon-chevron-right {
-        display: none !important;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
