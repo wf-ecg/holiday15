@@ -189,7 +189,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     grunt.registerTask('test', ['jshint', 'qunit']);
-    grunt.registerTask('default', ['jshint', /*'concat', 'uglify',*/ 'sass:full', 'requirejs', 'sync:clean']);
+    grunt.registerTask('default', ['jshint', /*'concat', 'uglify',*/ 'sass:full', /*'requirejs',*/ 'sync:clean']);
     grunt.registerTask('watcher', ['connect:full', 'watch']);
 
 };
