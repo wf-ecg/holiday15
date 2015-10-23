@@ -49,7 +49,7 @@
         height: 2em;
         padding-top: 0.5em;
         top: 40%;
-        width: 3em;
+        width: 2.5em;
     }
     .glyphicon-chevron-left {
         left: 0em;
@@ -61,15 +61,17 @@
 
 .carousel .carousel-inner .full {
     background-image: linear-gradient(to top, #ddd 22%, #eee 55%, #ddd 88%);
-    height: 300px;
 
-    img {
-        bottom: -9%;
-        left: -50%;
+    .container {
+        left: 0; right: 0; bottom: 0; top: 0;
         margin: auto;
-        max-height: 118%;
         position: absolute;
-        right: -50%;
+
+    }
+    img {
+        min-height: 300px;
+        min-width: 999px;
+        width: 100%;
     }
 }
 @media (max-width: 767px) {
