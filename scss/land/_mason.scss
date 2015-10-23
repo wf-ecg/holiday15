@@ -2,6 +2,7 @@
 /* LAND/_mason.scss */
 
 /**** Transitions ****/
+#x {
 
 .masonry,
 .masonry div { /* apply before masonry add class */
@@ -33,5 +34,6 @@
     transform: scale(1);
 }
 
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
