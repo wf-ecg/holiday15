@@ -28,9 +28,9 @@ define(['jquery'], function
     }
 
 // CONSTRUCT
-    function Sequence(cf) {
+    function Sequence(phrase, cf) {
         var self = this
-        ;
+            ;
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
@@ -42,7 +42,6 @@ define(['jquery'], function
         }
 
 /// METHODS
-
         function dump() {
             self._ = JSON.stringify(cf)
                 .replace(/,/g, '", ') // kill quotes
@@ -52,6 +51,7 @@ define(['jquery'], function
 
 /// API
         $.extend(self, {
+            array: [],
             check: function () {
                 if (!self.array.length) {
                     throw new Error('out of numbers');
@@ -59,13 +59,14 @@ define(['jquery'], function
             },
             getNext: function () {
                 self.check();
-                return self.array.shift();;
+                return self.array.shift();
+                ;
             },
-            create: function (len, shuf) {
-                for( var arr =[], i = 0; i < len; i++) {
+            create: function (len) {
+                for (var arr = [], i = 0; i < len; i++) {
                     arr[i] = i;
                 }
-                self.array = shuf ? shuffler(arr) : arr;
+                self.array = arr; //unshuf ? arr : shuffler(arr);
             },
             init: function (phrase) {
                 self.create(phrase.length);
@@ -74,7 +75,7 @@ define(['jquery'], function
         });
 
 /// INIT
-        self.init(cf.phrase);
+        self.init(phrase || cf.phrase);
     }
     return Sequence;
 });

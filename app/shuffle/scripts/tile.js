@@ -20,7 +20,7 @@ define(['jquery'], function
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Df = {
         inited: false,
-        div: $('<div>'),
+        ele: '<div class="tile">',
         val: 'X',
         cb: function () {
             C.info(Nom, 'done');
@@ -32,9 +32,9 @@ define(['jquery'], function
     }
 
 // CONSTRUCT
-    function Tile(cf) {
+    function Tile(letter, cf) {
         var self = this
-        ;
+            ;
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
@@ -57,28 +57,38 @@ define(['jquery'], function
 /// API
         $.extend(self, {
             coordinates: function (x, y) {
-                // get/set using div,
+                // get/set using cf.ele,
             },
-            drawOn: function () {
-                // append to On
+            appendTo: function (sel) {
+                $(sel).append(cf.ele);
             },
             freeze: function () {
-                // set abs position
+                // set abs position of cf.ele
             },
             flow: function () {
-                // set inline position
+                // set inline position of cf.ele
             },
             spin: function () {
-                // animate div
+                // animate cf.ele
             },
             val: function () {
                 return cf.val;
+            },
+            set: function (char) {
+                cf.val = char;
+                cf.ele.text(char);
+            },
+            init: function (letter) {
+                cf.ele = $(cf.ele);
+
+                self.set(letter);
+                cf.ele.data(Nom, self);
             },
             dump: db() ? dump : $.noop,
         });
 
 /// INIT
-        self.assign(cf.div);
+        self.init(letter || self.val());
     }
     return Tile;
 });

@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery'], function
-    MAIN($) {
+define(['jquery', 'sequence', 'shuffle', 'data'], function
+    MAIN($, Seq, Shuf, Data) {
     'use strict';
 
     var Nom = 'Main';
@@ -20,12 +20,28 @@ define(['jquery'], function
     var Db = W.debug > 0;
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
+    var pair = Data.get();
+    var correct = pair.correct;
+    var anagram = pair.anagram;
+
+    var shuffle = new Shuf(anagram);
+    var sequence = new Seq(anagram, true); // true for not random
+
 //EXTEND
     Main.mobile = !PC;
 
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
     };
+
+    function done() {
+        // show finished screen
+        // play again?
+    }
+    function begin() {
+        // dismiss start scren
+        // tell each of [shuffle] to drawTo(screen)
+    }
 
 //  PRIVATE
     function watchInputDevice() {
@@ -43,17 +59,34 @@ define(['jquery'], function
     function expose() {
         W.main = Main; // expose for dev
         $.extend(Main, {
-//            Modal: Modal,
-//            Jumble: Jumble,
-//            Tile: Tile,
-//            Timer: Timer,
+            correct: correct,
+            anagram: anagram,
+            shuffle: shuffle,
+            sequence: sequence,
         });
+
+        Main.doNext = function () {
+            shuffle.display();
+
+            var i = sequence.getNext();
+            var j = shuffle.indexOf(correct[i]);
+            var s = shuffle.toString();
+
+            if (i !== j) {
+                shuffle.swap(i, j);
+            } else {
+                Main.doNext();
+            }
+            C.log(i, j, s);
+        };
     }
+
     function runTests() {
         // require(['jumble.test']);
         // require(['tile.test']);
         // require(['timer.test']);
         // require(['data.test']);
+        Main.doNext();
     }
 //  INIT
     $(function () {
@@ -71,69 +104,4 @@ define(['jquery'], function
 
 
 
-*/
-
-function swapper(arr, lf, rt) {
-    var tmp = arr[lf];
-    arr[lf] = arr[rt];
-    arr[rt] = tmp;
-}
-function shuffler(array) {
-    var arr = array.concat(),
-        rem = arr.length,
-        swap = function (a, b, c) {
-            swapper(arr, a, b);
-        };
-    while (rem--) {
-        swap(rem, Math.floor(Math.random() * (rem+1)));
-    }
-    return arr;
-}
-
-
-
-
-function displayCurrent () { // show anagram by
-    // telling each of the tiles
-    // from the solving array
-    // to draw to the screen
-}
-
-
-function swap(i1, i2) {
-    // update [solving]
-    swapper(solving, i1, i2);
-    swapHelper(divs[i1], divs[i2]);
-}
-
-function swapHelper(div1, div2) {
-    // animate div1 and div2 tile coordinates
-    var pair1 = div1.getPos();
-    var pair2 = div2.getPos();
-    div1.setPos(pair2);
-    div2.setPos(pair1);
-}
-function done() {
-    // show finished screen
-    // play again?
-}
-function begin() {
-    // dismiss start scren
-    // tell each of [solving] to drawTo(screen)
-}
-function currentMatch(num) {
-    a = solving[num].getVal();
-    b = correct[num];
-    return a === b;
-}
-
-
-// Wrap solving array
-function () {
-  qu
-}
-
-
-
-
-//
+ */
