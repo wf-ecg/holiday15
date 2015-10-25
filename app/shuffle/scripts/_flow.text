@@ -1,0 +1,45 @@
+
+
+T H R A G E
+getNext()
+  i = 1
+  solving[i] // T
+  correct[i] // G
+  currentMatch(i1)?
+  is char T wrong?
+    correct[i1] is G ( which is currently what index? ? query the solving array )
+  swap(divT, solving.find('G')
+G H R A T E
+getNext()
+  i2 // G [H] R A T E
+  is char H wrong?
+    correct[i2] is A
+  swap(divH, divA)
+G A R H T E
+getNext()
+  i3 // G A [R] H T E
+  is char R wrong?
+    correct[3] is R
+  spin(divR)
+G A R H T E
+getNext()
+  i4 // G A R [H] T E
+  is char H wrong?
+    correct[4] is E
+  swap(divH, divE)
+G A R E T H
+getNext()
+  i5 // G A R E [T] H
+  is char T wrong?
+    correct[5] is T
+  spin(divT)
+G A R E T H
+getNext()
+  i6 // G A R E T [H]
+  is char H wrong?
+    correct[6] is H
+  spin(divH)
+G A R E T H
+getNext()
+  null
+end

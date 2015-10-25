@@ -65,3 +65,75 @@ define(['jquery'], function
     });
 
 });
+
+/*
+
+
+
+
+*/
+
+function swapper(arr, lf, rt) {
+    var tmp = arr[lf];
+    arr[lf] = arr[rt];
+    arr[rt] = tmp;
+}
+function shuffler(array) {
+    var arr = array.concat(),
+        rem = arr.length,
+        swap = function (a, b, c) {
+            swapper(arr, a, b);
+        };
+    while (rem--) {
+        swap(rem, Math.floor(Math.random() * (rem+1)));
+    }
+    return arr;
+}
+
+
+
+
+function displayCurrent () { // show anagram by
+    // telling each of the tiles
+    // from the solving array
+    // to draw to the screen
+}
+
+
+function swap(i1, i2) {
+    // update [solving]
+    swapper(solving, i1, i2);
+    swapHelper(divs[i1], divs[i2]);
+}
+
+function swapHelper(div1, div2) {
+    // animate div1 and div2 tile coordinates
+    var pair1 = div1.getPos();
+    var pair2 = div2.getPos();
+    div1.setPos(pair2);
+    div2.setPos(pair1);
+}
+function done() {
+    // show finished screen
+    // play again?
+}
+function begin() {
+    // dismiss start scren
+    // tell each of [solving] to drawTo(screen)
+}
+function currentMatch(num) {
+    a = solving[num].getVal();
+    b = correct[num];
+    return a === b;
+}
+
+
+// Wrap solving array
+function () {
+  qu
+}
+
+
+
+
+//

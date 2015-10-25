@@ -1,0 +1,19 @@
+
+  get a correct/anagram pair
+  PAIR = {
+    correct: 'GARETH', // reference
+    anagram: 'THRAGE',
+  }
+  make [solving] from anagram
+
+  solving[ [T H R A G E]
+  sequence function () {
+    return one of [1 2 3 4 5 6]
+  }
+
+  tiles are made from original [solving] (array from anagram) (which then mutates)
+  values are checked against [correct]
+
+
+  tile [solving[] array
+  tell each to draw
