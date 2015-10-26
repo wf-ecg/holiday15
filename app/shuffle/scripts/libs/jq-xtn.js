@@ -59,10 +59,10 @@ define(['jquery', 'lodash'], function ($, _) {
         return this.css({top: '', left: '', position: ''});
     };
     $.fn.freezeKids = function () {
-        return this.css({height: this.height(), width: this.width()}).children().freeze();
+        return this.css({height: this.height(), width: this.width()}).find('div').freeze();
     };
     $.fn.unfreezeKids = function () {
-        return this.css({height: '', width: ''}).children().unfreeze();
+        return this.css({height: '', width: ''}).find('div').unfreeze();
     };
 
 });

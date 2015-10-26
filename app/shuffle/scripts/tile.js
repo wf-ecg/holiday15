@@ -83,6 +83,17 @@ define(['jquery'], function
                     return self.pos || self.offset();
                 }
             },
+            swapWith: function (tile) {
+                var e1 = cf.ele;
+                var e2 = tile.get();
+                var n1 = e1.next();
+
+                e1.insertBefore(e2);
+                if (n1) {
+                    e2.insertBefore(n1);
+                } else {
+                    e2.appendTo(e2.parent())
+                }
             },
             val: function () {
                 return cf.val;
@@ -93,6 +104,9 @@ define(['jquery'], function
                     char = '&nbsp';
                 }
                 cf.ele.html(char);
+            },
+            get: function () {
+                return cf.ele;
             },
             init: function (letter) {
                 cf.ele = $(cf.ele);

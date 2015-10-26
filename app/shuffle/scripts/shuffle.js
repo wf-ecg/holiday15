@@ -21,6 +21,7 @@ define(['jquery', 'tile'], function
     var Df = {
         inited: false,
         phrase: 'THRAGE',
+        div: '.shuffle',
         anagram: [],
     };
 
@@ -64,7 +65,10 @@ define(['jquery', 'tile'], function
             },
             display: function (sel) { // tell each to draw
                 self.tiles.forEach(function (e) {
-                    e.appendTo(sel || '.shuffle');
+                    e.appendTo(cf.div);
+                    if (e.val() === ' ') {
+                      cf.div.append('<wbr>');
+                    }
                 });
                 self.freeze();
             },
@@ -75,12 +79,18 @@ define(['jquery', 'tile'], function
                 return cf.anagram.join('');
             },
             freeze: function () {
-                $('.shuffle').freezeKids();
+                cf.div.freezeKids();
+            },
+            unfreeze: function () {
+                cf.div.unfreezeKids();
             },
             swap: function (a, b) {
                 $.swapper(self.tiles, a, b); // reorder tiles (primitive way)
                 $.swapper(cf.anagram, a, b); // reorder current anagram state
-                self.swapPose(self.tiles[a], self.tiles[b]);
+                var t1 = self.tiles[a];
+                var t2 = self.tiles[b];
+                self.swapPose(t1, t2);
+                t1.swapWith(t2);
             },
             swapPose: function (t1, t2) {
                 // animate div1 and div2 tile coordinates
@@ -95,6 +105,7 @@ define(['jquery', 'tile'], function
                 });
             },
             init: function (phrase) {
+                cf.div = $(cf.div);
                 cf.anagram = phrase.split('');
                 self.create();
             },
