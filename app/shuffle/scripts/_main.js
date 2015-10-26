@@ -21,8 +21,8 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
     var pair = Data.get();
-    var correct = pair.correct;
-    var anagram = pair.anagram;
+    var correct = pair.correct.toUpperCase();
+    var anagram = pair.anagram.toUpperCase();
 
     var shuffle = new Shuf(anagram);
     var sequence = new Seq(anagram, true); // true for not random

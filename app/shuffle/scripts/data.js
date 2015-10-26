@@ -13,8 +13,8 @@ define(function () {
 
     Data.get = function () {
         return {
-            correct: 'GARETH',
-            anagram: 'THRAGE'
+            correct: 'Merry and Bright',
+            anagram: 'Grab Nerdy Mirth'
         };
     };
 
