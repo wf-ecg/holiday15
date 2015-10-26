@@ -66,6 +66,7 @@ define(['jquery', 'tile'], function
                 self.tiles.forEach(function (e) {
                     e.appendTo(sel || '.shuffle');
                 });
+                self.freeze();
             },
             indexOf: function (char) {
                 return cf.anagram.indexOf(char);
@@ -73,9 +74,20 @@ define(['jquery', 'tile'], function
             toString: function () {
                 return cf.anagram.join('');
             },
+            freeze: function () {
+                $('.shuffle').freezeKids();
+            },
             swap: function (a, b) {
-                $.swapper(self.tiles, a, b); // reorder tiles (primative way)
+                $.swapper(self.tiles, a, b); // reorder tiles (primitive way)
                 $.swapper(cf.anagram, a, b); // reorder current anagram state
+                self.swapPose(self.tiles[a], self.tiles[b]);
+            },
+            swapPose: function (t1, t2) {
+                // animate div1 and div2 tile coordinates
+                var p1 = t1.offset();
+                var p2 = t2.offset();
+                t1.position(p2);
+                t2.position(p1);
             },
             create: function () {
                 self.tiles = cf.anagram.map(function (e) {
@@ -96,20 +108,6 @@ define(['jquery', 'tile'], function
 });
 /*
 
-    function swap(i1, i2) {
-        // update [shuffle]
-        swapper(shuffle, i1, i2);
-        swapHelper(divs[i1], divs[i2]);
-    }
-
-    function swapHelper(div1, div2) {
-        // animate div1 and div2 tile coordinates
-        var pair1 = div1.getPos();
-        var pair2 = div2.getPos();
-
-        div1.setPos(pair2);
-        div2.setPos(pair1);
-    }
 
 
  */

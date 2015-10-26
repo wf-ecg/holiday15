@@ -71,6 +71,12 @@ define(['jquery'], function
             spin: function () {
                 // animate cf.ele
             },
+            offset: function () {
+                return cf.ele.offset();
+            },
+            position: function (obj) {
+                cf.ele.css(obj);
+            },
             val: function () {
                 return cf.val;
             },

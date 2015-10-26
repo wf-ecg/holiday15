@@ -42,6 +42,18 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         // dismiss start scren
         // tell each of [shuffle] to drawTo(screen)
     }
+    function doNext() {
+        var i = sequence.getNext();
+        var j = shuffle.indexOf(correct[i]);
+        var s = shuffle.toString();
+
+        if (i !== j) {
+            shuffle.swap(i, j);
+        } else {
+            doNext();
+        }
+        C.log(i, j, s);
+    }
 
 //  PRIVATE
     function watchInputDevice() {
@@ -55,6 +67,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doBindings() {
         watchInputDevice();
+        $('.shuffle').click(doNext);
     }
     function expose() {
         W.main = Main; // expose for dev
@@ -65,28 +78,13 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
             sequence: sequence,
         });
 
-        Main.doNext = function () {
-            shuffle.display();
-
-            var i = sequence.getNext();
-            var j = shuffle.indexOf(correct[i]);
-            var s = shuffle.toString();
-
-            if (i !== j) {
-                shuffle.swap(i, j);
-            } else {
-                Main.doNext();
-            }
-            C.log(i, j, s);
-        };
+        shuffle.display();
     }
-
     function runTests() {
         // require(['jumble.test']);
         // require(['tile.test']);
         // require(['timer.test']);
         // require(['data.test']);
-        Main.doNext();
     }
 //  INIT
     $(function () {
