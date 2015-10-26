@@ -3,6 +3,8 @@
 
 .shuffle {
     text-align: center;
+    margin-top: 333px;
+    width: 100%;
 
     * {
         @include transform(scale(1.00));
@@ -11,11 +13,11 @@
     }
 
     .tile {
-        //border: 1px solid red;
+        background-color: #eee;
         display: inline-block;
-        //padding: 1em;
+        font-size: 2em;
         text-align: center;
-        width: 2em;
+        width: 1em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

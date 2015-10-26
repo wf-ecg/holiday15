@@ -56,6 +56,10 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
                 doNext();
             }
         } catch (err) {
+            if (W.confirm('Start again?')) {
+                W.location.reload();
+            };
+            shuffle.unfreeze();
         }
     }
 
@@ -71,7 +75,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doBindings() {
         watchInputDevice();
-        $('html').click(doNext);
+        $('.shuffle').mouseover(doNext);
     }
     function expose() {
         W.main = Main; // expose for dev
