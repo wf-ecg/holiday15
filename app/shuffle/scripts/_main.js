@@ -43,17 +43,20 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         // tell each of [shuffle] to drawTo(screen)
     }
     function doNext() {
-        var i = sequence.getNext();
-        var l = correct[i];
-        var j = shuffle.indexOf(l, i);
-        var s = shuffle.toString();
+        try {
+            var i = sequence.getNext();
+            var l = correct[i];
+            var j = shuffle.indexOf(l, i);
+            var s = shuffle.toString();
 
-        if (i !== j) {
-            shuffle.swap(i, j);
-        } else {
-            doNext();
+            if (i !== j) {
+                shuffle.swap(i, j);
+            } else {
+                C.log(Nom, 'trying again', i, l, s);
+                doNext();
+            }
+        } catch (err) {
         }
-        C.log(i, j, s);
     }
 
 //  PRIVATE
@@ -68,7 +71,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doBindings() {
         watchInputDevice();
-        $('.shuffle').click(doNext);
+        $('html').click(doNext);
     }
     function expose() {
         W.main = Main; // expose for dev
