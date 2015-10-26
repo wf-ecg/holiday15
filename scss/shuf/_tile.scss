@@ -1,0 +1,21 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* SHUF/_tile.scss */
+
+.shuffle {
+    text-align: center;
+
+    * {
+        @include transform(scale(1.00));
+        @include transition(all 0.25s);
+        @include transform-style( preserve-3d );
+    }
+
+    .tile {
+        //border: 1px solid red;
+        display: inline-block;
+        //padding: 1em;
+        text-align: center;
+        width: 2em;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
