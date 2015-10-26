@@ -82,7 +82,10 @@ define(['jquery'], function
             },
             set: function (char) {
                 cf.val = char;
-                cf.ele.text(char);
+                if (char === ' ') {
+                    char = '&nbsp';
+                }
+                cf.ele.html(char);
             },
             init: function (letter) {
                 cf.ele = $(cf.ele);
