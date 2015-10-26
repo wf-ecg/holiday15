@@ -56,6 +56,7 @@ define(['jquery'], function
 
 /// API
         $.extend(self, {
+            pos: null,
             coordinates: function (x, y) {
                 // get/set using cf.ele,
             },
@@ -72,10 +73,16 @@ define(['jquery'], function
                 // animate cf.ele
             },
             offset: function () {
-                return cf.ele.offset();
+                return self.pos = cf.ele.offset();
             },
             position: function (obj) {
-                cf.ele.css(obj);
+                if (obj) {
+                    self.pos = obj;
+                    cf.ele.css(obj);
+                } else {
+                    return self.pos || self.offset();
+                }
+            },
             },
             val: function () {
                 return cf.val;

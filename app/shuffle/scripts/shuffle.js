@@ -84,8 +84,8 @@ define(['jquery', 'tile'], function
             },
             swapPose: function (t1, t2) {
                 // animate div1 and div2 tile coordinates
-                var p1 = t1.offset();
-                var p2 = t2.offset();
+                var p1 = t1.position();
+                var p2 = t2.position();
                 t1.position(p2);
                 t2.position(p1);
             },
