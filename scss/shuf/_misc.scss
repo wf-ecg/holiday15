@@ -5,11 +5,21 @@ a:hover {
     text-decoration: none;
 }
 
-footer {
-  bottom: 0;
-  position: fixed;
+.scrollOuter {
+  //background-color: pink;
+  height: 100%;
+  padding: 1em;
+  position: absolute;
+  overflow: scroll;
+  top: 0;
   width: 100%;
 }
+.scrollInner {
+  //background-color: cyan;
+  height: 9999px;
+  width: 100%;
+}
+
 @media (min-width: 768px) {
     .container {
         padding-left: 30px;

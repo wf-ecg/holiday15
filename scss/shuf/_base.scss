@@ -17,5 +17,12 @@ footer {
     text-align: center;
     padding: 1em 2em 3em;
 }
-
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+.ui-page-active {
+  height: 100%;
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
