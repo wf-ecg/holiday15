@@ -44,7 +44,8 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doNext() {
         var i = sequence.getNext();
-        var j = shuffle.indexOf(correct[i]);
+        var l = correct[i];
+        var j = shuffle.indexOf(l, i);
         var s = shuffle.toString();
 
         if (i !== j) {

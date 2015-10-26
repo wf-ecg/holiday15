@@ -68,8 +68,8 @@ define(['jquery', 'tile'], function
                 });
                 self.freeze();
             },
-            indexOf: function (char) {
-                return cf.anagram.indexOf(char);
+            indexOf: function (char, skip) {
+                return cf.anagram.indexOf(char, skip);
             },
             toString: function () {
                 return cf.anagram.join('');
