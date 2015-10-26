@@ -35,16 +35,10 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     };
 
     function begin() {
-        W.alert('Scroll to play game');
         shuffle.display();
     }
     function done() {
-        if (W.confirm('Play again?')) {
-            W.location.reload();
-        } else {
-            $('.scrollOuter').off('scroll');
-            doNext = $.noop;
-        }
+        $('.scrollOuter').off('scroll').find('button').fadeIn();
     }
     function doNext() {
         try {
@@ -55,12 +49,13 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
 
             if (i !== j) {
                 shuffle.swap(i, j);
+                $('.scrollOuter').scrollTop(0);
             } else {
                 C.log(Nom, 'trying again', i, l, s);
                 doNext();
             }
         } catch (err) {
-            shuffle.unfreeze();
+            //shuffle.unfreeze();
             _.delay(done, 999);
         }
     }
@@ -77,7 +72,11 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doBindings() {
         watchInputDevice();
-        $('.scrollOuter').on('scroll', _.throttle(doNext, 333));
+        $('.scrollOuter').on('scroll', function () {
+          if ($(this).scrollTop() > 333) {
+            doNext();
+          }
+        });
     }
     function expose() {
         W.main = Main; // expose for dev

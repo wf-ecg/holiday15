@@ -46,7 +46,6 @@ define(['jquery'], function
         }
 
 /// METHODS
-
         function dump() {
             self._ = JSON.stringify(cf)
                 .replace(/,/g, '", ') // kill quotes

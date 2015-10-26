@@ -90,7 +90,7 @@ define(['jquery', 'tile'], function
                 var t1 = self.tiles[a];
                 var t2 = self.tiles[b];
                 self.swapPose(t1, t2);
-                t1.swapWith(t2);
+                //t1.swapWith(t2);
             },
             swapPose: function (t1, t2) {
                 // animate div1 and div2 tile coordinates

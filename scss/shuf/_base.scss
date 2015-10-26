@@ -7,7 +7,11 @@ html, body {
     line-height: 1;
     min-height: 100%;
 }
-
+header {
+    background-color: white;
+    position: relative;
+    z-index: 9;
+}
 footer {
     background: #44464a;
     border-top: 0.5em solid #bfc0be;

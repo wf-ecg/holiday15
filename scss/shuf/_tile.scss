@@ -2,8 +2,10 @@
 /* SHUF/_tile.scss */
 
 .shuffle {
+    color: white;
+    font-family: $serif;
+    margin-top: 250px;
     text-align: center;
-    margin-top: 333px;
     width: 100%;
 
     * {
@@ -13,11 +15,13 @@
     }
 
     .tile {
-        background-color: #eee;
+        background-color: green;
+        border-radius: 1em;
         display: inline-block;
         font-size: 2em;
+        padding: 0.5em;
         text-align: center;
-        width: 1em;
+        width: 2em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

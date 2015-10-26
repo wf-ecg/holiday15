@@ -6,18 +6,28 @@ a:hover {
 }
 
 .scrollOuter {
-  //background-color: pink;
-  height: 100%;
-  padding: 1em;
-  position: absolute;
+  bottom: 66px;
   overflow: scroll;
-  top: 0;
-  width: 100%;
+  position: absolute;
+  top: 40px;
+  width: 105%;
 }
 .scrollInner {
-  //background-color: cyan;
-  height: 9999px;
+  background-image: url('../images/icons/wf_mobile_bg.png');
+  height: 200%;
+  position: relative;
   width: 100%;
+
+  button {
+    display: none;
+    bottom: 1em;
+    font-size: 2em;
+    left: 1em;
+    margin: auto;
+    position: absolute;
+    right: 1em;
+    width: 7em;
+  }
 }
 
 @media (min-width: 768px) {
