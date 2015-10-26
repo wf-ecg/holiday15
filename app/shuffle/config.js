@@ -44,7 +44,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', 'jqxtn', '_main'], function (_) {
+    require(['lodash', 'jqmobi', 'jqxtn', '_main'], function (_) {
 
         _.delay(function () {
             if (W.debug < -2) {

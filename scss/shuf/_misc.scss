@@ -5,6 +5,11 @@ a:hover {
     text-decoration: none;
 }
 
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
 @media (min-width: 768px) {
     .container {
         padding-left: 30px;
