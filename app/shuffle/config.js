@@ -17,6 +17,7 @@ require.config({
         //
         console: 'libs/console',
         modal: 'libs/modal',
+        jqxtn: 'libs/jq-xtn',
         //
     },
 });
@@ -43,7 +44,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', '_main'], function (_) {
+    require(['lodash', 'jqxtn', '_main'], function (_) {
 
         _.delay(function () {
             if (W.debug < -2) {

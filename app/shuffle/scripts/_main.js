@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery'], function
-    MAIN($) {
+define(['jquery', 'sequence', 'shuffle', 'data'], function
+    MAIN($, Seq, Shuf, Data) {
     'use strict';
 
     var Nom = 'Main';
@@ -20,12 +20,44 @@ define(['jquery'], function
     var Db = W.debug > 0;
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
+    var pair = Data.get();
+    var correct = pair.correct.toUpperCase();
+    var anagram = pair.anagram.toUpperCase();
+
+    var shuffle = new Shuf(anagram);
+    var sequence = new Seq(anagram, true); // true for not random
+
 //EXTEND
     Main.mobile = !PC;
 
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
     };
+
+    function done() {
+        // show finished screen
+        // play again?
+    }
+    function begin() {
+        // dismiss start scren
+        // tell each of [shuffle] to drawTo(screen)
+    }
+    function doNext() {
+        try {
+            var i = sequence.getNext();
+            var l = correct[i];
+            var j = shuffle.indexOf(l, i);
+            var s = shuffle.toString();
+
+            if (i !== j) {
+                shuffle.swap(i, j);
+            } else {
+                C.log(Nom, 'trying again', i, l, s);
+                doNext();
+            }
+        } catch (err) {
+        }
+    }
 
 //  PRIVATE
     function watchInputDevice() {
@@ -39,15 +71,18 @@ define(['jquery'], function
     }
     function doBindings() {
         watchInputDevice();
+        $('html').click(doNext);
     }
     function expose() {
         W.main = Main; // expose for dev
         $.extend(Main, {
-//            Modal: Modal,
-//            Jumble: Jumble,
-//            Tile: Tile,
-//            Timer: Timer,
+            correct: correct,
+            anagram: anagram,
+            shuffle: shuffle,
+            sequence: sequence,
         });
+
+        shuffle.display();
     }
     function runTests() {
         // require(['jumble.test']);
@@ -65,3 +100,10 @@ define(['jquery'], function
     });
 
 });
+
+/*
+
+
+
+
+ */
