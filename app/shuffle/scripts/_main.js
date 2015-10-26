@@ -34,13 +34,17 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
     };
 
-    function done() {
-        // show finished screen
-        // play again?
-    }
     function begin() {
-        // dismiss start scren
-        // tell each of [shuffle] to drawTo(screen)
+        W.alert('Scroll to play game');
+        shuffle.display();
+    }
+    function done() {
+        if (W.confirm('Play again?')) {
+            W.location.reload();
+        } else {
+            $('.scrollOuter').off('scroll');
+            doNext = $.noop;
+        }
     }
     function doNext() {
         try {
@@ -56,10 +60,8 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
                 doNext();
             }
         } catch (err) {
-            if (W.confirm('Start again?')) {
-                W.location.reload();
-            };
             shuffle.unfreeze();
+            _.delay(done, 999);
         }
     }
 
@@ -75,7 +77,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doBindings() {
         watchInputDevice();
-        $('.shuffle').mouseover(doNext);
+        $('.scrollOuter').on('scroll', _.throttle(doNext, 333));
     }
     function expose() {
         W.main = Main; // expose for dev
@@ -85,22 +87,16 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
             shuffle: shuffle,
             sequence: sequence,
         });
+    }
 
-        shuffle.display();
-    }
-    function runTests() {
-        // require(['jumble.test']);
-        // require(['tile.test']);
-        // require(['timer.test']);
-        // require(['data.test']);
-    }
 //  INIT
     $(function () {
         if (Db) {
             expose();
-            runTests();
+            //runTests();
         }
         doBindings();
+        begin();
     });
 
 });
