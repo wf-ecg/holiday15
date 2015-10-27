@@ -38,7 +38,7 @@ define(['jquery', 'lodash'], function ($, _) {
         var arr = array.concat(),
             rem = arr.length,
             swap = function (a, b, c) {
-                swapper(arr, a, b);
+                $.swapper(arr, a, b);
             };
         while (rem--) {
             swap(rem, Math.floor(Math.random() * (rem + 1)));

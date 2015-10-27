@@ -66,9 +66,10 @@ define(['jquery'], function
                 for (var arr = [], i = 0; i < len; i++) {
                     arr[i] = i;
                 }
-                self.array = arr; //unshuf ? arr : shuffler(arr);
+                self.array = $.shuffler(arr);
             },
             init: function (phrase) {
+                cf.phrase = phrase;
                 self.create(phrase.length);
             },
             dump: db() ? dump : $.noop,

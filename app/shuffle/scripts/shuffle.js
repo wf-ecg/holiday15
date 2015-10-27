@@ -73,7 +73,10 @@ define(['jquery', 'tile'], function
                 self.freeze();
             },
             indexOf: function (char, skip) {
-                return cf.anagram.indexOf(char, skip);
+                var idx;
+                idx = cf.anagram.indexOf(char, skip); // prefer latter
+                idx = idx < 0 ? cf.anagram.indexOf(char) : idx;
+                return idx;
             },
             toString: function () {
                 return cf.anagram.join('');
@@ -105,6 +108,7 @@ define(['jquery', 'tile'], function
                 });
             },
             init: function (phrase) {
+                cf.phrase = phrase;
                 cf.div = $(cf.div);
                 cf.anagram = phrase.split('');
                 self.create();
