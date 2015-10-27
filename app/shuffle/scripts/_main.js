@@ -20,12 +20,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     var Db = W.debug > 0;
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
-    var pair = Data.get();
-    var correct = pair.correct.toUpperCase();
-    var anagram = pair.anagram.toUpperCase();
-
-    var shuffle = new Shuf(anagram);
-    var sequence = new Seq(anagram, true); // true for not random
+    var pair, correct, anagram, shuffle, sequence, play, scroll;
 
 //EXTEND
     Main.mobile = !PC;
@@ -35,21 +30,34 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     };
 
     function begin() {
+        play.fadeOut();
+        scrollUp();
+        pair = Data.get();
+        correct = pair.correct.toUpperCase();
+        anagram = pair.anagram.toUpperCase();
+        shuffle = new Shuf(anagram);
+        sequence = new Seq(anagram);
+
         shuffle.display();
     }
     function done() {
-        $('.scrollOuter').off('scroll').find('button').fadeIn();
+        play.fadeIn();
+    }
+    function scrollUp() {
+        scroll.scrollTop(0);
     }
     function doNext() {
         try {
-            var i = sequence.getNext();
-            var l = correct[i];
-            var j = shuffle.indexOf(l, i);
-            var s = shuffle.toString();
+            var i, j, l, s;
+
+            i = sequence.getNext();
+            l = correct[i];
+            j = shuffle.indexOf(l, i);
+            s = shuffle.toString();
 
             if (i !== j) {
                 shuffle.swap(i, j);
-                $('.scrollOuter').scrollTop(0);
+                scrollUp();
             } else {
                 C.log(Nom, 'trying again', i, l, s);
                 doNext();
@@ -70,13 +78,19 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
             $(this).addClass('mouse');
         });
     }
-    function doBindings() {
-        watchInputDevice();
-        $('.scrollOuter').on('scroll', function () {
-          if ($(this).scrollTop() > 333) {
-            doNext();
-          }
+    function watchScroll() {
+        scroll.on('scroll', function () {
+            if ($(this).scrollTop() > 333) {
+                doNext();
+            }
         });
+    }
+    function doBindings() {
+        scroll = $('.scrollOuter');
+        play = scroll.find('button');
+
+        watchInputDevice();
+        watchScroll();
     }
     function expose() {
         W.main = Main; // expose for dev
@@ -94,6 +108,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
             expose();
             //runTests();
         }
+        Main.begin = begin;
         doBindings();
         begin();
     });
