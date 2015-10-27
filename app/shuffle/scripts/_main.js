@@ -32,7 +32,11 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     function begin() {
         play.fadeOut();
         scrollUp();
-        pair = Data.get();
+        pair = '';
+        do {
+            pair = Data.get();
+        } while (pair.correct.length !== pair.anagram.length)
+
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
         shuffle = new Shuf(anagram);
@@ -41,6 +45,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         shuffle.display();
     }
     function done() {
+        //shuffle.unfreeze();
         play.fadeIn();
     }
     function scrollUp() {
@@ -99,18 +104,19 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
             anagram: anagram,
             shuffle: shuffle,
             sequence: sequence,
+            Data: Data,
         });
     }
 
 //  INIT
     $(function () {
+        Main.begin = begin;
+        doBindings();
+        begin();
         if (Db) {
             expose();
             //runTests();
         }
-        Main.begin = begin;
-        doBindings();
-        begin();
     });
 
 });

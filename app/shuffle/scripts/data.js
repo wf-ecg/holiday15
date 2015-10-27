@@ -20,13 +20,16 @@ define(function () {
     function ranDex(arr) {
         return arr[ ranMax(arr.length) ];
     }
-
+    function takeAnagram(arr) {
+        var idx = ranMax(arr.length, 1);
+        return arr.splice(idx, idx).pop();
+    }
     Data.get = function () {
         var dat = ranDex(Data.anagrams);
-        dat = dat.concat(); // dupe a sample
+
         return {
-            correct: dat.shift(), // remove
-            anagram: ranDex(dat), // then sample
+            correct: dat[0],
+            anagram: takeAnagram(dat),
         };
     };
 
