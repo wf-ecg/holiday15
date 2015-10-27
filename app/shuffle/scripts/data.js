@@ -8,13 +8,25 @@ define(function () {
     'use strict';
 
     var W = (W && W.window || window), C = (W.C || W.console || {});
-
     var Data = W.Data || {};
 
+    function ranMax(max, min) {
+        min = min || 0;
+        max = max - min; // essential range
+        max = Math.floor(Math.random() * max);
+        return max + min; // restore floor
+    }
+
+    function ranDex(arr) {
+        return arr[ ranMax(arr.length) ];
+    }
+
     Data.get = function () {
+        var dat = ranDex(Data.anagrams);
+        dat = dat.concat(); // dupe a sample
         return {
-            correct: 'Merry and Bright',
-            anagram: 'Grab Nerdy Mirth'
+            correct: dat.shift(), // remove
+            anagram: ranDex(dat), // then sample
         };
     };
 
@@ -97,11 +109,6 @@ define(function () {
             'Mere One Envy Jot My',
         ]
     ];
-
-    Data.anagrams.util = {
-        checklengths: function () {
-        }
-    };
 
     return Data;
 });

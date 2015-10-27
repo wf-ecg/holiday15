@@ -37,7 +37,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         anagram = pair.anagram.toUpperCase();
         shuffle = new Shuf(anagram);
         sequence = new Seq(anagram);
-
+        C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
     }
     function done() {

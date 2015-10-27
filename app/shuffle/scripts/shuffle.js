@@ -64,6 +64,7 @@ define(['jquery', 'tile'], function
                 return self.array.shift();
             },
             display: function (sel) { // tell each to draw
+                cf.div.empty();
                 self.tiles.forEach(function (e) {
                     e.appendTo(cf.div);
                     if (e.val() === ' ') {
