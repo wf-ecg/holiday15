@@ -21,6 +21,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
     var pair, correct, anagram, shuffle, sequence, play, scroll;
+    var attempt = 0;
 
 //EXTEND
     Main.mobile = !PC;
@@ -33,9 +34,10 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         play.fadeOut();
         scrollUp();
         pair = '';
-        do {
+        do { // skip incongruent data sets
+            if (attempt++ > 99) throw new Error('out of data');
             pair = Data.get();
-        } while (pair.correct.length !== pair.anagram.length)
+        } while (!pair.anagram || pair.correct.length !== pair.anagram.length)
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
@@ -53,18 +55,20 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function doNext() {
         try {
-            var i, j, l, s;
+            var i, j, l, s, w;
 
             i = sequence.getNext();
             l = correct[i];
             j = shuffle.indexOf(l, i);
             s = shuffle.toString();
+            w = anagram[i];
 
             if (i !== j) {
                 shuffle.swap(i, j);
                 scrollUp();
+                C.log(Nom, 'SWAP', [i, j], [l, w], s);
             } else {
-                C.log(Nom, 'trying again', i, l, s);
+                C.log(Nom, 'same', [i, j], [l, w], s);
                 doNext();
             }
         } catch (err) {
