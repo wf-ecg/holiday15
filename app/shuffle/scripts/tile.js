@@ -71,15 +71,15 @@ define(['jquery'], function
             spin: function () {
                 // animate cf.ele
             },
-            offset: function () {
+            saveOffset: function () {
                 return self.pos = cf.ele.offset();
             },
-            position: function (obj) {
+            position: function (obj) { // get:set
                 if (obj) {
                     self.pos = obj;
                     cf.ele.css(obj);
                 } else {
-                    return self.pos || self.offset();
+                    return self.pos;
                 }
             },
             swapWith: function (tile) {

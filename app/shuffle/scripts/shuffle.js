@@ -10,8 +10,8 @@
  ...
  */
 
-define(['jquery', 'tile'], function
-    KLASS($, Tile) { // closure
+define(['jquery', 'lodash', 'tile'], function
+    KLASS($, _, Tile) { // closure
     'use strict';
 
 // CLASS
@@ -63,7 +63,9 @@ define(['jquery', 'tile'], function
                 self.check();
                 return self.array.shift();
             },
-            display: function (sel) { // tell each to draw
+            display: function () { // tell each to draw
+                C.log(Nom, 'display');
+                self.unfreeze();
                 cf.div.empty();
                 self.tiles.forEach(function (e) {
                     e.appendTo(cf.div);
@@ -83,6 +85,9 @@ define(['jquery', 'tile'], function
             },
             freeze: function () {
                 cf.div.freezeKids();
+                self.tiles.forEach(function (e) {
+                    e.saveOffset(); // reset saved position
+                });
             },
             unfreeze: function () {
                 cf.div.unfreezeKids();
@@ -112,6 +117,7 @@ define(['jquery', 'tile'], function
                 cf.div = $(cf.div);
                 cf.anagram = phrase.split('');
                 self.create();
+                $(W).on('resize', _.throttle(self.display, 333));
             },
             dump: db() ? dump : $.noop,
         });
