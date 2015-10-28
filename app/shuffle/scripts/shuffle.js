@@ -74,9 +74,8 @@ define(['jquery', 'tile'], function
                 self.freeze();
             },
             indexOf: function (char, skip) {
-                var idx;
-                idx = cf.anagram.indexOf(char, skip); // prefer latter
-                idx = idx < 0 ? cf.anagram.indexOf(char) : idx;
+                var idx = cf.anagram.indexOf(char);
+                cf.anagram[idx] = '*';
                 return idx;
             },
             toString: function () {
