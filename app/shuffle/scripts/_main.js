@@ -90,7 +90,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     }
     function watchScroll() {
         scroll.on('scroll', function () {
-            if ($(this).scrollTop() > 333) {
+            if ($(this).scrollTop() > 999) {
                 doNext();
             }
         });
