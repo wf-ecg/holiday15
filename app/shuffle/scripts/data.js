@@ -80,8 +80,8 @@ define(function () {
             'Gravy He Ten Hippy',
         ], [
             'Friends Family Happiness',
-            'Nerd Ifs La If My Heap Spins',
-            'Reds Fin Am Fly I Nap She Sip',
+            'Nerd Ifs Fail My Heap Spins',
+            'Reds Fin Aim Fly Nap She Sip',
             'Finders Fail My Pass He Nip',
         ], [
             'Jingle Bells',
