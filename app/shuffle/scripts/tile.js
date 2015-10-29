@@ -101,6 +101,7 @@ define(['jquery'], function
                 cf.val = char;
                 if (char === ' ') {
                     char = '&nbsp';
+                    cf.ele.addClass('space');
                 }
                 cf.ele.html(char);
             },

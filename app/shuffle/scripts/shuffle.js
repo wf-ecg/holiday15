@@ -69,9 +69,6 @@ define(['jquery', 'lodash', 'tile'], function
                 cf.div.empty();
                 self.tiles.forEach(function (e) {
                     e.appendTo(cf.div);
-                    if (e.val() === ' ') {
-                      cf.div.append('<wbr>');
-                    }
                 });
                 self.freeze();
             },
