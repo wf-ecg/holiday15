@@ -41,13 +41,15 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
+        if (shuffle) {
+            shuffle.destroy();
+        }
         shuffle = new Shuf(anagram);
         sequence = new Seq(anagram);
         C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
     }
     function done() {
-        //shuffle.unfreeze();
         play.fadeIn();
     }
     function scrollUp() {
@@ -72,7 +74,6 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
                 doNext();
             }
         } catch (err) {
-            //shuffle.unfreeze();
             _.delay(done, 999);
         }
     }

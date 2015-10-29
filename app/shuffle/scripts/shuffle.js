@@ -112,12 +112,17 @@ define(['jquery', 'lodash', 'tile'], function
                     return new Tile(e); // make tiles
                 });
             },
+            destroy: function () {
+                C.log(Nom, 'destroy');
+                $(W).off('resize', self._redraw);
+            },
             init: function (phrase) {
                 cf.phrase = phrase;
                 cf.div = $(cf.div);
                 cf.anagram = phrase.split('');
                 self.create();
-                $(W).on('resize', _.throttle(self.display, 333));
+                self._redraw = _.throttle(self.display, 333);
+                $(W).on('resize', self._redraw);
             },
             dump: db() ? dump : $.noop,
         });
