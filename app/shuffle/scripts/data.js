@@ -99,8 +99,8 @@ define(function () {
             'A Echo Idly Her',
         ], [
             'Tis the season',
-            'Hesitate Sons',
-            'Instate Shoes',
+            //'Hesitate Sons',
+            //'Instate Shoes',
             'Ease Thin Toss',
             'Stashes Tie On',
             'Siesta To Hens',

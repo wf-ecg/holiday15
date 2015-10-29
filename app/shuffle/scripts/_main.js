@@ -37,7 +37,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         do { // skip incongruent data sets
             if (attempt++ > 99) throw new Error('out of data');
             pair = Data.get();
-        } while (!pair.anagram || pair.correct.length !== pair.anagram.length)
+        } while (!pair.anagram);
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
@@ -50,6 +50,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         shuffle.display();
     }
     function done() {
+        shuffle.display();
         play.fadeIn();
     }
     function scrollUp() {
@@ -73,6 +74,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
                 C.log(Nom, 'same', [i, j], [l, w], s);
                 doNext();
             }
+            if (l === ' ' || w === ' ') shuffle.display();
         } catch (err) {
             _.delay(done, 999);
         }

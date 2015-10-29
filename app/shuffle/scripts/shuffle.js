@@ -90,6 +90,7 @@ define(['jquery', 'lodash', 'tile'], function
                 cf.div.unfreezeKids();
             },
             swap: function (a, b) {
+                if (a < 0 || b < 0 ) return; // reject bad indexes
                 $.swapper(self.tiles, a, b); // reorder tiles (primitive way)
                 $.swapper(cf.anagram, a, b); // reorder current anagram state
                 var t1 = self.tiles[a];
