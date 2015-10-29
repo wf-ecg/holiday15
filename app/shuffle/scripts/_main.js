@@ -27,6 +27,11 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         right: '<h1>That’s right...</h1>',
         going: '<h1>Keep going!</h1>',
         finish: '<h1>Scroll to play again</h1>',
+        show: function (prop) {
+            mess.hide() //
+            .html(this[prop]) //
+            .fadeIn();
+        },
     };
 
 //EXTEND
@@ -38,7 +43,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
 
     function begin() {
         scrollUp();
-        mess.html(msgs.intro);
+        msgs.show('intro');
         play.fadeOut();
         pair = '';
         do { // skip incongruent data sets
@@ -57,12 +62,12 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         shuffle.display();
     }
     function done() {
-        mess.html(msgs.finish);
+        msgs.show('finish');
         shuffle.display();
         play.fadeIn();
     }
     function scrollUp() {
-        mess.html(Math.random() > .5 ? msgs.right : msgs.going);
+        msgs.show(Math.random() > .5 ? 'right' : 'going');
         scroll.scrollTop(0);
     }
     function doNext() {
