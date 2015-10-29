@@ -88,7 +88,6 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
                 C.log(Nom, 'same', [i, j], [l, w], s);
                 doNext();
             }
-            if (l === ' ' || w === ' ') shuffle.display();
         } catch (err) {
             _.delay(done, 999);
         }

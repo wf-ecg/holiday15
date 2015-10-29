@@ -78,6 +78,9 @@ define(['jquery'], function
                 if (obj) {
                     self.pos = obj;
                     cf.ele.css(obj);
+                    cf.ele.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
+                        $.publish('redraw');
+                    });
                 } else {
                     return self.pos;
                 }
