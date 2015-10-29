@@ -53,10 +53,10 @@ define(['jquery', 'lodash'], function ($, _) {
         });
         return this.each(function (i, e) {
             $(e).css(poses[i]);
-        }).css({position: 'absolute'});
+        }).addClass('freeze');
     };
     $.fn.unfreeze = function () {
-        return this.css({top: '', left: '', position: ''});
+        return this.css({top: '', left: ''}).removeClass('freeze');
     };
     $.fn.freezeKids = function () {
         return this.css({height: this.height(), width: this.width()}).find('div').freeze();

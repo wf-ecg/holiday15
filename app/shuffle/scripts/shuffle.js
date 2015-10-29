@@ -121,6 +121,7 @@ define(['jquery', 'lodash', 'tile'], function
                 self.create();
                 self._redraw = _.throttle(self.display, 333);
                 $(W).on('resize', self._redraw);
+                $.subscribe('redraw', self._redraw);
             },
             dump: db() ? dump : $.noop,
         });

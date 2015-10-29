@@ -23,6 +23,9 @@
         text-align: center;
         width: 2em;
 
+        &.freeze {
+            position: absolute;
+        }
         &.space {
             line-height: 0;
             padding: 0;
