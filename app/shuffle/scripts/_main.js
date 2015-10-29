@@ -22,6 +22,12 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
 
     var pair, correct, anagram, shuffle, sequence, play, scroll;
     var attempt = 0;
+    var mess, msgs = {
+        intro: '<h1>Scroll to play</h1>',
+        right: '<h1>That’s right...</h1>',
+        going: '<h1>Keep going!</h1>',
+        finish: '<h1>Scroll to play again</h1>',
+    };
 
 //EXTEND
     Main.mobile = !PC;
@@ -31,8 +37,9 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     };
 
     function begin() {
-        play.fadeOut();
         scrollUp();
+        mess.html(msgs.intro);
+        play.fadeOut();
         pair = '';
         do { // skip incongruent data sets
             if (attempt++ > 99) throw new Error('out of data');
@@ -50,10 +57,12 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
         shuffle.display();
     }
     function done() {
+        mess.html(msgs.finish);
         shuffle.display();
         play.fadeIn();
     }
     function scrollUp() {
+        mess.html(Math.random() > .5 ? msgs.right : msgs.going);
         scroll.scrollTop(0);
     }
     function doNext() {
@@ -100,6 +109,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     function doBindings() {
         scroll = $('.scrollOuter');
         play = scroll.find('button');
+        mess = $('.message');
 
         watchInputDevice();
         watchScroll();

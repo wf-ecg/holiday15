@@ -1,36 +1,26 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* SHUF/_tile.scss */
 
-.shuffle {
-    color: white;
-    font-family: $serif;
-    margin-top: 250px;
+.tile {
+    @include transform(scale(1.00));
+    @include transition(all 0.25s);
+    @include transform-style( preserve-3d );
+    background-color: green;
+    border-radius: 1em;
+    display: inline-block;
+    font-size: 2em;
+    padding: 0.5em;
     text-align: center;
-    width: 100%;
+    width: 2em;
 
-    * {
-        @include transform(scale(1.00));
-        @include transition(all 0.25s);
-        @include transform-style( preserve-3d );
+    &.freeze {
+        position: absolute;
     }
-
-    .tile {
-        background-color: green;
-        border-radius: 1em;
-        display: inline-block;
-        font-size: 2em;
-        padding: 0.5em;
-        text-align: center;
-        width: 2em;
-
-        &.freeze {
-            position: absolute;
-        }
-        &.space {
-            line-height: 0;
-            padding: 0;
-            width: 100%;
-        }
+    &.space {
+        line-height: 0;
+        padding: 0;
+        width: 100%;
     }
 }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

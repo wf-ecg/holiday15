@@ -1,6 +1,19 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* SHUF/_misc.scss */
 
+.message, .shuffle {
+    color: white;
+    font-family: $serif;
+    text-align: center;
+    width: 100%;
+}
+.message {
+    margin-top: 150px;
+    position: absolute;
+}
+.shuffle {
+    margin-top: 250px;
+}
 a:hover {
     text-decoration: none;
 }
