@@ -51,13 +51,19 @@ define(['jquery'], function
 
 /// API
         $.extend(self, {
-            finish: '<h1>Scroll to play again</h1>',
-            going: '<h1>Keep going!</h1>',
-            intro: '<h1>Scroll to play</h1>',
-            right: '<h1>That’s right...</h1>',
+            almost: 'Almost there.',
+            finish: 'Scroll to play again',
+            going: 'Keep going!',
+            intro: 'Scroll to play',
+            right: 'That’s right...',
+            cheers: ['almost', 'going', 'right'],
+            cheer: function (num) {
+                num = num || (Math.random() * self.cheers.length);
+                self.show(self.cheers[Math.floor(num)]);
+            },
             show: function (prop, cb) {
                 cf.ele.hide() //
-                .html(this[prop]) //
+                .html('<h1>' + self[prop] + '</h1>') //
                 .fadeIn(cb);
             },
             init: function () {

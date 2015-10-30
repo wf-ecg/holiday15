@@ -57,7 +57,7 @@ define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
         play.fadeIn();
     }
     function scrollUp() {
-        msgs.show(Math.random() > .5 ? 'right' : 'going');
+        msgs.cheer();
         scroll.scrollTop(0);
     }
     function doNext() {
