@@ -54,16 +54,16 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         watchScroll();
         shuffle.destroy();
         scrollUp();
-        msgs.show('finish', function () {
+        msgs.show('finish', _.delay(function () {
             scroll.one('scroll', begin);
-        });
+        }, 2222));
     }
     function scrollUp() {
         msgs.cheer();
         scroll.scrollTop(0);
     }
     function doNext() {
-        if (scroll.scrollTop() < 999) return;
+        if (scroll.scrollTop() < 1234) return;
         try {
             var i, j, l, s, w;
 

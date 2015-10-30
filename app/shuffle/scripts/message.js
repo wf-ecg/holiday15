@@ -64,7 +64,7 @@ define(['jquery'], function
             show: function (prop, cb) {
                 cf.ele.hide() //
                 .html('<h1>' + self[prop] + '</h1>') //
-                .fadeIn(cb);
+                .fadeIn().slideDown(cb);
             },
             init: function () {
                 cf.ele = $(cf.ele);
