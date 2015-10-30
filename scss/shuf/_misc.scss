@@ -8,11 +8,11 @@
     width: 100%;
 }
 .message {
-    margin-top: 25%;
+    margin-top: 15%;
     position: absolute;
 }
 .shuffle {
-    margin-top: 50%;
+    margin-top: 25%;
 }
 a:hover {
     text-decoration: none;
@@ -45,14 +45,12 @@ a:hover {
   }
 }
 
-@media (min-width: 768px) {
-    .container {
-        padding-left: 30px;
+@media (max-width: 768px) {
+    .message {
+        margin-top: 30%;
     }
-}
-@media (max-width: 479px) {
-    .container {
-        padding: 0px;
+    .shuffle {
+        margin-top: 60%;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

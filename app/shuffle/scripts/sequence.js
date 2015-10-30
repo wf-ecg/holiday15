@@ -28,7 +28,7 @@ define(['jquery'], function
     }
 
 // CONSTRUCT
-    function Sequence(phrase, cf) {
+    function Sequence(phrase, shuf, cf) {
         var self = this
             ;
         if (self.constructor !== Self) {
@@ -62,7 +62,7 @@ define(['jquery'], function
                 return self.array.shift();
                 ;
             },
-            create: function (len, shuf) {
+            create: function (len) {
                 for (var arr = [], i = 0; i < len; i++) {
                     arr[i] = i;
                 }

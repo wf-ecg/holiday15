@@ -45,7 +45,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
         shuffle = new Shuf(anagram);
-        sequence = new Seq(anagram);
+        sequence = new Seq(anagram, true);
         C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
         watchScroll(_.throttle(doNext, 99));
