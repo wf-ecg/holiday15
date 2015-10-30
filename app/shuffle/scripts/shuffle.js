@@ -64,7 +64,7 @@ define(['jquery', 'lodash', 'tile'], function
                 return self.array.shift();
             },
             display: function () { // tell each to draw
-                C.log(Nom, 'display');
+                C.log(Nom, 'display', cf.phrase);
                 self.unfreeze();
                 cf.div.empty();
                 self.tiles.forEach(function (e) {
@@ -111,8 +111,8 @@ define(['jquery', 'lodash', 'tile'], function
                 });
             },
             destroy: function () {
-                C.log(Nom, 'destroy');
-                $(W).off('resize', self._redraw);
+                C.log(Nom, 'destroy', cf.phrase);
+                $(W).off('resize');
             },
             init: function (phrase) {
                 cf.phrase = phrase;
