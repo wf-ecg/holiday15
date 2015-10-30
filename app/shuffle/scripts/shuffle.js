@@ -113,12 +113,14 @@ define(['jquery', 'lodash', 'tile'], function
             destroy: function () {
                 C.log(Nom, 'destroy', cf.phrase);
                 $(W).off('resize');
+                $.unsubscribe('redraw');
             },
             init: function (phrase) {
                 cf.phrase = phrase;
                 cf.div = $(cf.div);
                 cf.anagram = phrase.split('');
                 self.create();
+
                 self._redraw = _.throttle(self.display, 333);
                 $(W).on('resize', self._redraw);
                 $.subscribe('redraw', self._redraw);

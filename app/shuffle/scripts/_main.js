@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
-    MAIN($, Seq, Shuf, Data, Msg) {
+define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
+    MAIN($, _, Seq, Shuf, Data, Msg) {
     'use strict';
 
     var Nom = 'Main';
@@ -34,6 +34,7 @@ define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
     function begin() {
         scrollUp();
         msgs.show('intro');
+
         play.fadeOut();
         pair = '';
         do { // skip incongruent data sets
@@ -43,24 +44,26 @@ define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
-        if (shuffle) {
-            shuffle.destroy();
-        }
         shuffle = new Shuf(anagram);
         sequence = new Seq(anagram);
         C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
+        watchScroll(_.throttle(doNext, 99));
     }
     function done() {
-        msgs.show('finish');
-        shuffle.display();
-        play.fadeIn();
+        watchScroll();
+        shuffle.destroy();
+        scrollUp();
+        msgs.show('finish', function () {
+            scroll.one('scroll', begin);
+        });
     }
     function scrollUp() {
         msgs.cheer();
         scroll.scrollTop(0);
     }
     function doNext() {
+        if (scroll.scrollTop() < 999) return;
         try {
             var i, j, l, s, w;
 
@@ -79,7 +82,7 @@ define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
                 doNext();
             }
         } catch (err) {
-            _.delay(done, 999);
+            done();
         }
     }
 
@@ -94,19 +97,19 @@ define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
             body.addClass('mouse');
         });
     }
-    function watchScroll() {
-        scroll.on('scroll', function () {
-            if ($(this).scrollTop() > 999) {
-                doNext();
-            }
-        });
+    function watchScroll(fn) {
+        if (fn) {
+            watchScroll.last = fn;
+            scroll.on('scroll', fn);
+        } else {
+            scroll.off('scroll', watchScroll.last);
+        }
     }
     function doBindings() {
         scroll = $('.scrollOuter');
         play = scroll.find('button');
 
         watchInputDevice();
-        watchScroll();
     }
     function expose() {
         W.main = Main; // expose for dev
