@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'sequence', 'shuffle', 'data'], function
-    MAIN($, Seq, Shuf, Data) {
+define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
+    MAIN($, Seq, Shuf, Data, Msg) {
     'use strict';
 
     var Nom = 'Main';
@@ -22,17 +22,7 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
 
     var pair, correct, anagram, shuffle, sequence, play, scroll;
     var attempt = 0;
-    var mess, msgs = {
-        intro: '<h1>Scroll to play</h1>',
-        right: '<h1>That’s right...</h1>',
-        going: '<h1>Keep going!</h1>',
-        finish: '<h1>Scroll to play again</h1>',
-        show: function (prop) {
-            mess.hide() //
-            .html(this[prop]) //
-            .fadeIn();
-        },
-    };
+    var msgs = new Msg();
 
 //EXTEND
     Main.mobile = !PC;
@@ -113,7 +103,6 @@ define(['jquery', 'sequence', 'shuffle', 'data'], function
     function doBindings() {
         scroll = $('.scrollOuter');
         play = scroll.find('button');
-        mess = $('.message');
 
         watchInputDevice();
         watchScroll();
