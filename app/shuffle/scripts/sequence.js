@@ -62,11 +62,11 @@ define(['jquery'], function
                 return self.array.shift();
                 ;
             },
-            create: function (len) {
+            create: function (len, shuf) {
                 for (var arr = [], i = 0; i < len; i++) {
                     arr[i] = i;
                 }
-                self.array = $.shuffler(arr);
+                self.array = shuf ? $.shuffler(arr) : arr;
             },
             init: function (phrase) {
                 cf.phrase = phrase;
