@@ -85,12 +85,13 @@ define(['jquery', 'sequence', 'shuffle', 'data', 'message'], function
 
 //  PRIVATE
     function watchInputDevice() {
-        $('body').on('keydown', function () {
-            $(this).removeClass('mouse');
-            $(this).addClass('keyboard');
+        var body = $('body');
+        body.on('keydown', function () {
+            body.removeClass('mouse');
+            body.addClass('keyboard');
         }).on('mousemove', function () {
-            $(this).removeClass('keyboard');
-            $(this).addClass('mouse');
+            body.removeClass('keyboard');
+            body.addClass('mouse');
         });
     }
     function watchScroll() {
