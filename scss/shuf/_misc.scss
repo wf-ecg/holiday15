@@ -27,7 +27,9 @@ a:hover {
 }
 .scrollInner {
   background-image: url('../images/icons/wf_mobile_bg.png');
-  height: 2000px;
+  border-top: 3em solid green;
+  border-bottom: 3em solid green;
+  height: 9999px;
   position: relative;
   width: 100%;
 
