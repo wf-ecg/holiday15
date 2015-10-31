@@ -73,7 +73,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             s = shuffle.toString();
             w = anagram[i];
 
-            if (i !== j) {
+            if (l && i !== j) {
                 shuffle.swap(i, j);
                 scrollUp();
                 C.log(Nom, 'SWAP', [i, j], [l, w], s);
