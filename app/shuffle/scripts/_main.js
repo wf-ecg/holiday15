@@ -48,10 +48,11 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         sequence = new Seq(anagram, true);
         C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
-        watchScroll(_.throttle(doNext, 99));
+        watchScroll(_.throttle(doNext, 666));
     }
     function done() {
         watchScroll();
+        shuffle.unfreeze();
         shuffle.destroy();
         scrollUp();
         msgs.show('finish', _.delay(function () {

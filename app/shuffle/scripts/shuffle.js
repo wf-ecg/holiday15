@@ -104,6 +104,9 @@ define(['jquery', 'lodash', 'tile'], function
                 var p2 = t2.position();
                 t1.position(p2);
                 t2.position(p1);
+                if (t1.get().is('.space')) {
+                    t1.get().addClass('break');
+                }
             },
             create: function () {
                 self.tiles = cf.anagram.map(function (e) {
