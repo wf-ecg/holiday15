@@ -10,8 +10,8 @@
  ...
  */
 
-define(['jquery'], function
-    KLASS($) { // closure
+define(['jquery', 'lodash'], function
+    KLASS($, _) { // closure
     'use strict';
 
 // CLASS
@@ -56,6 +56,7 @@ define(['jquery'], function
 /// API
         $.extend(self, {
             pos: null,
+            colors: ['red', 'pink', 'lime', 'blue', 'yellow'],
             coordinates: function (x, y) {
                 // get/set using cf.ele,
             },
@@ -78,7 +79,7 @@ define(['jquery'], function
                 if (obj) {
                     self.pos = obj;
                     cf.ele.css(obj);
-                    cf.ele.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
+                    cf.ele.one('webkitTransitionEnd transitionend', function() {
                         $.publish('redraw');
                     });
                 } else {
@@ -100,13 +101,23 @@ define(['jquery'], function
             val: function () {
                 return cf.val;
             },
+            randomColor: function (ele) {
+                $(ele).css({
+                    backgroundColor: self.colors[_.random(4)],
+                });
+            },
+            handleSpace: function () {
+                self.randomColor(cf.ele);
+                cf.ele.addClass('space');
+                cf.ele.html('&nbsp');
+            },
             set: function (char) {
                 cf.val = char;
                 if (char === ' ') {
-                    char = '&nbsp';
-                    cf.ele.addClass('space');
+                    self.handleSpace(cf.ele);
+                } else {
+                    cf.ele.html(char);
                 }
-                cf.ele.html(char);
             },
             get: function () {
                 return cf.ele;
