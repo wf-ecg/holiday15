@@ -53,10 +53,12 @@ define(['jquery'], function
         $.extend(self, {
             almost: 'Almost there.',
             finish: 'Scroll to play again',
+            forest: 'Scroll! Forrest, scroll',
             going: 'Keep going!',
             intro: 'Scroll to play',
+            noquit: 'Don’t quit now.',
             right: 'That’s right...',
-            cheers: ['almost', 'going', 'right'],
+            cheers: ['almost', 'forest', 'going', 'noquit', 'right'],
             cheer: function (num) {
                 num = num || (Math.random() * self.cheers.length);
                 self.show(self.cheers[Math.floor(num)]);
