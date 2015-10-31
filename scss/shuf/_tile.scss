@@ -3,7 +3,7 @@
 
 .tile {
     @include transform(scale(1.00));
-    @include transition(all 0.25s);
+    @include transition(all 0.5s cubic-bezier(0.3, -0.7, 0.3, 1.7)); // 0, 0.9, 0.7, 1.1
     @include transform-style( preserve-3d );
     background-color: green;
     border-radius: 1em;
