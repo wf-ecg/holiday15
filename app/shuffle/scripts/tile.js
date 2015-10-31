@@ -107,7 +107,7 @@ define(['jquery', 'lodash'], function
                 });
             },
             handleSpace: function () {
-                self.randomColor(cf.ele);
+                //self.randomColor(cf.ele);
                 cf.ele.addClass('space');
                 cf.ele.html('&nbsp');
             },
