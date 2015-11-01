@@ -19,20 +19,17 @@ define(['jquery', 'lodash'], function
     var Self = Tile;
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Df = {
-        inited: false,
         ele: '<div class="tile">',
-        val: 'X',
-        cb: function () {
-            C.info(Nom, 'done');
-        },
+        char: 'X',
     };
+    var colors = ['red', 'pink', 'lime', 'blue', 'yellow'];
 
     function db(num) {
         return W.debug > (num || 1);
     }
 
 // CONSTRUCT
-    function Tile(letter, cf) {
+    function Tile(char, cf) {
         var self = this
             ;
         if (self.constructor !== Self) {
@@ -44,6 +41,7 @@ define(['jquery', 'lodash'], function
         if (db()) {
             self._ = cf;
         }
+        cf.ele = $(cf.ele);
 
 /// METHODS
         function dump() {
@@ -52,28 +50,34 @@ define(['jquery', 'lodash'], function
                 .replace(/\"/g, '');
             return self;
         }
+        function handleSpace() {
+            randomColor(cf.ele);
+            cf.ele.addClass('space');
+            cf.ele.html('&nbsp');
+        }
+        function randomColor(ele) {
+            $(ele).css({
+                backgroundColor: colors[_.random(4)],
+            });
+        }
+        function set(char) {
+            cf.char = char;
+            if (char === ' ') {
+                handleSpace(cf.ele);
+            } else {
+                cf.ele.html(char);
+            }
+            cf.ele.data(Nom, self); // save to element
+        }
 
 /// API
         $.extend(self, {
             pos: null,
-            colors: ['red', 'pink', 'lime', 'blue', 'yellow'],
-            coordinates: function (x, y) {
-                // get/set using cf.ele,
-            },
             appendTo: function (sel) {
                 $(sel).append(cf.ele);
             },
-            freeze: function () {
-                // set abs position of cf.ele
-            },
-            flow: function () {
-                // set inline position of cf.ele
-            },
-            spin: function () {
-                // animate cf.ele
-            },
-            saveOffset: function () {
-                return self.pos = cf.ele.offset();
+            get: function () {
+                return cf.ele;
             },
             position: function (obj) { // get:set
                 if (obj) {
@@ -86,53 +90,17 @@ define(['jquery', 'lodash'], function
                     return self.pos;
                 }
             },
-            swapWith: function (tile) {
-                var e1 = cf.ele;
-                var e2 = tile.get();
-                var n1 = e1.next();
-
-                e1.insertBefore(e2);
-                if (n1) {
-                    e2.insertBefore(n1);
-                } else {
-                    e2.appendTo(e2.parent())
-                }
+            saveOffset: function () {
+                return self.pos = cf.ele.offset();
             },
-            val: function () {
-                return cf.val;
-            },
-            randomColor: function (ele) {
-                $(ele).css({
-                    backgroundColor: self.colors[_.random(4)],
-                });
-            },
-            handleSpace: function () {
-                //self.randomColor(cf.ele);
-                cf.ele.addClass('space');
-                cf.ele.html('&nbsp');
-            },
-            set: function (char) {
-                cf.val = char;
-                if (char === ' ') {
-                    self.handleSpace(cf.ele);
-                } else {
-                    cf.ele.html(char);
-                }
-            },
-            get: function () {
-                return cf.ele;
-            },
-            init: function (letter) {
-                cf.ele = $(cf.ele);
-
-                self.set(letter);
-                cf.ele.data(Nom, self);
+            init: function (char) {
+                set(char);
             },
             dump: db() ? dump : $.noop,
         });
 
 /// INIT
-        self.init(letter || self.val());
+        self.init(char || cf.char);
     }
     return Tile;
 });
