@@ -19,10 +19,8 @@ define(['jquery', 'lodash', 'tile'], function
     var Self = Shuffle;
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Df = {
-        inited: false,
-        phrase: 'THRAGE',
         div: '.shuffle',
-        anagram: [],
+        phrase: 'THRAGE',
     };
 
     function db(num) {
@@ -44,41 +42,59 @@ define(['jquery', 'lodash', 'tile'], function
         }
 
 /// METHODS
+        function bind() {
+            cf.div = $(cf.div);
+            self._redraw = _.throttle(self.display, 333);
+            $(W).on('resize', self._redraw);
+            $.subscribe('redraw', self._redraw);
+        }
         function dump() {
             self._ = JSON.stringify(cf)
                 .replace(/,/g, '", ') // kill quotes
                 .replace(/\"/g, '');
             return self;
         }
+        function stick() {
+            cf.div.freezeKids();
+            self.tiles.forEach(function (tile) {
+                tile.saveOffset(); // reset saved position
+            });
+        }
+        function unstick() {
+            cf.div.unfreezeKids();
+        }
+        function swapPose(t1, t2) {
+            var p1, p2;
+            // animate div1 and div2 tile coordinates
+            p1 = t1.position();
+            p2 = t2.position();
+            t1.position(p2);
+            t2.position(p1);
+            if (t1.get().is('.space')) {
+                t1.get().addClass('break');
+            }
+        }
 
 /// API
         $.extend(self, {
+            _redraw: $.noop,
+            anagram: '',
             tiles: [],
-            check: function () {
-                if (!self.array.length) {
-                    throw new Error('out of numbers');
-                }
-            },
-            getNext: function () {
-                self.check();
-                return self.array.shift();
-            },
             display: function () { // tell each to draw
-                C.log(Nom, 'display', cf.phrase);
-                self.unfreeze();
+                unstick();
                 cf.div.empty();
-                self.tiles.forEach(function (e) {
-                    e.appendTo(cf.div);
+                self.tiles.forEach(function (tile) {
+                    tile.appendTo(cf.div);
                 });
-                self.freeze();
+                stick();
             },
-            indexOf: function (char, skip) {
-                var idx = cf.anagram.indexOf(char);
-                cf.anagram[idx] = '*';
+            indexOf: function (char) {
+                var idx = self.anagram.indexOf(char);
+                self.anagram[idx] = '*';
                 return idx;
             },
             toString: function () {
-                return cf.anagram.join('');
+                return self.anagram.join('');
             },
             getElements: function () {
                 return $.map(self.tiles, function (e) {
@@ -88,55 +104,30 @@ define(['jquery', 'lodash', 'tile'], function
             getSpaces: function () {
                 return $(self.getElements()).filter('.space');
             },
-            freeze: function () {
-                cf.div.freezeKids();
-                self.tiles.forEach(function (e) {
-                    e.saveOffset(); // reset saved position
-                });
-            },
-            unfreeze: function () {
-                cf.div.unfreezeKids();
-            },
-            swap: function (a, b) {
-                if (a < 0 || b < 0 ) return; // reject bad indexes
-                $.swapper(self.tiles, a, b); // reorder tiles (primitive way)
-                $.swapper(cf.anagram, a, b); // reorder current anagram state
-                var t1 = self.tiles[a];
-                var t2 = self.tiles[b];
-                self.swapPose(t1, t2);
-                //t1.swapWith(t2);
-            },
-            swapPose: function (t1, t2) {
-                // animate div1 and div2 tile coordinates
-                var p1 = t1.position();
-                var p2 = t2.position();
-                t1.position(p2);
-                t2.position(p1);
-                if (t1.get().is('.space')) {
-                    t1.get().addClass('break');
-                }
-            },
-            create: function () {
-                self.tiles = cf.anagram.map(function (e) {
-                    return new Tile(e); // make tiles
-                });
+            swap: function (i1, i2) {
+                $.swapper(self.tiles, i1, i2); // reorder tiles (primitive way)
+                $.swapper(self.anagram, i1, i2); // reorder current anagram state
+                swapPose(self.tiles[i1], self.tiles[i2]);
             },
             destroy: function () {
                 C.log(Nom, 'destroy', cf.phrase);
                 $(W).off('resize');
                 $.unsubscribe('redraw');
             },
+            conf: function (obj) {
+                $.extend(cf, obj);
+            },
             init: function (phrase) {
                 cf.phrase = phrase;
-                cf.div = $(cf.div);
-                cf.anagram = phrase.split('');
-                self.create();
 
-                self._redraw = _.throttle(self.display, 333);
-                $(W).on('resize', self._redraw);
-                $.subscribe('redraw', self._redraw);
+                self.anagram = cf.phrase.split('');
+                self.tiles = self.anagram.map(function (e) {
+                    return new Tile(e); // make tiles
+                });
+                bind();
             },
             dump: db() ? dump : $.noop,
+            unfreeze: unstick,
         });
 
 /// INIT

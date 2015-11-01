@@ -20,9 +20,10 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var Db = W.debug > 0;
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
-    var pair, correct, anagram, shuffle, sequence, play, scroll;
+    var pair, correct, anagram, sequence, play, scroll;
     var attempt = 0;
     var msgs = new Msg();
+    var shuffle = new Shuf();
 
 //EXTEND
     Main.mobile = !PC;
@@ -44,7 +45,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
-        shuffle = new Shuf(anagram);
+        shuffle.init(anagram);
         sequence = new Seq(anagram, true);
         C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
@@ -79,7 +80,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
                 scrollUp();
                 C.log(Nom, 'SWAP', [i, j], [l, w], s);
             } else {
-                C.log(Nom, 'same', [i, j], [l, w], s);
+                C.log(Nom, 'skip', [i, j], [l, w], s);
                 doNext();
             }
         } catch (err) {
@@ -121,6 +122,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             sequence: sequence,
             Data: Data,
         });
+        C.log(Main);
     }
 
 //  INIT
