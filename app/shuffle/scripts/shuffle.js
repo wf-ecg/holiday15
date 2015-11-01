@@ -80,6 +80,14 @@ define(['jquery', 'lodash', 'tile'], function
             toString: function () {
                 return cf.anagram.join('');
             },
+            getElements: function () {
+                return $.map(self.tiles, function (e) {
+                    return e.get()[0];
+                });
+            },
+            getSpaces: function () {
+                return $(self.getElements()).filter('.space');
+            },
             freeze: function () {
                 cf.div.freezeKids();
                 self.tiles.forEach(function (e) {
