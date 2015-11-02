@@ -50,8 +50,11 @@ define(['jquery', 'lodash'], function
                 .replace(/\"/g, '');
             return self;
         }
+        function handleBreak() {
+            cf.ele.addClass('break');
+        }
         function handleSpace() {
-            randomColor(cf.ele);
+            //randomColor(cf.ele);
             cf.ele.addClass('space');
             cf.ele.html('&nbsp');
         }
@@ -62,7 +65,9 @@ define(['jquery', 'lodash'], function
         }
         function set(char) {
             cf.char = char;
-            if (char === ' ') {
+            if (char === '\n') {
+                handleBreak(cf.ele);
+            } else if (char === ' ') {
                 handleSpace(cf.ele);
             } else {
                 cf.ele.html(char);

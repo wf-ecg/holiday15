@@ -70,9 +70,6 @@ define(['jquery', 'lodash', 'tile'], function
             p2 = t2.position();
             t1.position(p2);
             t2.position(p1);
-            if (t1.get().is('.space')) {
-                t1.get().addClass('break');
-            }
         }
 
 /// API
@@ -94,7 +91,7 @@ define(['jquery', 'lodash', 'tile'], function
                 return idx;
             },
             toString: function () {
-                return self.anagram.join('');
+                return self.anagram.join('').replace('\n', ' ');
             },
             valueOf: function () {
                 return cf.phrase;
@@ -113,7 +110,7 @@ define(['jquery', 'lodash', 'tile'], function
                 swapPose(self.tiles[i1], self.tiles[i2]);
             },
             destroy: function () {
-                C.log(Nom, 'destroy', cf.phrase);
+                C.log(Nom, 'destroy', self.toString());
                 $(W).off('resize');
                 $.unsubscribe('redraw');
             },

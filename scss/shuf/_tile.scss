@@ -20,10 +20,20 @@
         background-color: transparent;
         line-height: 1;
         padding: 0;
+
+        &:nth-last-child(-n+2) { // up to 2 trailing spaces
+            background-color: transparent !important;
+            width: 0;
+        }
     }
     &.break {
+        background-color: transparent !important;
         line-height: 0;
         width: 100%;
+
+        & + .break {
+            display: none; // hide consecutive breaks
+        }
     }
 }
 
