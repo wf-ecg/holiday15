@@ -62,13 +62,13 @@ define(function () {
             'Jade Hypo No',
             'Hop Ad Enjoy',
         ], [
-            'Happy New Year',
+            'Happy \nNew Year',
             'Hyena Awry Pep',
             'Napper Way Hey',
             'A Yarn Peep Why',
             'Away He Pen Pry',
         ], [
-            'Calm and Bright',
+            'Calm and \nBright',
             'Brag Latch Mind',
             'Barn Mad Glitch',
             'Bald Nag Inch Mr',
@@ -79,7 +79,7 @@ define(function () {
             'Vegan He Pithy Pry',
             'Gravy He Ten Hippy',
         ], [
-            'Friends Family Happiness',
+            'Friends Family \nHappiness',
             'Nerd Ifs Fail My Heap Spins',
             'Reds Fin Aim Fly Nap She Sip',
             'Finders Fail My Pass He Nip',

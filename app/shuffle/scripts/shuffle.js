@@ -96,6 +96,9 @@ define(['jquery', 'lodash', 'tile'], function
             toString: function () {
                 return self.anagram.join('');
             },
+            valueOf: function () {
+                return cf.phrase;
+            },
             getElements: function () {
                 return $.map(self.tiles, function (e) {
                     return e.get()[0];
