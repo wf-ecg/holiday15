@@ -12,6 +12,9 @@
     pointer-events: none;
     position: absolute;
 
+    h1 {
+        font-size: 2.4em;
+    }
     .debug & {
         pointer-events: auto;
     }

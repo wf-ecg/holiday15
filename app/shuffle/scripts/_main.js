@@ -54,6 +54,10 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
+        if (Main.mobile) {
+            correct = correct.replace(/\s/g, '\n');
+            anagram = anagram.replace(/\s/g, '\n');
+        }
         shuffle.init(anagram);
         sequence.init(anagram);
         C.log(Nom, 'begin', sequence.array);
