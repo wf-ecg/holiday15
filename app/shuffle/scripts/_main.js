@@ -18,7 +18,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var Main = {};
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Db = W.debug > 0;
-    var PC = !W.navigator.userAgent.match(/mobi/i);
 
     var pair, correct, anagram, play, scroll;
     var attempt = 0;
@@ -29,7 +28,14 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     }); // blank but randomized
 
 //EXTEND
-    Main.mobile = !PC;
+    watchResize(function () {
+        Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
+        if (Main.mobile) {
+            $('html').addClass('mobile');
+        } else {
+            $('html').removeClass('mobile');
+        }
+    });
 
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
@@ -109,6 +115,15 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             scroll.off('scroll', watchScroll.last);
         }
     }
+    function watchResize(fn) {
+        if (fn) {
+            watchResize.last = fn;
+            $(W).on('resize', fn);
+            fn();
+        } else {
+            $(W).off('resize', watchResize.last);
+        }
+    }
     function doBindings() {
         scroll = $('.scrollOuter');
         play = scroll.find('button');
@@ -118,11 +133,9 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     function expose() {
         W.main = Main; // expose for dev
         $.extend(Main, {
-            correct: correct,
-            anagram: anagram,
             shuffle: shuffle,
             sequence: sequence,
-            Data: Data,
+            data: Data,
         });
         C.log(Main);
     }
@@ -131,11 +144,10 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     $(function () {
         Main.begin = begin;
         doBindings();
-        begin();
         if (Db) {
             expose();
-            //runTests();
         }
+        begin();
     });
 
 });
