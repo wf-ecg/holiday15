@@ -78,9 +78,9 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             if (l && (i !== j) && (l !== w)) {
                 shuffle.swap(i, j);
                 scrollUp();
-                C.log(Nom, 'SWAP', [i, j], [l, w], s);
+                C.log(Nom, 'doNext SWAP', [i, j], [l, w], s);
             } else {
-                C.log(Nom, 'skip', [i, j], [l, w], s);
+                C.log(Nom, 'doNext skip', [i, j], [l, w], s);
                 doNext();
             }
         } catch (err) {
