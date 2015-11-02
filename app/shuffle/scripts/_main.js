@@ -68,7 +68,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         scroll.scrollTop(0);
     }
     function doNext() {
-        if (scroll.scrollTop() < 1234) return;
+        if (scroll.scrollTop() < 999) return;
         try {
             var i, j, l, w;
 
