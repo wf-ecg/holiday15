@@ -1,0 +1,55 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* SHUF/_tile.scss */
+
+.tile {
+    &, * {
+        @include transform(scale(1.00));
+        @include transition(all 0.5s cubic-bezier(0.3, -0.7, 0.3, 1.7)); // 0, 0.9, 0.7, 1.1
+        @include transform-style( preserve-3d );
+    }
+    background-color: $wf_red;
+    border-radius: 1em;
+    box-shadow: 1px 4px 9px rgba(0,0,0,0.3);
+    display: inline-block;
+    font-size: 2em;
+    margin: 1px;
+    padding: 0.5em;
+    pointer-events: none;
+    text-align: center;
+    width: 2em;
+
+    .debug & {
+        pointer-events: auto;
+    }
+    &.freeze {
+        position: absolute;
+    }
+    &.space {
+        background-color: transparent;
+        line-height: 1;
+        padding: 0;
+
+        &:first-child,
+            &:nth-last-child(-n+2), // up to 2 trailing spaces
+            br + & {
+            background-color: transparent !important;
+            width: 0;
+        }
+    }
+
+    &.break {
+        //background-color: transparent !important;
+        line-height: 0;
+        padding: 0;
+        width: 0;
+
+        & + .break {
+            //display: none; // hide consecutive breaks
+        }
+    }
+    &.correct {
+        background-color: green;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

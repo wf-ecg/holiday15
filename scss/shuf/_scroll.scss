@@ -1,0 +1,32 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* SHUF/_scroll.scss */
+
+.scrollOuter {
+    bottom: 66px;
+    overflow: scroll;
+    position: absolute;
+    top: 40px;
+    width: 105%;
+}
+.scrollInner {
+    background-image: url('../images/icons/wf_mobile_bg.png');
+    background-size: 6px;
+    border-bottom: 3em solid green;
+    border-top: 3em solid green;
+    height: 9999px;
+    position: relative;
+    width: 100%;
+
+    button {
+        bottom: 1em;
+        display: none;
+        font-size: 2em;
+        left: 1em;
+        margin: auto;
+        position: absolute;
+        right: 1em;
+        width: 7em;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
