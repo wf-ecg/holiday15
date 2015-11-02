@@ -55,14 +55,12 @@ define(['jquery'], function
             array: [],
             check: function () {
                 if (!self.array.length) {
-                    C.error(self);
                     throw new Error('out of numbers');
                 }
             },
             getNext: function () {
                 self.check();
                 return self.array.shift();
-                ;
             },
             valueOf: function () {
                 return cf.phrase;

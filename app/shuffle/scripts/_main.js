@@ -50,7 +50,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         anagram = pair.anagram.toUpperCase();
         shuffle.init(anagram);
         sequence.init(anagram);
-        C.log(anagram, '>', correct, sequence.array);
+        C.log(Nom, 'begin', sequence.array);
         shuffle.display();
         watchScroll(_.throttle(doNext, 666));
     }
@@ -70,20 +70,19 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     function doNext() {
         if (scroll.scrollTop() < 1234) return;
         try {
-            var i, j, l, s, w;
+            var i, j, l, w;
 
             i = sequence.getNext();
             l = correct[i];
             j = shuffle.indexOf(l, i);
-            s = shuffle.toString();
             w = anagram[i];
 
             if (l && (i !== j) && (l !== w)) {
                 shuffle.swap(i, j);
                 scrollUp();
-                C.log(Nom, 'doNext SWAP', [i, j], [l, w], s);
+                C.log(Nom, 'doNext SWAP', [i, j], [l, w], shuffle.toString());
             } else {
-                C.log(Nom, 'doNext skip', [i, j], [l, w], s);
+                C.log(Nom, 'doNext skip', [i, j], [l, w], shuffle.toString());
                 doNext();
             }
         } catch (err) {
