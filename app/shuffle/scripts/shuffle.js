@@ -82,6 +82,9 @@ define(['jquery', 'lodash', 'tile'], function
                 cf.div.empty();
                 self.tiles.forEach(function (tile) {
                     tile.appendTo(cf.div);
+                    if (tile.get().is('.break')) {
+                        tile.get().after('<br>');
+                    }
                 });
                 stick();
             },
