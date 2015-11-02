@@ -26,26 +26,23 @@
     }
     &.space {
         background-color: transparent;
-        line-height: 1;
+        line-height: 0;
         padding: 0;
 
         &:first-child,
             &:nth-last-child(-n+2), // up to 2 trailing spaces
-            br + & {
+            & + & {
             background-color: transparent !important;
+            margin: 0;
             width: 0;
         }
     }
 
     &.break {
-        //background-color: transparent !important;
         line-height: 0;
+        margin: 0;
         padding: 0;
         width: 0;
-
-        & + .break {
-            //display: none; // hide consecutive breaks
-        }
     }
     &.correct {
         background-color: green;

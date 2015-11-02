@@ -42,6 +42,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     };
 
     function begin() {
+        var tmp;
+
         scrollUp();
         msgs.show('intro');
 
@@ -54,17 +56,19 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
 
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
+        tmp = anagram + ' -> ' + correct;
+
         if (Main.mobile) {
             correct = correct.replace(/\s/g, '\n');
             anagram = anagram.replace(/\s/g, '\n');
         }
+        anagram = ' ' + anagram; // hack that seems to work
         shuffle.init(anagram);
         sequence.init(anagram);
 
         shuffle.display();
         watchScroll(_.throttle(doNext, 666));
-
-        C.log(Nom, 'begin', sequence.array, correct);
+        C.log(Nom, 'begin', sequence.array, tmp);
     }
     function done() {
         watchScroll();
@@ -95,14 +99,14 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         w = anagram[i];
         if (j > -1) {
             shuffle.tiles[j].get().addClass('correct');
-        }
-        if (l && (i !== j) && (l !== w)) {
-            shuffle.swap(i, j);
-            scrollUp();
-            C.log(Nom, 'doNext SWAP', [i, j], [l, w], shuffle.toString());
-        } else {
-            C.log(Nom, 'doNext skip', [i, j], [l, w], shuffle.toString());
-            doNext();
+            if (l && (i !== j) && (l !== w)) {
+                shuffle.swap(i, j);
+                scrollUp();
+                C.log(Nom, 'doNext SWAP', [i, j], [l, w], [shuffle.toString()]);
+            } else {
+                C.log(Nom, 'doNext skip', [i, j], [l, w], [shuffle.toString()]);
+                doNext();
+            }
         }
     }
 

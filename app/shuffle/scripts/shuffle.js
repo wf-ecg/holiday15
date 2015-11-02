@@ -94,7 +94,7 @@ define(['jquery', 'lodash', 'tile'], function
                 return idx;
             },
             toString: function () {
-                return self.anagram.join('').replace('\n', ' ');
+                return self.anagram.join('').replace(/\n/g, ' ');
             },
             valueOf: function () {
                 return cf.phrase;
