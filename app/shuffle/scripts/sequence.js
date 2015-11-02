@@ -21,6 +21,7 @@ define(['jquery'], function
     var Df = {
         inited: false,
         phrase: 'the quick brown fox',
+        random: false,
     };
 
     function db(num) {
@@ -28,7 +29,7 @@ define(['jquery'], function
     }
 
 // CONSTRUCT
-    function Sequence(phrase, shuf, cf) {
+    function Sequence(phrase, cf) {
         var self = this
             ;
         if (self.constructor !== Self) {
@@ -54,6 +55,7 @@ define(['jquery'], function
             array: [],
             check: function () {
                 if (!self.array.length) {
+                    C.error(self);
                     throw new Error('out of numbers');
                 }
             },
@@ -62,15 +64,18 @@ define(['jquery'], function
                 return self.array.shift();
                 ;
             },
+            valueOf: function () {
+                return cf.phrase;
+            },
             create: function (len) {
                 for (var arr = [], i = 0; i < len; i++) {
                     arr[i] = i;
                 }
-                self.array = shuf ? $.shuffler(arr) : arr;
+                self.array = cf.random ? $.shuffler(arr) : arr;
             },
             init: function (phrase) {
                 cf.phrase = phrase;
-                self.create(phrase.length);
+                self.create(cf.phrase.length);
             },
             dump: db() ? dump : $.noop,
         });

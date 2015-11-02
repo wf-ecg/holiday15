@@ -20,10 +20,13 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var Db = W.debug > 0;
     var PC = !W.navigator.userAgent.match(/mobi/i);
 
-    var pair, correct, anagram, sequence, play, scroll;
+    var pair, correct, anagram, play, scroll;
     var attempt = 0;
     var msgs = new Msg();
     var shuffle = new Shuf();
+    var sequence = new Seq('', {
+        random: true,
+    }); // blank but randomized
 
 //EXTEND
     Main.mobile = !PC;
@@ -46,7 +49,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         correct = pair.correct.toUpperCase();
         anagram = pair.anagram.toUpperCase();
         shuffle.init(anagram);
-        sequence = new Seq(anagram, true);
+        sequence.init(anagram);
         C.log(anagram, '>', correct, sequence.array);
         shuffle.display();
         watchScroll(_.throttle(doNext, 666));
