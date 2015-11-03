@@ -18,15 +18,6 @@ $serif: 'Archer SSm A', 'Archer SSm B', serif;
 $lib: '/lib/';
 $break: 750px;
 
-.ui-page {
-    height: 100%;
-    text-align: center;
-}
-footer {
-    bottom: 0;
-    position: relative;
-}
-
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import '_ada';
 @import '_head';
