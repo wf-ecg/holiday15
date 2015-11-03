@@ -2,7 +2,7 @@
     "name": "jumble",
     "repository": {
         "type": "git",
-        "url": "https://github.com/wf-ecg/jumble.git"
+        "url": "https://github.com/wf-ecg/holiday15.git"
     },
     "version": "0.1.0",
     "devDependencies": {
@@ -22,7 +22,7 @@
         "load-grunt-tasks": "~0.2.0"
     },
     "bases": ["app", ".", "../.."],
-    "group": "docs/wf-ecg/jumble/0",
+    "group": "docs/wf-ecg/holiday15/0",
     "port0": 7325,
     "port1": 8325,
     "zzzzz": 0
