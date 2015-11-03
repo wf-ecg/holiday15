@@ -15,6 +15,8 @@ require.config({
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
+        boots: '../../vendor/bootstrap/js/bootstrap.min',
+        //
         beacon: 'libs/ecg-beacon',
         console: 'libs/console',
         jqxtn: 'libs/jq-xtn',
@@ -46,7 +48,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', 'jqmobi', 'jqxtn', '_main'], function (_) {
+    require(['lodash', 'boots', 'jqmobi', 'jqxtn', '_main'], function (_) {
 
         _.delay(function () {
             if (W.debug < -2) {

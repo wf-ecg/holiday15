@@ -44,6 +44,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         $('html,body').animate({scrollTop: px}, (ms || 333), 'swing');
     };
 
+    $('header').first().load('../includes/main_header.html header > *');
+
     function begin() {
         var tmp;
 

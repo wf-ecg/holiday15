@@ -17,15 +17,18 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
     var Nom = 'Main';
     var Main = {};
     var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 0;
-    var PC = !W.navigator.userAgent.match(/mobi/i);
+
+    function db(num) {
+        return W.debug > (num || 1);
+    }
 
 //EXTEND
-    Main.mobile = !PC;
 
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
     };
+
+    $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
     function watchInputDevice() {
@@ -58,7 +61,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
             Timer: Timer,
         });
 
-        C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
+        C.info(Nom, 'init @', new Date(), 'debug:', db(), Main);
     }
     function connectTiles(a, b, c) {
         return new Tile({
@@ -88,7 +91,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
     }
 //  INIT
     $(function () {
-        if (Db) {
+        if (db()) {
             expose();
         }
         doBindings();
