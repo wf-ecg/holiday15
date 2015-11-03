@@ -29,8 +29,8 @@ define(function () {
 
         if (0) {
             return {
-                correct: 'MERRY AND BRIGHT',
-                anagram: 'BREATH DRYING MR',
+                correct: 'FRIENDS FAMILY HAPPINESS',
+                anagram: 'FINDERS FAIL MY PASS HE NIP',
             };
         }
         return {

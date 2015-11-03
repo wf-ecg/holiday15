@@ -52,8 +52,8 @@ define(['jquery', 'lodash', 'tile'], function
             self._redraw = _.throttle(self.display, 333);
             $.subscribe('redraw.' + Nom, self._redraw);
         }
-        function destruct() {
-            C.log(Nom, 'destroy', self.toString());
+        function done() {
+            C.log(Nom, 'done', cf.phrase);
             if (cf.div.addClass) {
                 cf.div.addClass('done');
             }
@@ -87,7 +87,7 @@ define(['jquery', 'lodash', 'tile'], function
             _redraw: $.noop,
             anagram: [],
             tiles: [],
-            destroy: destruct,
+            destroy: done,
             unfreeze: unstick,
             dump: db() ? dump : $.noop,
             display: function () { // tell each to draw

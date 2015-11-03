@@ -17,7 +17,10 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var Nom = 'Main';
     var Main = {};
     var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 0;
+
+    function db(num) {
+        return W.debug > (num || 1);
+    }
 
     var pair, correct, anagram, play, scroll;
     var attempt = 0;
@@ -38,7 +41,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     });
 
     $.scrollMain = function (px, ms) {
-        $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
+        $('html,body').animate({scrollTop: px}, (ms || 333), 'swing');
     };
 
     function begin() {
@@ -59,7 +62,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         tmp = anagram + ' -> ' + correct;
 
         shuffle.init(anagram);
-        sequence.init(anagram);
+        sequence.init(correct);
 
         shuffle.display();
         watchScroll(_.throttle(doNext, 666));
@@ -85,7 +88,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         try {
             i = sequence.getNext();
         } catch (err) {
-            C.log(err);
+            db(2) && C.log(err);
             return done();
         }
         l = correct[i];
@@ -153,7 +156,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     $(function () {
         Main.begin = begin;
         doBindings();
-        if (Db) {
+        if (db()) {
             expose();
         }
         begin();
