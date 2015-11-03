@@ -19,7 +19,7 @@ define(['jquery', 'lodash'], function
     var Self = Tile;
     var W = (W && W.window || window), C = (W.C || W.console || {});
     var Df = {
-        ele: '<div class="tile">',
+        ele: '<span class="tile">',
         char: 'X',
     };
     var colors = ['red', 'pink', 'lime', 'blue', 'yellow'];
@@ -56,7 +56,7 @@ define(['jquery', 'lodash'], function
         function handleSpace() {
             //randomColor(cf.ele);
             cf.ele.addClass('space');
-            cf.ele.html('&nbsp');
+            cf.ele.html(' ');
         }
         function randomColor(ele) {
             $(ele).css({
