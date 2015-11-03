@@ -72,7 +72,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     }
     function done() {
         watchScroll();
-        shuffle.unfreeze();
         shuffle.destroy();
         scrollUp();
         msgs.show('finish', _.delay(function () {
@@ -83,7 +82,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         msgs.cheer();
         scroll.scrollTop(0);
     }
-    function doNext() {C.log('next')
+    function doNext() {
         var i, j, l, w;
 
         if (scroll.scrollTop() < 999) return;
@@ -108,6 +107,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
                 doNext();
             }
         }
+        if (sequence.check() < 2) return doNext();
     }
 
 //  PRIVATE

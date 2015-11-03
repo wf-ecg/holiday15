@@ -9,12 +9,13 @@
     width: 100%;
 }
 .message {
-    margin-top: 10%;
+    margin-top: 5%;
     pointer-events: none;
     position: absolute;
 
     h1 {
         font-size: 2.4em;
+        line-height: 1.2;
     }
     .debug & {
         pointer-events: auto;
@@ -29,10 +30,10 @@ a:hover {
 
 @media (orientation: portrait) {
     .message {
-        margin-top: 20%;
+        margin-top: 10em;
     }
     .shuffle {
-        margin-top: 40%;
+        margin-top: 20em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

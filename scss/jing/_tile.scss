@@ -9,13 +9,14 @@
     }
     background-color: $wf_red;
     border-radius: 1em;
-    box-shadow: 1px 4px 9px rgba(0,0,0,0.3);
+    box-shadow: 0.1em 0.3em 1em rgba(0,0,0,0.2);
     font-family: monospace;
     font-size: 2em;
     line-height: 1;
-    margin: 1px 5px;
+    margin: 0 0.2em;
     padding: 0.5em;
     pointer-events: none;
+    position: relative;
     text-align: center;
     width: 2em;
 

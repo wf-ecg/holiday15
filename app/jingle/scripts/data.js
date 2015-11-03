@@ -27,7 +27,7 @@ define(function () {
     Data.get = function () {
         var dat = ranDex(Data.anagrams);
 
-        if (1) {
+        if (0) {
             return {
                 correct: 'MERRY AND BRIGHT',
                 anagram: 'BREATH DRYING MR',
@@ -114,7 +114,7 @@ define(function () {
             'Enjoy Every Moment',
             'Yeomen Never Jot My',
             'Emote Over My Jenny',
-            'Joey Memo Rent Envy ',
+            'Joey Memo Rent Envy',
             'Mere One Envy Jot My',
         ]
     ];
