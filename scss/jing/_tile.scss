@@ -10,8 +10,10 @@
     background-color: $wf_red;
     border-radius: 1em;
     box-shadow: 1px 4px 9px rgba(0,0,0,0.3);
+    font-family: monospace;
     font-size: 2em;
-    margin: 1px;
+    line-height: 1;
+    margin: 1px 5px;
     padding: 0.5em;
     pointer-events: none;
     text-align: center;
@@ -21,12 +23,15 @@
         pointer-events: auto;
     }
     &.freeze {
+        font-family: $serif;
         position: absolute;
     }
     &.space {
         background-color: transparent;
         line-height: 0;
+        margin-right: 0.5em;
         padding: 0;
+        visibility: hidden;
 
         &:first-child,
             &:nth-last-child(-n+2), // up to 2 trailing spaces

@@ -4,11 +4,12 @@
 .message, .shuffle {
     color: white;
     font-family: $serif;
+    line-height: 5;
     text-align: center;
     width: 100%;
 }
 .message {
-    margin-top: 15%;
+    margin-top: 10%;
     pointer-events: none;
     position: absolute;
 
@@ -20,18 +21,18 @@
     }
 }
 .shuffle {
-    margin-top: 25%;
+    margin-top: 20%;
 }
 a:hover {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (orientation: portrait) {
     .message {
-        margin-top: 30%;
+        margin-top: 20%;
     }
     .shuffle {
-        margin-top: 60%;
+        margin-top: 40%;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
