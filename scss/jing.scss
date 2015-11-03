@@ -10,10 +10,11 @@ $sans: 'myriad-pro', sans-serif;
 $serif: 'Archer SSm A', 'Archer SSm B', serif;
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import 'shuf/_base';
-@import 'shuf/_head';
-@import 'shuf/_misc';
-@import 'shuf/_scroll';
-@import 'shuf/_tile';
+@import '_head';
+
+@import 'jing/_base';
+@import 'jing/_misc';
+@import 'jing/_scroll';
+@import 'jing/_tile';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */

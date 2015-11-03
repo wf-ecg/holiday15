@@ -29,13 +29,13 @@ footer {
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import '_ada';
-@import 'proj/_ani';
-@import 'proj/_base';
-@import 'proj/_header';
-@import 'proj/_jumble';
-@import 'proj/_response';
+@import '_modal';
 
-@import './_modal';
-@import './_misc';
+@import 'irt/_ani';
+@import 'irt/_base';
+@import 'irt/_header';
+@import 'irt/_jumble';
+@import 'irt/_misc';
+@import 'irt/_response';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */
