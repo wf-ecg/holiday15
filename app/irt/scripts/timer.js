@@ -84,6 +84,9 @@ define(['jquery'], function
                 self.stop();
                 cf.cb();
             },
+            add: function (num) {
+                cf.time += num;
+            },
             start: function () {
                 tick();
                 return self;
