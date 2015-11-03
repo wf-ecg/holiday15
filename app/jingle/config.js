@@ -15,9 +15,11 @@ require.config({
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
+        beacon: 'libs/ecg-beacon',
         console: 'libs/console',
-        modal: 'libs/modal',
         jqxtn: 'libs/jq-xtn',
+        modal: 'libs/modal',
+        stats: 'libs/ecg-stats',
         //
     },
 });
@@ -49,7 +51,7 @@ require(['modern', 'console'], function () {
         _.delay(function () {
             if (W.debug < -2) {
                 require(['stats'], function (stats) {
-                    stats.init('SHUFFLE');
+                    stats.init('HOLI-JING');
                 });
             }
         }, 1e3);

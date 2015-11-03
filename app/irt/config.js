@@ -4,7 +4,7 @@
 var W = (W && W.window || window), C = (W.C || W.console || {});
 
 W.SHIET = {};
-W.debug = Number(new Date('2015/11/01') > new Date());
+W.debug = Number(new Date('2015/12/01') > new Date());
 
 require.config({
     baseUrl: 'scripts',
@@ -49,9 +49,9 @@ require(['modern', 'console'], function () {
     require(['lodash', 'jqmobi', 'jqxtn', '_main'], function (_) {
 
         _.delay(function () {
-            if (W.debug < 2) {
+            if (W.debug < -2) {
                 require(['stats'], function (stats) {
-                    stats.init('JUMBLE');
+                    stats.init('HOLI-IRT');
                 });
             }
         }, 1e3);

@@ -4,7 +4,7 @@
 var W = (W && W.window || window), C = (W.C || W.console || {});
 
 W.SHIET = {};
-W.debug = Number(new Date('2015/11/01') > new Date());
+W.debug = Number(new Date('2015/12/01') > new Date());
 
 require.config({
     baseUrl: 'scripts',
@@ -16,8 +16,10 @@ require.config({
         modern: '/lib/modernizr/2.6.2/modernizr',
         videojs: '/lib/video-js/ecg/video',
         //
+        beacon: 'libs/ecg-beacon',
         console: 'libs/console',
         modal: 'libs/modal',
+        stats: 'libs/ecg-stats',
         //
     },
 });
@@ -49,7 +51,7 @@ require(['modern', 'console'], function () {
         _.delay(function () {
             if (W.debug < -2) {
                 require(['stats'], function (stats) {
-                    stats.init('JUMBLE');
+                    stats.init('HOLI-LAND');
                 });
             }
         }, 1e3);
