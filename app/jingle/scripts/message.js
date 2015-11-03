@@ -52,7 +52,7 @@ define(['jquery'], function
 /// API
         $.extend(self, {
             almost: 'Almost there.',
-            finish: 'Congratulations! Scroll to play again',
+            finish: 'Congratulations! <i>Scroll to play again</i>',
             forest: 'Scroll! Forrest, scroll',
             going: 'Keep going!',
             intro: 'Scroll to play',
