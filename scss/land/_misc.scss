@@ -37,6 +37,12 @@ img.stagecoach-logo {
     max-width: 100%;
 }
 
+.container * {
+    @include transform(scale(1.00));
+    @include transition(all 0.25s);
+    @include transform-style( preserve-3d );
+}
+
 @media (min-width: 768px) {
     .container {
         padding-left: 30px;
