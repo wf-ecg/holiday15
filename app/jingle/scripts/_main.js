@@ -58,11 +58,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         anagram = pair.anagram.toUpperCase();
         tmp = anagram + ' -> ' + correct;
 
-        if (Main.mobile) {
-            correct = correct.replace(/\s/g, '\n');
-            anagram = anagram.replace(/\s/g, '\n');
-        }
-        anagram = ' ' + anagram; // hack that seems to work
         shuffle.init(anagram);
         sequence.init(anagram);
 
