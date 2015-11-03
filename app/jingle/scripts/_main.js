@@ -17,14 +17,17 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var Nom = 'Main';
     var Main = {};
     var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 0;
+
+    function db(num) {
+        return W.debug > (num || 1);
+    }
 
     var pair, correct, anagram, play, scroll;
     var attempt = 0;
     var msgs = new Msg();
     var shuffle = new Shuf();
     var sequence = new Seq('', {
-        random: true,
+        random: !true,
     }); // blank but randomized
 
 //EXTEND
@@ -38,7 +41,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     });
 
     $.scrollMain = function (px, ms) {
-        $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
+        $('html,body').animate({scrollTop: px}, (ms || 333), 'swing');
     };
 
     function begin() {
@@ -58,13 +61,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         anagram = pair.anagram.toUpperCase();
         tmp = anagram + ' -> ' + correct;
 
-        if (Main.mobile) {
-            correct = correct.replace(/\s/g, '\n');
-            anagram = anagram.replace(/\s/g, '\n');
-        }
-        anagram = ' ' + anagram; // hack that seems to work
         shuffle.init(anagram);
-        sequence.init(anagram);
+        sequence.init(correct);
 
         shuffle.display();
         watchScroll(_.throttle(doNext, 666));
@@ -72,7 +70,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     }
     function done() {
         watchScroll();
-        shuffle.unfreeze();
         shuffle.destroy();
         scrollUp();
         msgs.show('finish', _.delay(function () {
@@ -91,7 +88,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         try {
             i = sequence.getNext();
         } catch (err) {
-            C.log(err);
+            db(2) && C.log(err);
             return done();
         }
         l = correct[i];
@@ -108,6 +105,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
                 doNext();
             }
         }
+        if (sequence.check() < 2) return doNext();
     }
 
 //  PRIVATE
@@ -145,7 +143,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         watchInputDevice();
     }
     function expose() {
-        W.main = Main; // expose for dev
+        W.Main = Main; // expose for dev
         $.extend(Main, {
             shuffle: shuffle,
             sequence: sequence,
@@ -158,7 +156,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     $(function () {
         Main.begin = begin;
         doBindings();
-        if (Db) {
+        if (db()) {
             expose();
         }
         begin();

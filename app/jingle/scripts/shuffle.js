@@ -26,6 +26,9 @@ define(['jquery', 'lodash', 'tile'], function
     function db(num) {
         return W.debug > (num || 1);
     }
+    $(W).on('resize', function () {
+        $.publish('redraw.' + Nom);
+    });
 
 // CONSTRUCT
     function Shuffle(phrase, cf) { // init with an anagram
@@ -43,10 +46,17 @@ define(['jquery', 'lodash', 'tile'], function
 
 /// METHODS
         function bind() {
+            $.unsubscribe('redraw.' + Nom);
             cf.div = $(cf.div);
+            cf.div.removeClass('done');
             self._redraw = _.throttle(self.display, 333);
-            $(W).on('resize', self._redraw);
-            $.subscribe('redraw', self._redraw);
+            $.subscribe('redraw.' + Nom, self._redraw);
+        }
+        function done() {
+            C.log(Nom, 'done', cf.phrase);
+            if (cf.div.addClass) {
+                cf.div.addClass('done');
+            }
         }
         function dump() {
             self._ = JSON.stringify(cf)
@@ -75,8 +85,11 @@ define(['jquery', 'lodash', 'tile'], function
 /// API
         $.extend(self, {
             _redraw: $.noop,
-            anagram: '',
+            anagram: [],
             tiles: [],
+            destroy: done,
+            unfreeze: unstick,
+            dump: db() ? dump : $.noop,
             display: function () { // tell each to draw
                 unstick();
                 cf.div.empty();
@@ -112,11 +125,6 @@ define(['jquery', 'lodash', 'tile'], function
                 $.swapper(self.anagram, i1, i2); // reorder current anagram state
                 swapPose(self.tiles[i1], self.tiles[i2]);
             },
-            destroy: function () {
-                C.log(Nom, 'destroy', self.toString());
-                $(W).off('resize');
-                $.unsubscribe('redraw');
-            },
             conf: function (obj) {
                 $.extend(cf, obj);
             },
@@ -129,8 +137,6 @@ define(['jquery', 'lodash', 'tile'], function
                 });
                 bind();
             },
-            dump: db() ? dump : $.noop,
-            unfreeze: unstick,
         });
 
 /// INIT

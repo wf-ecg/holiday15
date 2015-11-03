@@ -27,16 +27,15 @@ define(function () {
     Data.get = function () {
         var dat = ranDex(Data.anagrams);
 
+        if (0) {
+            return {
+                correct: 'FRIENDS FAMILY HAPPINESS',
+                anagram: 'FINDERS FAIL MY PASS HE NIP',
+            };
+        }
         return {
             correct: dat[0],
             anagram: takeAnagram(dat),
-        };
-    };
-
-    Data.test = function () {
-        return {
-            correct: 'Happy Holidays ',
-            anagram: 'Aloha Dippy Shy ',
         };
     };
 
@@ -115,7 +114,7 @@ define(function () {
             'Enjoy Every Moment',
             'Yeomen Never Jot My',
             'Emote Over My Jenny',
-            'Joey Memo Rent Envy ',
+            'Joey Memo Rent Envy',
             'Mere One Envy Jot My',
         ]
     ];
