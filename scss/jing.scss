@@ -1,6 +1,7 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'compass/css3';
 @import 'core/all';
+@import '_ada';
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
@@ -8,24 +9,12 @@
 $sans: 'myriad-pro', sans-serif;
 $serif: 'Archer SSm A', 'Archer SSm B', serif;
 
-.bg-white { background-color: white !important; }
-.bg-wf-gray { background: $a_d_coolgray; }
-.bg-wf-purple { background:  $a_d_red; }
-.bg-wf-blue { background: $a_d_teal; }
-.bg-wf-red { background: $a_d_red; }
-.bg-wf-orange { background: $a_d_orange; }
-.bg-wf-green { background: $a_d_green; }
-
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import '_ada';
 @import '_head';
-@import '_modal';
 
-@import 'land/_base';
-@import 'land/_btn';
-@import 'land/_caro';
-@import 'land/_mason';
-@import 'land/_misc';
-@import 'land/_tile';
+@import 'jing/_base';
+@import 'jing/_misc';
+@import 'jing/_scroll';
+@import 'jing/_tile';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */
