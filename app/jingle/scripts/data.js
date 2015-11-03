@@ -27,16 +27,15 @@ define(function () {
     Data.get = function () {
         var dat = ranDex(Data.anagrams);
 
+        if (1) {
+            return {
+                correct: 'MERRY AND BRIGHT',
+                anagram: 'BREATH DRYING MR',
+            };
+        }
         return {
             correct: dat[0],
             anagram: takeAnagram(dat),
-        };
-    };
-
-    Data.test = function () {
-        return {
-            correct: 'Happy Holidays ',
-            anagram: 'Aloha Dippy Shy ',
         };
     };
 

@@ -24,7 +24,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var msgs = new Msg();
     var shuffle = new Shuf();
     var sequence = new Seq('', {
-        random: true,
+        random: !true,
     }); // blank but randomized
 
 //EXTEND
@@ -83,7 +83,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         msgs.cheer();
         scroll.scrollTop(0);
     }
-    function doNext() {
+    function doNext() {C.log('next')
         var i, j, l, w;
 
         if (scroll.scrollTop() < 999) return;
@@ -145,7 +145,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         watchInputDevice();
     }
     function expose() {
-        W.main = Main; // expose for dev
+        W.Main = Main; // expose for dev
         $.extend(Main, {
             shuffle: shuffle,
             sequence: sequence,
