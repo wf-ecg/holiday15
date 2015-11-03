@@ -1,25 +1,20 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_base.scss */
 
-* {
-    box-sizing: border-box;
+html, body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-}
-html {
-    font-size: 15px;
-}
-body {
-    background-color: white;
-    font-family: $serif;
+    font-family: $sans;
+    font-weight: 400;
     line-height: 1;
-    margin: 0;
+    min-height: 100%;
+}
+header {
+    position: relative;
+    z-index: 9;
 }
 header, footer {
     font-family: $sans;
-}
-footer {
-    font-size: 10px;
 }
 h2 {
     font-size: 3em;
@@ -32,9 +27,27 @@ h3 {
     font-weight: 500;
     margin-bottom: 1em;
 }
+footer {
+    background: #44464a;
+    border-top: 0.5em solid #bfc0be;
+    bottom: 0;
+    color: #fff;
+    font-size: 0.9em;
+    line-height: 2;
+    text-align: center;
+    padding: 1em 2em 3em;
+    position: fixed;
+    width: 100%;
+}
 p {
     font-size: 2.5em;
     line-height: 1.4;
 }
 
+.ui-page-active {
+    height: 100%;
+}
+.mobile body {
+    font-size: 9px;
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

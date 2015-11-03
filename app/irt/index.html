@@ -14,9 +14,11 @@
     <!--  -->
     <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
         (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="../build/irt.css">
     <!--  -->
+    <script src="scripts/libs/glober.js"></script>
     <script src="/lib/requirejs/2.1.17/require.js"
             data-main="./config"
             data-main="./build/app"
@@ -30,9 +32,48 @@
       browser</a> to improve your web experience.</p> </div><![endif]-->
 
       <header>
-        <div class="logo mobile">
-          <img src="../images/icons/wf_mobile.png" alt="Wells Fargo">
+
+        <div class="mobile">
+          <img class="logo" src="../images/icons/wf_mobile.png" alt="Wells Fargo">
         </div>
+
+        <div class="container">
+          <div class="row">
+
+            <nav class="navbar navbar-default">
+
+              <div class="navbar-header">
+
+                <button type="button"
+                        class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#myNavbar"
+                        aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <nav class="navbar-nav">
+                    <div data-ng-include="'./includes/nav_list.html'"></div>
+                  </nav>
+                </div>
+
+                <!-- /.navbar-header -->
+              </div>
+
+              <a class="desktop navbar-brand" href="..">
+                <img class="logo" alt="Wells Fargo" src="../images/icons/wf-logo-50px.png">
+              </a>
+
+            </nav>
+
+            <!-- container/row -->
+          </div>
+        </div>
+
       </header>
 
       <!-- JUMBLE -->

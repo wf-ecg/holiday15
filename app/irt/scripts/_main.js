@@ -85,15 +85,15 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
         // require(['tile.test']);
         // require(['timer.test']);
         // require(['data.test']);
-        pairAll();
     }
 //  INIT
     $(function () {
         if (Db) {
             expose();
-            runTests();
         }
         doBindings();
+        pairAll();
+        startTimer()
     });
 
 });
