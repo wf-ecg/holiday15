@@ -30,7 +30,6 @@ require.config({
         //
     },
     shim: { angularAMD: ['angular'], angularRT: ['angular'] },
-    deps: ['ngapp'],
 });
 
 require(['modern', 'console'], function () {
@@ -55,7 +54,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', 'boots', 'mason', '_main'], function (_) {
+    require(['lodash', 'boots', 'mason', 'ngapp', '_main'], function (_) {
 
         _.delay(function () {
             if (W.debug < -2) {

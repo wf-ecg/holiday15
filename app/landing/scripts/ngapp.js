@@ -1,22 +1,17 @@
 /*jslint white:false */
-/*global angular */
+/*global define, angular */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-(function () {
-    'use strict';
+define(['angularAMD', 'angularRT'], function (angularAMD) {
 
-    angular
-        .module('app', ['app.core']);
+    var app = angular.module('ngapp', ['ngRoute']);
 
-    angular
-        .module('app.core', ['ngRoute']);
+    app.config(function ($routeProvider) {
 
-    angular
-        .module('app')
-        .config(function ($routeProvider) {
-            $routeProvider
-                .when('/', {
-                    templateUrl: './includes/_main.html',
-                });
-        });
+        $routeProvider.when('/', angularAMD.route({
+            templateUrl: './includes/_main.html',
+        }));
 
-})();
+    });
+
+    return angularAMD.bootstrap(app);
+});
