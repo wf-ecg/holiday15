@@ -84,10 +84,10 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
         });
     }
     function runTests() {
-        // require(['jumble.test']);
-        // require(['tile.test']);
-        // require(['timer.test']);
-        // require(['data.test']);
+        require(['tests/jumble.test']);
+        require(['tests/tile.test']);
+        require(['tests/timer.test']);
+        require(['tests/data.test']);
     }
 //  INIT
     $(function () {
@@ -96,7 +96,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
         }
         doBindings();
         pairAll();
-        startTimer()
+        startTimer();
     });
 
 });
