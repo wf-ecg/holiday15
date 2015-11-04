@@ -1,46 +1,55 @@
-<link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
-<style>
-  * {
-      box-sizing: border-box;
-  }
-  html {
-      font-family: verdana;
-      font-size: 10px;
-  }
-  body {
-      margin: 0;
-      text-align: center;
-  }
-  div.wrap {
-      border: 1px solid blue;
-      padding: 1em 0;
-  }
-  span.char {
-      background-color: rgba(99, 150, 200, 0.8);
-      border-radius: 0.5em;
-      display: inline;
-      font-size: 2em;
-      height: 3em; width: 3em;
-      line-height: 7.5;
-      margin: 0.1em;
-      padding: 3em;
-  }
-  .end:after {
-    margin-right: 1em;
-  }
-</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
+    <style>
+      * {
+          box-sizing: border-box;
+      }
+      html {
+          font-family: verdana;
+          font-size: 10px;
+      }
+      body {
+          margin: 0;
+          text-align: center;
+      }
+      div.wrap {
+          border: 1px solid blue;
+          padding: 1em 0;
+      }
+      span.char {
+          background-color: rgba(99, 150, 200, 0.8);
+          border-radius: 0.5em;
+          display: inline;
+          font-size: 2em;
+          height: 3em; width: 3em;
+          line-height: 7.5;
+          margin: 0.1em;
+          padding: 3em;
+      }
+      .end:after {
+          margin-right: 1em;
+      }
+    </style>
 
-<script type="text/javascript" src="/lib/jquery/1.11.3/jquery.js"></script>
-<script type="text/javascript" src="/lib/jquery/mobile/custom/jquery.mobile.js"></script>
-<script type="text/javascript" src="http://localhost:7325/livereload.js?snipver=1"></script>
+    <script type="text/javascript" src="/lib/jquery/1.11.3/jquery.js"></script>
+    <script type="text/javascript" src="/lib/jquery/mobile/custom/jquery.mobile.js"></script>
+    <script type="text/javascript" src="http://localhost:7325/livereload.js?snipver=1"></script>
 
+  </head>
+  <body class="container">
 
+    0
+    <div class="wrap">
+      a
+      <span class="char">word 1.1</span><span class="char">word 1.2</span><span class="char">word 1.3</span><span class="char end">word 1.4</span>
+      <span class="char">word 2.1</span><span class="char">word 2.2</span><span class="char">word 2.3</span>
+      z
+    </div>
+    1
 
-0
-<div class="wrap">
-  a
-  <span class="char">word 1.1</span><span class="char">word 1.2</span><span class="char">word 1.3</span><span class="char end">word 1.4</span>
-  <span class="char">word 2.1</span><span class="char">word 2.2</span><span class="char">word 2.3</span>
-  z
-</div>
-1
+  </body>
+</html>
