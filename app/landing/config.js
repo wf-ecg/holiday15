@@ -54,7 +54,8 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', 'boots', 'mason', 'ngapp', '_main'], function (_) {
+    require(['lodash', 'boots', 'mason', 'ngapp'], function (_) {
+        require(['_main']);
 
         _.delay(function () {
             if (W.debug < -2) {
