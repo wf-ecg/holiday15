@@ -16,9 +16,11 @@ require.config({
         modern: '/lib/modernizr/2.6.2/modernizr',
         videojs: '/lib/video-js/ecg/video',
         //
+        boots: '../../vendor/bootstrap/js/bootstrap.min',
+        console: '../../vendor/ecg/console',
+        modal: '../../vendor/ecg/modal',
+        //
         beacon: 'libs/ecg-beacon',
-        console: 'libs/console',
-        modal: 'libs/modal',
         stats: 'libs/ecg-stats',
         //
     },

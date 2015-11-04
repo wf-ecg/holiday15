@@ -16,11 +16,11 @@ require.config({
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
         boots: '../../vendor/bootstrap/js/bootstrap.min',
+        console: '../../vendor/ecg/console',
+        modal: '../../vendor/ecg/modal',
         //
         beacon: 'libs/ecg-beacon',
-        console: 'libs/console',
         jqxtn: 'libs/jq-xtn',
-        modal: 'libs/modal',
         stats: 'libs/ecg-stats',
         //
     },
