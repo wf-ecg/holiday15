@@ -18,12 +18,19 @@ require.config({
         //
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
+        mason: '../../vendor/jq/jquery.masonry.min',
         modal: '../../vendor/ecg/modal',
         //
         beacon: 'libs/ecg-beacon',
         stats: 'libs/ecg-stats',
         //
+        angular: '../../vendor/ng/angular.min',
+        angularAMD: '../../vendor/ng/angularAMD.min',
+        angularRT: '../../vendor/ng/angular-route.min',
+        //
     },
+    shim: { angularAMD: ['angular'], angularRT: ['angular'] },
+    deps: ['ngapp'],
 });
 
 require(['modern', 'console'], function () {
@@ -48,7 +55,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', '_main'], function (_) {
+    require(['lodash', 'boots', 'mason', '_main'], function (_) {
 
         _.delay(function () {
             if (W.debug < -2) {
