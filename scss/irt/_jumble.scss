@@ -44,56 +44,62 @@ body {
         margin: 1rem;
         opacity: 0.5;
     }
+    .gameOutput {
+        font: $serf1;
+    }
+    .gameInput {
+        font: $sans1;
+    }
     span {
+        border: $line outset $trans;
+        border-radius: 3px;
         height: 2.25em;
         line-height: 3;
         margin: 0.05em;
         padding: 0.5em;
         text-transform: uppercase;
         width: 2em;
-
         &.space {
             margin-left: 0.5em;
         }
-    }
-    // TOP
-    .gameOutput {
-        font: $serf1;
-
-        span {
-            background-color: $bkgr;
-            border: $line outset $blueB;
-            border-radius: 3px;
-            color: pink;//$trans;
+        &.slot {
+            color: $trans;
             opacity: 0.5;
-
-            &.active {
+            &.unsolved {
+                background-color: $bkgr;
+                border: $line outset $blueB;
+            }
+            &.now {
+                border-color: green;
+            }
+            &.bad {
+                border-color: red;
+                color: red;
+            }
+            &.solved {
                 background-color: $trans;
-                border: 0.2em outset $trans;
+                border-color: $trans;
                 color: white;
                 opacity: 1;
             }
         }
-    }
-    // BOTTOM
-    .gameInput {
-        font: $sans1;
-
-        span {
+        &.tile {
             background-color: $blueL;
-            border: $line outset $blueB;
-            border-radius: 3px;
             opacity: 0.8;
             text-shadow: $shadL;
-
-            &:not(.used):hover {
-                border-color: $blueL;
-                cursor: pointer;
-            }
             &.used {
                 border-color: $blueL;
                 color: white;
+                opacity: 0.5;
                 text-shadow: $shadD;
+            }
+            &.unused {
+                border-color: $blueB;
+                cursor: pointer;
+                &:hover {
+                    border-color: $blueL;
+                    opacity: 1;
+                }
             }
         }
     }
