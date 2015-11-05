@@ -67,29 +67,25 @@ define(['jquery'], function
                 return this._type;
             }
         },
-        genEle: function () {
-            // make a div and put data on it
-            var ele = $('<span>');
+        element: function () {
+            var ele = this._ele;
 
-            ele.html(this._letter) //
-                .data(Nom, this) //
-                .addClass(this._type);
-            if (this._gap) {
-                ele.addClass('space');
+            if (ele) {
+                return ele;
+            } else {
+                // make and datafy
+                ele = $('<span>');
+                ele.html(this._letter) //
+                    .data(Nom, this) //
+                    .addClass(this._type);
+                if (this._gap) {
+                    ele.addClass('space');
+                }
+                return this._ele = ele;
             }
-            return ele;
         },
         check: function (str) {
             return (str === this._letter);
-        },
-        pushTo: function (obj) {
-            // error if obj is not a Conf or not a Slot
-            // attempts to choose pushes letter to another object
-            //      calls a check from the object
-            // there can be a push to the now slot (but it can't accept--- not my letter)
-            // object can accept the check by returning boolean
-            // if push is true, make self "used"
-            // if i am used then deactivate selection actions
         },
     };
 

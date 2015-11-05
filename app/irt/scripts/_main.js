@@ -41,13 +41,6 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
             },
         }).start();
     }
-    function connectTiles(a, b, c) {
-        return new Tile({
-            display: a,
-            reveal: b,
-            letter: c,
-        });
-    }
     function runTests() {
 //        require(['tests/jumble.test']);
 //        require(['tests/tile.test']);
@@ -67,11 +60,11 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
     function fillDisplay(arr, css, sel) {
         var div = $(sel);
 
-        $.each(arr, function (i, e) {
-            var ele = e.type(css).genEle();
-
-            ele.appendTo(div);
-
+        $.each(arr, function () {
+            var ele = this //
+                .type(css) // classify
+                .element() // generate
+                .appendTo(div);
             if (ele.is('.space')) {
                 ele.before(' ');
             }
