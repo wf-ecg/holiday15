@@ -47,14 +47,50 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
 //        require(['tests/timer.test']);
 //        require(['tests/data.test']);
     }
-    // spaces are gaps on the eles since they never shift
-    var pair = Data.get();
-    var tiles = Conf.assemble(pair.anagram);
-    var slots = Conf.assemble(pair.correct);
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    var pair, tiles, slots, nowO, nowE;
+
+    function startGame() {
+
+        fillDisplays();
+        startTimer(30);
+
+        //kickoff loop
+        loop();
+
+    }
+    function loop() {
+        setNow();
+        // add callback for success
+
+        $.subscribe('check.Tile', function (e, o) {
+            C.log(Nom, o);
+
+            var checkLetter = nowO.letter();
+            var triedLetter = o.letter();
+            // check o.letter() against
+            C.error(checkLetter, triedLetter);
+        });
+
+    }
+
+    function setNow() {
+        // make now highlighted
+        nowE = $('.slot.unsolved').first();
+        nowE.addClass('now');
+        nowO = nowE.data('Conf');
+        return nowE;
+    }
+
+    pair = Data.get();
+    tiles = Conf.assemble(pair.anagram.toUpperCase());
+    slots = Conf.assemble(pair.correct.toUpperCase());
 
     function fillDisplays() {
-        fillDisplay(slots, 'slot', '.gameOutput');
-        fillDisplay(tiles, 'tile', '.gameInput');
+        fillDisplay(slots, 'slot unsolved', '.gameOutput');
+        fillDisplay(tiles, 'tile unused', '.gameInput');
+
+        $.each(tiles, wireTile);
     }
 
     function fillDisplay(arr, css, sel) {
@@ -68,6 +104,13 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
             if (ele.is('.space')) {
                 ele.before(' ');
             }
+        });
+    }
+
+    function wireTile() {
+        var self = this;
+        self.element().on('click', function () {
+            $.publish('check.Tile', self);
         });
     }
 
@@ -97,8 +140,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
             runTests();
         }
         doBindings();
-        fillDisplays();
-        startTimer(30);
+        startGame();
     });
 
 });
