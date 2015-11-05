@@ -41,17 +41,6 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
             },
         }).start();
     }
-    function expose() {
-        W.main = Main; // expose for dev
-        $.extend(Main, {
-            Modal: Modal,
-            Jumble: Jumble,
-            Tile: Tile,
-            Timer: Timer,
-        });
-
-        C.info(Nom, 'init @', new Date(), 'debug:', db(), Main);
-    }
     function connectTiles(a, b, c) {
         return new Tile({
             display: a,
@@ -87,6 +76,20 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
         $.watchInputDevice();
     }
 
+    function expose() {
+        W.Main = Main; // expose for dev
+        $.extend(Main, {
+            Modal: Modal,
+            Jumble: Jumble,
+            Tile: Tile,
+            Timer: Timer,
+            pair: pair,
+            tiles: tiles,
+            slots: slots,
+        });
+
+        C.info(Nom, 'init @', new Date(), 'debug:', db(), Main);
+    }
 
 //  INIT
     $(function () {
