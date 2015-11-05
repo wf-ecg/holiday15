@@ -10,8 +10,8 @@
  ...
  */
 
-define(['jquery'], function
-    KLASS($) { // closure
+define(['jquery', 'lodash'], function
+    KLASS($, _) { // closure
     'use strict';
 
 // CLASS
@@ -67,6 +67,16 @@ define(['jquery'], function
                 return this._type;
             }
         },
+        displayXfor: function (str, num) {
+            var ele = this._ele;
+            var org = this._letter;
+
+            ele.addClass('bad').html(str);
+
+            _.delay(function () {
+                ele.removeClass('bad').html(org);
+            }, num || 3e3);
+        },
         element: function () {
             var ele = this._ele;
 
@@ -84,7 +94,12 @@ define(['jquery'], function
                 return this._ele = ele;
             }
         },
+        solve: function () {
+            var ele = this._ele;
+            ele.addClass('solved').removeClass('unsolved bad now');
+        },
         check: function (str) {
+            this.displayXfor(str, 999);
             return (str === this._letter);
         },
     };
