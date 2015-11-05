@@ -22,8 +22,21 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function db(num) {
         return W.debug > (num || 1);
     }
+    function expose(obj, log) {
+        if (db()) {
+            W.Main = Main; // expose for dev
+            $.extend(Main, obj);
+        }
+        if (log)
+            C.info(Nom, Main);
+    }
 
 //EXTEND
+    expose({
+        Letter: Letter,
+        Modal: Modal,
+        Timer: Timer,
+    });
 
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
@@ -95,7 +108,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     }
 
     function loop() {
-        if (!setNow()) {
+        if (!setNow().length) {
             Main.testTimer.stop();
             C.error('done!');
         }
@@ -109,11 +122,15 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         pair = Data.get();
         tiles = Letter.assemble(pair.anagram.toUpperCase());
         slots = Letter.assemble(pair.correct.toUpperCase());
-
-        fillDisplays();
-        startTimer(3);
+        expose({
+            pair: pair,
+            tiles: tiles,
+            slots: slots,
+        }, true);
 
         //kickoff loop
+        fillDisplays();
+        startTimer(30);
         loop();
     }
 
@@ -127,25 +144,11 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function doBindings() {
         $.watchInputDevice();
     }
-    function expose() {
-        W.Main = Main; // expose for dev
-        $.extend(Main, {
-            Modal: Modal,
-            Timer: Timer,
-            pair: pair,
-            tiles: tiles,
-            slots: slots,
-        });
-
-        C.info(Nom, 'init @', new Date(), 'debug:', db(), Main);
-    }
 
 //  INIT
     $(function () {
-        if (db()) {
-            expose();
-            runTests();
-        }
+        C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
+        runTests();
         doBindings();
         startGame();
     });
