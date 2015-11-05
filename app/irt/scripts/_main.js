@@ -32,15 +32,6 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
-    function watchInputDevice() {
-        $('body').on('keydown', function () {
-            $(this).removeClass('mouse');
-            $(this).addClass('keyboard');
-        }).on('mousemove', function () {
-            $(this).removeClass('keyboard');
-            $(this).addClass('mouse');
-        });
-    }
     function startTimer(sec) {
         Main.testTimer = new Timer({
             div: '.jumble .timer',
@@ -49,9 +40,6 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
                 this.div.css('color', 'red');
             },
         }).start();
-    }
-    function doBindings() {
-        watchInputDevice();
     }
     function expose() {
         W.main = Main; // expose for dev
@@ -95,6 +83,10 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
     var tiles = Conf.make(pair.anagram);
     var slots = Conf.make(pair.correct);
     C.log(pair, tiles, slots);
+    function doBindings() {
+        $.watchInputDevice();
+    }
+
 
 //  INIT
     $(function () {

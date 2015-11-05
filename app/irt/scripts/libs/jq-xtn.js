@@ -40,6 +40,15 @@ define(['jquery', 'lodash'], function ($, _) {
             me.attr('title', me.attr('alt'));
         });
     };
+    $.watchInputDevice = function () {
+        $('body').on('keydown', function () {
+            $(this).removeClass('mouse');
+            $(this).addClass('keyboard');
+        }).on('mousemove', function () {
+            $(this).removeClass('keyboard');
+            $(this).addClass('mouse');
+        });
+    };
 
 });
 /*
