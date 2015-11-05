@@ -104,26 +104,4 @@ function makeLayout(phrase) {
             time out does what?
 
 
-
-            spaces need to be handles in some way, the cannot be nowSlots
-            spaces are represented as gaps in the inputArea and outputArea
-
-
  */
-
-    // take the characters Anagram['jumble', 'solved']
-    // since they never swap or shift
-    (function (array, make) {
-        var gap = 0;
-
-        return $.map(array, function (letter) {
-            var rez;
-            if (letter === ' ') {
-                gap = 1;
-            } else {
-                rez = new make(letter, gap);
-                gap = 0;
-            }
-            return rez;
-        });
-    }('abc def'.split(''), Array));

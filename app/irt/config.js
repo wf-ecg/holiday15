@@ -1,7 +1,8 @@
 /*jslint white:false */
 /*global require, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W = (W && W.window || window), C = (W.C || W.console || {});
+var W = (W && W.window || window),
+    C = (W.C || W.console || {});
 
 W.SHIET = {};
 W.debug = Number(new Date('2015/12/01') > new Date());

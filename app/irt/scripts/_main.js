@@ -10,13 +10,14 @@
  TODO
 
  */
-define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
-    MAIN($, Modal, Jumble, Tile, Timer, Data) {
+define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
+    MAIN($, Modal, Jumble, Tile, Timer, Data, Conf) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
-    var W = (W && W.window || window), C = (W.C || W.console || {});
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     function db(num) {
         return W.debug > (num || 1);
@@ -89,6 +90,12 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
         require(['tests/timer.test']);
         require(['tests/data.test']);
     }
+    // spaces are gaps on the eles since they never shift
+    var pair = Data.get();
+    var tiles = Conf.make(pair.anagram);
+    var slots = Conf.make(pair.correct);
+    C.log(pair, tiles, slots);
+
 //  INIT
     $(function () {
         if (db()) {
