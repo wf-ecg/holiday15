@@ -69,6 +69,16 @@ function makeLayout(phrase) {
             +.won
 
 
+
+
+
+
+
+
+
+
+
+
     key terms
         Game
         .failed
@@ -102,6 +112,7 @@ function makeLayout(phrase) {
 
             matches add time to the clock and the score is the resulting time
             time out does what?
+            rejection indicated red flash
 
 
  */

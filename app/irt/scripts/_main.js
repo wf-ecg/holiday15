@@ -105,7 +105,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
         }
         doBindings();
         fillDisplays();
-        startTimer();
+        startTimer(30);
     });
 
 });

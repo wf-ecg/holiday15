@@ -73,7 +73,7 @@ define(['jquery'], function
         function display() {
             var txt = format()
             ;
-            if (db()) {
+            if (db(2)) {
                 C.debug(Nom, [cf.div.prevObject.selector], [txt]);
             }
             cf.div.html(txt);

@@ -79,6 +79,18 @@ define(['jquery'], function
             }
             return ele;
         },
+        check: function (str) {
+            return (str === this._letter);
+        },
+        pushTo: function (obj) {
+            // error if obj is not a Conf or not a Slot
+            // attempts to choose pushes letter to another object
+            //      calls a check from the object
+            // there can be a push to the now slot (but it can't accept--- not my letter)
+            // object can accept the check by returning boolean
+            // if push is true, make self "used"
+            // if i am used then deactivate selection actions
+        },
     };
 
 // CONSTRUCT
