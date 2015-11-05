@@ -87,6 +87,10 @@ define(['jquery'], function
             add: function (num) {
                 cf.time += num;
             },
+            bottom: function (num, cb) {
+                // not necessarily zero!
+                // callback when hit
+            },
             start: function () {
                 tick();
                 return self;
