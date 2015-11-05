@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
-    MAIN($, Modal, Jumble, Tile, Timer, Data, Conf) {
+define(['jquery', 'modal', 'letter', 'timer', 'data'], function
+    MAIN($, Modal, Letter, Timer, Data) {
     'use strict';
 
     var Nom = 'Main';
@@ -70,7 +70,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
         // make now highlighted
         nowE = $('.slot.unsolved').first();
         nowE.addClass('now');
-        nowO = nowE.data('Conf');
+        nowO = nowE.data('Letter');
         return nowE;
     }
 
@@ -108,8 +108,8 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
 
     function startGame() {
         pair = Data.get();
-        tiles = Conf.assemble(pair.anagram.toUpperCase());
-        slots = Conf.assemble(pair.correct.toUpperCase());
+        tiles = Letter.assemble(pair.anagram.toUpperCase());
+        slots = Letter.assemble(pair.correct.toUpperCase());
 
         fillDisplays();
         startTimer(30);
@@ -132,8 +132,6 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
         W.Main = Main; // expose for dev
         $.extend(Main, {
             Modal: Modal,
-            Jumble: Jumble,
-            Tile: Tile,
             Timer: Timer,
             pair: pair,
             tiles: tiles,

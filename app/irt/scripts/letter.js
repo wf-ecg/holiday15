@@ -15,8 +15,8 @@ define(['jquery', 'lodash'], function
     'use strict';
 
 // CLASS
-    var Nom = 'Conf';
-    var Self = Conf;
+    var Nom = 'Letter';
+    var Self = Letter;
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
@@ -24,7 +24,7 @@ define(['jquery', 'lodash'], function
         return JSON.stringify(this);
     };
 // STATIC
-    Conf.assemble = function (str) {
+    Letter.assemble = function (str) {
         var arr = str.split(''),
             gap = 0,
             rez;
@@ -39,7 +39,7 @@ define(['jquery', 'lodash'], function
             return rez;
         });
     };
-    Conf.prototype = {
+    Letter.prototype = {
         constructor: Self,
         toString: dump,
         valueOf: dump,
@@ -105,7 +105,7 @@ define(['jquery', 'lodash'], function
     };
 
 // CONSTRUCT
-    function Conf(cf) {
+    function Letter(cf) {
         var self = this;
 
         if (self.constructor !== Self) {
@@ -121,7 +121,7 @@ define(['jquery', 'lodash'], function
         self.gap(cf.gap);
     }
 
-    return Conf;
+    return Letter;
 });
 /*
 
