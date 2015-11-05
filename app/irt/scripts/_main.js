@@ -62,10 +62,10 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
         });
     }
     function runTests() {
-        require(['tests/jumble.test']);
-        require(['tests/tile.test']);
-        require(['tests/timer.test']);
-        require(['tests/data.test']);
+//        require(['tests/jumble.test']);
+//        require(['tests/tile.test']);
+//        require(['tests/timer.test']);
+//        require(['tests/data.test']);
     }
     // spaces are gaps on the eles since they never shift
     var pair = Data.get();
@@ -95,6 +95,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
     $(function () {
         if (db()) {
             expose();
+            runTests();
         }
         doBindings();
         pairAll();
