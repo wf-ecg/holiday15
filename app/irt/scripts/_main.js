@@ -80,9 +80,9 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
     }
     // spaces are gaps on the eles since they never shift
     var pair = Data.get();
-    var tiles = Conf.make(pair.anagram);
-    var slots = Conf.make(pair.correct);
-    C.log(pair, tiles, slots);
+    var tiles = Conf.assemble(pair.anagram);
+    var slots = Conf.assemble(pair.correct);
+
     function doBindings() {
         $.watchInputDevice();
     }

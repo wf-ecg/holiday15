@@ -24,7 +24,7 @@ define(['jquery'], function
         return JSON.stringify(this);
     };
 // STATIC
-    Conf.make = function (str) {
+    Conf.assemble = function (str) {
         var arr = str.split(''),
             gap = 0,
             rez;
