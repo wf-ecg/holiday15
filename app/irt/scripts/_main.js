@@ -34,11 +34,9 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 //  PRIVATE
     function startTimer(sec) {
         Main.testTimer = new Timer({
+            bottom: -3,
             div: '.jumble .timer',
             time: sec || 3,
-            cb: function () {
-                this.div.css('color', 'red');
-            },
         }).start();
     }
 
@@ -98,7 +96,8 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
     function loop() {
         if (!setNow()) {
-            // done!
+            Main.testTimer.stop();
+            C.error('done!');
         }
 
         $.subscribe('check.Tile', function (e, o) {
@@ -112,7 +111,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         slots = Letter.assemble(pair.correct.toUpperCase());
 
         fillDisplays();
-        startTimer(30);
+        startTimer(3);
 
         //kickoff loop
         loop();

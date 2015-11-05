@@ -1,0 +1,15 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* IRT/_timer.scss */
+
+.timer {
+    &.stopped {
+        color: green;
+    }
+    &.started {
+        color: white;
+    }
+    &.over {
+        color: red;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
