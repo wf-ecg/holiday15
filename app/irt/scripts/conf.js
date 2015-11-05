@@ -43,6 +43,42 @@ define(['jquery'], function
         constructor: Self,
         toString: dump,
         valueOf: dump,
+        letter: function (str) {
+            if (typeof str === 'string') {
+                this._letter = str[0];
+                return this;
+            } else {
+                return this._letter;
+            }
+        },
+        gap: function (num) {
+            if (typeof num === 'number') {
+                this._gap = Math.abs(num);
+                return this;
+            } else {
+                return this._gap;
+            }
+        },
+        type: function (str) {
+            if (typeof str === 'string') {
+                this._type = str;
+                return this;
+            } else {
+                return this._type;
+            }
+        },
+        genEle: function () {
+            // make a div and put data on it
+            var ele = $('<span>');
+
+            ele.html(this._letter) //
+                .data(Nom, this) //
+                .addClass(this._type);
+            if (this._gap) {
+                ele.addClass('space');
+            }
+            return ele;
+        },
     };
 
 // CONSTRUCT
@@ -52,7 +88,14 @@ define(['jquery'], function
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
-        $.extend(self, cf);
+        self.cf = $.extend({
+            gap: 0,
+            letter: 'x',
+            type: '',
+        }, cf);
+
+        self.letter(cf.letter);
+        self.gap(cf.gap);
     }
 
     return Conf;

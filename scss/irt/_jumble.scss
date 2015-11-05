@@ -36,7 +36,6 @@ body {
     max-width: 640px;
     padding: 3em 2em 2em;
     text-align: center;
-    width: 33%;
 
     hr {
         background-color: $blueL;
@@ -46,20 +45,19 @@ body {
         opacity: 0.5;
     }
     span {
-        display: inline-block;
         height: 2.25em;
-        margin: 0.25em 0.125em;
+        line-height: 3;
+        margin: 0.05em;
         padding: 0.5em;
         text-transform: uppercase;
         width: 2em;
-    }
-    .revealer > div,
-    .tiler > div {
-        display: inline-block;
-        margin: 0 0.5em;
+
+        &.space {
+            margin-left: 1em;
+        }
     }
     // TOP
-    .revealer {
+    .gameOutput {
         font: $serf1;
 
         span {
@@ -78,7 +76,7 @@ body {
         }
     }
     // BOTTOM
-    .tiler {
+    .gameInput {
         font: $sans1;
 
         span {

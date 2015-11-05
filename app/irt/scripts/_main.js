@@ -48,19 +48,6 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
             letter: c,
         });
     }
-    function pairAll() {
-        var allA = $('.jumble .tiler span');
-        var allB = $('.jumble .revealer span');
-
-        Main.testTiles = [];
-        allA.each(function (i) {
-            Main.testTiles[i] = connectTiles(
-                allA.eq(i),
-                allB.eq(i),
-                'abcdefghijklm'[i]
-            );
-        });
-    }
     function runTests() {
 //        require(['tests/jumble.test']);
 //        require(['tests/tile.test']);
@@ -71,6 +58,25 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
     var pair = Data.get();
     var tiles = Conf.assemble(pair.anagram);
     var slots = Conf.assemble(pair.correct);
+
+    function fillDisplays() {
+        fillDisplay(slots, 'slot', '.gameOutput');
+        fillDisplay(tiles, 'tile', '.gameInput');
+    }
+
+    function fillDisplay(arr, css, sel) {
+        var div = $(sel);
+
+        $.each(arr, function (i, e) {
+            var ele = e.type(css).genEle();
+
+            ele.appendTo(div);
+
+            if (ele.is('.space')) {
+                ele.before(' ');
+            }
+        });
+    }
 
     function doBindings() {
         $.watchInputDevice();
@@ -98,7 +104,7 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data', 'conf'], function
             runTests();
         }
         doBindings();
-        pairAll();
+        fillDisplays();
         startTimer();
     });
 
