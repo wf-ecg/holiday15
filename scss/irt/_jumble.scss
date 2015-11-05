@@ -30,6 +30,7 @@ body {
 }
 .jumble {
     @include vgrad($blueD, $blueL);
+    @include nosel;
     box-shadow: inset 0 0px 6px black;
     margin: auto;
     min-width: 320px;
@@ -90,6 +91,7 @@ body {
             &.used {
                 border-color: $blueL;
                 color: white;
+                cursor: not-allowed;
                 opacity: 0.5;
                 text-shadow: $shadD;
             }
