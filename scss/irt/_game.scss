@@ -28,16 +28,17 @@
 .gameInput {
     font: 800 1.6em/1 $sans;
 }
-
+.game {
+    font-size: 0.9em!important;
+}
 @media (max-width: 767px) {
     .game {
-        font-size: 0.8em!important;
+        font-size: 0.6em!important;
     }
 }
 @media (min-width: 1400px) {
     .game {
         font-size: 1.2em!important;
     }
-
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

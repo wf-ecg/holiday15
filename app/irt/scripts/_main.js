@@ -191,7 +191,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         $.watchInputDevice();
         $.watchResize(function () {
             Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-            if (Main.mobile) {
+            if (Main.mobile || $(W).width() < 768) {
                 $('html').addClass('mobile');
             } else {
                 $('html').removeClass('mobile');

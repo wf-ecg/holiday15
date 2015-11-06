@@ -81,11 +81,6 @@ define(function () {
             'Bald Nag Inch Mr',
             'Clad Hang Bit Mr',
         ], [
-            'Happy Everything',
-            'Gather Envy Hippy',
-            'Vegan He Pithy Pry',
-            'Gravy He Ten Hippy',
-        ], [
             'Friends Family Happiness',
             'Nerd Ifs Fail My Heap Spins',
             'Reds Fin Aim Fly Nap She Sip',
