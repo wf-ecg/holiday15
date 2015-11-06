@@ -31,13 +31,14 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             C.info(Nom, Main);
     }
     var timer = new Timer({
-        bottom: 0,
+        bottom: -3,
+        warn: 3,
         div: '.game .timer',
-        time: 120,
         cb: showOutro,
     });
     var ACT = 'keypress click';
     var totalWon = 0;
+    var duration = 120;
 
 //EXTEND
     expose({
@@ -53,10 +54,6 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
-    function startTimer() {
-        timer.start();
-    }
-
     function fillDisplays() {
         fillDisplay(slots, 'slot unsolved', '.gameOutput');
         fillDisplay(tiles, 'tile unused', '.gameInput');
@@ -144,7 +141,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
         //kickoff loop
         fillDisplays();
-        startTimer(30);
+        timer.start(duration);
         loop();
     }
     function hideAreas() {
@@ -161,7 +158,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         timer.stop();
         hideAreas();
         $('.outro').show().find('.score').text(totalWon);
-        $('.timer').fadeOut();
+        timer.reset().force('Try Again').one(ACT, showIntro);
     }
     function showJumble() {
         hideAreas();
@@ -207,7 +204,6 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         runTests();
         doBindings();
-        //startGame();
         hideAreas();
         showIntro();
     });

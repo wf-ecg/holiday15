@@ -97,7 +97,14 @@ define(['jquery'], function
             timeLeft: function () {
                 return cf.time - cf.bottom;
             },
-            start: function () {
+            reset: function () {
+                cf.div.removeClass('stopped over');
+                return self;
+            },
+            start: function (num) {
+                if (num) {
+                    self.set(num);
+                }
                 cf.div.removeClass('stopped').addClass('started');
                 tick();
                 return self;
