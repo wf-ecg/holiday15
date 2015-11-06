@@ -1,0 +1,17 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* DEFAULT */
+
+$lib:   '/lib/';
+$break: 768px; //$break: 750px;
+$sans:  'myriad-pro', sans-serif;
+$serif: 'Archer SSm A', 'Archer SSm B', serif;
+$trans: transparent;
+
+@import '_ada';
+@import '_base';
+@import '_head';
+@import '_misc';
+@import '_modal';
+@import '_screen';
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

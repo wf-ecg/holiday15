@@ -1,7 +1,8 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'compass/css3';
-@import 'core/all';
 @import 'compass/reset';
+@import 'core/all';
+@import 'default/_all';
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // TRANSLATE
@@ -19,15 +20,10 @@ $lib: '/lib/';
 $break: 750px;
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import '_ada';
-@import '_head';
-@import '_modal';
-
 @import 'irt/_ani';
 @import 'irt/_base';
 @import 'irt/_jumble';
 @import 'irt/_misc';
-@import 'irt/_response';
 @import 'irt/_timer';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */
