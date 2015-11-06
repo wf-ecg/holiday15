@@ -1,9 +1,18 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_timer.scss */
 
+$sans2: 600 1.3em/1 $sans;
+
 .timer {
+    color: white;
+    font: $sans2;
+    background-color: rgba(0,0,0,0.2);
+    margin: 0 -9em;
+    margin-top: 4em;
+    padding: 0.5em;
+    text-transform: uppercase;
     &.stopped {
-        color: green;
+        color: gold;
     }
     &.started {
         color: white;

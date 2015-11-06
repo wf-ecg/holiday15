@@ -110,7 +110,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function loop() {
         if (!setNow().length) {
             Main.testTimer.stop();
-            C.error('done!');
+            $('.gameOutput').addClass('won');
         }
 
         $.subscribe('check.Tile', function (e, o) {
@@ -119,6 +119,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     }
 
     function startGame() {
+        $('.gameOutput').removeClass('won');
         pair = Data.get();
         tiles = Letter.assemble(pair.anagram.toUpperCase());
         slots = Letter.assemble(pair.correct.toUpperCase());

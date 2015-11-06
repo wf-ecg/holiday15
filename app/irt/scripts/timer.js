@@ -21,7 +21,7 @@ define(['jquery'], function
     var Df = {
         inited: false,
         time: 10,
-        prefix: 'Timer ',
+        prefix: 'Time ',
         div: '#Timer',
         bottom: 0,
         cb: function () {
