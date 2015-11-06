@@ -30,12 +30,16 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         if (log)
             C.info(Nom, Main);
     }
-
+    var timer = new Timer({
+        bottom: -3,
+        div: '.game .timer',
+        time: 120,
+    });
 //EXTEND
     expose({
         Letter: Letter,
         Modal: Modal,
-        Timer: Timer,
+        timer: timer,
     });
 
     $.scrollMain = function (px, ms) {
@@ -45,12 +49,8 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
-    function startTimer(sec) {
-        Main.testTimer = new Timer({
-            bottom: -3,
-            div: '.jumble .timer',
-            time: sec || 3,
-        }).start();
+    function startTimer() {
+        Main.timer.start();
     }
 
     function fillDisplays() {
@@ -109,7 +109,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
     function loop() {
         if (!setNow().length) {
-            Main.testTimer.stop();
+            Main.timer.stop();
             $('.gameOutput').addClass('won');
         }
 
@@ -134,7 +134,26 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         startTimer(30);
         loop();
     }
+    function hideAreas() {
+        $('.jumble').hide();
+        $('.intro').hide();
+        $('.outro').hide();
+    }
+    function showIntro() {
+        hideAreas();
+        $('.intro').show();
+        timer.force('Start', showJumble);
+    }
+    function showOutro() {
+        hideAreas();
+        $('.outro').show();
+    }
+    function showJumble() {
+        hideAreas();
+        $('.jumble').show();
+        startGame();
 
+    }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function runTests() {
 //        require(['tests/jumble.test']);
@@ -144,6 +163,14 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     }
     function doBindings() {
         $.watchInputDevice();
+        $.watchResize(function () {
+            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
+            if (Main.mobile) {
+                $('html').addClass('mobile');
+            } else {
+                $('html').removeClass('mobile');
+            }
+        });
     }
 
 //  INIT
@@ -151,7 +178,9 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         runTests();
         doBindings();
-        startGame();
+        //startGame();
+        hideAreas();
+        showIntro();
     });
 
 });

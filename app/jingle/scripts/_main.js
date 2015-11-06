@@ -50,7 +50,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         var tmp;
 
         scrollUp();
-        msgs.show('intro');
+        msgs.select('intro').show();
 
         play.fadeOut();
         pair = '';
@@ -74,8 +74,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         watchScroll();
         shuffle.destroy();
         scrollUp();
-        msgs.show('finish', _.delay(function () {
-            scroll.one('scroll', begin);
+        msgs.select('finish').show(_.delay(function () {
+            scroll.one('scroll', begin); // wait and allow a scroll to begin
         }, 2222));
     }
     function scrollUp() {

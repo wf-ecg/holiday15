@@ -60,16 +60,28 @@ define(['jquery'], function
             right: 'That’s right...',
             cheers: ['almost', 'forest', 'going', 'noquit', 'right'],
             cheer: function (num) {
-                num = num || (Math.random() * self.cheers.length);
-                self.show(self.cheers[Math.floor(num)]);
+                num = Math.floor(num || (Math.random() * self.cheers.length));
+                self.select(self.cheers[num]).show();
+                return self;
             },
-            show: function (prop, cb) {
-                cf.ele.hide() //
-                .html('<h1>' + self[prop] + '</h1>') //
-                .fadeIn().slideDown(cb);
+            select: function (prop) {
+                self.write('<h1>' + self[prop] + '</h1>');
+                return self;
+            },
+            show: function (cb) {
+                cf.ele.fadeIn().slideDown(function () {
+                    if (typeof cb === 'function') cb();
+                    $.publish('redraw');
+                });
+                return self;
+            },
+            write: function (str) {
+                cf.ele.hide().html(str);
+                return self;
             },
             init: function () {
                 cf.ele = $(cf.ele);
+                return self;
             },
             dump: db() ? dump : $.noop,
         });

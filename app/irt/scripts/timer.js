@@ -35,8 +35,8 @@ define(['jquery'], function
 
 // CONSTRUCT
     function Timer(cf) {
-        var self = this
-        ;
+        var self = this;
+
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
@@ -75,8 +75,8 @@ define(['jquery'], function
             return self;
         }
         function display() {
-            var txt = format()
-            ;
+            var txt = format();
+
             if (db(2)) {
                 C.debug(Nom, [cf.div.prevObject.selector], [txt]);
             }
@@ -108,6 +108,13 @@ define(['jquery'], function
             },
             update: function () {
                 self.display();
+            },
+            force: function (txt, cb) {
+                cf.div.html(txt);
+
+                if (typeof cb === 'function') {
+                    cf.div.one('click', cb);
+                }
             },
             set: function (num) {
                 cf.time = num || 0;
