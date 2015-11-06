@@ -30,16 +30,16 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         if (log)
             C.info(Nom, Main);
     }
-
+    var timer = new Timer({
+        bottom: -3,
+        div: '.game .timer',
+        time: 120,
+    });
 //EXTEND
     expose({
         Letter: Letter,
         Modal: Modal,
-        timer: new Timer({
-            bottom: -3,
-            div: '.jumble .timer',
-            time: 120,
-        }),
+        timer: timer,
     });
 
     $.scrollMain = function (px, ms) {
@@ -139,8 +139,20 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         $('.intro').hide();
         $('.outro').hide();
     }
-    function showIntro(){
+    function showIntro() {
+        hideAreas();
         $('.intro').show();
+        timer.force('Start', showJumble);
+    }
+    function showOutro() {
+        hideAreas();
+        $('.outro').show();
+    }
+    function showJumble() {
+        hideAreas();
+        $('.jumble').show();
+        startGame();
+
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function runTests() {

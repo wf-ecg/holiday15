@@ -2,13 +2,13 @@
 /* IRT/_jumble.scss */
 
 .jumble {
-    @include middify;
+    @include centify;
     @include nosel;
 
     margin: auto;
     max-width: 90%; max-height: 50%;
     min-height: 480px; min-width: 320px;
-    padding: 0em 2em 6em;
+    padding: 6em 2em;
     text-align: center;
     z-index: 1;
 
