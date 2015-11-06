@@ -37,6 +37,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         cb: showOutro,
     });
     var ACT = 'keypress click';
+    var totalWon = 0;
 
 //EXTEND
     expose({
@@ -159,7 +160,8 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function showOutro() {
         timer.stop();
         hideAreas();
-        $('.outro').show();
+        $('.outro').show().find('.score').text(totalWon);
+        $('.timer').fadeOut();
     }
     function showJumble() {
         hideAreas();
@@ -167,6 +169,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         startGame();
     }
     function oneSolved(cb) {
+        totalWon++;
         $('.jumble').css({
             position: 'relative',
         }).animate({
