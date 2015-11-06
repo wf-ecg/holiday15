@@ -14,60 +14,68 @@
     <!--  -->
     <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
         (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="../build/irt.css">
     <!--  -->
+    <script src="scripts/libs/glober.js"></script>
     <script src="/lib/requirejs/2.1.17/require.js"
             data-main="./config"
             data-main="./build/app"
     ></script>
-    <style>
-    </style>
   </head>
-  <body><div data-role="page">
+
+  <body><div data-role="page" class="irt">
       <!--[if lt IE 8]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
       <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
       browser</a> to improve your web experience.</p> </div><![endif]-->
 
-      <header>
-        <div class="logo mobile">
-          <img src="../images/icons/wf_mobile.png" alt="Wells Fargo">
+      <header></header>
+
+      <div class="game">
+
+        <!-- JUMBLE -->
+        <div class="intro">
+          <h1>We hope your holidays are letter perfect. </h1>
+
+          <p>
+            Press letters to turn a Jingle Jumble into a holiday greeting. <br>
+            See how many you can solve in 2 minutes.<br>
+            Have fun.
+          </p>
+
+          <img src="../images/icons/gift.png" alt="gift">
         </div>
-      </header>
+        <div class="outro">
+          <h1>
+            Your <br> Jingle Jumble <br> score = <span class="score">{{score}}</span>
+          </h1>
 
-      <!-- JUMBLE -->
-      <div class="jumble">
+          <img src="../images/icons/gift.png" alt="gift">
 
-        reveal
-        <div class="revealer">
-          <div class="word"><span>X</span><span>X</span></div>
-          <div class="word"><span>X</span><span>X</span><span>X</span></div>
-          <div class="word"><span>X</span><span>X</span><span>X</span><span>X</span></div>
+          <h2>
+            Share with family and friends!
+          </h2>
         </div>
 
-        <hr>
-
-        display
-        <div class="tiler">
-          <div class="word"><span>X</span><span>X</span><span>X</span><span>X</span></div>
-          <div class="word"><span>X</span><span>X</span><span>X</span></div>
-          <div class="word"><span>X</span><span>X</span></div>
+        <div class="jumble">
+          <div class="gameOutput"></div>
+          <hr>
+          <div class="gameInput"></div>
         </div>
 
-        <div class="timer" tabindex="0">
-          time
-        </div>
+        <!-- END JUMBLE -->
+
+        <div class="timer" tabindex="0"></div>
 
       </div>
-      <!-- END JUMBLE -->
 
       <footer>
+        <img class="stage" src="../images/icons/stage-silo-350.png">
         © 2015 Wells Fargo Bank, N.A. All rights reserved. ECG-1261325
       </footer>
 
-      <div class="modal">
-
-      </div>
+      <div class="modal"></div>
 
     </div></body>
 </html>

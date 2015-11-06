@@ -9,12 +9,15 @@
     }
     background-color: $wf_red;
     border-radius: 1em;
-    box-shadow: 1px 4px 9px rgba(0,0,0,0.3);
-    display: inline-block;
+    box-shadow: 0.1em 0.3em 1em rgba(0,0,0,0.2);
+    font-family: monospace;
     font-size: 2em;
-    margin: 1px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0.2em;
     padding: 0.5em;
     pointer-events: none;
+    position: relative;
     text-align: center;
     width: 2em;
 
@@ -22,12 +25,15 @@
         pointer-events: auto;
     }
     &.freeze {
+        font-family: $serif;
         position: absolute;
     }
     &.space {
         background-color: transparent;
         line-height: 0;
+        margin-right: 0.125em;
         padding: 0;
+        visibility: hidden;
 
         &:first-child,
             &:nth-last-child(-n+2), // up to 2 trailing spaces

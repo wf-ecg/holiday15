@@ -1,5 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* _nav.scss */
+/* DEFAULT/_nav.scss */
 
 nav ul li {
     display: inline;
@@ -24,7 +24,9 @@ nav ul li {
     }
 
 }
-
+header {
+    background-color: white;
+}
 header .mobile {
     display: none;
 }
@@ -43,6 +45,9 @@ header .mobile {
     .navbar-brand {
         height: 80px;
     }
+    .navbar-toggle {
+        font-size: 20px;
+    }
 }
 
 .img-social {
@@ -56,10 +61,26 @@ header .mobile {
         cursor: pointer;
     }
 }
+@media (min-width: 768px) {
+    header {
+        margin-bottom: 1em;
+    }
+    footer {
+        .stage {
+            left: 1in;
+            opacity: 0.33;
+            position: absolute;
+            top: -75px;
+        }
+    }
+}
 
 @media (max-width: 767px) {
-
+    footer {
+        display: none;
+    }
     header {
+        background-color: transparent;
         position: fixed;
         width: 100%;
         z-index: 1;

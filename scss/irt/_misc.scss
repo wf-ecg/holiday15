@@ -1,18 +1,13 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_misc.scss */
 
-.clearfix {
-    @include clearfix;
+.ui-page-active {
+    //@include vgrad($blueL, $blueD);
+    background-image: url('../images/bkgrs/original-bubbles-big.jpg');
+    @include background-image( linear-gradient(top, $trans 66%, $blueX 88%), url('../images/bkgrs/original-bubbles-big.jpg') );
+    background-size: cover;
 }
-.upgradeframe {
-    background-color: #ccc;
-    font-family: 'arial black';
-    height: 100%;
-    padding: 9em;
-    position: fixed;
-    width: 100%;
-}
-.modal * {
-    max-width: 100%;
+footer {
+    border-top: 0.3em solid rgba(22,44,88,0.5);
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

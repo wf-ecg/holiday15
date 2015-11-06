@@ -1,41 +1,37 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'compass/css3';
-@import 'core/all';
 @import 'compass/reset';
-
-// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-// TRANSLATE
-
-$link:  #3366cc;
-$gray:  $wf_gray;
-$grey: lighten($gray, 20%);
+@import 'core/all';
+@import 'default/_all';
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
+$stroke: 0.1em;
 
-$sans: 'myriad-pro', sans-serif;
-$serif: 'Archer SSm A', 'Archer SSm B', serif;
-$lib: '/lib/';
-$break: 750px;
+// Color
+$gray: $wf_gray;
+$grey: lighten($gray, 20%);
+$gray5: #555;
+$grayC: #ccc;
 
-.ui-page {
-    height: 100%;
-    text-align: center;
-}
-footer {
-    bottom: 0;
-    position: relative;
-}
+$blueB: #5298ad;
+$blueD: #165267;
+$blueM: #2394a0;
+$blueL: #9dc1cc;
+$blueX: #1b9fc0;
 
+$link: #3366cc;
+$bkgr: #1c6c84;
+
+$shadF: 1px 2px 3px black;
+$shadD: 0 0px 1px $gray5;
+$shadL: 0 1px 1px $grayC;
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import '_ada';
-@import '_modal';
-
 @import 'irt/_ani';
 @import 'irt/_base';
-@import 'irt/_header';
+@import 'irt/_game';
 @import 'irt/_jumble';
 @import 'irt/_misc';
-@import 'irt/_response';
+@import 'irt/_timer';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */

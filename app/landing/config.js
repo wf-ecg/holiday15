@@ -4,7 +4,7 @@
 var W = (W && W.window || window), C = (W.C || W.console || {});
 
 W.SHIET = {};
-W.debug = Number(new Date('2015/11/01') > new Date());
+W.debug = Number(new Date('2015/12/01') > new Date());
 
 require.config({
     baseUrl: 'scripts',
@@ -16,10 +16,20 @@ require.config({
         modern: '/lib/modernizr/2.6.2/modernizr',
         videojs: '/lib/video-js/ecg/video',
         //
-        console: 'libs/console',
-        modal: 'libs/modal',
+        boots: '../../vendor/bootstrap/js/bootstrap.min',
+        console: '../../vendor/ecg/console',
+        mason: '../../vendor/jq/jquery.masonry.min',
+        modal: '../../vendor/ecg/modal',
+        //
+        beacon: 'libs/ecg-beacon',
+        stats: 'libs/ecg-stats',
+        //
+        angular: '../../vendor/ng/angular.min',
+        angularAMD: '../../vendor/ng/angularAMD.min',
+        angularRT: '../../vendor/ng/angular-route.min',
         //
     },
+    shim: { angularAMD: ['angular'], angularRT: ['angular'] },
 });
 
 require(['modern', 'console'], function () {
@@ -44,12 +54,13 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', '_main'], function (_) {
+    require(['lodash', 'boots', 'mason', 'ngapp'], function (_) {
+        require(['_main']);
 
         _.delay(function () {
             if (W.debug < -2) {
                 require(['stats'], function (stats) {
-                    stats.init('JUMBLE');
+                    stats.init('HOLI-LAND');
                 });
             }
         }, 1e3);

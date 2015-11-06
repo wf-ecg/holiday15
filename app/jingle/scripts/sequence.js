@@ -54,12 +54,12 @@ define(['jquery'], function
         $.extend(self, {
             array: [],
             check: function () {
-                if (!self.array.length) {
-                    throw new Error('out of numbers');
-                }
+                return self.array.length;
             },
             getNext: function () {
-                self.check();
+                if (!self.check()) {
+                    throw new Error('out of numbers');
+                }
                 return self.array.shift();
             },
             valueOf: function () {

@@ -11,6 +11,35 @@ define(function () {
 
     var Data = W.Data || {};
 
+    function ranMax(max, min) {
+        min = min || 0;
+        max = max - min; // essential range
+        max = Math.floor(Math.random() * max);
+        return max + min; // restore floor
+    }
+
+    function ranDex(arr) {
+        return arr[ ranMax(arr.length) ];
+    }
+    function takeAnagram(arr) {
+        var idx = ranMax(arr.length, 1);
+        return arr.splice(idx, idx).pop();
+    }
+    Data.get = function () {
+        var dat = ranDex(Data.anagrams);
+
+        if (0) {
+            return {
+                correct: 'FRIENDS FAMILY HAPPINESS',
+                anagram: 'FINDERS FAIL MY PASS HE NIP',
+            };
+        }
+        return {
+            correct: dat[0],
+            anagram: takeAnagram(dat),
+        };
+    };
+
     Data.anagrams = [
         [
             'Happy Holidays',
@@ -58,8 +87,8 @@ define(function () {
             'Gravy He Ten Hippy',
         ], [
             'Friends Family Happiness',
-            'Nerd Ifs La If My Heap Spins',
-            'Reds Fin Am Fly I Nap She Sip',
+            'Nerd Ifs Fail My Heap Spins',
+            'Reds Fin Aim Fly Nap She Sip',
             'Finders Fail My Pass He Nip',
         ], [
             'Jingle Bells',
@@ -77,8 +106,8 @@ define(function () {
             'A Echo Idly Her',
         ], [
             'Tis the season',
-            'Hesitate Sons',
-            'Instate Shoes',
+            //'Hesitate Sons',
+            //'Instate Shoes',
             'Ease Thin Toss',
             'Stashes Tie On',
             'Siesta To Hens',

@@ -1,17 +1,13 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'compass/css3';
 @import 'core/all';
-@import '_ada';
+@import 'default/_all';
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
 
-$sans: 'myriad-pro', sans-serif;
-$serif: 'Archer SSm A', 'Archer SSm B', serif;
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import '_head';
-
 @import 'jing/_base';
 @import 'jing/_misc';
 @import 'jing/_scroll';
