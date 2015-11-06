@@ -1,7 +1,8 @@
 /*jslint white:false */
 /*global require, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W = (W && W.window || window), C = (W.C || W.console || {});
+var W = (W && W.window || window),
+    C = (W.C || W.console || {});
 
 W.SHIET = {};
 W.debug = Number(new Date('2015/12/01') > new Date());
@@ -15,6 +16,7 @@ require.config({
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
+        data: '../../vendor/ecg/anagrams',
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
         modal: '../../vendor/ecg/modal',

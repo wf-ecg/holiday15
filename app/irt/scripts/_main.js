@@ -10,19 +10,33 @@
  TODO
 
  */
-define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
-    MAIN($, Modal, Jumble, Tile, Timer, Data) {
+define(['jquery', 'modal', 'letter', 'timer', 'data'], function
+    MAIN($, Modal, Letter, Timer, Data) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
-    var W = (W && W.window || window), C = (W.C || W.console || {});
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     function db(num) {
         return W.debug > (num || 1);
     }
+    function expose(obj, log) {
+        if (db()) {
+            W.Main = Main; // expose for dev
+            $.extend(Main, obj);
+        }
+        if (log)
+            C.info(Nom, Main);
+    }
 
 //EXTEND
+    expose({
+        Letter: Letter,
+        Modal: Modal,
+        Timer: Timer,
+    });
 
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
@@ -31,72 +45,113 @@ define(['jquery', 'modal', 'jumble', 'tile', 'timer', 'data'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
-    function watchInputDevice() {
-        $('body').on('keydown', function () {
-            $(this).removeClass('mouse');
-            $(this).addClass('keyboard');
-        }).on('mousemove', function () {
-            $(this).removeClass('keyboard');
-            $(this).addClass('mouse');
-        });
-    }
     function startTimer(sec) {
         Main.testTimer = new Timer({
+            bottom: -3,
             div: '.jumble .timer',
             time: sec || 3,
-            cb: function () {
-                this.div.css('color', 'red');
-            },
         }).start();
     }
-    function doBindings() {
-        watchInputDevice();
-    }
-    function expose() {
-        W.main = Main; // expose for dev
-        $.extend(Main, {
-            Modal: Modal,
-            Jumble: Jumble,
-            Tile: Tile,
-            Timer: Timer,
-        });
 
-        C.info(Nom, 'init @', new Date(), 'debug:', db(), Main);
-    }
-    function connectTiles(a, b, c) {
-        return new Tile({
-            display: a,
-            reveal: b,
-            letter: c,
-        });
-    }
-    function pairAll() {
-        var allA = $('.jumble .tiler span');
-        var allB = $('.jumble .revealer span');
+    function fillDisplays() {
+        fillDisplay(slots, 'slot unsolved', '.gameOutput');
+        fillDisplay(tiles, 'tile unused', '.gameInput');
 
-        Main.testTiles = [];
-        allA.each(function (i) {
-            Main.testTiles[i] = connectTiles(
-                allA.eq(i),
-                allB.eq(i),
-                'abcdefghijklm'[i]
-            );
+        $.each(tiles, wireTile);
+    }
+
+    function fillDisplay(arr, css, sel) {
+        var div = $(sel);
+
+        $.each(arr, function () {
+            var ele = this //
+                .type(css) // classify
+                .element() // generate
+                .appendTo(div);
+            if (ele.is('.space')) {
+                ele.before(' ');
+            }
         });
     }
+
+    var pair, tiles, slots, nowO, nowE;
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    function setNow() {
+        // make now highlighted
+        nowE = $('.slot.unsolved').first();
+        nowE.addClass('now');
+        nowO = nowE.data('Letter');
+        return nowE;
+    }
+
+    function wireTile() {
+        var self = this;
+
+        self.element().on('click', function () {
+            $.publish('check.Tile', self);
+        });
+    }
+
+    function checkSlot(tryO) {
+        var tryL = tryO.letter();
+
+        if (nowO.check(tryL)) {
+            $.unsubscribe('check.Tile');
+            nowO.solve();
+            tryO.element() //
+                .off('click') //
+                .addClass('used') //
+                .removeClass('unused');
+            loop();
+        }
+    }
+
+    function loop() {
+        if (!setNow().length) {
+            Main.testTimer.stop();
+            $('.gameOutput').addClass('won');
+        }
+
+        $.subscribe('check.Tile', function (e, o) {
+            checkSlot(o);
+        });
+    }
+
+    function startGame() {
+        $('.gameOutput').removeClass('won');
+        pair = Data.get();
+        tiles = Letter.assemble(pair.anagram.toUpperCase());
+        slots = Letter.assemble(pair.correct.toUpperCase());
+        expose({
+            pair: pair,
+            tiles: tiles,
+            slots: slots,
+        }, true);
+
+        //kickoff loop
+        fillDisplays();
+        startTimer(30);
+        loop();
+    }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function runTests() {
-        // require(['jumble.test']);
-        // require(['tile.test']);
-        // require(['timer.test']);
-        // require(['data.test']);
+//        require(['tests/jumble.test']);
+//        require(['tests/tile.test']);
+//        require(['tests/timer.test']);
+//        require(['tests/data.test']);
     }
+    function doBindings() {
+        $.watchInputDevice();
+    }
+
 //  INIT
     $(function () {
-        if (db()) {
-            expose();
-        }
+        C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
+        runTests();
         doBindings();
-        pairAll();
-        startTimer()
+        startGame();
     });
 
 });

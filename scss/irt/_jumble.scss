@@ -2,14 +2,15 @@
 /* IRT/_jumble.scss */
 
 $bkgr: #1c6c84;
-$line: 3px;
 $trans: transparent;
+$weight: 0.1em;
 
 // BLUE
 $blueB: #5298ad;//69c;
 $blueD: #165267;
 $blueM: #2394a0;
 $blueL: #9dc1cc;
+$blueX: #1b9fc0;
 
 // GRAY
 $gray5: #555;
@@ -20,90 +21,94 @@ $shadD: 0 0px 1px $gray5;
 $shadL: 0 1px 1px $grayC;
 
 // FONT
-$sans1: 800 24px/1 $sans;
-$sans2: 600 18px/1 $sans;
-$serf1: 800 24px/1 $serif;
-$serf2: 800 18px/1 $serif;
+$sans1: 800 1.6em/1 $sans;
+$serf1: 800 1.6em/1 $serif;
+$serf2: 800 1.3em/1 $serif;
 
-body {
-    @include vgrad($blueL, $blueD);
-}
 .jumble {
-    @include vgrad($blueD, $blueL);
-    box-shadow: inset 0 0px 6px black;
+    @include middify;
+    @include nosel;
+
+    //box-shadow: inset 0 0px 6px rgba(0,0,0,0.3);
     margin: auto;
     min-width: 320px;
-    max-width: 640px;
-    padding: 3em 2em 2em;
+    max-width: 90%;
+    min-height: 480px;
+    max-height: 50%;
+    padding: 0em 3em 4em 3em;
     text-align: center;
-    width: 33%;
+    z-index: 1;
 
     hr {
         background-color: $blueL;
         border: 0;
-        height: $line;
-        margin: 1rem;
+        height: $weight;
+        margin: 2rem;
         opacity: 0.5;
     }
-    span {
-        display: inline-block;
-        height: 2.25em;
-        margin: 0.25em 0.125em;
-        padding: 0.5em;
-        text-transform: uppercase;
-        width: 2em;
+    .won {
+        border: 0.5em groove gold;
+        text-shadow: 1px 2px 3px black;
     }
-    .revealer > div,
-    .tiler > div {
-        display: inline-block;
-        margin: 0 0.5em;
-    }
-    // TOP
-    .revealer {
+    .gameOutput {
         font: $serf1;
-
-        span {
-            background-color: $bkgr;
-            border: $line outset $blueB;
-            border-radius: 3px;
+    }
+    .gameInput {
+        font: $sans1;
+    }
+    span {
+        border: $weight outset $trans;
+        border-radius: $weight;
+        font-size: 2em;
+        line-height: 5rem;
+        margin: 0 0.05em;
+        padding: 0px 0.2em;
+        text-transform: uppercase;
+        &.space {
+            margin-left: 0.5em;
+        }
+        &.slot {
             color: $trans;
             opacity: 0.5;
-
-            &.active {
+            &.unsolved {
+                background-color: $bkgr;
+                border: $weight outset $blueB;
+            }
+            &.now {
+                border-color: lime;
+            }
+            &.bad {
+                border-color: red;
+                color: red;
+            }
+            &.solved {
                 background-color: $trans;
-                border: 0.2em outset $trans;
+                border-color: $trans;
                 color: white;
+                font-size: 2.5em;
+                font-weight: 500;
                 opacity: 1;
+                padding: 0;
             }
         }
-    }
-    // BOTTOM
-    .tiler {
-        font: $sans1;
-
-        span {
+        &.tile {
             background-color: $blueL;
-            border: $line outset $blueB;
-            border-radius: 3px;
-            opacity: 0.8;
+            border-color: $blueL;
             text-shadow: $shadL;
-
-            &:not(.used):hover {
-                border-color: $blueL;
-                cursor: pointer;
-            }
             &.used {
-                border-color: $blueL;
                 color: white;
+                cursor: not-allowed;
+                opacity: 0.8;
                 text-shadow: $shadD;
             }
+            &.unused {
+                cursor: pointer;
+                &:hover {
+                    border-color: $blueB;
+                    opacity: 1;
+                }
+            }
         }
-    }
-    .timer {
-        color: white;
-        font: $sans2;
-        margin-top: 3em;
-        text-transform: uppercase;
     }
 }
 

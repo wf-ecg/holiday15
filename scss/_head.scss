@@ -61,9 +61,24 @@ header .mobile {
         cursor: pointer;
     }
 }
+@media (min-width: 768px) {
+    header {
+        margin-bottom: 1em;
+    }
+    footer {
+        .stage {
+            left: 1in;
+            opacity: 0.33;
+            position: absolute;
+            top: -75px;
+        }
+    }
+}
 
 @media (max-width: 767px) {
-
+    footer {
+        display: none;
+    }
     header {
         background-color: transparent;
         position: fixed;
