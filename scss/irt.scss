@@ -5,20 +5,20 @@
 @import 'default/_all';
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-// TRANSLATE
-
-$link:  #3366cc;
-$gray:  $wf_gray;
-$grey: lighten($gray, 20%);
-
-// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
-
-$sans: 'myriad-pro', sans-serif;
-$serif: 'Archer SSm A', 'Archer SSm B', serif;
-$lib: '/lib/';
-$break: 750px;
-
+$stroke: 0.1em;
+// Color
+$gray: $wf_gray;  $grey: lighten($gray, 20%);
+$gray5: #555;     $grayC: #ccc;
+$blueB: #5298ad; $blueD: #165267; $blueM: #2394a0; $blueL: #9dc1cc; $blueX: #1b9fc0;
+$link: #3366cc;
+$bkgr: #1c6c84;
+// Font
+$sans1: 800 1.6em/1 $sans;  $sans2: 600 1.3em/1 $sans;
+$serf1: 800 1.6em/1 $serif; $serf2: 800 1.3em/1 $serif;
+$shadF: 1px 2px 3px black;
+$shadD: 0 0px 1px $gray5;
+$shadL: 0 1px 1px $grayC;
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'irt/_ani';
 @import 'irt/_base';
