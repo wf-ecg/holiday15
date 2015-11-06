@@ -31,10 +31,14 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             C.info(Nom, Main);
     }
     var timer = new Timer({
-        bottom: -3,
+        bottom: 0,
         div: '.game .timer',
         time: 120,
+        cb: showOutro,
     });
+    var ACT = 'keypress click';
+    var totalWon = 0;
+
 //EXTEND
     expose({
         Letter: Letter,
@@ -50,7 +54,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
 //  PRIVATE
     function startTimer() {
-        Main.timer.start();
+        timer.start();
     }
 
     function fillDisplays() {
@@ -88,7 +92,12 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function wireTile() {
         var self = this;
 
-        self.element().on('click', function () {
+        self.element().on(ACT, function (evt) {
+            var key = evt.keyCode;
+
+            if (key && (key !== 32 && key !== 13))
+                return;
+
             $.publish('check.Tile', self);
         });
     }
@@ -100,7 +109,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             $.unsubscribe('check.Tile');
             nowO.solve();
             tryO.element() //
-                .off('click') //
+                .off(ACT) //
                 .addClass('used') //
                 .removeClass('unused');
             loop();
@@ -109,17 +118,21 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
     function loop() {
         if (!setNow().length) {
-            Main.timer.stop();
             $('.gameOutput').addClass('won');
+            oneSolved(startGame);
         }
-
         $.subscribe('check.Tile', function (e, o) {
             checkSlot(o);
         });
     }
 
+    function clearGame() {
+        $('.gameInput').empty();
+        $('.gameOutput').removeClass('won').empty();
+    }
+
     function startGame() {
-        $('.gameOutput').removeClass('won');
+        clearGame();
         pair = Data.get();
         tiles = Letter.assemble(pair.anagram.toUpperCase());
         slots = Letter.assemble(pair.correct.toUpperCase());
@@ -142,17 +155,33 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function showIntro() {
         hideAreas();
         $('.intro').show();
-        timer.force('Start', showJumble);
+        timer.force('Start').one(ACT, showJumble);
     }
     function showOutro() {
+        timer.stop();
         hideAreas();
-        $('.outro').show();
+        $('.outro').show().find('.score').text(totalWon);
+        $('.timer').fadeOut();
     }
     function showJumble() {
         hideAreas();
         $('.jumble').show();
         startGame();
-
+    }
+    function oneSolved(cb) {
+        totalWon++;
+        $('.jumble').css({
+            position: 'relative',
+        }).animate({
+            left: 3333,
+        }, 333, function () {
+            $('.jumble').css({
+                left: 0,
+                position: 'static',
+            });
+            if (typeof cb === 'function')
+                cb();
+        });
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function runTests() {
