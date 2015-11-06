@@ -1,26 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_misc.scss */
 
-.clearfix {
-    @include clearfix;
-}
-.upgradeframe {
-    background-color: #ccc;
-    font-family: 'arial black';
-    height: 100%;
-    padding: 9em;
-    position: fixed;
-    width: 100%;
-}
-.modal * {
-    max-width: 100%;
-}
-
-.container * {
-    @include transform(scale(1.00));
-    @include transition(all 0.25s);
-    @include transform-style( preserve-3d );
-}
 .ui-page-active {
     //@include vgrad($blueL, $blueD);
     background-image: url('../images/bkgrs/original-bubbles-big.jpg');
