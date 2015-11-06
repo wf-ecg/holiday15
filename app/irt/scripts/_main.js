@@ -144,6 +144,14 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     }
     function doBindings() {
         $.watchInputDevice();
+        $.watchResize(function () {
+            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
+            if (Main.mobile) {
+                $('html').addClass('mobile');
+            } else {
+                $('html').removeClass('mobile');
+            }
+        });
     }
 
 //  INIT

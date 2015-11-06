@@ -5,34 +5,8 @@
 define(['jquery', 'lodash'], function ($, _) {
     'use strict';
 
-    var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 1;
-
-// PUB SUBS
-    var Q = $.pubsubs = $({});
-
-    $.publish = function () { // o.trigger.bind(o)
-        Q.trigger.apply(Q, arguments);
-    };
-    $.subscribe = function () { // o.on.bind(o)
-        Q.on.apply(Q, arguments);
-    };
-    $.unsubscribe = function () { // o.off.bind(o)
-        Q.off.apply(Q, arguments);
-    };
-    $.fn.mediate = function (event, limit, topic) {
-        return this.on(event, _.debounce(function (evt) {
-            $.publish(topic, evt);
-        }, limit));
-    };
-
-// ETC
-    $.reify = function (x, y) { // jq-reify props w/selector vals
-        $.each(x, function (i, e) {
-            x[i] = $(e);
-        });
-        return y ? $.extend(y, x) : x; // extend optional host
-    };
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     $.altTitles = function () {
         $('*').each(function () {
@@ -40,14 +14,15 @@ define(['jquery', 'lodash'], function ($, _) {
             me.attr('title', me.attr('alt'));
         });
     };
-    $.watchInputDevice = function () {
-        $('body').on('keydown', function () {
-            $(this).removeClass('mouse');
-            $(this).addClass('keyboard');
-        }).on('mousemove', function () {
-            $(this).removeClass('keyboard');
-            $(this).addClass('mouse');
-        });
+
+    $.watchResize = function (fn) {
+        if (fn) {
+            $.watchResize.last = fn;
+            $(W).on('resize', fn);
+            fn();
+        } else {
+            $(W).off('resize', watchResize.last);
+        }
     };
 
 });
