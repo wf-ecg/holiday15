@@ -141,7 +141,6 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
         //kickoff loop
         fillDisplays();
-        timer.start(duration);
         loop();
     }
     function hideAreas() {
@@ -163,6 +162,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function showJumble() {
         hideAreas();
         $('.jumble').show();
+        timer.start(duration);
         startGame();
     }
     function oneSolved(cb) {

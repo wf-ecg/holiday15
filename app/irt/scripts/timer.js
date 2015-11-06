@@ -102,6 +102,7 @@ define(['jquery'], function
                 return self;
             },
             start: function (num) {
+                self.stop();
                 if (num) {
                     self.set(num);
                 }
