@@ -27,9 +27,6 @@
         margin: $stroke / 2;
         padding: 0 0.2em;
         text-transform: uppercase;
-        @media (max-width: 767px) {
-            font-size: 1.4em!important;
-        }
         &.space {
             margin-left: 0.5em;
         }
@@ -39,14 +36,16 @@
             font-weight: 500;
             opacity: 0.5;
             &.unsolved {
-                border: $stroke outset $blueB;
+                background-color: $blueL;
+                //border: $stroke outset $blueB;
+                opacity: 0.3;
             }
             &.now {
                 @include throb;
-                border-color: lime;
+                //border-color: lime;
             }
             &.bad {
-                border-color: red;
+                //border-color: red;
                 color: red;
             }
             &.solved {
@@ -76,13 +75,17 @@
     }
     .won {
         border: 0.5em groove gold;
+        margin: -0.5em;
         text-shadow: $shadF;
+        &.used {
+            opacity: 0.6;
+        }
     }
     .gameOutput {
-        font: $serf1;
+        font: 800 1.6em/1 $serif;
     }
     .gameInput {
-        font: $sans1;
+        font: 800 1.6em/1 $sans;
     }
 }
 
