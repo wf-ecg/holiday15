@@ -1,28 +1,48 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_screen.scss */
 
+// SIZES
+$X0:    0px;
+$XS:  520px;
+$SM:  768px;
+$MD:  992px;
+$LG: 1200px;
+$XL: 9999px;
+$X9: 9999px;
+
+@mixin media($prop, $val, $loP, $hiP: 99in, $loL: 99in, $hiL: 99in) {
+    @media
+    (min-width: $loP) and (max-width: $hiP - 1) and (orientation: portrait),
+        (min-width: $loL) and (max-width: $hiL - 1) and (orientation: landscape)
+        { & { #{$prop}: $val; }
+    }
+}
+.ui-page {
+    > div {
+        @include media(font-size, 0.5em, $X0, $XS, $X0, $SM);
+        @include media(font-size, 0.7em, $XS, $SM, $SM, $MD);
+        @include media(font-size, 0.8em, $SM, $MD, $MD, $LG);
+        @include media(font-size, 1.0em, $MD, $LG, $LG, $XL);
+        @include media(font-size, 1.2em, $LG, $XL, $XL, $X9);
+        @include media(font-size, 1.4em, $XL, $X9, $X9, $X9);
+    }
+}
+.debug {
+    header {
+        @include media(border-top, 1px solid lime,    $X0, $XS, $X0, $SM);
+        @include media(border-top, 1px solid yellow,  $XS, $SM, $SM, $MD);
+        @include media(border-top, 1px solid pink,    $SM, $MD, $MD, $LG);
+        @include media(border-top, 1px solid red,     $MD, $LG, $LG, $XL);
+        @include media(border-top, 1px solid green,   $LG, $XL, $XL, $X9);
+        @include media(border-top, 1px solid blue,    $XL, $X9, $X9, $X9);
+    }
+}
+
 // SMALL
-@media (max-width: $break), (max-device-width: $break) {
-    .desktop {
-        //display: none !important;
-    }
-}
+@media (max-width: $break), (max-device-width: $break) {}
 // SMALL PORTRAIT
-@media (max-width: $break) and (orientation: portrait),
-(max-device-width: $break) and (orientation: portrait) {
-}
-
+@media (max-width: $break) and (orientation: portrait), (max-device-width: $break) and (orientation: portrait) {}
 // NORMAL
-@media (min-width: $break + 1) and (min-device-width: $break + 1) {
-    .mobile {
-        //display: none !important;
-    }
-}
-
-// WIDE
-@media (min-width: 1400px) {
-    html {
-    }
-}
+@media (min-width: $break + max) and (min-device-width: $break + max) {}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
