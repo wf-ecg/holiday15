@@ -23,107 +23,50 @@
             data-main="./config"
             data-main="./build/app"
     ></script>
-    <style>
-    </style>
   </head>
+
   <body><div data-role="page" class="irt">
       <!--[if lt IE 8]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
       <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
       browser</a> to improve your web experience.</p> </div><![endif]-->
 
-      <header>
-
-        <div class="mobile">
-          <img class="logo" src="../images/icons/wf_mobile.png" alt="Wells Fargo">
-        </div>
-
-        <div class="container">
-          <div class="row">
-
-            <nav class="navbar navbar-default">
-
-              <div class="navbar-header">
-
-                <button type="button"
-                        class="navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target="#myNavbar"
-                        aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="myNavbar">
-                  <nav class="navbar-nav">
-
-                    <ul>
-                      <li><a href="/">Home</a></li>
-                      <li><a href="/about/">About Wells Fargo</a></li>
-                      <li><a href="/about/careers/">Careers</a></li>
-                      <li><a href="/privacy-security/">Privacy, Cookies, Security &amp; Legal</a></li>
-                      <li><a href="/privacy-security/fraud/report/">Report Fraud</a></li>
-                      <li><a href="/sitemap">Sitemap</a></li>
-                      <li><a href="/about/diversity/">Diversity &amp; Accessibility</a></li>
-                      <li><a href="http://blogs.wellsfargo.com">Blogs &amp; Social Media</a></li>
-                      <li><a href="/privacy-security/privacy/online#adchoices">Ad Choices</a></li>
-                    </ul>
-
-                  </nav>
-                </div>
-
-                <!-- /.navbar-header -->
-              </div>
-
-              <a class="desktop navbar-brand" href="..">
-                <img class="logo" alt="Wells Fargo" src="../images/icons/wf-logo-50px.png">
-              </a>
-
-            </nav>
-
-            <!-- container/row -->
-          </div>
-        </div>
-
-      </header>
+      <header></header>
 
       <div class="game">
 
-      <!-- JUMBLE -->
-      <div class="intro">
-        <h1>We hope your holidays are letter perfect. </h1>
-        <p>
-          Press letters to turn a Jingle Jumble into a holiday greeting. <br>
-          See how many you can solve in 2 minutes.<br>
-          Have fun.
-        </p>
-        <img src="../images/icons/gift.png" alt="gift">
-      </div>
+        <!-- JUMBLE -->
+        <div class="intro">
+          <h1>We hope your holidays are letter perfect. </h1>
 
+          <p>
+            Press letters to turn a Jingle Jumble into a holiday greeting. <br>
+            See how many you can solve in 2 minutes.<br>
+            Have fun.
+          </p>
 
-      <div class="jumble">
-        <div class="gameOutput"></div>
-        <hr>
-        <div class="gameInput"></div>
-        <div class="timer" tabindex="0"></div>
-      </div>
+          <img src="../images/icons/gift.png" alt="gift">
+        </div>
+        <div class="outro">
+          <h1>
+            Your <br> Jingle Jumble <br> score = {{score}}
+          </h1>
 
-      <div class="outro">
+          <img src="../images/icons/gift.png" alt="gift">
 
+          <h2>
+            Share with family and friends!
+          </h2>
+        </div>
 
-        <h1>
-          Your <br>
-          Jingle Jumble <br>
-          score = {{score}}
-        </h1>
-        <img src="../images/icons/gift.png" alt="gift">
-        <h2>
-          Share with family and friends!
-        </h2>
+        <div class="jumble">
+          <div class="gameOutput"></div>
+          <hr>
+          <div class="gameInput"></div>
+        </div>
 
-      </div>
-      <!-- END JUMBLE -->
+        <!-- END JUMBLE -->
+
+        <div class="timer" tabindex="0">Start</div>
 
       </div>
 
