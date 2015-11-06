@@ -35,7 +35,11 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     expose({
         Letter: Letter,
         Modal: Modal,
-        Timer: Timer,
+        timer: new Timer({
+            bottom: -3,
+            div: '.jumble .timer',
+            time: 120,
+        }),
     });
 
     $.scrollMain = function (px, ms) {
@@ -45,12 +49,8 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
-    function startTimer(sec) {
-        Main.testTimer = new Timer({
-            bottom: -3,
-            div: '.jumble .timer',
-            time: sec || 3,
-        }).start();
+    function startTimer() {
+        Main.timer.start();
     }
 
     function fillDisplays() {
@@ -109,7 +109,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
     function loop() {
         if (!setNow().length) {
-            Main.testTimer.stop();
+            Main.timer.stop();
             $('.gameOutput').addClass('won');
         }
 
@@ -134,7 +134,14 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         startTimer(30);
         loop();
     }
-
+    function hideAreas() {
+        $('.jumble').hide();
+        $('.intro').hide();
+        $('.outro').hide();
+    }
+    function showIntro(){
+        $('.intro').show();
+    }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function runTests() {
 //        require(['tests/jumble.test']);
@@ -159,7 +166,9 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         runTests();
         doBindings();
-        startGame();
+        //startGame();
+        hideAreas();
+        showIntro();
     });
 
 });

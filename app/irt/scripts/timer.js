@@ -109,6 +109,9 @@ define(['jquery'], function
             update: function () {
                 self.display();
             },
+            force: function (txt, cb) {
+                cf.div.html(txt).one('click', cb);
+            },
             set: function (num) {
                 cf.time = num || 0;
             },
