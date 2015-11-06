@@ -7,10 +7,19 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
 $stroke: 0.1em;
+
 // Color
-$gray: $wf_gray;  $grey: lighten($gray, 20%);
-$gray5: #555;     $grayC: #ccc;
-$blueB: #5298ad; $blueD: #165267; $blueM: #2394a0; $blueL: #9dc1cc; $blueX: #1b9fc0;
+$gray: $wf_gray;
+$grey: lighten($gray, 20%);
+$gray5: #555;
+$grayC: #ccc;
+
+$blueB: #5298ad;
+$blueD: #165267;
+$blueM: #2394a0;
+$blueL: #9dc1cc;
+$blueX: #1b9fc0;
+
 $link: #3366cc;
 $bkgr: #1c6c84;
 
@@ -20,6 +29,7 @@ $shadL: 0 1px 1px $grayC;
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'irt/_ani';
 @import 'irt/_base';
+@import 'irt/_game';
 @import 'irt/_jumble';
 @import 'irt/_misc';
 @import 'irt/_timer';
