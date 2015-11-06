@@ -31,9 +31,10 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             C.info(Nom, Main);
     }
     var timer = new Timer({
-        bottom: -3,
+        bottom: 0,
         div: '.game .timer',
         time: 120,
+        cb: showOutro,
     });
     var ACT = 'keypress click';
 
@@ -93,7 +94,8 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         self.element().on(ACT, function (evt) {
             var key = evt.keyCode;
 
-            if (key && (key !== 32 && key !== 13)) return;
+            if (key && (key !== 32 && key !== 13))
+                return;
 
             $.publish('check.Tile', self);
         });
@@ -115,17 +117,21 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
     function loop() {
         if (!setNow().length) {
-            timer.stop();
             $('.gameOutput').addClass('won');
+            oneSolved(startGame);
         }
-
         $.subscribe('check.Tile', function (e, o) {
             checkSlot(o);
         });
     }
 
+    function clearGame() {
+        $('.gameInput').empty();
+        $('.gameOutput').removeClass('won').empty();
+    }
+
     function startGame() {
-        $('.gameOutput').removeClass('won');
+        clearGame();
         pair = Data.get();
         tiles = Letter.assemble(pair.anagram.toUpperCase());
         slots = Letter.assemble(pair.correct.toUpperCase());
@@ -151,6 +157,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         timer.force('Start').one(ACT, showJumble);
     }
     function showOutro() {
+        timer.stop();
         hideAreas();
         $('.outro').show();
     }
@@ -158,7 +165,20 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         hideAreas();
         $('.jumble').show();
         startGame();
-
+    }
+    function oneSolved(cb) {
+        $('.jumble').css({
+            position: 'relative',
+        }).animate({
+            left: 3333,
+        }, 333, function () {
+            $('.jumble').css({
+                left: 0,
+                position: 'static',
+            });
+            if (typeof cb === 'function')
+                cb();
+        });
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     function runTests() {
