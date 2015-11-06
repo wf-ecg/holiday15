@@ -35,6 +35,8 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         div: '.game .timer',
         time: 120,
     });
+    var ACT = 'keypress click';
+
 //EXTEND
     expose({
         Letter: Letter,
@@ -50,7 +52,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
 //  PRIVATE
     function startTimer() {
-        Main.timer.start();
+        timer.start();
     }
 
     function fillDisplays() {
@@ -88,7 +90,11 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function wireTile() {
         var self = this;
 
-        self.element().on('click', function () {
+        self.element().on(ACT, function (evt) {
+            var key = evt.keyCode;
+
+            if (key && (key !== 32 && key !== 13)) return;
+
             $.publish('check.Tile', self);
         });
     }
@@ -100,7 +106,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             $.unsubscribe('check.Tile');
             nowO.solve();
             tryO.element() //
-                .off('click') //
+                .off(ACT) //
                 .addClass('used') //
                 .removeClass('unused');
             loop();
@@ -109,7 +115,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
     function loop() {
         if (!setNow().length) {
-            Main.timer.stop();
+            timer.stop();
             $('.gameOutput').addClass('won');
         }
 
@@ -142,7 +148,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     function showIntro() {
         hideAreas();
         $('.intro').show();
-        timer.force('Start', showJumble);
+        timer.force('Start').one(ACT, showJumble);
     }
     function showOutro() {
         hideAreas();

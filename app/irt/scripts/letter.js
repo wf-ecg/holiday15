@@ -23,6 +23,7 @@ define(['jquery', 'lodash'], function
     var dump = function () {
         return JSON.stringify(this);
     };
+
 // STATIC
     Letter.assemble = function (str) {
         var arr = str.split(''),
@@ -90,6 +91,9 @@ define(['jquery', 'lodash'], function
                     .addClass(this._type);
                 if (this._gap) {
                     ele.addClass('space');
+                }
+                if (ele.is('.tile')) {
+                    ele.attr('tabIndex', 0);
                 }
                 return this._ele = ele;
             }
