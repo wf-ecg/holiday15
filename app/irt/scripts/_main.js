@@ -42,6 +42,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
 //EXTEND
     expose({
+        Data: Data,
         Letter: Letter,
         Modal: Modal,
         timer: timer,
