@@ -13,11 +13,13 @@
 .scrollInner {
     background-image: url('../images/bkgrs/trans-bubbles-big.png');
     background-position: center;
-    border-bottom: 3em solid green;
-    border-top: 3em solid green;
     height: 9999px;
     position: relative;
     width: 100%;
+    .debug & {
+        border-bottom: 1px solid lime;
+        border-top: 1px solid lime;
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
