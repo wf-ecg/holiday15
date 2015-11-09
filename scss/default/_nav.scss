@@ -61,10 +61,12 @@ nav ul li {
 @media (min-width: 768px) {
     footer {
         .stage {
+            float: left;
             left: 1in;
+            margin-top: -72px;
+            margin-right: -100%;
             opacity: 0.33;
             position: relative;
-            top: -75px;
         }
     }
 }

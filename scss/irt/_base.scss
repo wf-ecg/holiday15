@@ -5,6 +5,12 @@ header, footer {
     font-family: $sans;
     z-index: 9;
 }
+footer {
+    background: #44464a;
+    color: white;
+    font-size: 0.75em;
+    line-height: 2;
+}
 h2 {
     font-size: 3em;
     font-weight: 500;
@@ -15,15 +21,6 @@ h3 {
     font-size: 2.4em;
     font-weight: 500;
     margin-bottom: 1em;
-}
-footer {
-    background: #44464a;
-    bottom: 0;
-    color: #fff;
-    font-size: 0.75em;
-    line-height: 2;
-    text-align: center;
-    padding: 2em 3em 4em;
 }
 p {
     font-size: 2.5em;

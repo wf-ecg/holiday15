@@ -1,6 +1,9 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_misc.scss */
 
+header {
+    display: table-cell;
+}
 
 .container * {
     @include transform(scale(1.00));
