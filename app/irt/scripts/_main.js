@@ -68,7 +68,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             fixWidths.timer = W.setTimeout(fixWidths, 14);
         }
 
-        if (db()) C.log(Nom, 'fixWidths', all);
+        if (db(2)) C.log(Nom, 'fixWidths', all);
         arr.forEach(function (e) {
             e.tweakWidth(max - 5);
         });

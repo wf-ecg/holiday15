@@ -7,14 +7,17 @@ header {
         display: none;
     }
     .img-social {
-        left: -10px;
-        position: fixed;
-        top: 40%;
-        width: 50px;
-        z-index: 9;
-
+        height: 50px;
+        opacity: 0.5;
+        position: absolute;
+        right: 0;
+        top: 0;
         &:hover {
             cursor: pointer;
+            opacity: 0.8;
+        }
+        img {
+            height: 100%;
         }
     }
 }
