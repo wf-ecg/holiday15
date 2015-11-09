@@ -5,6 +5,7 @@
     @include background-image( linear-gradient(top, $trans 66%, $blueX 88%) );
     bottom: 0px;
     overflow: scroll;
+    overflow-x: hidden;
     position: absolute;
     top: 0px;
     width: 105%;

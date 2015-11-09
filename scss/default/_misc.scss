@@ -25,4 +25,34 @@
 .ui-page-active {
     height: 100%;
 }
+
+.lookdown, .lookup {
+    $look: 4em;
+    @include centify;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: $look;
+    color: white;
+    font-size: $look/2 !important;
+    height: $look * 1;
+    line-height: 1;
+    text-align: center;
+    width: $look;
+
+    * {
+        @include middify;
+        @include transform(scaleX(1.5));
+        line-height: 2;
+    }
+}
+.lookup {
+    .glyphicon-menu-up {
+        top: auto;
+    }
+}
+.lookdown {
+    .glyphicon-menu-down {
+        bottom: auto;
+    }
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
