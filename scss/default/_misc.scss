@@ -1,44 +1,11 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_misc.scss */
 
-.clearfix {
-    @include clearfix;
-}
-.upgradeframe {
-    background-color: #ccc;
-    font-family: 'arial black';
-    height: 100%;
-    padding: 9em;
-    position: fixed;
-    width: 100%;
-}
-.modal * {
-    max-width: 100%;
-}
+
 .container * {
     @include transform(scale(1.00));
     @include transition(all 0.25s);
     @include transform-style( preserve-3d );
-}
-.ui-page {
-}
-.ui-page-active {
-    height: 100%;
-}
-
-.frame {
-    border-collapse: collapse;
-    display: table;
-    height: 100%;
-    width: 100%;
-
-    header, footer, section {
-        display: table-row;
-        position: relative;
-    }
-    header, footer {
-        height: 5%;
-    }
 }
 
 .lookdown, .lookup {
@@ -58,16 +25,11 @@
         @include transform(scaleX(1.5));
         line-height: 2;
     }
-}
-.lookup {
     .glyphicon-menu-up {
         top: auto;
     }
-}
-.lookdown {
     .glyphicon-menu-down {
         bottom: auto;
     }
 }
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
