@@ -9,4 +9,39 @@
 a:hover {
     text-decoration: none;
 }
+
+$look: 4em;
+$look-offset: 0.7em;
+
+.lookdown, .lookup {
+    @include centify;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: $look;
+    color: white;
+    font-size: $look/2 !important;
+    height: $look * 1;
+    line-height: 1;
+    text-align: center;
+    width: $look;
+
+    * {
+        @include middify;
+        @include transform(scaleX(1.5));
+        line-height: 2;
+    }
+}
+.lookup {
+    top: $look-offset;
+
+    .glyphicon-menu-up {
+        top: auto;
+    }
+}
+.lookdown {
+    bottom: $look-offset;
+
+    .glyphicon-menu-down {
+        bottom: auto;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

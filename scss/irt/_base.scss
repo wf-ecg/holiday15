@@ -3,10 +3,10 @@
 
 header {
     position: relative;
-    z-index: 9;
 }
 header, footer {
     font-family: $sans;
+    z-index: 9;
 }
 h2 {
     font-size: 3em;

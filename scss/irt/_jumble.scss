@@ -20,7 +20,7 @@
         opacity: 0.5;
     }
     span {
-        border: $stroke outset $trans;
+        //border: $stroke outset $trans;
         border-radius: $stroke;
         font-size: 2em;
         line-height: 1.75em;
@@ -67,7 +67,7 @@
             &.unused {
                 cursor: pointer;
                 &:hover {
-                    border-color: $blueB;
+                    color: white;
                     opacity: 1;
                 }
             }
