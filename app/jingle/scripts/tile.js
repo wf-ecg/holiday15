@@ -54,14 +54,8 @@ define(['jquery', 'lodash'], function
             cf.ele.addClass('break');
         }
         function handleSpace() {
-            //randomColor(cf.ele);
             cf.ele.addClass('space');
             cf.ele.html(' ');
-        }
-        function randomColor(ele) {
-            $(ele).css({
-                backgroundColor: colors[_.random(4)],
-            });
         }
         function set(char) {
             cf.char = char;
@@ -96,7 +90,7 @@ define(['jquery', 'lodash'], function
                 }
             },
             saveOffset: function () {
-                return self.pos = cf.ele.offset();
+                return self.pos = cf.ele.position();
             },
             init: function (char) {
                 set(char);

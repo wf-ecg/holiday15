@@ -1,5 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* JING/_misc.scss */
+/* JING/_message.scss */
 
 
 .message, .shuffle {
@@ -7,11 +7,9 @@
     font-family: $serif;
     line-height: 5;
     text-align: center;
-    width: 100%;
 }
 .message {
     pointer-events: none;
-    position: absolute;
 
     h1 {
         font-size: 2.2em;
@@ -20,17 +18,6 @@
     }
     .debug & {
         pointer-events: auto;
-    }
-}
-.shuffle {
-}
-
-@media (orientation: portrait) {
-    .message {
-        margin-top: 10em;
-    }
-    .shuffle {
-        margin-top: 20em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

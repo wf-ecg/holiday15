@@ -35,7 +35,7 @@ define(['jquery', 'lodash'], function ($, _) {
 // FREEZE
     $.fn.freeze = function () {
         var poses = this.map(function () {
-            return $(this).offset();
+            return $(this).position();
         });
         return this.each(function (i, e) {
             $(e).css(poses[i]);
