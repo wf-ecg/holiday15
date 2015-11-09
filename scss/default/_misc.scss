@@ -26,6 +26,21 @@
     height: 100%;
 }
 
+.frame {
+    border-collapse: collapse;
+    display: table;
+    height: 100%;
+    width: 100%;
+
+    header, footer, section {
+        display: table-row;
+        position: relative;
+    }
+    header, footer {
+        height: 5%;
+    }
+}
+
 .lookdown, .lookup {
     $look: 4em;
     @include centify;

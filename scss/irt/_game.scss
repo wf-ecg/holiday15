@@ -24,7 +24,10 @@
         width: 6em;
     }
 }
-
+.game {
+    display: table-cell;
+    vertical-align: middle;
+}
 .gameOutput {
     font: 800 1.6em/1 $serif;
 }

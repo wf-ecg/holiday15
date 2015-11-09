@@ -1,9 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_base.scss */
 
-header {
-    position: relative;
-}
 header, footer {
     font-family: $sans;
     z-index: 9;
@@ -26,9 +23,7 @@ footer {
     font-size: 0.75em;
     line-height: 2;
     text-align: center;
-    padding: 1em 2em 3em;
-    position: fixed;
-    width: 100%;
+    padding: 2em 3em 4em;
 }
 p {
     font-size: 2.5em;
