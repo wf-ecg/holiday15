@@ -19,10 +19,40 @@ define(['jquery', 'lodash'], function
     var Self = Letter;
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
+    var Df = {
+        ele: '',
+        gap: 0,
+        letter: 'x',
+        type: '',
+    };
+    var cache = {};
 
+// PRIVATE
+    function db(num) {
+        return W.debug > (num || 1);
+    }
     var dump = function () {
         return JSON.stringify(this);
     };
+    function Cf(obj) {
+        var id = Math.random() * 1e20; // ensure whole number and zeros
+
+        if (obj.constructor === Self) {
+            return cache[obj['.cf']];
+        } else {
+            while(cache[id]) id++; // prevent collision
+            return cache[id] = $.extend({}, Df, obj, {'#':id});
+        }
+    }
+    function cacheConfigs(self, cf) {
+        cf = Cf(cf); // nab a private property
+        if (db()) { // expose if debugging
+            Self.cache = cache;
+            self.cf = cf;
+        }
+        self['.cf'] = cf['#']; // keep a cache key
+        return cf;
+    }
 
 // STATIC
     Letter.assemble = function (str) {
@@ -45,32 +75,36 @@ define(['jquery', 'lodash'], function
         toString: dump,
         valueOf: dump,
         letter: function (str) {
+            var cf = Cf(this);
             if (typeof str === 'string') {
-                this._letter = str[0];
+                cf.letter = str[0];
                 return this;
             } else {
-                return this._letter;
+                return cf.letter;
             }
         },
         gap: function (num) {
+            var cf = Cf(this);
             if (typeof num === 'number') {
-                this._gap = Math.abs(num);
+                cf.gap = Math.abs(num);
                 return this;
             } else {
-                return this._gap;
+                return cf.gap;
             }
         },
         type: function (str) {
+            var cf = Cf(this);
             if (typeof str === 'string') {
-                this._type = str;
+                cf.type = str;
                 return this;
             } else {
-                return this._type;
+                return cf.type;
             }
         },
         displayXfor: function (str, num) {
-            var ele = this._ele;
-            var org = this._letter;
+            var cf = Cf(this);
+            var ele = cf.ele;
+            var org = cf.letter;
 
             ele.addClass('bad').html(str);
 
@@ -79,32 +113,35 @@ define(['jquery', 'lodash'], function
             }, num || 3e3);
         },
         element: function () {
-            var ele = this._ele;
+            var cf = Cf(this);
+            var ele = cf.ele;
 
             if (ele) {
                 return ele;
             } else {
                 // make and datafy
                 ele = $('<span>');
-                ele.html(this._letter) //
+                ele.html(cf.letter) //
                     .data(Nom, this) //
-                    .addClass(this._type);
-                if (this._gap) {
+                    .addClass(cf.type);
+                if (cf.gap) {
                     ele.addClass('space');
                 }
                 if (ele.is('.tile')) {
                     ele.attr('tabIndex', 0);
                 }
-                return this._ele = ele;
+                return cf.ele = ele;
             }
         },
         solve: function () {
-            var ele = this._ele;
+            var cf = Cf(this);
+            var ele = cf.ele;
             ele.addClass('solved').removeClass('unsolved bad now');
         },
         check: function (str) {
+            var cf = Cf(this);
             this.displayXfor(str, 999);
-            return (str === this._letter);
+            return (str === cf.letter);
         },
     };
 
@@ -115,12 +152,7 @@ define(['jquery', 'lodash'], function
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
-        self.cf = $.extend({
-            gap: 0,
-            letter: 'x',
-            type: '',
-        }, cf);
-
+        cf = cacheConfigs(self, cf);
         self.letter(cf.letter);
         self.gap(cf.gap);
     }

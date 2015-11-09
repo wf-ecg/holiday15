@@ -20,6 +20,9 @@
         font: 400 1.6em/1 $sans;
         margin: 1em;
     }
+    img {
+        width: 6em;
+    }
 }
 
 .gameOutput {
@@ -29,15 +32,4 @@
     font: 800 1.6em/1 $sans;
 }
 
-@media (max-width: 767px) {
-    .game {
-        font-size: 0.8em!important;
-    }
-}
-@media (min-width: 1400px) {
-    .game {
-        font-size: 1.2em!important;
-    }
-
-}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
