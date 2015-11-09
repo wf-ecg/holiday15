@@ -1,38 +1,36 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_game.scss */
 
-.intro, .outro {
-    color: white;
-    padding-top: 3em;
-    position: relative;
-    text-align: center;
-    z-index: 11;
-
-    h1 {
-        font: 600 2.5em/1 $serif;
-        margin: 1em;
-    }
-    h2 {
-        font: 600 2em/1 $serif;
-        margin: 1em;
-    }
-    p {
-        font: 400 1.6em/1 $sans;
-        margin: 1em;
-    }
-    img {
-        width: 6em;
-    }
-}
 .game {
     display: table-cell;
     vertical-align: middle;
-}
-.gameOutput {
-    font: 800 1.6em/1 $serif;
-}
-.gameInput {
-    font: 800 1.6em/1 $sans;
-}
 
+    .intro, .outro {
+        color: white;
+        text-align: center;
+        z-index: 11;
+
+        h1 {
+            font: 600 2.5em/1 $serif;
+            margin: 1em;
+        }
+        h2 {
+            font: 600 2em/1 $serif;
+            margin: 1em;
+        }
+        p {
+            font: 400 1.6em/1 $sans;
+            margin: 1em;
+        }
+        img {
+            width: 6em;
+        }
+    }
+    .gameOutput {
+        font: 800 1.6em/1 $serif;
+    }
+    .gameInput {
+        font: 800 1.6em/1 $sans;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
