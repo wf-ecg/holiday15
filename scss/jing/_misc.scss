@@ -5,40 +5,8 @@
     background-image: url('../images/bkgrs/original-bubbles-big.jpg');
     background-size: cover;
 }
-.message, .shuffle {
-    color: white;
-    font-family: $serif;
-    line-height: 5;
-    text-align: center;
-    width: 100%;
-}
-.message {
-    margin-top: 10%;
-    pointer-events: none;
-    position: absolute;
 
-    h1 {
-        font-size: 2.2em;
-        font-weight: 800;
-        line-height: 1.2;
-    }
-    .debug & {
-        pointer-events: auto;
-    }
-}
-.shuffle {
-    margin-top: 20%;
-}
 a:hover {
     text-decoration: none;
-}
-
-@media (orientation: portrait) {
-    .message {
-        margin-top: 10em;
-    }
-    .shuffle {
-        margin-top: 20em;
-    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
