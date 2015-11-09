@@ -2,6 +2,7 @@
 /* JING/_scroll.scss */
 
 .scrollOuter {
+    @include background-image( linear-gradient(top, $trans 66%, $blueX 88%) );
     bottom: 0px;
     overflow: scroll;
     position: absolute;
@@ -9,8 +10,8 @@
     width: 105%;
 }
 .scrollInner {
-    background-image: url('../images/icons/wf_mobile_bg.png');
-    background-size: 6px;
+    background-image: url('../images/bkgrs/trans-bubbles-big.png');
+    background-position: center;
     border-bottom: 3em solid green;
     border-top: 3em solid green;
     height: 9999px;

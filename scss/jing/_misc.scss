@@ -1,6 +1,10 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* JING/_misc.scss */
 
+.ui-page-active {
+    background-image: url('../images/bkgrs/original-bubbles-big.jpg');
+    background-size: cover;
+}
 .message, .shuffle {
     color: white;
     font-family: $serif;
