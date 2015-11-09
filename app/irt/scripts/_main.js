@@ -55,15 +55,35 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
+    function fixWidths() {
+        var arr = [].concat(slots, tiles);
+        var all = arr.map(function (e) {
+            return e.element().outerWidth();
+        }).sort();
+        var max = all[all.length-1];
+
+        if (all[0] + 10  > max) {
+            return W.clearTimeout(fixWidths.timer);
+        } else {
+            fixWidths.timer = W.setTimeout(fixWidths, 14);
+        }
+
+        if (db()) C.log(Nom, 'fixWidths', all);
+        arr.forEach(function (e) {
+            e.tweakWidth(max - 5);
+        });
+    }
+
     function fillDisplays() {
         fillDisplay(slots, 'slot unsolved', '.gameOutput');
         fillDisplay(tiles, 'tile unused', '.gameInput');
 
         $.each(tiles, wireTile);
+        fixWidths();
     }
 
     function fillDisplay(arr, css, sel) {
-        var div = $(sel);
+        var div = $(sel).hide().fadeIn(999);
 
         $.each(arr, function () {
             var ele = this //
