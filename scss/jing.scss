@@ -5,10 +5,29 @@
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
+$stroke: 0.1em;
 
+// Color
+$gray: $wf_gray;
+$grey: lighten($gray, 20%);
+$gray5: #555;
+$grayC: #ccc;
 
+$blueB: #5298ad;
+$blueD: #1c6c8c;
+$blueM: #2394a0;
+$blueL: #9dc1cc;
+$blueX: #1b9fc0;
+
+$link: #3366cc;
+$bkgr: #1c6c84;
+
+$shadF: 1px 2px 3px black;
+$shadD: 0 0px 1px $gray5;
+$shadL: 0 1px 1px $grayC;
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 @import 'jing/_base';
+@import 'jing/_message';
 @import 'jing/_misc';
 @import 'jing/_scroll';
 @import 'jing/_tile';
