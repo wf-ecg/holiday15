@@ -1,13 +1,17 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* JING/_misc.scss */
 
-.ui-page-active {
-    background-image: url('../images/bkgrs/original-bubbles-big.jpg');
-    background-size: cover;
-}
-
 a:hover {
     text-decoration: none;
+}
+footer {
+    border-top: 0.3em solid rgba(22,44,88,0.5);
+    padding: 0 0 5em;
+    text-align: center;
+}
+.ui-page-active {
+    @include background-image( url('../images/bkgrs/original-bubbles-big.jpg') );
+    background-size: cover;
 }
 .shuffle {
     margin: 5em;
