@@ -45,12 +45,14 @@ define(['jquery', 'lodash'], function ($, _) {
         return this.css({top: '', left: ''}).removeClass('freeze');
     };
     $.fn.freezeKids = function () {
-        return this.css({height: this.height(), width: this.width()}) //
-            .children().freeze();
+        this.css({height: this.height(), width: this.width()});
+        this.children().freeze();
+        return this;
     };
     $.fn.unfreezeKids = function () {
-        return this.css({height: '', width: ''}) //
-            .children().unfreeze();
+        this.css({height: '', width: ''});
+        this.children().unfreeze();
+        return this;
     };
 
 // WATCHERS
