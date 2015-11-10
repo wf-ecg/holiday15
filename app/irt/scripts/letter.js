@@ -112,6 +112,17 @@ define(['jquery', 'lodash'], function
                 ele.removeClass('bad').html(org);
             }, num || 3e3);
         },
+        tweakWidth: function (max) {
+            var cf = Cf(this);
+            var px;
+            if (cf.ele.outerWidth() + 1 < max) {
+                px = parseInt(cf.ele.css('padding-right'), 10);
+                cf.ele.css({
+                    paddingLeft: px + 1 + 'px',
+                    paddingRight: px + 1 + 'px',
+                });
+            }
+        },
         element: function () {
             var cf = Cf(this);
             var ele = cf.ele;
