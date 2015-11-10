@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'modal', 'letter', 'timer', 'data'], function
-    MAIN($, Modal, Letter, Timer, Data) {
+define(['jquery', 'lodash', 'modal', 'letter', 'timer', 'data'], function
+    MAIN($, _, Modal, Letter, Timer, Data) {
     'use strict';
 
     var Nom = 'Main';
@@ -27,8 +27,9 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             W.Main = Main; // expose for dev
             $.extend(Main, obj);
         }
-        if (log)
-            C.info(Nom, Main);
+        if (log) {
+            C.info(Nom, 'expose', Main);
+        }
     }
     var timer = new Timer({
         bottom: -3,
@@ -47,10 +48,6 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         Modal: Modal,
         timer: timer,
     });
-
-    $.scrollMain = function (px, ms) {
-        $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
-    };
 
     $('header').first().load('../includes/main_header.html header > *');
 

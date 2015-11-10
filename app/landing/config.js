@@ -1,7 +1,8 @@
 /*jslint white:false */
-/*global require, window */
+/*global require, window, _ */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W = (W && W.window || window), C = (W.C || W.console || {});
+var W = (W && W.window || window),
+    C = (W.C || W.console || {});
 
 W.SHIET = {};
 W.debug = Number(new Date('2015/12/01') > new Date());
@@ -18,8 +19,8 @@ require.config({
         //
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
-        mason: '../../vendor/jq/jquery.masonry.min',
         modal: '../../vendor/ecg/modal',
+        utils: '../../vendor/ecg/utils',
         //
         beacon: 'libs/ecg-beacon',
         stats: 'libs/ecg-stats',
@@ -32,7 +33,7 @@ require.config({
     shim: { angularAMD: ['angular'], angularRT: ['angular'] },
 });
 
-require(['modern', 'console'], function () {
+require(['modern', 'console', 'lodash', 'utils'], function () {
     try {
         W.SHIET.init();
 
@@ -54,8 +55,7 @@ require(['modern', 'console'], function () {
     }
 
     /// CUSTOM
-    require(['lodash', 'boots', 'mason', 'ngapp'], function (_) {
-        require(['_main']);
+    require(['boots', 'jqmobi', '_main'], function () {
 
         _.delay(function () {
             if (W.debug < -2) {

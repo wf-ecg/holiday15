@@ -1,39 +1,236 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
   <head>
-    <meta charset="UTF-8">
     <title>Holiday Landing Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="cache-control" content="max-age=0, must-revalidate">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="ECG Interactive Design (IxD)">
+    <meta content="Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
+          We design and develop with a focus on web standards and best practices." name="description">
     <!--  -->
+    <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
+        (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="/lib/video-js/ecg/video-js.css">
     <link rel="stylesheet" href="../build/land.css">
+    <!--  -->
+    <script src="../vendor/ecg/glober.js"></script>
     <script src="/lib/requirejs/2.1.17/require.js"
             data-main="./config"
             data-main="./build/app"
     ></script>
   </head>
-  <body>
 
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
+  <body><div data-role="page" class="land">
+  <!--[if lt IE 10]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+  <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+  browser</a> to improve your web experience.</p> </div><![endif]-->
 
-    <div class="modal">
+    <div class="frame">
+        <header></header>
 
-      <div id="Video1">
-        <video class="video-js vjs-default-skin"
-               controls data-setup="{}"
-               poster="http://www.wellsfargomedia.com/currencyteller/images/photos/poster-1.png"
-               width="960" height="540" alt="Play Video">
-          <source src="http://www.wellsfargomedia.com/currencyteller/videos/1243156_Overview.mp4" type="video/mp4">
-          <track kind="captions" src="./videos/1243156_Overview.vtt" srclang="en" label="English">
-          <p class="vjs-no-js">To view this video please enable JavaScript, and consider a web browser that
-            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-        </video>
+        <section>
+          <div class="dumbdiv">
+
+<div class="container" style="
+     width: auto;
+     padding: 0;
+     ">
+  <div class="">
+
+    <div id="Carousel"
+         class="carousel slide"
+         data-ride="carousel"
+         data-keyboard="true"
+         data-interval="99999"
+         data-pause="true"
+         data-wrap="true">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#Carousel" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+
+        <div class="item active">
+          <div class="full">
+
+            <img src="../images/landing/banner-02.jpg" alt="...">
+
+            <div class="container">
+              <div style="
+                   bottom: 40px;
+                   position: absolute;
+                   text-align: center;
+                   width: 100%;
+                   ">
+                <p class="big-red-ital">
+                  Wishing you a magical holiday.
+                </p>
+
+              </div>
+            </div>
+
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="full">
+
+            <img src="../images/landing/banner-03.jpg" alt="...">
+
+            <div class="container">
+              <div style="
+                   bottom: 100px;
+                   left: 40px;
+                   position: absolute;
+                   width: 300px;
+                   ">
+                <p class="big-white">
+                  Lorem ipsum dolor sit amet, consectetuer. <br>
+                </p>
+                <a href="http://www.wellsfargomedia.com/holiday/snowman/irt.html#m1" target="viewer"><button style="margin-left: 0;" class="btn-tile red">Play</button></a>
+              </div>
+            </div>
+
+            <div class="carousel-caption"></div>
+          </div>
+        </div>
+
       </div>
-      <!--End Modal-->
+
+      <!-- Controls -->
+      <a class="left carousel-control" role="button"
+         data-target="#Carousel"
+         data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" role="button"
+         data-target="#Carousel"
+         data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+      <!-- Carousel -->
     </div>
 
-  </body>
+    <!-- container/row -->
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="masonry-container">
+
+      <div class="tile  sq-lg   col-lg-6  col-md-8  col-sm-12  col-xs-12">
+        <section class="bg-wf-blue">
+          <div>
+
+            <p class="message-lg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <button class="btn-tile blue" ng-href="">Play</button>
+          </div>
+
+        </section>
+      </div>
+
+      <div class="tile  sq-sm  col-lg-3  col-md-4  col-sm-6  col-xs-6">
+        <section class="bg-wf-red">
+          <div>
+
+            <span class="glyphicon glyphicon-play-circle"></span>
+            <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </div>
+
+        </section>
+      </div>
+
+      <div class="tile  sq-sm  col-lg-3  col-md-4  col-sm-6  col-xs-6">
+        <section class="bg-wf-blue" style="
+                 background-image: url('../images/landing/zany-snowman.png');
+                 background-size: cover;
+                 ">
+
+          <div>
+            <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <a href="http://www.wellsfargomedia.com/holiday/snowman/irt.html#m1" target="viewer"><button class="btn-tile red">Play</button></a>
+          </div>
+
+        </section>
+      </div>
+
+      <div class="tile  sq-sm  col-lg-6  col-md-6  col-sm-12  col-xs-12">
+        <section class="bg-wf-orange">
+
+          <div>
+            <span class="glyphicon glyphicon-play-circle"></span>
+            <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </div>
+
+        </section>
+      </div>
+
+      <div class="tile  sq-sm  col-lg-6  col-md-3  col-sm-6  col-xs-12">
+        <section class="bg-wf-red">
+          <div>
+
+            <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <button class="btn-tile orange" ng-href="">Play</button>
+          </div>
+
+        </section>
+      </div>
+
+      <div class="tile  sq-sm  col-lg-6  col-md-3  col-sm-6  col-xs-12">
+        <section class="bg-wf-purple">
+          <div>
+
+            <p class="message-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <button class="btn-tile purple" ng-href="">Play</button>
+          </div>
+
+        </section>
+      </div>
+
+      <!-- masonry -->
+    </div>
+
+    <!-- container/row -->
+  </div>
+</div>
+          </div>
+        </section>
+
+        <footer></footer>
+
+        <!-- END FRAME -->
+      </div>
+
+      <div class="modal">
+
+        <div id="Video1">
+          <video class="video-js vjs-default-skin"
+                 controls data-setup="{}"
+                 poster="http://www.wellsfargomedia.com/currencyteller/images/photos/poster-1.png"
+                 width="960" height="540" alt="Play Video">
+            <source src="http://www.wellsfargomedia.com/currencyteller/videos/1243156_Overview.mp4" type="video/mp4">
+            <track kind="captions" src="./videos/1243156_Overview.vtt" srclang="en" label="English">
+            <p class="vjs-no-js">To view this video please enable JavaScript, and consider a web browser that
+              <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+          </video>
+        </div>
+
+        <!-- END MODAL -->
+      </div>
+
+    </div></body>
 </html>

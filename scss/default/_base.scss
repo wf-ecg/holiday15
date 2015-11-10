@@ -22,12 +22,15 @@ html, body {
     height: 100%;
     width: 100%;
 
-    header, footer, section {
+    > header, > footer, > section {
         display: table-row;
         position: relative;
     }
-    header, footer {
+    > header, > footer {
         height: 1%;
+    }
+    > section > div {
+        display: table-cell;
     }
 }
 

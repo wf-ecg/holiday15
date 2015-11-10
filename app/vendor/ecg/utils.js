@@ -65,6 +65,14 @@ define(['jquery', 'lodash'], function ($, _) {
             $(this).addClass('mouse');
         });
     };
+    $.watchResize = function (fn) {
+        $(W).off('resize.Util');
+        if (fn) {
+            $.watchResize.last = fn;
+            $(W).on('resize.Util', fn);
+            fn();
+        }
+    };
 
 });
 /*

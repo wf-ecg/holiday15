@@ -1,6 +1,15 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
+.dumbdiv {
+    display: table-cell;
+    padding-bottom: 9em;
+}
+.stage {
+    left: 0em !important;
+    margin-top: -8em !important;
+    opacity: 1 !important;
+}
 a:hover {
     text-decoration: none;
 }
@@ -8,15 +17,6 @@ a:hover {
 .view-container {
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
     position: relative;
-}
-
-.stagecoach-footer {
-    margin-top: 50px;
-    width: 100%;
-}
-
-img.stagecoach-logo {
-    height: 80px;
 }
 
 .big-, .big-red-ital, .big-white {
@@ -34,11 +34,6 @@ img.stagecoach-logo {
     color: white;
 }
 
-@media (min-width: 768px) {
-    .container {
-        padding-left: 30px;
-    }
-}
 @media (max-width: 479px) {
     .container {
         padding: 0px;
