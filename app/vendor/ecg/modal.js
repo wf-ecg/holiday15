@@ -32,7 +32,7 @@ define(['jquery'], function ($) {
     // ELEMENTS
     El = {
         closers: '.closer, .cancel', // all "closers"
-        modal: 'body > div.modal', // only top level containers
+        modal: 'body > div.modal, .ui-page > div.modal', // only top level containers
         watcher: 'body',
     };
 
