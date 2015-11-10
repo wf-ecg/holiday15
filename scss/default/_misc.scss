@@ -13,16 +13,27 @@ header {
 
 $look: 4em;
 .lookdown, .lookup {
+    @include transition(all 0.25s);
     @include centify;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: $look;
-    color: white;
+
+    cursor: pointer;
     font-size: $look / 2 !important;
-    height: $look * 1;
-    line-height: 1;
+    height: $look / 2;
+    opacity: 0.3;
+    overflow: hidden;
     text-align: center;
-    width: $look;
     z-index: 7;
+    &:active { opacity: 0.9; color: gray; }
+    &:hover { opacity: 0.6; }
+
+    .glyphicon {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: $look;
+        color: white;
+        height: $look * 2;
+        width: $look / 1.5;
+        z-index: 7;
+    }
 
     * {
         @include middify;
@@ -37,9 +48,9 @@ $look: 4em;
     }
 }
 .lookdown {
-    bottom: $look / -2;
+    bottom: 0;
 }
 .lookup {
-    top: $look / -2;
+    top: 0;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
