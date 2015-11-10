@@ -11,17 +11,29 @@ header {
     @include transform-style( preserve-3d );
 }
 
+$look: 4em;
 .lookdown, .lookup {
-    $look: 4em;
+    @include transition(all 0.25s);
     @include centify;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: $look;
-    color: white;
-    font-size: $look/2 !important;
-    height: $look * 1;
-    line-height: 1;
+
+    cursor: pointer;
+    font-size: $look / 2 !important;
+    height: $look / 2;
+    opacity: 0.3;
+    overflow: hidden;
     text-align: center;
-    width: $look;
+    z-index: 7;
+    &:active { opacity: 0.9; color: gray; }
+    &:hover { opacity: 0.6; }
+
+    .glyphicon {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: $look;
+        color: white;
+        height: $look * 2;
+        width: $look / 1.5;
+        z-index: 7;
+    }
 
     * {
         @include middify;
@@ -34,5 +46,11 @@ header {
     .glyphicon-menu-down {
         bottom: auto;
     }
+}
+.lookdown {
+    bottom: 0;
+}
+.lookup {
+    top: 0;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

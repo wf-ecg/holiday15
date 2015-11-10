@@ -1,20 +1,20 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* JING/_misc.scss */
 
-.ui-page-active {
-    background-image: url('../images/bkgrs/original-bubbles-big.jpg');
-    background-size: cover;
-}
-
 a:hover {
     text-decoration: none;
 }
-
-$look-offset: 0.7em;
-.lookup {
-    top: $look-offset;
+footer {
+    border-top: 0.3em solid rgba(22,44,88,0.5);
+    padding: 0 0 5em;
+    text-align: center;
 }
-.lookdown {
-    bottom: $look-offset;
+.ui-page-active {
+    @include background-image( url('../images/bkgrs/original-bubbles-big.jpg') );
+    background-size: cover;
+}
+.shuffle {
+    margin: 5em auto;
+    max-width: 80%;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
