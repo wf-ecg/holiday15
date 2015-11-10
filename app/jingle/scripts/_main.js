@@ -16,10 +16,20 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
 
     var Nom = 'Main';
     var Main = {};
-    var W = (W && W.window || window), C = (W.C || W.console || {});
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     function db(num) {
         return W.debug > (num || 1);
+    }
+    function expose(obj, log) {
+        if (db()) {
+            W.Main = Main; // expose for dev
+            $.extend(Main, obj);
+        }
+        if (log) {
+            C.info(Nom, 'expose', Main);
+        }
     }
 
     var pair, correct, anagram, play, scroll;
@@ -33,21 +43,15 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var seg = 1200;
 
 //EXTEND
-    watchResize(function () {
-        Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-        if (Main.mobile) {
-            $('html').addClass('mobile');
-        } else {
-            $('html').removeClass('mobile');
-        }
+    expose({
+        shuffle: shuffle,
+        sequence: sequence,
+        Data: Data,
     });
-
-    $.scrollMain = function (px, ms) {
-        $('html,body').animate({scrollTop: px}, (ms || 333), 'swing');
-    };
 
     $('header').first().load('../includes/main_header.html header > *');
 
+//  PRIVATE
     function begin() {
         var tmp;
 
@@ -125,17 +129,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             return doNext();
     }
 
-//  PRIVATE
-    function watchInputDevice() {
-        var body = $('body');
-        body.on('keydown', function () {
-            body.removeClass('mouse');
-            body.addClass('keyboard');
-        }).on('mousemove', function () {
-            body.removeClass('keyboard');
-            body.addClass('mouse');
-        });
-    }
     function watchScroll(fn) {
         if (fn) {
             watchScroll.last = fn;
@@ -144,38 +137,26 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             scroll.off('scroll', watchScroll.last);
         }
     }
-    function watchResize(fn) {
-        if (fn) {
-            watchResize.last = fn;
-            $(W).on('resize', fn);
-            fn();
-        } else {
-            $(W).off('resize', watchResize.last);
-        }
-    }
     function doBindings() {
+        $.watchInputDevice();
+        $.watchResize(function () {
+            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
+            if (Main.mobile || $(W).width() < 768) {
+                $('html').addClass('mobile');
+            } else {
+                $('html').removeClass('mobile');
+            }
+        });
         scroll = $('.scrollOuter');
         play = scroll.find('button');
         $('.lookdown').on(ACT, scrollDown).find('div').attr('tabIndex', 0);
-        watchInputDevice();
-    }
-    function expose() {
-        W.Main = Main; // expose for dev
-        $.extend(Main, {
-            shuffle: shuffle,
-            sequence: sequence,
-            data: Data,
-        });
-        C.log(Main);
     }
 
 //  INIT
     $(function () {
+        C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         Main.begin = begin;
         doBindings();
-        if (db()) {
-            expose();
-        }
         begin();
     });
 
