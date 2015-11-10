@@ -2,13 +2,10 @@
 /* IRT/_jumble.scss */
 
 .jumble {
-    @include centify;
-    @include nosel;
-
     margin: auto;
-    max-width: 90%; max-height: 50%;
-    min-height: 480px; min-width: 320px;
-    padding: 6em 2em;
+    max-width: 80%;
+    min-width: 320px;
+    padding: 4em 2em;
     text-align: center;
     z-index: 1;
 
@@ -20,7 +17,7 @@
         opacity: 0.5;
     }
     span {
-        border: $stroke outset $trans;
+        //border: $stroke outset $trans;
         border-radius: $stroke;
         font-size: 2em;
         line-height: 1.75em;
@@ -67,7 +64,7 @@
             &.unused {
                 cursor: pointer;
                 &:hover {
-                    border-color: $blueB;
+                    color: white;
                     opacity: 1;
                 }
             }

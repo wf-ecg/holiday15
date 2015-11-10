@@ -2,20 +2,24 @@
 /* JING/_scroll.scss */
 
 .scrollOuter {
+    @include background-image( linear-gradient(top, $trans 66%, $blueX 88%) );
     bottom: 0px;
     overflow: scroll;
+    overflow-x: hidden;
     position: absolute;
     top: 0px;
     width: 105%;
 }
 .scrollInner {
-    background-image: url('../images/icons/wf_mobile_bg.png');
-    background-size: 6px;
-    border-bottom: 3em solid green;
-    border-top: 3em solid green;
+    background-image: url('../images/bkgrs/trans-bubbles-big.png');
+    background-position: center 5%;
     height: 9999px;
     position: relative;
     width: 100%;
+    .debug & {
+        border-bottom: 1px solid lime;
+        border-top: 1px solid lime;
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

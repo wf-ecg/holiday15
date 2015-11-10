@@ -29,6 +29,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var sequence = new Seq('', {
         random: !true,
     }); // blank but randomized
+    var ACT = 'keypress click';
+    var seg = 1200;
 
 //EXTEND
     watchResize(function () {
@@ -55,7 +57,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         play.fadeOut();
         pair = '';
         do { // skip incongruent data sets
-            if (attempt++ > 99) throw new Error('out of data');
+            if (attempt++ > 99)
+                throw new Error('out of data');
             pair = Data.get();
         } while (!pair.anagram);
 
@@ -82,10 +85,21 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         msgs.cheer();
         scroll.scrollTop(0);
     }
+    function scrollDown() {
+        scroll.animate({
+            scrollTop: seg
+        }, 999, function () {
+            doNext();
+            scroll.css({
+                scrollTop: 0,
+            });
+        });
+    }
+
     function doNext() {
         var i, j, l, w;
 
-        if (scroll.scrollTop() < 999) return;
+        if (scroll.scrollTop() < seg) return;
 
         try {
             i = sequence.getNext();
@@ -107,7 +121,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
                 doNext();
             }
         }
-        if (sequence.check() < 2) return doNext();
+        if (sequence.check() < 2)
+            return doNext();
     }
 
 //  PRIVATE
@@ -141,7 +156,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     function doBindings() {
         scroll = $('.scrollOuter');
         play = scroll.find('button');
-
+        $('.lookdown').on(ACT, scrollDown).find('div').attr('tabIndex', 0);
         watchInputDevice();
     }
     function expose() {

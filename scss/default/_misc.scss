@@ -1,31 +1,56 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_misc.scss */
 
-.clearfix {
-    @include clearfix;
+header {
+    display: table-cell;
 }
-.upgradeframe {
-    background-color: #ccc;
-    font-family: 'arial black';
-    height: 100%;
-    padding: 9em;
-    position: fixed;
-    width: 100%;
-}
-.modal * {
-    max-width: 100%;
-}
+
 .container * {
     @include transform(scale(1.00));
     @include transition(all 0.25s);
     @include transform-style( preserve-3d );
 }
-.ui-page {
+
+$look: 4em;
+.lookdown, .lookup {
+    @include transition(all 0.25s);
+    @include centify;
+
+    cursor: pointer;
+    font-size: $look / 2 !important;
+    height: $look / 2;
+    opacity: 0.3;
+    overflow: hidden;
+    text-align: center;
+    z-index: 7;
+    &:active { opacity: 0.9; color: gray; }
+    &:hover { opacity: 0.6; }
+
+    .glyphicon {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: $look;
+        color: white;
+        height: $look * 2;
+        width: $look / 1.5;
+        z-index: 7;
+    }
+
+    * {
+        @include middify;
+        @include transform(scaleX(1.5));
+        line-height: 2;
+    }
+    .glyphicon-menu-up {
+        top: auto;
+    }
+    .glyphicon-menu-down {
+        bottom: auto;
+    }
 }
-.ui-page-active {
-    height: 100%;
+.lookdown {
+    bottom: 0;
 }
-.mobile body {
-    font-size: 9px;
+.lookup {
+    top: 0;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

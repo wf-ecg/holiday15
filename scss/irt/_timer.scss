@@ -2,12 +2,11 @@
 /* IRT/_timer.scss */
 
 .timer {
+    background-color: rgba(0,0,0,0.2);
     color: white;
     cursor: pointer;
     font: 600 1.3em/1 $sans;
-    background-color: rgba(0,0,0,0.2);
-    margin: 0 -4em;
-    margin-top: 4em;
+    margin: 2em 0;
     padding: 0.5em;
     text-align: center;
     text-transform: uppercase;

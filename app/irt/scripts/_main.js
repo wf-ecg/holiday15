@@ -31,16 +31,18 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
             C.info(Nom, Main);
     }
     var timer = new Timer({
-        bottom: 0,
+        bottom: -3,
+        warn: 3,
         div: '.game .timer',
-        time: 120,
         cb: showOutro,
     });
     var ACT = 'keypress click';
     var totalWon = 0;
+    var duration = 120;
 
 //EXTEND
     expose({
+        Data: Data,
         Letter: Letter,
         Modal: Modal,
         timer: timer,
@@ -53,8 +55,23 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
     $('header').first().load('../includes/main_header.html header > *');
 
 //  PRIVATE
-    function startTimer() {
-        timer.start();
+    function fixWidths() {
+        var arr = [].concat(slots, tiles);
+        var all = arr.map(function (e) {
+            return e.element().outerWidth();
+        }).sort();
+        var max = all[all.length-1];
+
+        if (all[0] + 10  > max) {
+            return W.clearTimeout(fixWidths.timer);
+        } else {
+            fixWidths.timer = W.setTimeout(fixWidths, 14);
+        }
+
+        if (db(2)) C.log(Nom, 'fixWidths', all);
+        arr.forEach(function (e) {
+            e.tweakWidth(max - 5);
+        });
     }
 
     function fillDisplays() {
@@ -62,10 +79,11 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         fillDisplay(tiles, 'tile unused', '.gameInput');
 
         $.each(tiles, wireTile);
+        fixWidths();
     }
 
     function fillDisplay(arr, css, sel) {
-        var div = $(sel);
+        var div = $(sel).hide().fadeIn(999);
 
         $.each(arr, function () {
             var ele = this //
@@ -144,7 +162,6 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
 
         //kickoff loop
         fillDisplays();
-        startTimer(30);
         loop();
     }
     function hideAreas() {
@@ -161,11 +178,12 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         timer.stop();
         hideAreas();
         $('.outro').show().find('.score').text(totalWon);
-        $('.timer').fadeOut();
+        timer.reset().force('Try Again').one(ACT, showIntro);
     }
     function showJumble() {
         hideAreas();
         $('.jumble').show();
+        timer.start(duration);
         startGame();
     }
     function oneSolved(cb) {
@@ -194,7 +212,7 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         $.watchInputDevice();
         $.watchResize(function () {
             Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-            if (Main.mobile) {
+            if (Main.mobile || $(W).width() < 768) {
                 $('html').addClass('mobile');
             } else {
                 $('html').removeClass('mobile');
@@ -207,7 +225,6 @@ define(['jquery', 'modal', 'letter', 'timer', 'data'], function
         C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         runTests();
         doBindings();
-        //startGame();
         hideAreas();
         showIntro();
     });

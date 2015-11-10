@@ -5,6 +5,8 @@
     @include nosel;
     display: table-cell;
     line-height: 2;
+    overflow: hidden;
+    position: relative;
     vertical-align: middle;
 
     .intro, .outro {

@@ -49,7 +49,7 @@ define(['jquery', 'lodash', 'tile'], function
             $.unsubscribe('redraw.' + Nom);
             cf.div = $(cf.div);
             cf.div.removeClass('done');
-            self._redraw = _.throttle(self.display, 333);
+            self._redraw = _.throttle(self.display, 666);
             $.subscribe('redraw.' + Nom, self._redraw);
         }
         function done() {

@@ -4,22 +4,22 @@
 .tile {
     &, * {
         @include transform(scale(1.00));
-        @include transition(all 0.5s cubic-bezier(0.3, -0.7, 0.3, 1.7)); // 0, 0.9, 0.7, 1.1
+        @include transition(all 0.75s cubic-bezier(0.3, -0.7, 0.3, 1.7)); // 0, 0.9, 0.7, 1.1
         @include transform-style( preserve-3d );
     }
-    background-color: $wf_red;
-    border-radius: 1em;
-    box-shadow: 0.1em 0.3em 1em rgba(0,0,0,0.2);
+    background-color: $blueL;
+    border-radius: $stroke;
+    text-shadow: $shadL;
     font-family: monospace;
-    font-size: 2em;
-    font-weight: 700;
-    line-height: 1;
-    margin: 0 0.2em;
-    padding: 0.5em;
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 1.2em;
+    margin: $stroke * 3;
+    padding: 0;
     pointer-events: none;
     position: relative;
     text-align: center;
-    width: 2em;
+    width: 1em;
 
     .debug & {
         pointer-events: auto;
@@ -51,7 +51,7 @@
         width: 0;
     }
     &.correct {
-        background-color: green;
+        color: $blueD;
     }
 }
 

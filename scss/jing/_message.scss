@@ -1,0 +1,23 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* JING/_message.scss */
+
+
+.message, .shuffle {
+    color: white;
+    font-family: $serif;
+    line-height: 5;
+    text-align: center;
+}
+.message {
+    pointer-events: none;
+
+    h1 {
+        font-size: 2.2em;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+    .debug & {
+        pointer-events: auto;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

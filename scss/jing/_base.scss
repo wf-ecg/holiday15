@@ -1,21 +1,30 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* JING/_base.scss */
 
-
-header {
-    position: relative;
+header, footer {
+    font-family: $sans;
     z-index: 9;
 }
 footer {
     background: #44464a;
-    border-top: 0.5em solid #bfc0be;
-    bottom: 0;
-    color: #fff;
-    font-size: 0.9em;
+    color: white;
+    font-size: 0.75em;
     line-height: 2;
-    text-align: center;
-    padding: 1em 2em 3em;
-    position: fixed;
-    width: 100%;
 }
+h2 {
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+h3 {
+    font-size: 2.4em;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+p {
+    font-size: 2.5em;
+    line-height: 1.4;
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

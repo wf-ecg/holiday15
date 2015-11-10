@@ -9,4 +9,39 @@ html, body {
     line-height: 1;
     min-height: 100%;
 }
+
+.ui-page {
+}
+.ui-page-active {
+    height: 100%;
+}
+
+.frame {
+    border-collapse: collapse;
+    display: table;
+    height: 100%;
+    width: 100%;
+
+    header, footer, section {
+        display: table-row;
+        position: relative;
+    }
+    header, footer {
+        height: 1%;
+    }
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+.upgradeframe {
+    background-color: #ccc;
+    font-family: 'arial black';
+    height: 100%;
+    padding: 9em;
+    position: fixed;
+    width: 100%;
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
