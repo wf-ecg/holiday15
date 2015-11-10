@@ -19,7 +19,6 @@ require.config({
         //
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
-        mason: '../../vendor/jq/jquery.masonry.min',
         modal: '../../vendor/ecg/modal',
         utils: '../../vendor/ecg/utils',
         //
@@ -56,8 +55,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', 'ngapp'], function () {
-        require(['_main']);
+    require(['boots', 'jqmobi', '_main'], function () {
 
         _.delay(function () {
             if (W.debug < -2) {
