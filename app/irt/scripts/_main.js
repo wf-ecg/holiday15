@@ -106,7 +106,7 @@ define(['jquery', 'lodash', 'modal', 'letter', 'timer', 'data'], function
     }
 
     function clickLetter(str) {
-        var arr = Main.tiles.concat(), idx;
+        var arr = tiles.concat(), idx;
 
         arr = arr.filter(function (e) {
             return e.element().is('.unused');
