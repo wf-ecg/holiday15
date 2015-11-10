@@ -1,6 +1,9 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
+.dumbdiv {
+    display: table-cell;
+}
 a:hover {
     text-decoration: none;
 }

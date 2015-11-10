@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  -->
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="/lib/video-js/ecg/video-js.css">
     <link rel="stylesheet" href="../build/land.css">
     <script src="/lib/requirejs/2.1.17/require.js"
@@ -13,27 +14,42 @@
             data-main="./build/app"
     ></script>
   </head>
-  <body>
+  <body><div data-role="page" class="irt">
+      <!--[if lt IE 8]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+      <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+      browser</a> to improve your web experience.</p> </div><![endif]-->
 
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
+    <div class="frame">
+        <header></header>
 
-    <div class="modal">
+        <section>
+          <div class="dumbdiv">
+            <div data-ng-include="'../includes/main_caro.html'"></div>
+            <div data-ng-include="'../includes/main_mason.html'"></div>
+          </div>
+        </section>
 
-      <div id="Video1">
-        <video class="video-js vjs-default-skin"
-               controls data-setup="{}"
-               poster="http://www.wellsfargomedia.com/currencyteller/images/photos/poster-1.png"
-               width="960" height="540" alt="Play Video">
-          <source src="http://www.wellsfargomedia.com/currencyteller/videos/1243156_Overview.mp4" type="video/mp4">
-          <track kind="captions" src="./videos/1243156_Overview.vtt" srclang="en" label="English">
-          <p class="vjs-no-js">To view this video please enable JavaScript, and consider a web browser that
-            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-        </video>
+        <footer></footer>
+
+        <!-- END FRAME -->
       </div>
-      <!--End Modal-->
-    </div>
 
-  </body>
+      <div class="modal">
+
+        <div id="Video1">
+          <video class="video-js vjs-default-skin"
+                 controls data-setup="{}"
+                 poster="http://www.wellsfargomedia.com/currencyteller/images/photos/poster-1.png"
+                 width="960" height="540" alt="Play Video">
+            <source src="http://www.wellsfargomedia.com/currencyteller/videos/1243156_Overview.mp4" type="video/mp4">
+            <track kind="captions" src="./videos/1243156_Overview.vtt" srclang="en" label="English">
+            <p class="vjs-no-js">To view this video please enable JavaScript, and consider a web browser that
+              <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+          </video>
+        </div>
+
+        <!-- END MODAL -->
+      </div>
+
+    </div></body>
 </html>

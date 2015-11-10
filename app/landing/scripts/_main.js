@@ -24,6 +24,8 @@ define(['jquery', 'videojs', 'modal'], function
     $.scrollMain = function (px, ms) {
         $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
     };
+    $('header').first().load('../includes/main_header.html header > *');
+    $('footer').first().load('../includes/main_footer.html footer > *');
 
 //  PRIVATE
     function pausevids() { // pause everything
