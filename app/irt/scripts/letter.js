@@ -98,7 +98,7 @@ define(['jquery', 'lodash'], function
                 cf.type = str;
                 return this;
             } else {
-                return cf.type;
+                return cf.ele.attr('class');
             }
         },
         displayXfor: function (str, num) {

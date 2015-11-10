@@ -57,15 +57,16 @@ define(['jquery', 'lodash', 'modal', 'letter', 'timer', 'data'], function
         var all = arr.map(function (e) {
             return e.element().outerWidth();
         }).sort();
-        var max = all[all.length-1];
+        var max = all[all.length - 1];
 
-        if (all[0] + 10  > max) {
+        if (all[0] + 10 > max) {
             return W.clearTimeout(fixWidths.timer);
         } else {
             fixWidths.timer = W.setTimeout(fixWidths, 14);
         }
 
-        if (db(2)) C.log(Nom, 'fixWidths', all);
+        if (db(2))
+            C.log(Nom, 'fixWidths', all);
         arr.forEach(function (e) {
             e.tweakWidth(max - 5);
         });
@@ -103,6 +104,33 @@ define(['jquery', 'lodash', 'modal', 'letter', 'timer', 'data'], function
         nowO = nowE.data('Letter');
         return nowE;
     }
+
+    function clickLetter(str) {
+        var arr = Main.tiles.concat(), idx;
+
+        arr = arr.filter(function (e) {
+            return e.element().is('.unused');
+        });
+        idx = arr.map(function (e) {
+            return e.letter();
+        });
+        if (db(2)) C.log(idx, arr);
+
+        idx = idx.indexOf(str);
+        if (db(2)) C.log(idx, str);
+
+        if (idx > -1)
+            arr[idx].element().click();
+    }
+
+    $('.game').on(ACT, function (evt) {
+        var key = evt.keyCode;
+
+        if (evt.type === 'keypress') {
+            clickLetter(String.fromCharCode(key).toUpperCase());
+            $('.game').focus();
+        }
+    });
 
     function wireTile() {
         var self = this;
