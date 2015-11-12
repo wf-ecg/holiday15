@@ -31,7 +31,6 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
 // PRIVATE
     var pair, tiles, slots, nowO, nowE;
     var ACT = 'keypress click';
-    var totalWon = 0;
 
 // CONSTRUCT
     function Game(cf) {
@@ -178,7 +177,7 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // SCORE/TIME
         function oneSolved(cb) {
-            totalWon++;
+            $.publish('win.Game');
             $('.jumble').css({
                 position: 'relative',
             }).animate({

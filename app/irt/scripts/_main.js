@@ -46,6 +46,10 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
     $.subscribe('expose.Main', function (evt, data) {
         expose(data, true);
     });
+    $.subscribe('win.Game', function () {
+        totalWon++;
+    });
+
 
 //  PRIVATE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
