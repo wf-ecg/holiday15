@@ -7,9 +7,11 @@
 define(function () {
     'use strict';
 
-    var W = (W && W.window || window), C = (W.C || W.console || {});
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     var Data = W.Data || {};
+    var TEST = 0;
 
     function ranMax(max, min) {
         min = min || 0;
@@ -28,7 +30,7 @@ define(function () {
     Data.get = function () {
         var dat = ranDex(Data.anagrams);
 
-        if (0) {
+        if (TEST) {
             return {
                 correct: 'FRIENDS FAMILY HAPPINESS',
                 anagram: 'FINDERS FAIL MY PASS HE NIP',
@@ -115,9 +117,22 @@ define(function () {
         ]
     ];
 
-    Data.anagrams.util = {
-        checklengths: function () {
-        }
+    Data._util = {
+        checklength: function () {
+            return Data._util.toString().length;
+        },
+        sort: function () {
+            var seq;
+            seq = Data.anagrams.concat();
+            return seq.map(function (arr) {
+                return arr.map(function (e) {
+                    return e.toUpperCase().split('').sort().join('');
+                }).join('\n');
+            });
+        },
+        toString: function () {
+            return JSON.stringify(Data.anagrams);
+        },
     };
 
     return Data;
