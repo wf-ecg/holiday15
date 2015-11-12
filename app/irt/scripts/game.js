@@ -130,10 +130,12 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
             idx = arr.map(function (e) {
                 return e.letter();
             });
-            if (Self.db(2)) C.log(idx, arr);
+            if (Self.db(2))
+                C.log(idx, arr);
 
             idx = idx.indexOf(str);
-            if (Self.db(2)) C.log(idx, str);
+            if (Self.db(2))
+                C.log(idx, str);
 
             if (idx > -1)
                 arr[idx].element().click();
@@ -206,7 +208,7 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
                 }
             });
 
-        };
+        }
 
         self.start = startGame;
         doBindings();

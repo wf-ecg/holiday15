@@ -19,40 +19,39 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
-    function db(num) {
-        return W.debug > (num || 1);
-    }
-    function expose(obj, log) {
-        if (db()) {
-            W.Main = Main; // expose for dev
-            $.extend(Main, obj);
-        }
-        if (log) {
-            C.info(Nom, 'expose', Main);
-        }
-    }
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
     var ACT = 'keypress click';
     var totalWon = 0;
     var duration = 120;
     var game, timer;
 
-//EXTEND
+    $('header').first().load('../includes/main_header.html header > *');
+
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+    function db(num) {
+        return W.debug > (num || 1);
+    }
+    function expose(obj) {
+        if (db(0)) {
+            W.Main = Main; // expose for console
+            $.extend(Main, obj);
+            C.info(Nom, 'expose', obj);
+        }
+    }
     expose({
         Data: Data,
         Modal: Modal,
     });
 
-    $('header').first().load('../includes/main_header.html header > *');
-    $.subscribe('expose.Main', function (evt, data) {
-        expose(data, true);
-    });
-    $.subscribe('win.Game', function () {
-        totalWon++;
-    });
+    function runTests() {
+        //require(['tests/timer.test']);
+        //require(['tests/data.test']);
+    }
 
-
-//  PRIVATE
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
     function hideAreas() {
         $('.jumble').hide();
         $('.intro').hide();
@@ -78,14 +77,17 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
         game.start();
     }
 
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    function runTests() {
-//        require(['tests/jumble.test']);
-//        require(['tests/tile.test']);
-//        require(['tests/timer.test']);
-//        require(['tests/data.test']);
-    }
     function doBindings() {
+        $.watchInputDevice();
+        $.watchResize(function () {
+            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
+            if (Main.mobile || $(W).width() < 768) {
+                $('html').addClass('mobile');
+            } else {
+                $('html').removeClass('mobile');
+            }
+        });
+
         game = new Game({
             dat: Data,
         });
@@ -101,15 +103,14 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
             timer: timer,
         });
 
-        $.watchInputDevice();
-        $.watchResize(function () {
-            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-            if (Main.mobile || $(W).width() < 768) {
-                $('html').addClass('mobile');
-            } else {
-                $('html').removeClass('mobile');
-            }
+        $.subscribe('expose.Main', function () {
+            expose(arguments[1]);
         });
+        $.subscribe('win.Game', function () {
+            totalWon++;
+        });
+
+        showIntro();
     }
 
 //  INIT
@@ -117,7 +118,12 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
         C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         runTests();
         doBindings();
-        showIntro();
     });
 
 });
+
+/*
+
+
+
+ */
