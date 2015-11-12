@@ -87,8 +87,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         timer.reset();
     }
     function showJumble() {
-        updateScore(totalWon);
         totalWon = 0;
+        updateScore();
         hideAreas();
         El.jumble.show();
         timer.start(duration);
