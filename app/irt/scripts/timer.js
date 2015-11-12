@@ -91,6 +91,9 @@ define(['jquery'], function
             add: function (num) {
                 cf.time += num;
             },
+            ele: function () {
+                return cf.div;
+            },
             over: function () {
                 cf.div.addClass('over');
             },
@@ -119,7 +122,7 @@ define(['jquery'], function
             },
             force: function (txt) {
                 cf.div.html(txt);
-                return cf.div;
+                return self;
             },
             set: function (num) {
                 cf.time = num || 0;

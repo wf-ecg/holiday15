@@ -16,9 +16,11 @@
         margin: 1em;
         opacity: 0.5;
     }
-    span {
+    .gameInput span,
+    .gameOutput span {
         //border: $stroke outset $trans;
         border-radius: $stroke;
+        color: $blueD;
         font-size: 2em;
         line-height: 1.75em;
         margin: $stroke / 2;
@@ -42,7 +44,7 @@
                 //border-color: lime;
             }
             &.bad {
-                //border-color: red;
+                background-color: red;
                 color: red;
             }
             &.solved {

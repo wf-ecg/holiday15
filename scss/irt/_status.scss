@@ -1,23 +1,28 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* IRT/_timer.scss */
+/* IRT/_status.scss */
 
-.timer {
+.status {
     background-color: rgba(0,0,0,0.2);
     color: white;
-    cursor: pointer;
     font: 600 1.3em/1 $sans;
-    margin: 2em 0;
+    margin: 2em -20%;
     padding: 0.5em;
     text-align: center;
     text-transform: uppercase;
-    &.stopped {
-        color: gold;
+
+    .timer {
+        &.stopped {
+            color: gold;
+        }
+        &.started {
+            color: white;
+        }
+        &.over {
+            color: red;
+        }
     }
-    &.started {
-        color: white;
-    }
-    &.over {
-        color: red;
+    .score {
+
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -3,38 +3,43 @@
 
 .game {
     @include nosel;
+    color: white;
     display: table-cell;
-    line-height: 2;
+    line-height: 1.2;
+    text-align: center;
     vertical-align: middle;
+    z-index: 11;
 
-    .intro, .outro {
-        color: white;
-        text-align: center;
-        z-index: 11;
-
-        h1 {
-            font-family: $serif;
-            font-size: 2.5em;
-            font-weight: 600;
-            margin: 1em;
-        }
-        h2 {
-            font-family: $serif;
-            font-size: 2.0em;
-            font-weight: 600;
-            margin: 1em;
-        }
-        p {
-            font-family: $sans;
-            font-size: 1.6em;
-            font-weight: 400;
-
-            margin: 1em;
-        }
-        img {
-            width: 6em;
+    button {
+        background-color: $blueD;
+        &:hover {
+            box-shadow: 0 0 1em white;
         }
     }
+    h1 {
+        font-family: $serif;
+        font-size: 2.5em;
+        font-weight: 600;
+        margin: 1em;
+    }
+    h2 {
+        font-family: $serif;
+        font-size: 2.0em;
+        font-weight: 600;
+        margin: 1em;
+    }
+    p {
+        font-family: $sans;
+        font-size: 1.6em;
+        font-weight: 400;
+
+        margin: 1em;
+    }
+    img {
+        margin-bottom: 1em;
+        width: 6em;
+    }
+
     .gameOutput {
         font-family: $serif;
         font-size: 1.6em;

@@ -35,7 +35,9 @@
           <div class="game">
 
             <div class="intro">
-              <h1>We hope your holidays are letter perfect. </h1>
+              <h1>
+                We hope your holidays are letter perfect.
+              </h1>
 
               <p>
                 Press letters to turn a Jingle Jumble into a holiday greeting. <br>
@@ -44,7 +46,10 @@
               </p>
 
               <img src="../images/icons/gift.png" alt="gift">
+              <br>
+              <button>Start</button>
             </div>
+
             <div class="outro">
               <h1>
                 Your <br> Jingle Jumble <br> score = <span class="score">{{score}}</span>
@@ -55,16 +60,24 @@
               <h2>
                 Share with family and friends!
               </h2>
+              <br>
+              <button>Try again</button>
             </div>
 
             <div class="jumble">
+              <p style="margin-top: -3em;">
+                Press letters to turn a Jingle Jumble into a holiday greeting.
+              </p>
+
               <div class="gameOutput"></div>
               <hr>
               <div class="gameInput"></div>
+
+              <div class="status">
+                <span class="timer"></span>
+                <span class="score"></span>
+              </div>
             </div>
-
-
-            <div class="timer" tabindex="0"></div>
 
             <!-- END GAME -->
           </div>
