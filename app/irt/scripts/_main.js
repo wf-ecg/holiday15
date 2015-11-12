@@ -55,13 +55,15 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
     function showIntro() {
         hideAreas();
         $('.intro').show();
-        timer.force('Start').one(ACT, showJumble);
+        timer.force('Start') //
+            .ele().one(ACT, showJumble);
     }
     function showOutro() {
         timer.stop();
         hideAreas();
         $('.outro').show().find('.score').text(totalWon);
-        timer.reset().force('Try Again').one(ACT, showIntro);
+        timer.reset().force('Try Again') //
+            .ele().one(ACT, showIntro);
     }
     function showJumble() {
         hideAreas();
