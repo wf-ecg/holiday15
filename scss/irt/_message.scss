@@ -1,13 +1,15 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* JING/_message.scss */
+/* IRT/_message.scss */
 
 
 .message {
     color: white;
     font-family: $serif;
+    height: 0;
     line-height: 5;
-    margin-top: -2em;
+    top: -5em;
     pointer-events: none;
+    position: relative;
     text-align: center;
 
     h1 {
@@ -17,6 +19,9 @@
     }
     .debug & {
         pointer-events: auto;
+    }
+    @media (max-width: 679px) {
+        font-size: 1.5em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
