@@ -16,7 +16,8 @@
         margin: 1em;
         opacity: 0.5;
     }
-    span {
+    .gameInput span,
+    .gameOutput span {
         //border: $stroke outset $trans;
         border-radius: $stroke;
         color: $blueD;

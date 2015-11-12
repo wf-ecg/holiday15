@@ -31,6 +31,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         jumble: '.jumble',
         start: '.intro button',
         again: '.outro button',
+        score: '.status .score'
     };
 
     $('header').first().load('../includes/main_header.html header > *');
@@ -60,6 +61,13 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
 
     // - - - - - - - - - - - - - - - - - -
     // WIRING
+    function updateScore(score) {
+        if (!score) {
+            El.score.html('');
+        } else {
+            El.score.html('/ ' + score + ' point(s)');
+        }
+    }
     function hideAreas() {
         El.jumble.hide();
         El.intro.hide();
@@ -78,6 +86,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         timer.reset();
     }
     function showJumble() {
+        updateScore(totalWon);
+        totalWon = 0;
         hideAreas();
         El.jumble.show();
         timer.start(duration);
@@ -109,7 +119,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
             expose(arguments[1]);
         });
         $.subscribe('win.Game', function () {
-            totalWon++;
+            updateScore(++totalWon);
         });
 
         showIntro();
