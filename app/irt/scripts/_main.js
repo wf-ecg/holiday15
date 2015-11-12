@@ -104,8 +104,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
 
         game = new Game();
         timer = new Timer({
-            bottom: -3,
-            warn: 3,
+            bottom: -1,
+            warn: 9,
             div: '.game .timer',
             cb: showOutro,
         });

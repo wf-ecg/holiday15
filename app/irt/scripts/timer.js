@@ -53,7 +53,7 @@ define(['jquery'], function
             if (cf.time <= cf.bottom) {
                 self.finish();
             } else {
-                if (cf.time <= 0) {
+                if (cf.time <= cf.warn) {
                     self.over();
                 }
                 cf.time--;
