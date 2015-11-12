@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
-    MAIN($, _, Modal, Timer, Data, Game) {
+define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
+    MAIN($, _, Modal, Timer, Game) {
     'use strict';
 
     var Nom = 'Main';
@@ -40,14 +40,9 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
             C.info(Nom, 'expose', obj);
         }
     }
-    expose({
-        Data: Data,
-        Modal: Modal,
-    });
 
     function runTests() {
         //require(['tests/timer.test']);
-        //require(['tests/data.test']);
     }
 
     // - - - - - - - - - - - - - - - - - -
@@ -89,9 +84,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
             }
         });
 
-        game = new Game({
-            dat: Data,
-        });
+        game = new Game();
         timer = new Timer({
             bottom: -3,
             warn: 3,
@@ -100,6 +93,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
         });
 
         expose({
+            Modal: Modal,
             game: game,
             timer: timer,
         });

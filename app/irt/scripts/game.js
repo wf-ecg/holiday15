@@ -10,8 +10,8 @@
  ...
  */
 
-define(['jquery', 'lodash', 'letter', 'xtn'], function
-    KLASS($, _, Letter, xtn) { // closure
+define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
+    KLASS($, _, Data, Letter, xtn) { // closure
     'use strict';
 
 // CLASS
@@ -20,7 +20,6 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
     var Df = {
-        dat: {},
     };
     var El = {
         game: '.game',
@@ -78,7 +77,7 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
 
         function startGame() {
             clearGame();
-            pair = cf.dat.get();
+            pair = Data.get();
             tiles = Letter.assemble(pair.anagram.toUpperCase());
             slots = Letter.assemble(pair.correct.toUpperCase());
             $.publish('expose.Main', {
