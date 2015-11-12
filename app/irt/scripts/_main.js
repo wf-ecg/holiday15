@@ -61,19 +61,20 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
         hideAreas();
         $('.intro').show();
         timer.force('Start') //
-            .ele().one(ACT, showJumble);
+            .ele().off(ACT).on(ACT, showJumble);
     }
     function showOutro() {
         timer.stop();
         hideAreas();
         $('.outro').show().find('.score').text(totalWon);
         timer.reset().force('Try Again') //
-            .ele().one(ACT, showIntro);
+            .ele().off(ACT).on(ACT, showIntro);
     }
     function showJumble() {
         hideAreas();
         $('.jumble').show();
-        timer.start(duration);
+        timer.start(duration) //
+            .ele().off(ACT);
         game.start();
     }
 
