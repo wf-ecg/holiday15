@@ -32,7 +32,6 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
     var pair, tiles, slots, nowO, nowE;
     var ACT = 'keypress click';
     var totalWon = 0;
-    var duration = 120;
 
 // CONSTRUCT
     function Game(cf) {
@@ -59,6 +58,13 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
                     .removeClass('unused');
                 loop();
             }
+        }
+        function setNow() {
+            // make now highlighted
+            nowE = $('.slot.unsolved').first();
+            nowE.addClass('now');
+            nowO = nowE.data('Letter');
+            return nowE;
         }
 
         function loop() {
@@ -185,13 +191,6 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
                 if (typeof cb === 'function')
                     cb();
             });
-        }
-        function setNow() {
-            // make now highlighted
-            nowE = $('.slot.unsolved').first();
-            nowE.addClass('now');
-            nowO = nowE.data('Letter');
-            return nowE;
         }
 
         // - - - - - - - - - - - - - - - - - -
