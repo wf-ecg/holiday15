@@ -40,10 +40,12 @@ define(['jquery', 'lodash', 'modal', 'timer', 'data', 'game'], function
     expose({
         Data: Data,
         Modal: Modal,
-        expose: expose,
     });
 
     $('header').first().load('../includes/main_header.html header > *');
+    $.subscribe('expose.Main', function (evt, data) {
+        expose(data, true);
+    });
 
 //  PRIVATE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

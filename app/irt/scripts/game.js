@@ -76,11 +76,11 @@ define(['jquery', 'lodash', 'letter', 'xtn'], function
             pair = cf.dat.get();
             tiles = Letter.assemble(pair.anagram.toUpperCase());
             slots = Letter.assemble(pair.correct.toUpperCase());
-            Main.expose({
-                pair: pair,
-                tiles: tiles,
-                slots: slots,
-            }, true);
+            $.publish('expose.Main', {
+                gameslots: slots,
+                gametiles: tiles,
+                wordpair: pair,
+            });
 
             //kickoff loop
             fillDisplays();
