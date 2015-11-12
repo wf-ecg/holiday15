@@ -25,6 +25,7 @@ require.config({
         beacon: 'libs/ecg-beacon',
         jqxtn: 'libs/jq-xtn',
         stats: 'libs/ecg-stats',
+        xtn: 'libs/drt-xtn',
         //
     },
 });
