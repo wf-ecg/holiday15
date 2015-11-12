@@ -10,6 +10,11 @@
     vertical-align: middle;
     z-index: 11;
 
+    > div {
+        margin: auto;
+        max-width: 1220px;
+        min-width: 360px;
+    }
     button {
         background-color: $blueD;
         &:hover {
