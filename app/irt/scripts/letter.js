@@ -81,7 +81,7 @@ define(['jquery', 'lodash', 'xtn'], function
             var ele = cf.ele;
             var org = cf.letter;
 
-            ele.addClass('bad').html(str);
+            ele.addClass('bad');//.html(str);
 
             _.delay(function () {
                 ele.removeClass('bad').html(org);
