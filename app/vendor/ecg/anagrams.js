@@ -119,9 +119,9 @@ define(function () {
         do { // TODO prevent suck
             opts = randomArray(Data.anagrams);
             C.log(Data._util.checklength());
-        } while (previous === opts || opts.length < 2);
+        } while (previous === opts[0] || opts.length < 2);
 
-        previous = opts;
+        previous = opts[0];
 
         return {
             correct: opts[0],
@@ -152,6 +152,6 @@ define(function () {
             return JSON.stringify(Data.anagrams);
         },
     };
-
+    Data.reload();
     return Data;
 });
