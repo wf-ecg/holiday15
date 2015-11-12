@@ -27,6 +27,16 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
     var game, timer;
 
     $('header').first().load('../includes/main_header.html header > *');
+    $.watchInputDevice();
+    $.watchResize(function () {
+        Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
+
+        if (Main.mobile || $(W).width() < 768) {
+            $('html').addClass('mobile'); // simulate
+        } else {
+            $('html').removeClass('mobile');
+        }
+    });
 
     // - - - - - - - - - - - - - - - - - -
     // PRIVATE
@@ -41,10 +51,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         }
     }
 
-    function runTests() {
-        //require(['tests/timer.test']);
-    }
-
     // - - - - - - - - - - - - - - - - - -
     // WIRING
     function hideAreas() {
@@ -56,14 +62,16 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         hideAreas();
         $('.intro').show();
         timer.force('Start') //
-            .ele().off(ACT).on(ACT, showJumble);
+            .ele().off(ACT) //
+            .on(ACT, showJumble);
     }
     function showOutro() {
         timer.stop();
         hideAreas();
         $('.outro').show().find('.score').text(totalWon);
         timer.reset().force('Try Again') //
-            .ele().off(ACT).on(ACT, showIntro);
+            .ele().off(ACT) //
+            .on(ACT, showIntro);
     }
     function showJumble() {
         hideAreas();
@@ -73,16 +81,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         game.start();
     }
 
+//  INIT
     function doBindings() {
-        $.watchInputDevice();
-        $.watchResize(function () {
-            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-            if (Main.mobile || $(W).width() < 768) {
-                $('html').addClass('mobile');
-            } else {
-                $('html').removeClass('mobile');
-            }
-        });
 
         game = new Game();
         timer = new Timer({
@@ -108,10 +108,9 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         showIntro();
     }
 
-//  INIT
     $(function () {
         C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
-        runTests();
+        //require(['tests/timer.test']);
         doBindings();
     });
 

@@ -81,6 +81,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             tiles = Letter.assemble(pair.anagram.toUpperCase());
             slots = Letter.assemble(pair.correct.toUpperCase());
             $.publish('expose.Main', {
+                Data: Data,
                 gameslots: slots,
                 gametiles: tiles,
                 wordpair: pair,
