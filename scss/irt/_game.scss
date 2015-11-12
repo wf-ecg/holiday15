@@ -10,6 +10,12 @@
     vertical-align: middle;
     z-index: 11;
 
+    button {
+        background-color: $blueD;
+        &:hover {
+            box-shadow: 0 0 1em white;
+        }
+    }
     h1 {
         font-family: $serif;
         font-size: 2.5em;
@@ -30,6 +36,7 @@
         margin: 1em;
     }
     img {
+        margin-bottom: 1em;
         width: 6em;
     }
 
