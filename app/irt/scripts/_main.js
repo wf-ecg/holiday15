@@ -125,6 +125,11 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         $.subscribe('win.Game', function () {
             message.cheer();
             updateScore(++totalWon);
+            timer.stop();
+        });
+        $.subscribe('next.Game', function () {
+            message.init();
+            timer.add(1).start();
         });
 
         showIntro();

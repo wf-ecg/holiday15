@@ -57,6 +57,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 loop();
             }
         }
+
         function setNow() {
             // make now highlighted
             nowE = $('.slot.unsolved').first();
@@ -68,16 +69,15 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         function loop() {
             if (!setNow().length) {
                 El.output.addClass('won');
-                oneSolved(startGame);
+                oneSolved(nextPuzzle);
             }
             $.subscribe('check.Tile', function (evt, obj) {
                 checkSlot(obj);
             });
         }
 
-        function startGame() {
+        function nextPuzzle() {
             clearGame();
-            Data.reload();
 
             pair = Data.get();
             tiles = Letter.assemble(pair.anagram.toUpperCase());
@@ -186,17 +186,11 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // SCORE/TIME
         function oneSolved(cb) {
             $.publish('win.Game');
-            $('.jumble').css({
-                position: 'relative',
-            }).animate({
-                left: 3333,
-            }, 333, function () {
-                $('.jumble').css({
-                    left: 0,
-                    position: 'static',
-                });
-                if (typeof cb === 'function')
-                    cb();
+
+            El.input.fadeOut(3333, function () {
+                El.input.show();
+                $.publish('next.Game');
+                (typeof cb !== 'function') || cb();
             });
         }
 
@@ -213,11 +207,15 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                     El.game.focus();
                 }
             });
-
         }
 
-        self.start = startGame;
+        function init() {
+            Data.reload();
+            nextPuzzle();
+        }
+
         doBindings();
+        self.start = init;
     }
 
     return Game;
