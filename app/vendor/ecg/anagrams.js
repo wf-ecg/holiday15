@@ -118,7 +118,6 @@ define(function () {
         }
         do { // TODO prevent suck
             opts = randomArray(Data.anagrams);
-            C.log(Data._util.checklength());
         } while (previous === opts[0] || opts.length < 2);
 
         previous = opts[0];

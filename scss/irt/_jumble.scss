@@ -11,9 +11,7 @@
         margin: 1em;
         opacity: 0.5;
     }
-    .gameInput span,
-    .gameOutput span {
-        //border: $stroke outset $trans;
+    .slot, .tile {
         border-radius: $stroke;
         color: $blueD;
         font-size: 2em;
@@ -24,55 +22,57 @@
         &.space {
             margin-left: 0.5em;
         }
-        &.slot {
-            background-color: $bkgr;
-            color: $trans;
-            font-weight: 500;
-            opacity: 0.5;
-            &.unsolved {
-                background-color: $blueL;
-                //border: $stroke outset $blueB;
-                opacity: 0.3;
-            }
-            &.now {
-                @include throb;
-                //border-color: lime;
-            }
-            &.bad {
-                background-color: red;
-                color: red;
-            }
-            &.solved {
-                border-color: $trans;
+    }
+    .slot {
+        background-color: $bkgr;
+        color: $trans;
+        font-weight: 500;
+        opacity: 0.5;
+        &.unsolved {
+            background-color: $blueL;
+            opacity: 0.3;
+        }
+        &.now {
+            @include throb;
+        }
+        &.bad {
+            background-color: red;
+            color: red;
+        }
+        &.solved {
+            border-color: $trans;
+            color: white;
+            opacity: 1;
+        }
+    }
+    .tile {
+        background-color: $blueL;
+        border-color: $blueL;
+        text-shadow: $shadL;
+        &.used {
+            color: white;
+            cursor: not-allowed;
+            opacity: 0.8;
+            text-shadow: $shadD;
+        }
+        &.unused {
+            cursor: pointer;
+            &:hover {
                 color: white;
                 opacity: 1;
             }
         }
-        &.tile {
-            background-color: $blueL;
-            border-color: $blueL;
-            text-shadow: $shadL;
-            &.used {
-                color: white;
-                cursor: not-allowed;
-                opacity: 0.8;
-                text-shadow: $shadD;
-            }
-            &.unused {
-                cursor: pointer;
-                &:hover {
-                    color: white;
-                    opacity: 1;
-                }
-            }
-        }
     }
-    .won {
-        border: 0.5em groove gold;
-        margin: -0.5em;
-        text-shadow: $shadF;
-        &.used {
-            opacity: 0.6;
+    &.won {
+        .tile.used {
+            opacity: 0.3;
+        }
+        .solved {
+            background-color: $blueX;
+            &.now {
+                background-color: gold;
+                text-shadow: $shadF;
+            }
         }
     }
 }

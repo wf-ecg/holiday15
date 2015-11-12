@@ -20,10 +20,12 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
     var Df = {
+        linger: 7777,
     };
     var El = {
         game: '.game',
         input: '.gameInput',
+        jumble: '.jumble',
         output: '.gameOutput',
     };
 
@@ -68,7 +70,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
         function loop() {
             if (!setNow().length) {
-                El.output.addClass('won');
+                El.jumble.addClass('won');
                 oneSolved(nextPuzzle);
             }
             $.subscribe('check.Tile', function (evt, obj) {
@@ -97,7 +99,8 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
         function clearGame() {
             El.input.empty();
-            El.output.removeClass('won').empty();
+            El.jumble.removeClass('won');
+            El.output.empty();
         }
 
         // - - - - - - - - - - - - - - - - - -
@@ -185,9 +188,20 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // SCORE/TIME
         function oneSolved(cb) {
-            $.publish('win.Game');
+            var arr;
 
-            El.input.fadeOut(3333, function () {
+            $.publish('win.Game');
+            arr = $.shuffler(slots);
+
+            (function fn() {
+                var slot = arr.pop();
+                if (slot) {
+                    slot.ele().addClass('now');
+                    W.setTimeout(fn, cf.linger / 33);
+                }
+            }());
+
+            El.input.fadeOut(cf.linger, function () {
                 El.input.show();
                 $.publish('next.Game');
                 (typeof cb !== 'function') || cb();
