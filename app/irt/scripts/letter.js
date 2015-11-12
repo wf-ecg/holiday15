@@ -98,7 +98,7 @@ define(['jquery', 'lodash', 'xtn'], function
                 });
             }
         },
-        element: function () {
+        ele: function () {
             var cf = Self.Cf(this);
             var ele = cf.ele;
 

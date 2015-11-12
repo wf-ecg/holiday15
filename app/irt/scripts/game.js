@@ -50,7 +50,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             if (nowO.check(tryL)) {
                 $.unsubscribe('check.Tile');
                 nowO.solve();
-                tryO.element() //
+                tryO.ele() //
                     .off(ACT) //
                     .addClass('used') //
                     .removeClass('unused');
@@ -103,11 +103,13 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // MISC
         function fixWidths() {
-            var arr = [].concat(slots, tiles);
-            var all = arr.map(function (e) {
-                return e.element().outerWidth();
+            var arr, all, max;
+
+            arr = [].concat(slots, tiles);
+            all = arr.map(function (e) {
+                return e.ele().outerWidth();
             }).sort();
-            var max = all[all.length - 1];
+            max = all[all.length - 1];
 
             if (all[0] + 10 > max) {
                 return W.clearTimeout(fixWidths.timer);
@@ -115,8 +117,9 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 fixWidths.timer = W.setTimeout(fixWidths, 14);
             }
 
-            if (Self.db(2))
+            if (Self.db(2)) {
                 C.log(Nom, 'fixWidths', all);
+            }
             arr.forEach(function (e) {
                 e.tweakWidth(max - 5);
             });
@@ -125,32 +128,29 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // WIRING
         function clickLetter(str) {
-            if (tiles && tiles.length);
-            else return;
+            var arr, idx;
 
-            var arr = tiles.concat(), idx;
+            if (!tiles || !tiles.length || !str) {
+                return;
+            }
 
-            arr = arr.filter(function (e) {
-                return e.element().is('.unused');
-            });
-            idx = arr.map(function (e) {
-                return e.letter();
-            });
-            if (Self.db(2))
-                C.log(idx, arr);
+            arr = tiles.concat() //
+                .map(function (e) { // make array of unused tiles
+                    if (e.ele().is('.unused')) {
+                        return e.letter(); // reduce to just a letter
+                    }
+                });
+            idx = arr.indexOf(str); // is str in there?
 
-            idx = idx.indexOf(str);
-            if (Self.db(2))
-                C.log(idx, str);
-
-            if (idx > -1)
-                arr[idx].element().click();
+            if (idx > -1) {
+                tiles[idx].ele().click(); // sudo-click it!
+            }
         }
 
         function wireTile() {
             var self = this;
 
-            self.element().on(ACT, function (evt) {
+            self.ele().on(ACT, function (evt) {
                 var key = evt.keyCode;
 
                 if (key && (key !== 32 && key !== 13))
@@ -175,7 +175,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
             $.each(arr, function () {
                 var ele = this.type(css) // classify
-                    .element().appendTo(div); // generate
+                    .ele().appendTo(div); // generate
                 if (ele.is('.space')) {
                     ele.before(' ');
                 }
