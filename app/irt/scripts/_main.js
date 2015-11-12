@@ -36,6 +36,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
 
     $('header').first().load('../includes/main_header.html header > *');
     $.watchInputDevice();
+    $.swallowBackspace();
     $.watchResize(function () {
         Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
 

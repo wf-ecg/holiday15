@@ -73,6 +73,14 @@ define(['jquery', 'lodash'], function ($, _) {
             fn();
         }
     };
+    $.swallowBackspace = function () {
+        $(W.document).on('keydown', function (evt) {
+            var ele = $(evt.target || evt.srcElement);
+            if (evt.keyCode === 8 && !ele.is('input,[contenteditable="true"],textarea')) {
+                evt.preventDefault();
+            }
+        });
+    };
 
 });
 /*

@@ -70,8 +70,8 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 El.output.addClass('won');
                 oneSolved(startGame);
             }
-            $.subscribe('check.Tile', function (e, o) {
-                checkSlot(o);
+            $.subscribe('check.Tile', function (evt, obj) {
+                checkSlot(obj);
             });
         }
 
@@ -122,6 +122,9 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // WIRING
         function clickLetter(str) {
+            if (tiles && tiles.length);
+            else return;
+
             var arr = tiles.concat(), idx;
 
             arr = arr.filter(function (e) {
@@ -199,7 +202,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         function doBindings() {
             El = $.reify(El);
 
-            El.game.on(ACT, function (evt) {
+            $(W).on(ACT, function (evt) {
                 var key = evt.keyCode;
 
                 if (evt.type === 'keypress') {
