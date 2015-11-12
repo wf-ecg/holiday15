@@ -25,6 +25,13 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
     var totalWon = 0;
     var duration = 120;
     var game, timer;
+    var El = {
+        intro: '.intro',
+        outro: '.outro',
+        jumble: '.jumble',
+        start: '.intro button',
+        again: '.outro button',
+    };
 
     $('header').first().load('../includes/main_header.html header > *');
     $.watchInputDevice();
@@ -54,35 +61,35 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
     // - - - - - - - - - - - - - - - - - -
     // WIRING
     function hideAreas() {
-        $('.jumble').hide();
-        $('.intro').hide();
-        $('.outro').hide();
+        El.jumble.hide();
+        El.intro.hide();
+        El.outro.hide();
     }
     function showIntro() {
         hideAreas();
-        $('.intro').show();
-        timer.force('Start') //
-            .ele().off(ACT) //
-            .on(ACT, showJumble);
+        El.intro.show();
+        timer.force('Start');
     }
     function showOutro() {
         timer.stop();
         hideAreas();
-        $('.outro').show().find('.score').text(totalWon);
-        timer.reset().force('Try Again') //
-            .ele().off(ACT) //
-            .on(ACT, showIntro);
+        El.outro.show() //
+            .find('.score').text(totalWon);
+        timer.reset();
     }
     function showJumble() {
         hideAreas();
-        $('.jumble').show();
-        timer.start(duration) //
-            .ele().off(ACT);
+        El.jumble.show();
+        timer.start(duration);
         game.start();
     }
 
 //  INIT
     function doBindings() {
+        $.reify(El);
+
+        El.start.on(ACT, showJumble);
+        El.again.on(ACT, showIntro);
 
         game = new Game();
         timer = new Timer({
