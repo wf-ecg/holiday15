@@ -78,7 +78,7 @@ define(function () {
             'Calm and Bright',
             'Brag Latch Mind',
             'Barn Mad Glitch',
-            'Bald Nag Inch Mr',
+            'Bald Nag Itch Mr',
             'Clad Hang Bit Mr',
         ], [
             'Friends Family Happiness',
