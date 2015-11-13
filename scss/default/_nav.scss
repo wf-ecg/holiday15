@@ -68,7 +68,6 @@ nav ul {
     }
     header {
         background-color: transparent;
-        position: fixed;
         width: 100%;
         z-index: 1;
 
@@ -79,7 +78,7 @@ nav ul {
             //box-shadow: 0 2px 4px black;
             display: block;
             height: 50px;
-            position: fixed;
+            //position: fixed;
             text-align: center;
             width: 100%;
             img {

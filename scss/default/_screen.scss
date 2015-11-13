@@ -19,8 +19,8 @@ $X9: 9999px;
 }
 .ui-page {
     > div {
-        @include media(font-size, 0.7em, $X0, $XS, $X0, $SM);
-        @include media(font-size, 0.8em, $XS, $SM, $SM, $MD);
+        @include media(font-size, 0.6em, $X0, $XS, $X0, $SM);
+        @include media(font-size, 0.7em, $XS, $SM, $SM, $MD);
         @include media(font-size, 0.9em, $SM, $MD, $MD, $LG);
         @include media(font-size, 1.0em, $MD, $LG, $LG, $XL);
         @include media(font-size, 1.2em, $LG, $XL, $XL, $X9);
