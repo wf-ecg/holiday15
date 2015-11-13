@@ -63,14 +63,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     // - - - - - - - - - - - - - - - - - -
     // WIRING
     function updateScore(score) {
-        var str = ' point';
-        if (!score) {
-            El.score.html('');
-            return;
-        } else if (score > 1) {
-            str += 's';
-        }
-        El.score.html('/ ' + score + str);
+        El.score.html('Score: ' + (score || 0));
     }
     function hideAreas() {
         El.jumble.hide();
