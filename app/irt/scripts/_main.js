@@ -34,7 +34,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         score: '.status .score'
     };
 
-    $('header').first().load('../includes/main_header.html header > *');
+    //$('header').first().load('../includes/main_header.html header > *');
     $.watchInputDevice();
     $.swallowBackspace();
     $.watchResize(function () {
