@@ -42,7 +42,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     var ACT = 'keypress click';
     var seg = 1200;
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
     expose({
         shuffle: shuffle,
         sequence: sequence,
@@ -50,8 +51,11 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
     });
 
     $('header').first().load('../includes/main_header.html header > *');
+    $.watchInputDevice();
+    $.markDesktop();
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
     function begin() {
         var tmp;
 
@@ -138,15 +142,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         }
     }
     function doBindings() {
-        $.watchInputDevice();
-        $.watchResize(function () {
-            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-            if (Main.mobile || $(W).width() < 768) {
-                $('html').addClass('mobile');
-            } else {
-                $('html').removeClass('mobile');
-            }
-        });
         scroll = $('.scrollOuter');
         play = scroll.find('button');
         $('.lookdown').on(ACT, scrollDown).find('div').attr('tabIndex', 0);

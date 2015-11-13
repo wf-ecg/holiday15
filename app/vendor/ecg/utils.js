@@ -8,14 +8,16 @@ define(['jquery', 'lodash'], function ($, _) {
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
-// AUTOMATE
+    // - - - - - - - - - - - - - - - - - -
+    // AUTOMATE
     $.reify = function (obj) { // replace vals(selectors) with elements
         $.each(obj, function (i, sel) {
             obj[i] = $(sel);
         });
     };
 
-// PUBSUBS
+    // - - - - - - - - - - - - - - - - - -
+    // PUBSUBS
     $.pubsubs = $({});
     $.publish = function () {
         $.pubsubs.trigger.apply($.pubsubs, arguments);
@@ -32,7 +34,8 @@ define(['jquery', 'lodash'], function ($, _) {
         }, limit));
     };
 
-// FREEZE
+    // - - - - - - - - - - - - - - - - - -
+    // FREEZE
     $.fn.freeze = function () {
         var poses = this.map(function () {
             return $(this).position();
@@ -55,7 +58,21 @@ define(['jquery', 'lodash'], function ($, _) {
         return this;
     };
 
-// WATCHERS
+    // - - - - - - - - - - - - - - - - - -
+    // WATCHERS
+    $.watchHash = function () {
+        function trackHash() {
+            var self = trackHash,
+                hash = W.location.hash.slice(1),
+                prev = self.previous;
+            if (prev !== hash) {
+                $('html').removeClass(prev).addClass(hash);
+                self.previous = hash;
+            }
+            return self;
+        }
+        $(W).on('hashchange', trackHash());
+    };
     $.watchInputDevice = function () {
         $('body').on('keydown', function () {
             $(this).removeClass('mouse');
@@ -81,7 +98,18 @@ define(['jquery', 'lodash'], function ($, _) {
             }
         });
     };
+    $.markDesktop = function () {
+        $.watchResize(function () {
+            if (W.navigator.userAgent.match(/mobi/i)
+                || $(W).width() < 768) { // simulate
+                $('html').removeClass('desktop');
+            } else {
+                $('html').addClass('desktop');
+            }
+        });
+    };
 
+    // - - - - - - - - - - - - - - - - - -
     // HELPERS
     $.swapper = function (arr, a, b) {
         var c = arr[a];
@@ -99,6 +127,10 @@ define(['jquery', 'lodash'], function ($, _) {
             swap(rem, Math.floor(Math.random() * (rem + 1)));
         }
         return arr;
+    };
+
+    $.doneLoading = function () {
+        $('.loading').removeClass('loading');
     };
 
 });

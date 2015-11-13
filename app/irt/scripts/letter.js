@@ -126,7 +126,7 @@ define(['jquery', 'lodash', 'xtn'], function
         },
         used: function () {
             var cf = Self.Cf(this);
-            cf.ele.addClass('used').removeClass('unused');
+            cf.ele.addClass('used').removeClass('unused').attr('tabIndex', '');
             return this;
         },
         check: function (str) {

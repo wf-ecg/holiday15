@@ -2,6 +2,12 @@
 /*globals define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  created drt 2015-10
+
+ USE
+ ...
+
+ TODO
+ ...
  */
 
 define(function () {
@@ -13,79 +19,49 @@ define(function () {
     var Data = W.Data || {};
     var TEST = 0;
     var previous;
-    var anagrams = function () {
+    var anagrams = function () { // protect list in a function
         return [
             [
                 'Happy Holidays',
-                'Aloha Dippy Shy',
-                'Ladyship Ya Hop',
-                'Daily Happy Ohs',
-                'Shady Hay I Plop',
-                'Dial Pay Hop Shy',
+                'Aloha Dippy Shy', 'Ladyship Ya Hop', 'Daily Happy Ohs',
+                'Shady Hay I Plop', 'Dial Pay Hop Shy',
             ], [
                 'Joy and Peace',
-                'A Pecan Joyed',
-                'Ape Jan Decoy',
-                'Can Ya Do Jeep',
+                'A Pecan Joyed', 'Ape Jan Decoy', 'Can Ya Do Jeep',
             ], [
                 'Merry and Bright',
-                'Band Tiger Myrrh',
-                'Drab Erring Myth',
-                'Breath Drying Mr',
-                'Grab Nerdy Mirth',
-                'Agent Bird Myrrh',
-                'Mr Bath Nerdy Rig',
+                'Band Tiger Myrrh', 'Drab Erring Myth', 'Breath Drying Mr',
+                'Grab Nerdy Mirth', 'Agent Bird Myrrh', 'Mr Bath Nerdy Rig',
             ], [
                 'Hope and Joy',
-                'A Dopey John',
-                'Pay John Doe',
-                'Ah Pond Joey',
-                'Jade Hypo No',
-                'Hop Ad Enjoy',
+                'A Dopey John', 'Pay John Doe', 'Ah Pond Joey',
+                'Jade Hypo No', 'Hop Ad Enjoy',
             ], [
                 'Happy New Year',
-                'Hyena Awry Pep',
-                'Napper Way Hey',
-                'A Yarn Peep Why',
+                'Hyena Awry Pep', 'Napper Way Hey', 'A Yarn Peep Why',
                 'Away He Pen Pry',
             ], [
                 'Calm and Bright',
-                'Brag Latch Mind',
-                'Barn Mad Glitch',
-                'Bald Nag Itch Mr',
+                'Brag Latch Mind', 'Barn Mad Glitch', 'Bald Nag Itch Mr',
                 'Clad Hang Bit Mr',
             ], [
                 'Friends Family Happiness',
-                'Nerd Ifs Fail My Heap Spins',
-                'Reds Fin Aim Fly Nap She Sip',
+                'Nerd Ifs Fail My Heap Spins', 'Reds Fin Aim Fly Nap She Sip',
                 'Finders Fail My Pass He Nip',
             ], [
                 'Jingle Bells',
-                'Bell Lens Jig',
-                'Nib Leg Jells',
-                'Bin Gels Jell',
-                'Big Jell Lens',
+                'Bell Lens Jig', 'Nib Leg Jells', 'Bin Gels Jell', 'Big Jell Lens',
             ], [
                 'Holiday Cheer',
-                'Yeah Chloride',
-                'Each Idyl Hero',
-                'Achy Deli Hoer',
-                'El Heady Choir',
-                'Ahoy Chile Red',
-                'A Echo Idly Her',
+                'Yeah Chloride', 'Each Idyl Hero', 'Achy Deli Hoer',
+                'El Heady Choir', 'Ahoy Chile Red', 'A Echo Idly Her',
             ], [
                 'Tis the season',
-                //'Hesitate Sons',
-                //'Instate Shoes',
-                'Ease Thin Toss',
-                'Stashes Tie On',
-                'Siesta To Hens',
+                //'Hesitate Sons', 'Instate Shoes',
+                'Ease Thin Toss', 'Stashes Tie On', 'Siesta To Hens',
             ], [
-                'Enjoy Every Moment',
-                'Yeomen Never Jot My',
-                'Emote Over My Jenny',
-                'Joey Memo Rent Envy',
-                'Mere One Envy Jot My',
+                'Enjoy Every Moment', 'Yeomen Never Jot My', 'Emote Over My Jenny',
+                'Joey Memo Rent Envy', 'Mere One Envy Jot My',
             ]
         ];
     };
@@ -97,16 +73,16 @@ define(function () {
         return max + min; // restore floor
     }
 
-    function randomArray(arr) {
-        var idx;
-        idx = randomMax(arr.length);
-        return arr[idx];
+    function nextArray(arr) {
+        return arr[previous++ % arr.length];
     }
+
     function pullAnagram(arr) {
         var idx;
         idx = randomMax(arr.length, 1); // skip first entry (solution)
         return arr.splice(idx, idx).pop(); // remove index and pop out
     }
+
     Data.get = function () {
         var opts;
 
@@ -117,10 +93,8 @@ define(function () {
             };
         }
         do { // TODO prevent suck
-            opts = randomArray(Data.anagrams);
-        } while (previous === opts[0] || opts.length < 2);
-
-        previous = opts[0];
+            opts = nextArray(Data.anagrams);
+        } while (opts.length < 2);
 
         return {
             correct: opts[0],
@@ -151,6 +125,12 @@ define(function () {
             return JSON.stringify(Data.anagrams);
         },
     };
-    Data.reload();
-    return Data;
+
+    Data._init = function () {
+        Data.reload();
+        previous = randomMax(Data.anagrams.length); // init at a random place
+        return Data;
+    };
+
+    return Data._init();
 });

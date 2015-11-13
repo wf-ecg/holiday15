@@ -34,18 +34,20 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         score: '.status .score'
     };
 
-    $('header').first().load('../includes/main_header.html header > *');
-    $.watchInputDevice();
-    $.swallowBackspace();
-    $.watchResize(function () {
-        Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-
-        if (Main.mobile || $(W).width() < 768) {
-            $('html').addClass('mobile'); // simulate
+    $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
+        var me = $(this),
+            str = me.html();
+        if ($('html').is('.wystar')) {
+            str = str.replace(/holidays\/irt\//g, 'holidays/irt/wystar.html');
         } else {
-            $('html').removeClass('mobile');
+            str = str.replace(/holidays\/irt\//g, 'holidays/irt/index.html');
         }
+        me.html(str);
     });
+
+    $.markDesktop();
+    $.swallowBackspace();
+    $.watchInputDevice();
 
     // - - - - - - - - - - - - - - - - - -
     // PRIVATE
@@ -63,14 +65,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     // - - - - - - - - - - - - - - - - - -
     // WIRING
     function updateScore(score) {
-        var str = ' point';
-        if (!score) {
-            El.score.html('');
-            return;
-        } else if (score > 1) {
-            str += 's';
-        }
-        El.score.html('/ ' + score + str);
+        El.score.html('Score: ' + (score || 0));
     }
     function hideAreas() {
         El.jumble.hide();
@@ -98,9 +93,22 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         timer.start(duration);
         game.start();
     }
+    function trackHash() {
+        var self = trackHash,
+            hash = W.location.hash.slice(1),
+            prev = self.previous;
+        C.error(hash, prev);
+        if (prev !== hash) {
+            $('html').removeClass(prev).addClass(hash);
+            self.previous = hash;
+        }
+        return self;
+    }
 
 //  INIT
     function doBindings() {
+        $.doneLoading();
+        $.watchHash();
         $.reify(El);
 
         El.start.on(ACT, showJumble);

@@ -1,0 +1,81 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* DEFAULT/_share.scss */
+
+.shareBar {
+    height: 80px;
+    opacity: 0.5;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    img {
+        height: 100%;
+    }
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+    .shares li {
+        border-radius: 9em;
+    }
+
+    $QB: cubic-bezier(0.5, 0, 0.5, 1);
+    $Face: #3a5795;
+    $Goog: #d73d32;
+    $Gen:  #fcd65c;
+    $Twit: #55acee;
+    $Pin:  #cb2027;
+
+    $Bkgr: white;
+    $Dark: #165267;
+    $Lite: #2394a0;
+    $Radius: 32px;
+    $Size: $Radius / 1.4;
+    $Space: $Radius / 1.8;
+
+    .shares {
+        font-size: $Size;
+        line-height: 0;
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        & > li {
+            background-color: $Bkgr;
+            display: inline-block;
+            margin-left: $Space;
+            position: relative;
+            text-align: center;
+            white-space: nowrap;
+            zoom: 1;
+        }
+        & > li > a {
+            color: $Dark;
+            display: block;
+            height: $Radius;
+            text-decoration: none;
+            width: $Radius;
+            &:hover {
+                color: $Lite;
+            }
+        }
+        .icon-facebook,
+        .icon-googleplus,
+        .icon-pinterest,
+        .icon-share,
+        .icon-twitter {
+            &::after {
+                font-family: FontAwesome;
+                font-size: $Size;
+                position: relative;
+                top: 0.7em;
+            }
+        }
+        .icon-facebook::after { content: '\f09a'; }
+        .icon-googleplus::after { content: '\f0d5'; font-size: $Size * 1.05; }
+        .icon-share::after { content: '\f0e0'; font-size: $Size * 0.8; }
+        .icon-twitter::after { content: '\f099'; }
+        .icon-pinterest::after { content: '\f231'; }
+    }
+
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

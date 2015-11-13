@@ -39,6 +39,8 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
 
     $('header').first().load('../includes/main_header.html header > *');
     $('footer').first().load('../includes/main_footer.html footer > *');
+    $.watchInputDevice();
+    $.markDesktop();
 
 //  PRIVATE
     function pausevids() { // pause everything
@@ -52,15 +54,6 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
     }
 
     function doBindings() {
-        $.watchInputDevice();
-        $.watchResize(function () {
-            Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-            if (Main.mobile || $(W).width() < 768) {
-                $('html').addClass('mobile');
-            } else {
-                $('html').removeClass('mobile');
-            }
-        });
         Modal.bind('.glyphicon-play-circle', '#Video1', playvid, pausevids);
 
         if (Main.mobile) {

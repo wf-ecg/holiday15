@@ -5,13 +5,13 @@
     display: table-cell;
     padding-bottom: 9em;
 }
-.stage {
-    left: 0em !important;
-    margin-top: -8em !important;
-    opacity: 1 !important;
-}
-a:hover {
-    text-decoration: none;
+footer {
+    nav {
+        margin-top: 1em;
+    }
+    .stage {
+        opacity: 1 !important;
+    }
 }
 
 .view-container {

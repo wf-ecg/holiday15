@@ -51,7 +51,7 @@ define(['jquery'], function
 
 /// API
         $.extend(self, {
-            default: '<p>Choose letters to turn a Jingle Jumble into a holiday greeting.</p>',
+            default: '<p>Choose letters to discover a holiday greeting.</p>',
             great: 'Great job!',
             awesome: 'Awesome!',
             nice: 'Nice work!',
