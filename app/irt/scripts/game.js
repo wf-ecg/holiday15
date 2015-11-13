@@ -148,7 +148,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             }
         }
 
-        function wireTile() {
+        function wireTile() { // accept ada type input
             var self = this;
 
             self.ele().on(ACT, function (evt) {
@@ -211,12 +211,11 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         function doBindings() {
             El = $.reify(El);
 
-            $(W).on(ACT, function (evt) {
+            $(W).on(ACT, function (evt) { // allow keyboard users to fly
                 var key = evt.keyCode;
 
                 if (evt.type === 'keypress') {
                     clickLetter(String.fromCharCode(key).toUpperCase());
-                    El.game.focus();
                 }
             });
         }
