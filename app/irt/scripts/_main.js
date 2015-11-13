@@ -34,7 +34,17 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         score: '.status .score'
     };
 
-    $('.shareBar').first().load('../includes/main_share.html .shareBar > *');
+    $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
+        var me = $(this),
+            str = me.html();
+        if ($('html').is('.wystar')) {
+            str = str.replace(/holidays\/irt\//g, 'holidays/irt/wystar.html');
+        } else {
+            str = str.replace(/holidays\/irt\//g, 'holidays/irt/index.html');
+        }
+        me.html(str);
+    });
+
     $.markDesktop();
     $.swallowBackspace();
     $.watchInputDevice();
