@@ -86,6 +86,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
 
 //  INIT
     function doBindings() {
+        $('html').addClass(W.location.hash.slice(1));
         $.reify(El);
 
         El.start.on(ACT, showJumble);

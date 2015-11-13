@@ -17,6 +17,10 @@ html {
         .mobile {
             .wystar & {
                 background: $wystar;
+                img {
+                    @include middify;
+                    height: 40px;
+                }
             }
         }
     }
