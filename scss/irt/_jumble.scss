@@ -52,7 +52,7 @@
         &.used {
             color: white;
             cursor: not-allowed;
-            opacity: 0.8;
+            opacity: 0.3;
             text-shadow: $shadD;
         }
         &.unused {
@@ -69,10 +69,6 @@
         }
         .solved {
             background-color: $blueX;
-            &.now {
-                background-color: gold;
-                text-shadow: $shadF;
-            }
         }
     }
 }
