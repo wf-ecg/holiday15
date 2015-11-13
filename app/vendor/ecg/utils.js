@@ -82,6 +82,25 @@ define(['jquery', 'lodash'], function ($, _) {
         });
     };
 
+    // HELPERS
+    $.swapper = function (arr, a, b) {
+        var c = arr[a];
+        arr[a] = arr[b];
+        arr[b] = c;
+    };
+
+    $.shuffler = function (array) {
+        var arr = array.concat(),
+            rem = arr.length,
+            swap = function (a, b) {
+                $.swapper(arr, a, b);
+            };
+        while (rem--) {
+            swap(rem, Math.floor(Math.random() * (rem + 1)));
+        }
+        return arr;
+    };
+
 });
 /*
 

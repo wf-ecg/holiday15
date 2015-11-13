@@ -20,10 +20,12 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
     var Df = {
+        linger: 7777,
     };
     var El = {
         game: '.game',
         input: '.gameInput',
+        jumble: '.jumble',
         output: '.gameOutput',
     };
 
@@ -49,14 +51,13 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
             if (nowO.check(tryL)) {
                 $.unsubscribe('check.Tile');
-                nowO.solve();
-                tryO.element() //
-                    .off(ACT) //
-                    .addClass('used') //
-                    .removeClass('unused');
+                nowO.solved();
+                tryO.used() //
+                    .ele().off(ACT);
                 loop();
             }
         }
+
         function setNow() {
             // make now highlighted
             nowE = $('.slot.unsolved').first();
@@ -67,17 +68,16 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
         function loop() {
             if (!setNow().length) {
-                El.output.addClass('won');
-                oneSolved(startGame);
+                El.jumble.addClass('won');
+                oneSolved(nextPuzzle);
             }
             $.subscribe('check.Tile', function (evt, obj) {
                 checkSlot(obj);
             });
         }
 
-        function startGame() {
+        function nextPuzzle() {
             clearGame();
-            Data.reload();
 
             pair = Data.get();
             tiles = Letter.assemble(pair.anagram.toUpperCase());
@@ -97,17 +97,20 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
         function clearGame() {
             El.input.empty();
-            El.output.removeClass('won').empty();
+            El.jumble.removeClass('won');
+            El.output.empty();
         }
 
         // - - - - - - - - - - - - - - - - - -
         // MISC
         function fixWidths() {
-            var arr = [].concat(slots, tiles);
-            var all = arr.map(function (e) {
-                return e.element().outerWidth();
+            var arr, all, max;
+
+            arr = [].concat(slots, tiles);
+            all = arr.map(function (e) {
+                return e.ele().outerWidth();
             }).sort();
-            var max = all[all.length - 1];
+            max = all[all.length - 1];
 
             if (all[0] + 10 > max) {
                 return W.clearTimeout(fixWidths.timer);
@@ -115,8 +118,9 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 fixWidths.timer = W.setTimeout(fixWidths, 14);
             }
 
-            if (Self.db(2))
+            if (Self.db(2)) {
                 C.log(Nom, 'fixWidths', all);
+            }
             arr.forEach(function (e) {
                 e.tweakWidth(max - 5);
             });
@@ -125,32 +129,29 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // WIRING
         function clickLetter(str) {
-            if (tiles && tiles.length);
-            else return;
+            var arr, idx;
 
-            var arr = tiles.concat(), idx;
+            if (!tiles || !tiles.length || !str) {
+                return;
+            }
 
-            arr = arr.filter(function (e) {
-                return e.element().is('.unused');
-            });
-            idx = arr.map(function (e) {
-                return e.letter();
-            });
-            if (Self.db(2))
-                C.log(idx, arr);
+            arr = tiles.concat() //
+                .map(function (e) { // make array of unused tiles
+                    if (e.ele().is('.unused')) {
+                        return e.letter(); // reduce to just a letter
+                    }
+                });
+            idx = arr.indexOf(str); // is str in there?
 
-            idx = idx.indexOf(str);
-            if (Self.db(2))
-                C.log(idx, str);
-
-            if (idx > -1)
-                arr[idx].element().click();
+            if (idx > -1) {
+                tiles[idx].ele().click(); // sudo-click it!
+            }
         }
 
         function wireTile() {
             var self = this;
 
-            self.element().on(ACT, function (evt) {
+            self.ele().on(ACT, function (evt) {
                 var key = evt.keyCode;
 
                 if (key && (key !== 32 && key !== 13))
@@ -175,7 +176,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
             $.each(arr, function () {
                 var ele = this.type(css) // classify
-                    .element().appendTo(div); // generate
+                    .ele().appendTo(div); // generate
                 if (ele.is('.space')) {
                     ele.before(' ');
                 }
@@ -185,18 +186,23 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // - - - - - - - - - - - - - - - - - -
         // SCORE/TIME
         function oneSolved(cb) {
+            var arr;
+
             $.publish('win.Game');
-            $('.jumble').css({
-                position: 'relative',
-            }).animate({
-                left: 3333,
-            }, 333, function () {
-                $('.jumble').css({
-                    left: 0,
-                    position: 'static',
-                });
-                if (typeof cb === 'function')
-                    cb();
+            arr = $.shuffler(slots);
+
+            (function fn() {
+                var slot = arr.pop();
+                if (slot) {
+                    slot.ele().addClass('now');
+                    W.setTimeout(fn, cf.linger / 50);
+                }
+            }());
+
+            El.input.fadeOut(cf.linger, function () {
+                El.input.show();
+                $.publish('next.Game');
+                (typeof cb !== 'function') || cb();
             });
         }
 
@@ -213,11 +219,15 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                     El.game.focus();
                 }
             });
-
         }
 
-        self.start = startGame;
+        function init() {
+            Data.reload();
+            nextPuzzle();
+        }
+
         doBindings();
+        self.start = init;
     }
 
     return Game;

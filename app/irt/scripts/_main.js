@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
-    MAIN($, _, Modal, Timer, Game) {
+define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
+    MAIN($, _, Modal, Timer, Game, Message) {
     'use strict';
 
     var Nom = 'Main';
@@ -24,7 +24,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
     var ACT = 'keypress click';
     var totalWon = 0;
     var duration = 120;
-    var game, timer;
+    var game, message, timer;
     var El = {
         intro: '.intro',
         outro: '.outro',
@@ -63,11 +63,14 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
     // - - - - - - - - - - - - - - - - - -
     // WIRING
     function updateScore(score) {
+        var str = ' point';
         if (!score) {
             El.score.html('');
-        } else {
-            El.score.html('/ ' + score + ' point(s)');
+            return;
+        } else if (score > 1) {
+            str += 's';
         }
+        El.score.html('/ ' + score + str);
     }
     function hideAreas() {
         El.jumble.hide();
@@ -87,6 +90,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         timer.reset();
     }
     function showJumble() {
+        message.init();
         totalWon = 0;
         updateScore();
         hideAreas();
@@ -103,15 +107,17 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
         El.again.on(ACT, showIntro);
 
         game = new Game();
+        message = new Message();
         timer = new Timer({
-            bottom: -3,
-            warn: 3,
+            bottom: -1,
+            warn: 9,
             div: '.game .timer',
             cb: showOutro,
         });
 
         expose({
             Modal: Modal,
+            message: message,
             game: game,
             timer: timer,
         });
@@ -120,7 +126,13 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game'], function
             expose(arguments[1]);
         });
         $.subscribe('win.Game', function () {
+            message.cheer();
             updateScore(++totalWon);
+            timer.stop();
+        });
+        $.subscribe('next.Game', function () {
+            message.init();
+            timer.add(1).start();
         });
 
         showIntro();

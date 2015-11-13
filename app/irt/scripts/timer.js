@@ -53,7 +53,7 @@ define(['jquery'], function
             if (cf.time <= cf.bottom) {
                 self.finish();
             } else {
-                if (cf.time <= 0) {
+                if (cf.time <= cf.warn) {
                     self.over();
                 }
                 cf.time--;
@@ -90,6 +90,7 @@ define(['jquery'], function
             },
             add: function (num) {
                 cf.time += num;
+                return self;
             },
             ele: function () {
                 return cf.div;
@@ -116,6 +117,7 @@ define(['jquery'], function
             stop: function () {
                 cf.div.addClass('stopped').removeClass('started');
                 W.clearTimeout(cf.timeout);
+                return self;
             },
             update: function () {
                 self.display();
