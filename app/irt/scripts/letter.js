@@ -77,9 +77,9 @@ define(['jquery', 'lodash', 'xtn'], function
             }
         },
         displayXfor: function (str, num) {
-            var cf = Self.Cf(this);
-            var ele = cf.ele;
-            var org = cf.letter;
+            var cf = Self.Cf(this),
+                ele = cf.ele,
+                org = cf.letter;
 
             ele.addClass('bad');//.html(str);
 
@@ -88,8 +88,9 @@ define(['jquery', 'lodash', 'xtn'], function
             }, num || 3e3);
         },
         tweakWidth: function (max) {
-            var cf = Self.Cf(this);
-            var px;
+            var cf = Self.Cf(this),
+                px;
+
             if (cf.ele.outerWidth() + 1 < max) {
                 px = parseInt(cf.ele.css('padding-right'), 10);
                 cf.ele.css({
@@ -99,8 +100,8 @@ define(['jquery', 'lodash', 'xtn'], function
             }
         },
         ele: function () {
-            var cf = Self.Cf(this);
-            var ele = cf.ele;
+            var cf = Self.Cf(this),
+                ele = cf.ele;
 
             if (ele) {
                 return ele;
@@ -119,10 +120,15 @@ define(['jquery', 'lodash', 'xtn'], function
                 return cf.ele = ele;
             }
         },
-        solve: function () {
+        solved: function () {
             var cf = Self.Cf(this);
-            var ele = cf.ele;
-            ele.addClass('solved').removeClass('unsolved bad now');
+            cf.ele.addClass('solved').removeClass('unsolved bad now');
+            return this;
+        },
+        used: function () {
+            var cf = Self.Cf(this);
+            cf.ele.addClass('used').removeClass('unused');
+            return this;
         },
         check: function (str) {
             var cf = Self.Cf(this);

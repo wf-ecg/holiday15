@@ -51,11 +51,9 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
 
             if (nowO.check(tryL)) {
                 $.unsubscribe('check.Tile');
-                nowO.solve();
-                tryO.ele() //
-                    .off(ACT) //
-                    .addClass('used') //
-                    .removeClass('unused');
+                nowO.solved();
+                tryO.used() //
+                    .ele().off(ACT);
                 loop();
             }
         }
@@ -197,7 +195,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 var slot = arr.pop();
                 if (slot) {
                     slot.ele().addClass('now');
-                    W.setTimeout(fn, cf.linger / 33);
+                    W.setTimeout(fn, cf.linger / 50);
                 }
             }());
 
