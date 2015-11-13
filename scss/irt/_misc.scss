@@ -12,17 +12,14 @@ html {
         .wells { display: none; }
     }
 }
-    header {
-
-        .mobile {
-            .wystar & {
-                background: $wystar;
-                img {
-                    @include middify;
-                    height: 40px;
-                }
-            }
+header .mobile {
+    .wystar & {
+        background: $wystar;
+        img {
+            @include middify;
+            height: 40px;
         }
     }
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

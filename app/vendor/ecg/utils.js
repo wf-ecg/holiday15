@@ -60,6 +60,19 @@ define(['jquery', 'lodash'], function ($, _) {
 
     // - - - - - - - - - - - - - - - - - -
     // WATCHERS
+    $.watchHash = function () {
+        function trackHash() {
+            var self = trackHash,
+                hash = W.location.hash.slice(1),
+                prev = self.previous;
+            if (prev !== hash) {
+                $('html').removeClass(prev).addClass(hash);
+                self.previous = hash;
+            }
+            return self;
+        }
+        $(W).on('hashchange', trackHash());
+    };
     $.watchInputDevice = function () {
         $('body').on('keydown', function () {
             $(this).removeClass('mouse');
