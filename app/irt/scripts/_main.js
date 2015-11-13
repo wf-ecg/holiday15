@@ -34,7 +34,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         score: '.status .score'
     };
 
-    //$('header').first().load('../includes/main_header.html header > *');
+    $('.shareBar').first().load('../includes/main_share.html .shareBar > *');
     $.markDesktop();
     $.swallowBackspace();
     $.watchInputDevice();
