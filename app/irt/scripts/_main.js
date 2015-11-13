@@ -35,17 +35,9 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     };
 
     //$('header').first().load('../includes/main_header.html header > *');
-    $.watchInputDevice();
+    $.markDesktop();
     $.swallowBackspace();
-    $.watchResize(function () {
-        Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-
-        if (Main.mobile || $(W).width() < 768) {
-            $('html').addClass('mobile'); // simulate
-        } else {
-            $('html').removeClass('mobile');
-        }
-    });
+    $.watchInputDevice();
 
     // - - - - - - - - - - - - - - - - - -
     // PRIVATE

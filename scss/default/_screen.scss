@@ -37,7 +37,13 @@ $X9: 9999px;
         @include media(border-top, 1px solid blue,    $XL, $X9, $X9, $X9);
     }
 }
-
+html {
+    .desktop { display: none; }
+    &.desktop {
+        .desktop { display: inherit; }
+        .mobile { display: none; }
+    }
+}
 // SMALL
 @media (max-width: $break), (max-device-width: $break) {}
 // SMALL PORTRAIT

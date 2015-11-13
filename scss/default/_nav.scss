@@ -3,9 +3,7 @@
 
 header {
     background-color: white;
-    & .mobile {
-        display: none;
-    }
+
     .img-social {
         height: 80px;
         opacity: 0.5;
@@ -90,9 +88,6 @@ nav ul {
         width: 100%;
         z-index: 1;
 
-        .desktop {
-            display: none;
-        }
         .mobile {
             background-image: url('../images/icons/wf_mobile_bg.png');
             background-size: 100% 100%;
