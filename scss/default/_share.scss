@@ -1,0 +1,21 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* DEFAULT/_share.scss */
+
+.shareBar {
+    .img-social {
+        height: 80px;
+        opacity: 0.5;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        img {
+            height: 100%;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
