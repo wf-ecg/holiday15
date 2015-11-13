@@ -97,6 +97,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
 
 //  INIT
     function doBindings() {
+        $.doneLoading();
         $.watchHash();
         $.reify(El);
 

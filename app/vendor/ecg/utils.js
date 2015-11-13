@@ -129,6 +129,10 @@ define(['jquery', 'lodash'], function ($, _) {
         return arr;
     };
 
+    $.doneLoading = function () {
+        $('.loading').removeClass('loading');
+    };
+
 });
 /*
 
