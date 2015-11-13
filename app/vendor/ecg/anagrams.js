@@ -73,16 +73,16 @@ define(function () {
         return max + min; // restore floor
     }
 
-    function randomArray(arr) {
-        var idx;
-        idx = randomMax(arr.length);
-        return arr[idx];
+    function nextArray(arr) {
+        return arr[previous++ % arr.length];
     }
+
     function pullAnagram(arr) {
         var idx;
         idx = randomMax(arr.length, 1); // skip first entry (solution)
         return arr.splice(idx, idx).pop(); // remove index and pop out
     }
+
     Data.get = function () {
         var opts;
 
@@ -93,10 +93,8 @@ define(function () {
             };
         }
         do { // TODO prevent suck
-            opts = randomArray(Data.anagrams);
-        } while (previous === opts[0] || opts.length < 2);
-
-        previous = opts[0];
+            opts = nextArray(Data.anagrams);
+        } while (opts.length < 2);
 
         return {
             correct: opts[0],
@@ -127,6 +125,12 @@ define(function () {
             return JSON.stringify(Data.anagrams);
         },
     };
-    Data.reload();
-    return Data;
+
+    Data._init = function () {
+        Data.reload();
+        previous = randomMax(Data.anagrams.length); // init at a random place
+        return Data;
+    };
+
+    return Data._init();
 });
