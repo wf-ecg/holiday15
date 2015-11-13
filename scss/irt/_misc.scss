@@ -1,14 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* IRT/_misc.scss */
 
-a:hover {
-    text-decoration: none;
-}
-footer {
-    border-top: 0.3em solid rgba(22,44,88,0.5);
-    padding: 0 0 5em;
-    text-align: center;
-}
 .ui-page-active {
     @include background-image( linear-gradient(top, $trans 66%, $blueX 88%), url('../images/bkgrs/original-bubbles-big.jpg') );
     background-size: cover;
