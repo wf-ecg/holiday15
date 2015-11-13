@@ -5,4 +5,20 @@
     @include background-image( linear-gradient(top, $trans 66%, $blueX 88%), url('../images/bkgrs/original-bubbles-big.jpg') );
     background-size: cover;
 }
+html {
+    .wystar { display: none; }
+    &.wystar {
+        .wystar { display: inherit; }
+        .wells { display: none; }
+    }
+}
+    header {
+
+        .mobile {
+            .wystar & {
+                background: $wystar;
+            }
+        }
+    }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
