@@ -76,16 +76,15 @@ define(['jquery', 'lodash', 'xtn'], function
                 return cf.ele.attr('class');
             }
         },
-        displayXfor: function (str, num) {
+        markWrong: function (ms) {
             var cf = Self.Cf(this),
-                ele = cf.ele,
-                org = cf.letter;
+                ele = cf.ele;
 
-            ele.addClass('bad');//.html(str);
+            ele.addClass('wrong');
 
             _.delay(function () {
-                ele.removeClass('bad').html(org);
-            }, num || 3e3);
+                ele.removeClass('wrong');
+            }, ms || 3e3);
         },
         tweakWidth: function (max) {
             var cf = Self.Cf(this),
@@ -122,7 +121,7 @@ define(['jquery', 'lodash', 'xtn'], function
         },
         solved: function () {
             var cf = Self.Cf(this);
-            cf.ele.addClass('solved').removeClass('unsolved bad now');
+            cf.ele.addClass('solved').removeClass('unsolved wrong now');
             return this;
         },
         used: function () {
@@ -132,7 +131,7 @@ define(['jquery', 'lodash', 'xtn'], function
         },
         check: function (str) {
             var cf = Self.Cf(this);
-            this.displayXfor(str, 999);
+            this.markWrong(999);
             return (str === cf.letter);
         },
     };

@@ -35,7 +35,7 @@
         &.now {
             @include throb;
         }
-        &.bad {
+        &.wrong {
             background-color: red;
             color: red;
         }
