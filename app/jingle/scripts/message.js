@@ -69,14 +69,14 @@ define(['jquery'], function
                 return self;
             },
             show: function (cb) {
-                cf.ele.fadeTo(999, 1, function () {
+                cf.ele.stop(1,1).fadeTo(999, 1, function () {
                     if (typeof cb === 'function') cb();
                     $.publish('redraw');
                 });
                 return self;
             },
             write: function (str) {
-                cf.ele.fadeTo(0, 0.01).html(str);
+                cf.ele.stop(1,1).fadeTo(0, 0.01).html(str);
                 return self;
             },
             init: function () {
