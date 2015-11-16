@@ -26,9 +26,9 @@
     $Twit: #55acee;
     $Pin:  #cb2027;
 
-    $Bkgr: white;
-    $Dark: #165267;
-    $Lite: #2394a0;
+    $Bkgr: #333;
+    $Norm: #ccc;
+    $Over: #999;
     $Radius: 32px;
     $Size: $Radius / 1.4;
     $Space: $Radius / 1.8;
@@ -49,13 +49,13 @@
             zoom: 1;
         }
         & > li > a {
-            color: $Dark;
+            color: $Norm;
             display: block;
             height: $Radius;
             text-decoration: none;
             width: $Radius;
             &:hover {
-                color: $Lite;
+                color: $Over;
             }
         }
         .icon-facebook,
