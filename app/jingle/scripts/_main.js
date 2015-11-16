@@ -134,8 +134,9 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
                 doNext();
             }
         }
-        if (sequence.check() < 4)
-            return doNext();
+        if (sequence.check() < 3) { // sooo close just keep going
+            scroll.scrollTop(seg);
+        }
     }
 
     function watchScroll(fn) {
