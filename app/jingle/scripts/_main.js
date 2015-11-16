@@ -134,7 +134,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
                 doNext();
             }
         }
-        if (sequence.check() < 2)
+        if (sequence.check() < 4)
             return doNext();
     }
 
