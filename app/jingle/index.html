@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="/lib/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="../vendor/demos/css/fixed-positioning.css"> -->
     <link rel="stylesheet" href="../build/jing.css">
     <!--  -->
     <script src="../vendor/ecg/glober.js"></script>
@@ -22,24 +23,6 @@
             data-main="./config"
             data-main="./build/app"
     ></script>
-    <style>
-        #bg1, #bg2, #bg3 {
-            z-index: 50;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url(../images/bubs/bubbles.png) repeat 0 0;
-        }
-        #bg2 {
-            z-index: 49;
-            background-image: url(../images/bubs/bubbles2.png);
-        }
-        #bg3 {
-            z-index: 48;
-            background-image: url(../images/bubs/bubbles3.png);
-        }
-    </style>
   </head>
 
   <body><div data-role="page" class="jing">
@@ -53,7 +36,7 @@
         <section>
           <div class="game">
 
-            <div class="scrollOuter">
+            <div class="scrollOuter" id="skrollr-body">
               <div id="bg1"
                   data-0="background-position:0px 0px;"
                   data-end="background-position:-500px -10000px;">
@@ -66,9 +49,7 @@
                   data-0="background-position:0px 0px;"
                   data-end="background-position:-500px -6000px;">
               </div>
-              <div class="scrollSlow">
-
-              </div>
+              <div class="scrollSlow"></div>
               <div class="scrollInner"></div>
             </div>
 

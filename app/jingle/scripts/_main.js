@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
-    MAIN($, _, Seq, Shuf, Data, Msg) {
+define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr'], function
+    MAIN($, _, Seq, Shuf, Data, Msg, skrollr) {
     'use strict';
 
     var Nom = 'Main';
@@ -48,6 +48,11 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         shuffle: shuffle,
         sequence: sequence,
         Data: Data,
+        // Skor: skrollr.init({
+        //     forceHeight: true,
+        //     mobileCheck: function (){return true},
+        //     skrollrBody: 'skrollr-body',
+        // });
     });
 
     $('header').first().load('../includes/main_header.html header > *');
