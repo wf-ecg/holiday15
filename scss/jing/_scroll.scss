@@ -10,24 +10,25 @@
     top: 0px;
     width: 105%;
 }
-.scrollInner {
+
+.scrollInner, .scrollSlow {
     background-image: url('../images/bkgrs/trans-bubbles-big.png');
-    background-position: center 5%;
+    background-position: center 0%;
     height: 9999px;
-    position: relative;
+    position: absolute;
     width: 100%;
+}
+.scrollInner {
+    background-position: center 5%;
     .debug & {
         border-bottom: 1px solid lime;
         border-top: 1px solid lime;
     }
 }
 .scrollSlow {
-    background-image: url('../images/bkgrs/trans-bubbles-big.png');
-    background-position: center 10%;
-    height: 9999px;
-    position: relative;
-    width: 100%;
+    @include flow;
 }
+
 #bg1, #bg2, #bg3 {
     z-index: 50;
     top: 0;

@@ -128,7 +128,7 @@ h4 {
     margin-left: -35%;
     text-align: center;
     font-size: 150%;
-    .transform-origin(50%, 50%);
+    //.transform-origin(50%, 50%);
 }
 #properties {
     width: 100%;
