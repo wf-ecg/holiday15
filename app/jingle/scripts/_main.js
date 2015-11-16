@@ -111,7 +111,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
 
     function doNext() {
         var i, j, l, w;
-        var off = scroll.scrollTop() - seg;
+        var off = (scroll.scrollTop() - seg) % seg;
         if (off < 0) return;
 
         try {
