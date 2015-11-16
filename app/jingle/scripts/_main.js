@@ -40,7 +40,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
         random: !true,
     }); // blank but randomized
     var ACT = 'keypress click';
-    var seg = 1200;
+    var seg = 860;
 
     // - - - - - - - - - - - - - - - - - -
     // EXTEND
@@ -94,9 +94,9 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
             scroll.one('scroll', begin); // wait and allow a scroll to begin
         }, 2222));
     }
-    function scrollUp() {
+    function scrollUp(off) {
         msgs.cheer();
-        scroll.scrollTop(0);
+        scroll.scrollTop(off);
     }
     function scrollDown() {
         scroll.animate({
@@ -111,8 +111,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
 
     function doNext() {
         var i, j, l, w;
-
-        if (scroll.scrollTop() < seg) return;
+        var off = scroll.scrollTop() - seg;
+        if (off < 0) return;
 
         try {
             i = sequence.getNext();
@@ -127,7 +127,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
             shuffle.tiles[j].get().addClass('correct');
             if (l && (i !== j) && (l !== w)) {
                 shuffle.swap(i, j);
-                scrollUp();
+                scrollUp(off);
                 C.log(Nom, 'doNext SWAP', [i, j], [l, w], [shuffle.toString()]);
             } else {
                 C.log(Nom, 'doNext skip', [i, j], [l, w], [shuffle.toString()]);
