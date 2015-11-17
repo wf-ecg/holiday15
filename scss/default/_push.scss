@@ -4,14 +4,11 @@
 @media screen and (max-width: $break) {
     .pushin {
         height: 90%;
-        display: block;
         font-size: 2em;
-        margin: 50px 0 0 0;
+        margin: 50px 25px 0 0;
     }
     .navbar nav {
         display: block;
-        font-size: 1.2em;
-        margin: 50px 25px 0 0;
 
         a {
             background-color: rgba(33,33,33,0.6);
