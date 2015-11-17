@@ -7,11 +7,18 @@
     @include transform-style( preserve-3d );
 }
 
+/// TEXT
 .fineprint {
     font-size: 9pt;
+}
+p.fineprint {
     padding: 1em 5em 1em 0;
 }
+ul.fineprint {
+    text-align: center;
+}
 
+/// NAV
 .lookdown, .lookup {
     $look: 4em;
     @include transition(all 0.25s);

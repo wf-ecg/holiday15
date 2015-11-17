@@ -92,7 +92,7 @@ p {
         display: none !important;
     }
     header {
-        background-color: transparent;
+        position: absolute;
         width: 100%;
         z-index: 1;
         > * {
