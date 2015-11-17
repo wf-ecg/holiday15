@@ -27,7 +27,7 @@ p.fineprint {
     @include centify;
 
     cursor: pointer;
-    font-size: $look / 2 !important;
+    font-size: $look / 2;
     height: $look / 2;
     opacity: 0.3;
     overflow: hidden;
