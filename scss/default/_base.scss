@@ -24,14 +24,29 @@ button {
 }
 footer {
     background: #44464a;
-    border-top: 0.25em solid #666;
+    border-top: 5px solid #888;
     color: white;
     line-height: 1.3;
-    text-align: left !important;
+    text-align: left;
+
+    li {
+        border-left: 1px solid white;
+        display: inline-block;
+        line-height: 1;
+        list-style: none;
+        margin: 0.5em 1em 0 0;
+        padding-left: 1em;
+        &:first-child {
+            border: none;
+            padding-left: 0;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 header, footer {
     font-family: $sans;
-    z-index: 9;
 }
 header {
     background-color: white;
@@ -55,6 +70,7 @@ p {
     line-height: 1.4;
 }
 
+/// ETC
 
 .clearfix {
     @include clearfix;

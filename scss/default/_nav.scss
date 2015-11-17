@@ -30,21 +30,6 @@ nav ul {
             color: white;
         }
     }
-    li {
-        display: inline;
-        list-style: none;
-
-        footer & {
-            border-left: 1px solid white;
-            margin-right: 1em;
-            padding-left: 1em;
-
-            &:first-child {
-                border: none;
-                padding-left: 0;
-            }
-        }
-    }
 }
 @media (max-width: 767px) {
     .mobile {

@@ -8,16 +8,19 @@
 }
 
 /// TEXT
+
+nav.fineprint {
+    font-size: 10pt;
+    padding-top: 1em;
+    text-align: center;
+}
 p.fineprint {
     font-size: 9pt;
     padding: 1em 5em 1em 0;
 }
-nav.fineprint {
-    font-size: 10pt;
-    text-align: center;
-}
 
 /// NAV
+
 .lookdown, .lookup {
     $look: 4em;
     @include transition(all 0.25s);
