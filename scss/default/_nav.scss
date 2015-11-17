@@ -1,9 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_nav.scss */
 
-header {
-    background-color: white;
-}
 .navbar {
     background: none !important;
     border: none;
@@ -49,41 +46,17 @@ nav ul {
         }
     }
 }
-@media (min-width: 768px) {
-    $off: 5em;
-    footer {
-        .stage {
-            float: left;
-            height: $off;
-            margin-top: -$off - 0.25em;
-            margin-right: -100%;
-            opacity: 0.5;
-            position: relative;
-        }
-    }
-}
 @media (max-width: 767px) {
-    footer {
-        display: none !important;
-    }
-    header {
-        background-color: transparent;
+    .mobile {
+        background-image: url('../images/icons/wf_mobile_bg.png');
+        background-size: 100% 100%;
+        border-bottom: 1px solid white;
+        //box-shadow: 0 2px 4px black;
+        display: block;
+        text-align: center;
         width: 100%;
-        z-index: 1;
-
-        .mobile {
-            background-image: url('../images/icons/wf_mobile_bg.png');
-            background-size: 100% 100%;
-            border-bottom: 1px solid white;
-            //box-shadow: 0 2px 4px black;
-            display: block;
-            height: 50px;
-            position: fixed;
-            text-align: center;
-            width: 100%;
-            img {
-                margin: 5px;
-            }
+        img {
+            margin: 5px;
         }
     }
     .navbar nav {
@@ -121,7 +94,6 @@ nav ul {
     .navbar {
         button {
             margin: 0.2em 0.4em;
-            position: fixed;
             z-index: 2;
         }
     }

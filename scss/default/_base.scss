@@ -38,6 +38,37 @@ header, footer {
     font-family: $sans;
     z-index: 9;
 }
+header {
+    background-color: white;
+    > * {
+        min-height: 50px !important;
+        position: fixed;
+    }
+}
+@media (max-width: 767px) {
+    footer {
+        display: none !important;
+    }
+    header {
+        background-color: transparent;
+        width: 100%;
+        z-index: 1;
+    }
+}
+@media (min-width: 768px) {
+    $off: 5em;
+    footer {
+        .stage {
+            float: left;
+            height: $off;
+            margin-top: -$off - 0.25em;
+            margin-right: -100%;
+            opacity: 0.5;
+            position: relative;
+        }
+    }
+}
+
 h2 {
     font-size: 3em;
     font-weight: 500;
@@ -73,7 +104,7 @@ p {
         position: relative;
     }
     > header, > footer {
-        height: 1%;
+        height: 5%;
     }
     > section > div {
         display: table-cell;
