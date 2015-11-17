@@ -28,7 +28,7 @@ nav ul {
         }
     }
 }
-@media (max-width: 767px) {
+@media (max-width: $break) {
     .mobile {
         background-image: url('../images/icons/wf_mobile_bg.png');
         background-size: 100% 100%;
@@ -44,14 +44,14 @@ nav ul {
     .navbar nav {
         display: block;
         font-size: 2.2em;
-        margin: 50px 2em 0 -15px;
+        margin: 50px 25px 0 0;
 
         a {
             background-color: rgba(33,33,33,0.6);
             border-radius: 0.6em;
             display: block;
             margin: 2px 0;
-            padding: 1em;
+            padding: 1em 0.5em;
 
             &:hover {
                 background-color: rgba(33,33,33,1);
@@ -61,10 +61,8 @@ nav ul {
                 border: 1px solid white;
                 border-radius: 0.3em;
                 content: 'X';
-                height: 1em;
-                margin-right: 1em;
+                margin-right: 0.5em;
                 padding: 3px 5px;
-                width: 1em;
             }
         }
         ul {
@@ -114,6 +112,42 @@ nav ul {
                 }
             }
         }
+    }
+}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: $break) {
+    .row-offcanvas {
+        @include transition(all .25s ease-out);
+        position: relative;
+    }
+    .row-offcanvas-right {
+        right: 0;
+    }
+    .row-offcanvas-left {
+        left: 0;
+    }
+    .row-offcanvas-right
+    .sidebar-offcanvas {
+        right: -95%; /* 6 columns */
+    }
+
+    .row-offcanvas-left
+    .sidebar-offcanvas {
+        left: -95%; /* 6 columns */
+    }
+    .row-offcanvas-right.active {
+        right: 95%; /* 6 columns */
+    }
+    .row-offcanvas-left.active {
+        left: 95%; /* 6 columns */
+    }
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 95%; /* 6 columns */
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

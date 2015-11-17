@@ -37,7 +37,11 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
         Modal: Modal,
     });
 
-    $('header').first().load('../includes/main_header.html header > *');
+    $('header').first().load('../includes/main_header.html header > *', function () {
+        $('header button').click(function () {
+            $('.row-offcanvas').toggleClass('active');
+        });
+    });
     $('footer').first().load('../includes/main_footer.html footer > *');
     $.watchInputDevice();
     $.markDesktop();
