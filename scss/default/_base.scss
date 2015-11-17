@@ -28,11 +28,6 @@ footer {
     color: white;
     line-height: 1.3;
     text-align: left !important;
-
-    .fineprint {
-        font-size: 9pt;
-        padding: 1em 5em 2em 0;
-    }
 }
 header, footer {
     font-family: $sans;
@@ -40,35 +35,7 @@ header, footer {
 }
 header {
     background-color: white;
-    > * {
-        min-height: 50px !important;
-        position: fixed;
-    }
 }
-@media (max-width: 767px) {
-    footer {
-        display: none !important;
-    }
-    header {
-        background-color: transparent;
-        width: 100%;
-        z-index: 1;
-    }
-}
-@media (min-width: 768px) {
-    $off: 5em;
-    footer {
-        .stage {
-            float: left;
-            height: $off;
-            margin-top: -$off - 0.25em;
-            margin-right: -100%;
-            opacity: 0.5;
-            position: relative;
-        }
-    }
-}
-
 h2 {
     font-size: 3em;
     font-weight: 500;
@@ -87,8 +54,12 @@ p {
     font-size: 1em;
     line-height: 1.4;
 }
-.ui-page {
+
+
+.clearfix {
+    @include clearfix;
 }
+
 .ui-page-active {
     height: 100%;
 }
@@ -101,18 +72,10 @@ p {
 
     > header, > footer, > section {
         display: table-row;
-        position: relative;
     }
     > header, > footer {
         height: 5%;
     }
-    > section > div {
-        display: table-cell;
-    }
-}
-
-.clearfix {
-    @include clearfix;
 }
 
 .upgradeframe {
@@ -122,6 +85,33 @@ p {
     padding: 9em;
     position: fixed;
     width: 100%;
+}
+
+@media (max-width: $break - 1) {
+    footer {
+        display: none !important;
+    }
+    header {
+        background-color: transparent;
+        width: 100%;
+        z-index: 1;
+        > * {
+            min-height: 50px !important;
+            position: fixed;
+        }
+    }
+}
+@media (min-width: $break) {
+    $off: 5em;
+    footer {
+        .stage {
+            float: left;
+            height: $off;
+            margin-top: -$off - 0.25em;
+            margin-right: -100%;
+            opacity: 0.5;
+        }
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
