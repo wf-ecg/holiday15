@@ -6,9 +6,6 @@
     border: none;
     margin-bottom: 0;
 
-    button {
-        margin: 1em;
-    }
     nav {
         display: none;
     }
@@ -46,14 +43,9 @@ nav ul {
     }
     .navbar nav {
         display: block;
-        margin-top: 0;
+        font-size: 2.2em;
+        margin: 50px 2em 0 -15px;
 
-        ul {
-            background-color: rgba(33,33,33,0.4);
-            margin: 3em 4em;
-            padding: 1em;
-            text-transform: uppercase;
-        }
         a {
             background-color: rgba(33,33,33,0.6);
             border-radius: 0.6em;
@@ -74,6 +66,11 @@ nav ul {
                 padding: 3px 5px;
                 width: 1em;
             }
+        }
+        ul {
+            background-color: gray;
+            padding: 0.5em;
+            text-transform: uppercase;
         }
     }
     .navbar {
