@@ -52,24 +52,27 @@ define(['jquery'], function
 /// API
         $.extend(self, {
             default: '<p>Choose letters to discover a holiday greeting.</p>',
-            great: 'Great job!',
-            awesome: 'Awesome!',
-            nice: 'Nice work!',
-            going: 'Keep going',
-            right: 'That’s right.',
-            good: 'You’re good.',
-            yeah: 'Oh, yeah!',
-            sweet: 'Sweet!',
-            ding: 'Ding! Ding! Ding!',
-            cheers: ['great', 'awesome', 'nice', 'going', 'right', 'good', 'yeah', 'sweet', 'ding'],
-            cheer: function (num) {
-                num = Math.floor(num || (Math.random() * self.cheers.length));
-                self.select(self.cheers[num]).show();
-                return self;
+            cheers: {
+                all: ['great', 'awesome', 'nice', 'going', 'right', 'good', 'yeah', 'sweet', 'ding'],
+                great: 'Great job!',
+                awesome: 'Awesome!',
+                nice: 'Nice work!',
+                going: 'Keep going',
+                right: 'That’s right.',
+                good: 'You’re good.',
+                yeah: 'Oh, yeah!',
+                sweet: 'Sweet!',
+                ding: 'Ding! Ding! Ding!',
             },
-            select: function (prop) {
-                self.write('<h1>' + self[prop || 'default'] + '</h1>');
-                return self;
+            cheer: function (num) {
+                var nom, str;
+
+                num = Math.floor(num || (Math.random() * self.cheers.all.length));
+                nom = self.cheers.all[num]; // get name of cheer
+                str = self.cheers[nom || 'default'];
+
+                self.write('<h1>' + str + '</h1>');
+                return self.show();
             },
             show: function (cb) {
                 cf.ele.fadeIn().slideDown(function () {
