@@ -7,20 +7,14 @@
     position: relative;
 
     h2 {
+        font-weight: 600;
         line-height: 1;
         margin-bottom: 0;
     }
     p {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
-    .glyphicon-play-circle {
-        background-image: url('../images/buttons/video-play-icon.png');
-        background-size: contain;
-        color: transparent;
-        cursor: pointer;
-        font-size: 90px;
-    }
     .message-sm,
     .message-lg {
         color: white;

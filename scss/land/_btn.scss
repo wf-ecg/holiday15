@@ -2,6 +2,9 @@
 /* LAND/_btn.scss */
 
 button.btn-tile {
+    font-weight: 600;
+    padding: 3px 9px;
+
     &.purple {
         background-color: $a_magenta;
         color: white;
@@ -11,13 +14,23 @@ button.btn-tile {
         color: white;
     }
     &.blue {
-        background-color: $a_teal;
+        background-color: $a_d_teal;
         color: white;
     }
     &.orange {
         background-color: $a_orange;
         color: white;
     }
+}
+.glyphicon-play-circle {
+    @include middify;
+    background-image: url('../images/buttons/video-play-icon.png');
+    background-size: contain;
+    color: transparent;
+    cursor: pointer;
+    font-size: 90px;
+    height: 100px;
+    width: 100px;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

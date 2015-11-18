@@ -35,6 +35,13 @@
     font-weight: 800;
 }
 
+.shrink {
+    font-size: 0.8em;
+}
+.bloat {
+    font-size: 1.4em;
+}
+
 @media (max-width: 479px) {
     section .container {
         padding: 0px;
