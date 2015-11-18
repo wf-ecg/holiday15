@@ -59,6 +59,7 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
     }
 
     function doBindings() {
+        Modal.init('.ui-page > .modal');
         Modal.bind('.glyphicon-play-circle', '#Video1', playvid, pausevids);
 
         if (Main.mobile) {
