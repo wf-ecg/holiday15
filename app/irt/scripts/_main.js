@@ -101,6 +101,11 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         $.reify(El);
 
         El.start.on(ACT, showJumble);
+        El.score.dblclick(function () {
+            if (db()) {
+                $.publish('finish.Timer');
+            }
+        });
         El.again.on(ACT, showIntro);
 
         game = new Game();
@@ -135,6 +140,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         });
 
         showIntro();
+        showOutro(); // TODO remove
     }
 
     $(function () {
