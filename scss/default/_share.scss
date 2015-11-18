@@ -2,10 +2,12 @@
 /* DEFAULT/_share.scss */
 
 .shareBar {
+    header & {
+        position: absolute;
+    }
     height: 80px;
     opacity: 0.5;
     padding: 20px;
-    position: absolute;
     right: 0;
     top: 0;
     &:hover {
