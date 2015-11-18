@@ -55,7 +55,13 @@ define(['jquery'], function
             great: 'Great job!',
             awesome: 'Awesome!',
             nice: 'Nice work!',
-            cheers: ['great', 'awesome', 'nice'],
+            going: 'Keep going',
+            right: 'That’s right.',
+            good: 'You’re good.',
+            yeah: 'Oh, yeah!',
+            sweet: 'Sweet!',
+            ding: 'Ding! Ding! Ding!',
+            cheers: ['great', 'awesome', 'nice', 'going', 'right', 'good', 'yeah', 'sweet', 'ding'],
             cheer: function (num) {
                 num = Math.floor(num || (Math.random() * self.cheers.length));
                 self.select(self.cheers[num]).show();
