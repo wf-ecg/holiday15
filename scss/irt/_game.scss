@@ -15,11 +15,12 @@
         margin: auto;
         max-width: 1220px;
         min-width: 360px;
+        padding: 1em;
     }
     button {
         background-color: $blueD;
         &:hover {
-            box-shadow: 0 0 1em white;
+            //box-shadow: 0 0 1em white;
         }
     }
     h1 {

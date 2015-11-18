@@ -31,7 +31,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         jumble: '.jumble',
         start: '.intro button',
         again: '.outro button',
-        score: '.status .score'
+        score: '.status .score',
+        header: 'header',
     };
 
     $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
@@ -73,11 +74,15 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         El.outro.hide();
     }
     function showIntro() {
+        El.outro.find('.shareBar ul').appendTo(El.header.find('.shareBar'));
+
         hideAreas();
         El.intro.show();
         timer.force('Start');
     }
     function showOutro() {
+        El.header.find('.shareBar ul').appendTo(El.outro.find('.shareBar'));
+
         timer.stop();
         hideAreas();
         El.outro.show() //
@@ -93,17 +98,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         timer.start(duration);
         game.start();
     }
-    function trackHash() {
-        var self = trackHash,
-            hash = W.location.hash.slice(1),
-            prev = self.previous;
-        C.error(hash, prev);
-        if (prev !== hash) {
-            $('html').removeClass(prev).addClass(hash);
-            self.previous = hash;
-        }
-        return self;
-    }
 
 //  INIT
     function doBindings() {
@@ -112,6 +106,11 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         $.reify(El);
 
         El.start.on(ACT, showJumble);
+        El.score.dblclick(function () {
+            if (db()) {
+                $.publish('finish.Timer');
+            }
+        });
         El.again.on(ACT, showIntro);
 
         game = new Game();
@@ -120,7 +119,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             bottom: -1,
             warn: 9,
             div: '.game .timer',
-            cb: showOutro,
         });
 
         expose({
@@ -130,6 +128,9 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             timer: timer,
         });
 
+        $.subscribe('finish.Timer', function () {
+            showOutro();
+        });
         $.subscribe('expose.Main', function () {
             expose(arguments[1]);
         });
