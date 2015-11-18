@@ -5,7 +5,14 @@
     margin-top: 30px;
     min-height: 220px;
     position: relative;
-    text-align: center;
+
+    h2 {
+        line-height: 1;
+        margin-bottom: 0;
+    }
+    p {
+        font-size: 1.5em;
+    }
 
     .glyphicon-play-circle {
         background-image: url('../images/buttons/video-play-icon.png');
@@ -44,29 +51,23 @@
             left: 1.5em;
             position: absolute;
             right: 1.5em;
+            height: 100%;
         }
     }
     button {
-        margin-left: auto;
-        margin-right: auto;
+        position: absolute;
+        bottom: 1em;
     }
 }
 .sq-sm {
     height: 21em;
-
-    div {
-        bottom: 2em;
-    }
 }
 .sq-lg {
-    height: 44em;
+    height: 67em;
+    text-align: center;
 
-    div {
-        bottom: 4em;
-    }
-    img {
-        margin: 0;
-        padding: 0;
+    @media (max-width: 991px) {
+        height: 44em;
     }
 }
 

@@ -29,6 +29,11 @@
     @extend .big-;
     color: white;
 }
+.big-block {
+    @extend .big-white;
+    font-size: 48px;
+    font-weight: 800;
+}
 
 @media (max-width: 479px) {
     section .container {
