@@ -27,6 +27,9 @@ header .mobile {
     }
 }
 .shareBar {
+    .outro & {
+        font-size: 1.7em;
+    }
     $Bkgr: white;
     $Norm: #165267;
     $Over: #2394a0;

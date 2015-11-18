@@ -4,10 +4,9 @@
 .shareBar {
     header & {
         position: absolute;
+        padding: 20px;
     }
-    height: 80px;
     opacity: 0.5;
-    padding: 20px;
     right: 0;
     top: 0;
     &:hover {
