@@ -2,7 +2,11 @@
 /* LAND/_misc.scss */
 
 .celldiv {
-    padding-bottom: 9em;
+    margin-top: 40px;
+    padding-bottom: 7em;
+    .desktop & {
+        margin-top: 0;
+    }
 }
 
 .view-container {
