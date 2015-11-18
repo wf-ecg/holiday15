@@ -10,18 +10,23 @@
     position: relative;
 }
 
-.big-, .big-red-ital, .big-white {
+.big- {
     font-family: $serif;
     font-size: 32px;
     font-weight: 600;
     line-height: 1.1;
     //text-shadow: 0 0 3px gray;
 }
-.big-red-ital {
+.big-red {
+    @extend .big-;
     color: $a_warmred;
+}
+.big-red-ital {
+    @extend .big-red;
     font-style: italic;
 }
 .big-white {
+    @extend .big-;
     color: white;
 }
 
