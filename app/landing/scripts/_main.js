@@ -42,6 +42,7 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
             $('.row-offcanvas').toggleClass('active');
         });
     });
+    $('.pushin').first().load('../includes/main_pushin.html .pushin > *');
     $('footer').first().load('../includes/main_footer.html footer > *');
     $.watchInputDevice();
     $.markDesktop();
