@@ -2,6 +2,7 @@
 /* LAND/_tile.scss */
 
 .tile {
+    line-height: 1;
     margin-top: 30px;
     min-height: 220px;
     position: relative;
@@ -14,64 +15,57 @@
         font-size: 1.4em;
     }
 
-    .message-sm,
-    .message-lg {
-        color: white;
-        font-weight: normal;
-    }
-    .message-sm {
-        font-family: $sans;
-        font-size: 1.5em;
-        font-weight: 400;
-        line-height: 1.4;
-    }
-    .message-lg {
-        font-family: $serif;
-        font-size: 3.4em;
-        line-height: 1.2;
-        padding: 1.4em;
+    div.creeper {
+        bottom: 1em;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        width: 30%;
+        img {
+            max-width: 150%;
+        }
     }
 }
-.sq-sm,
-.sq-lg {
+.sq- {
+    /* tile animations on hover */
+    bottom: 0;
+    position: relative;
+    &:hover, &:active { @include transform(scale(1.03)); }
+
     section {
         color: white;
         font-family: $sans;
-        padding: 0 1.5em;
         height: 100%;
 
-        div {
-            left: 1.5em;
+        button {
             position: absolute;
-            right: 1.5em;
-            height: 100%;
+            bottom: 1em;
         }
     }
-    button {
+    div.flow {
+        height: 100%;
+        left: 1.5em;
         position: absolute;
-        bottom: 1em;
+        right: 1.5em;
     }
 }
 .sq-sm {
+    @extend .sq-;
+
     height: 21em;
+    div.flow {
+        width: 68%;
+    }
 }
 .sq-lg {
-    height: 67em;
+    @extend .sq-;
+
+    float: right;
+    height: 67.5em;
     text-align: center;
 
     @media (max-width: 991px) {
         height: 44em;
-    }
-}
-
-/* tile animations on hover */
-.sq-sm,
-.sq-lg {
-    position: relative;
-    bottom: 0;
-
-    &:hover, &:active {
-        @include transform(scale(1.05));
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

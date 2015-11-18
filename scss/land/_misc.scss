@@ -8,7 +8,12 @@
         margin-top: 0;
     }
 }
-
+.reverse {
+    transform: scaleX(-1);
+}
+.clear {
+    clear: both;
+}
 .view-container {
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
     position: relative;
@@ -16,14 +21,14 @@
 
 .big- {
     font-family: $serif;
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 600;
     line-height: 1.1;
     //text-shadow: 0 0 3px gray;
 }
 .big-red {
     @extend .big-;
-    color: $a_warmred;
+    color: $wf_red;
 }
 .big-red-ital {
     @extend .big-red;
