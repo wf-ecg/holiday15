@@ -2,8 +2,9 @@
 /* LAND/_btn.scss */
 
 button.btn-tile {
-    font-weight: 600;
-    padding: 3px 9px;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 0.3em 0.6em;
 
     &.purple {
         background-color: $a_magenta;
