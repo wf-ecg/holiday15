@@ -31,7 +31,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         jumble: '.jumble',
         start: '.intro button',
         again: '.outro button',
-        score: '.status .score'
+        score: '.status .score',
+        header: 'header',
     };
 
     $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
@@ -73,11 +74,15 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         El.outro.hide();
     }
     function showIntro() {
+        El.outro.find('.shareBar ul').appendTo(El.header.find('.shareBar'));
+
         hideAreas();
         El.intro.show();
         timer.force('Start');
     }
     function showOutro() {
+        El.header.find('.shareBar ul').appendTo(El.outro.find('.shareBar'));
+
         timer.stop();
         hideAreas();
         El.outro.show() //
@@ -140,7 +145,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         });
 
         showIntro();
-        showOutro(); // TODO remove
     }
 
     $(function () {
