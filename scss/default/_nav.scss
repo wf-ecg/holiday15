@@ -29,16 +29,16 @@ nav ul {
     }
 }
 @media (max-width: $break) {
-    .mobile {
+    header .mobile {
         background-image: url('../images/icons/wf_mobile_bg.png');
         background-size: 100% 100%;
         border-bottom: 1px solid white;
-        //box-shadow: 0 2px 4px black;
         display: block;
-        text-align: center;
         width: 100%;
+
         img {
-            margin: 5px;
+            @include middify;
+            height: 40px;
         }
     }
     .navbar {
