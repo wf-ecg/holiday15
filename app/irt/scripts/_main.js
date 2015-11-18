@@ -93,17 +93,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         timer.start(duration);
         game.start();
     }
-    function trackHash() {
-        var self = trackHash,
-            hash = W.location.hash.slice(1),
-            prev = self.previous;
-        C.error(hash, prev);
-        if (prev !== hash) {
-            $('html').removeClass(prev).addClass(hash);
-            self.previous = hash;
-        }
-        return self;
-    }
 
 //  INIT
     function doBindings() {
