@@ -109,7 +109,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             bottom: -1,
             warn: 9,
             div: '.game .timer',
-            cb: showOutro,
         });
 
         expose({
@@ -119,6 +118,9 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             timer: timer,
         });
 
+        $.subscribe('finish.Timer', function () {
+            showOutro();
+        });
         $.subscribe('expose.Main', function () {
             expose(arguments[1]);
         });

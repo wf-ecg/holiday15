@@ -87,6 +87,7 @@ define(['jquery'], function
             finish: function () {
                 self.stop();
                 cf.cb();
+                $.publish('finish.' + Nom);
             },
             add: function (num) {
                 cf.time += num;

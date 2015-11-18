@@ -188,7 +188,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         function oneSolved(cb) {
             var arr;
 
-            $.publish('win.Game');
+            $.publish('win.' + Nom);
             arr = $.shuffler(slots);
 
             (function fn() {
