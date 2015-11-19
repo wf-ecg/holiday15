@@ -11,10 +11,10 @@
     }
 }
 .celldiv {
-    margin-top: 50px;
-    padding-bottom: 7em;
+    padding-top: 50px;
     .desktop & {
         margin-top: 0;
+        padding-bottom: 7em;
     }
 }
 
@@ -26,8 +26,13 @@ nav.fineprint {
     text-align: center;
 }
 p.fineprint {
-    font-size: 9pt;
-    padding: 1em 5em 1em 0;
+    font-size: 8pt;
+    padding: 1em 0;
+
+    .desktop & {
+        font-size: 9pt;
+        padding-right: 5em;
+    }
 }
 
 /// NAV

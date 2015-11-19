@@ -5,11 +5,14 @@
     background-color: rgba(0,0,0,0.3);
     color: white;
     font: 600 1.3em/1 $sans;
-    margin: 2em;
+    margin: 1em;
     padding: 0.5em;
     text-align: center;
     text-transform: uppercase;
 
+    .desktop & {
+        margin: 2em;
+    }
     .timer {
         &.stopped {
             color: $blueX;
