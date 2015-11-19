@@ -172,8 +172,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             fixWidths();
         }
 
-        function fillDisplay(arr, css, sel) {
-            var div = $(sel).hide().fadeIn(999);
+        function fillDisplay(arr, css, div) {
 
             $.each(arr, function () {
                 var ele = this.type(css) // classify
@@ -182,6 +181,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                     ele.before(' ');
                 }
             });
+            div.show();
         }
 
         // - - - - - - - - - - - - - - - - - -
@@ -200,7 +200,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 }
             }());
 
-            El.input.hide();
+            El.input.hide().empty();
             El.button.show().focus().on(ACT, function () {
                 $.publish('next.Game');
                 (typeof cb !== 'function') || cb();
