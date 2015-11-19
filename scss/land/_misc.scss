@@ -9,7 +9,7 @@
     }
 }
 .reverse {
-    transform: scaleX(-1);
+    @include transform( scaleX(-1) );
 }
 .clear {
     clear: both;

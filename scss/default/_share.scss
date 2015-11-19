@@ -13,9 +13,6 @@
         cursor: pointer;
         opacity: 0.8;
     }
-    .shares li {
-        border-radius: 9em;
-    }
 
     $QB: cubic-bezier(0.5, 0, 0.5, 1);
     $Face: #3a5795;
@@ -39,7 +36,9 @@
         padding-left: 0;
         & > li {
             background-color: $Bkgr;
+            border-radius: 9em;
             display: inline-block;
+            line-height: 1.5;
             margin-left: $Space;
             position: relative;
             text-align: center;
@@ -61,16 +60,16 @@
         .icon-pinterest,
         .icon-share,
         .icon-twitter {
-            transform: scale(0.95);
+            @include transform( scale(0.95) );
             &::after {
                 font-family: FontAwesome;
                 font-size: $Size;
                 position: relative;
-                top: 0.75em;
             }
         }
         .icon-share {
-            transform: scale(0.8);
+            @include transform( scale(0.9, 0.75) );
+            @include transform-origin( 50%, 33% ); // comma for compass
         }
         .icon-facebook::after { content: '\f09a'; }
         .icon-googleplus::after { content: '\f0d5'; left: 0.05em; }

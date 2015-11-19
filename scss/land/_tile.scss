@@ -2,6 +2,12 @@
 /* LAND/_tile.scss */
 
 .tile {
+    @media (max-width: $break - 1) {
+        font-size: 1.2em;
+        button {
+            font-size: 2em;
+        }
+    }
     line-height: 1;
     margin-top: 30px;
     min-height: 220px;
