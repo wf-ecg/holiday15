@@ -8,8 +8,8 @@
         background: url("../images/bkgrs/original-bubbles-small.jpg");
         box-shadow: 1px 2px 3px black;
         display: block;
-        height: 100%;
         font-size: 2em;
+        height: 100%;
         .no-touch & {
             left: 0; // fix for safari?
         }
@@ -24,7 +24,7 @@
             a {
                 border-radius: 0.5em;
                 display: block;
-                font-weight: bold;
+                font-weight: 600;
                 margin: 2px 0;
                 padding: 0.5em;
 
@@ -34,16 +34,16 @@
                 }
                 &::before {
                     content: "\f0da";
-                    font-family: FontAwesome;
                     float: right;
+                    font-family: FontAwesome;
                     margin-top: 0.7em;
                 }
             }
         }
         .shareBar {
-            top: 5em;
-            position: relative;
             margin: auto;
+            position: relative;
+            top: 5em;
         }
     }
 }
