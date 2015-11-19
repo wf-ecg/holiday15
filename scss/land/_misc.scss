@@ -1,13 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
-.celldiv {
-    margin-top: 40px;
-    padding-bottom: 7em;
-    .desktop & {
-        margin-top: 0;
-    }
-}
 .reverse {
     @include transform( scaleX(-1) );
 }

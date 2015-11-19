@@ -10,6 +10,13 @@
         @include transition(all 0.25s);
     }
 }
+.celldiv {
+    margin-top: 50px;
+    padding-bottom: 7em;
+    .desktop & {
+        margin-top: 0;
+    }
+}
 
 /// TEXT
 

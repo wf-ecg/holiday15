@@ -127,7 +127,9 @@ p {
 
 @media (max-width: $break - 1) {
     footer {
-        display: none!important;
+        .stage, nav {
+            display: none!important;
+        }
     }
     header {
         position: absolute;

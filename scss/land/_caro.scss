@@ -78,11 +78,11 @@
         width: 100%;
     }
     @media (max-width: $break - 1) {
-        padding-bottom: 15em;
+        padding-bottom: 14em;
 
         .full img {
-            min-width: 200%;
             margin-left: -100%;
+            min-width: 200%;
         }
         .container > .bloat {
             bottom: -10em !important;
