@@ -60,7 +60,7 @@
         .icon-pinterest,
         .icon-share,
         .icon-twitter {
-            transform: scale(0.95);
+            @include transform( scale(0.95) );
             &::after {
                 font-family: FontAwesome;
                 font-size: $Size;
@@ -68,8 +68,8 @@
             }
         }
         .icon-share {
-            transform: scale(0.9, 0.75);
-            transform-origin: 50% 33%;
+            @include transform( scale(0.9, 0.75) );
+            @include transform-origin( 50%, 33% ); // comma for compass
         }
         .icon-facebook::after { content: '\f09a'; }
         .icon-googleplus::after { content: '\f0d5'; left: 0.05em; }

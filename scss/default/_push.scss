@@ -10,6 +10,9 @@
         display: block;
         height: 100%;
         font-size: 2em;
+        .no-touch & {
+            left: 0; // fix for safari?
+        }
         margin-top: 50px;
         padding: 0.5em;
         position: fixed;
