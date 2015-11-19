@@ -200,12 +200,11 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 }
             }());
 
-            El.input.fadeOut(cf.linger, function () {
-                El.button.show().focus().on(ACT, function () {
-                    El.button.hide();
-                    $.publish('next.Game');
-                    (typeof cb !== 'function') || cb();
-                });
+            El.input.hide();
+            El.button.show().focus().on(ACT, function () {
+                El.button.hide();
+                $.publish('next.Game');
+                (typeof cb !== 'function') || cb();
             });
         }
 

@@ -75,7 +75,7 @@ define(['jquery'], function
                 return self.show();
             },
             show: function (cb) {
-                cf.ele.fadeIn().slideDown(function () {
+                cf.ele.fadeIn(function () {
                     if (typeof cb === 'function')
                         cb();
                     $.publish('redraw');
