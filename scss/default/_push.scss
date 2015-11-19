@@ -17,28 +17,30 @@
         width: 69%;
         z-index: 1;
 
-        > ul a {
-            border-radius: 0.5em;
-            display: block;
-            font-weight: bold;
-            margin: 2px 0;
-            padding: 1em 0.5em;
+        > ul {
+            a {
+                border-radius: 0.5em;
+                display: block;
+                font-weight: bold;
+                margin: 2px 0;
+                padding: 0.5em;
 
-            &:hover {
-                background-color: rgba(33,33,33,0.5);
-                text-decoration: none;
-            }
-            &::after {
-                content: '>';
-                font-size: 150%;
-                position: absolute;
-                right: 1em;
+                &:hover {
+                    background-color: rgba(33,33,33,0.5);
+                    text-decoration: none;
+                }
+                &::before {
+                    content: "\f0da";
+                    font-family: FontAwesome;
+                    float: right;
+                    margin-top: 0.7em;
+                }
             }
         }
         .shareBar {
-            bottom: 5em;
-            left: 3em;
-            position: absolute;
+            top: 5em;
+            position: relative;
+            margin: auto;
         }
     }
 }
