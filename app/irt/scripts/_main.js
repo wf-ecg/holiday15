@@ -106,7 +106,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         $.reify(El);
 
         El.start.on(ACT, showJumble);
-        El.score.dblclick(function () {
+        El.score.click(function () {
             if (db()) {
                 $.publish('finish.Timer');
             }

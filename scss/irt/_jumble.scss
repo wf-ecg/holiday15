@@ -4,6 +4,9 @@
 .jumble {
     z-index: 1;
 
+    > button {
+        background-color: $a_d_plum;
+    }
     hr {
         background-color: $blueL;
         border: 0;

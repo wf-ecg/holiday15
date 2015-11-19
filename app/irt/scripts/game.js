@@ -20,13 +20,14 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
     var Df = {
-        linger: 7777,
+        linger: 3333,
     };
     var El = {
         game: '.game',
         input: '.gameInput',
         jumble: '.jumble',
         output: '.gameOutput',
+        button: 'button.next',
     };
 
 // PRIVATE
@@ -171,8 +172,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             fixWidths();
         }
 
-        function fillDisplay(arr, css, sel) {
-            var div = $(sel).hide().fadeIn(999);
+        function fillDisplay(arr, css, div) {
 
             $.each(arr, function () {
                 var ele = this.type(css) // classify
@@ -181,6 +181,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                     ele.before(' ');
                 }
             });
+            div.show();
         }
 
         // - - - - - - - - - - - - - - - - - -
@@ -199,10 +200,11 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
                 }
             }());
 
-            El.input.fadeOut(cf.linger, function () {
-                El.input.show();
+            El.input.hide().empty();
+            El.button.show().focus().on(ACT, function () {
                 $.publish('next.Game');
                 (typeof cb !== 'function') || cb();
+                El.button.hide();
             });
         }
 
@@ -210,6 +212,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // INIT
         function doBindings() {
             El = $.reify(El);
+            El.button.hide();
 
             $(W).on(ACT, function (evt) { // allow keyboard users to fly
                 var key = evt.keyCode;
