@@ -5,10 +5,10 @@
     header & {
         position: absolute;
         padding: 30px 20px 10px;
+        right: 0;
+        top: 0;
     }
     opacity: 0.5;
-    right: 0;
-    top: 0;
     &:hover {
         cursor: pointer;
         opacity: 0.8;
@@ -52,7 +52,7 @@
             height: $Radius;
             text-decoration: none;
             width: $Radius;
-            &:hover {
+            &:hover, &:focus {
                 color: $Over;
             }
         }
