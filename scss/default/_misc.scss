@@ -1,10 +1,14 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_misc.scss */
 
-.container * {
-    @include transform(scale(1.00));
-    @include transition(all 0.25s);
-    @include transform-style( preserve-3d );
+.container {
+    * {
+        @include transform(scale(1.00));
+        @include transform-style( preserve-3d );
+    }
+    div {
+        @include transition(all 0.25s);
+    }
 }
 
 /// TEXT
