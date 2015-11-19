@@ -118,10 +118,12 @@ define(['jquery'], function ($) {
             }
             return self;
         },
-        init: function () {
+        init: function (sel) {
             if (Df.inited) {
                 return null;
             }
+            El.modal = sel || El.modal;
+
             if (db()) {
                 C.info(Nom, 'debug:', db(), self);
                 self[Nom] = Df;
@@ -148,5 +150,5 @@ define(['jquery'], function ($) {
         }
     };
 
-    return self.init();
+    return self;
 });

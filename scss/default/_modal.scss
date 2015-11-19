@@ -16,7 +16,7 @@
         max-width: 100%;
     }
     &.active {
-        display : block;
+        display : block !important;
     }
     & > div {
         background-color : white;
