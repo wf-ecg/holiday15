@@ -73,8 +73,15 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
     }
 
     function doBindings() {
+        function blastYoutube() {
+            return '<iframe width="960" height="540" style="width: 960px; height: 540px; position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;" src="https://www.youtube.com/embed/TjMcYh5QPX4" frameborder="0" allowfullscreen></iframe>';
+        }
         Modal.init('.ui-page > .modal');
-        Modal.bind('.glyphicon-play-circle', '#Video1');
+        Modal.bind('.glyphicon-play-circle', '#Video1', function () {
+        }, function () {
+            $('.modal').empty();
+            $('.modal').append(blastYoutube());
+        });
     }
 
 //  INIT
