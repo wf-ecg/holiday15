@@ -1,6 +1,18 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_nav.scss */
 
+nav ul {
+    padding: 0;
+
+    a {
+        color: white;
+        white-space: nowrap;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
 .navbar {
     background: none;
     border: none;
@@ -15,40 +27,12 @@
     .navbar-toggle {
         font-size: 20px;
     }
-}
-nav ul {
-    padding: 0;
-
-    a {
-        color: white;
-        white-space: nowrap;
-
-        &:hover {
-            color: white;
-        }
+    button {
+        margin: 0.5em;
+        position: absolute;
+        z-index: 2;
     }
-}
-@media (max-width: $break) {
-    header .mobile {
-        background-image: url('../images/icons/wf_mobile_bg.png');
-        background-size: 100% 100%;
-        border-bottom: 1px solid white;
-        display: block;
-        width: 100%;
-
-        img {
-            @include middify;
-            height: 40px;
-        }
-    }
-    .navbar {
-        button {
-            margin: 0.5em;
-            position: absolute;
-            z-index: 2;
-        }
-    }
-    .navbar .navbar-toggle {
+    .navbar-toggle {
         border: 0;
 
         span.icon-bar {

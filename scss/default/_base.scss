@@ -53,8 +53,21 @@ header, footer {
 }
 header {
     background-color: white;
+
     nav ul li a {
         margin: 1em;
+    }
+    .mobile {
+        background-image: url('../images/icons/wf_mobile_bg.png');
+        background-size: 100% 100%;
+        border-bottom: 1px solid white;
+        display: block;
+        width: 100%;
+
+        img {
+            @include middify;
+            height: 40px;
+        }
     }
 }
 h2 {
