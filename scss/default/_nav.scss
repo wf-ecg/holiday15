@@ -14,56 +14,56 @@ nav ul {
     }
 }
 .navbar {
-    background: none;
     border: none;
-    margin-bottom: 0;
+    margin: 0;
 
+    button {
+        margin: 0.5em;
+        position: absolute;
+        z-index: 2;
+    }
     nav {
         display: none;
     }
     .navbar-brand {
         height: 80px;
     }
-    .navbar-toggle {
-        font-size: 20px;
-    }
-    button {
-        margin: 0.5em;
-        position: absolute;
-        z-index: 2;
-    }
-    .navbar-toggle {
-        border: 0;
+}
+.navbar .navbar-toggle {
+    border: 0;
+    font-size: 20px;
 
+    * {
+        @include transition(all 0.25s);
+    }
+    span.icon-bar {
+        background-color: white;
+    }
+    &:focus, &:hover {
+        background: none;
+    }
+    &.collapsed {
         span.icon-bar {
             background-color: white;
         }
-        &:focus, &:hover {
-            background: none;
-        }
-        &.collapsed {
-            span.icon-bar {
-                background-color: white;
+    }
+    &:not(.collapsed) {
+        span.icon-bar {
+
+            @include transform-origin( 40% );
+
+            &:nth-child(2) {
+                position: absolute;
+                top: 0.7em;
+                @include transform ( rotate(45deg) );
             }
-        }
-        &:not(.collapsed) {
-            span.icon-bar {
-
-                @include transform-origin( 40% );
-
-                &:nth-child(2) {
-                    position: absolute;
-                    top: 0.7em;
-                    @include transform ( rotate(45deg) );
-                }
-                &:nth-child(3) {
-                    background-color: transparent;
-                }
-                &:last-child {
-                    position: absolute;
-                    top: 0.7em;
-                    @include transform ( rotate(-45deg) );
-                }
+            &:nth-child(3) {
+                background-color: transparent;
+            }
+            &:last-child {
+                position: absolute;
+                top: 0.7em;
+                @include transform ( rotate(-45deg) );
             }
         }
     }
