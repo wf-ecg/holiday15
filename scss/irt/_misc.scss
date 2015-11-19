@@ -36,7 +36,7 @@ header .mobile {
     .shares li {
         background-color: $Bkgr;
         a { color: $Norm;
-            &:hover { color: $Over; }
+            &:hover, &:focus { color: $Over; }
         }
     }
 }
