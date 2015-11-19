@@ -52,9 +52,14 @@ define(['jquery', 'lodash', 'videojs', 'modal'], function
             } else {
                 header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
             }
-
         });
+        $.watchResize2(function () {
+            if (!button.is('.collapsed')) {
+                button.click();
+            }
+        }, 'button token TODO');
     });
+
     pushin.load('../includes/main_pushin.html .pushin > *');
     footer.load('../includes/main_footer.html footer > *');
 

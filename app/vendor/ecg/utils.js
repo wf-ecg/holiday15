@@ -90,6 +90,14 @@ define(['jquery', 'lodash'], function ($, _) {
             fn();
         }
     };
+    $.watchResize2 = function (fn) {
+        $(W).off('resize.Util2');
+        if (fn) {
+            $.watchResize2.last = fn;
+            $(W).on('resize.Util2', fn);
+            fn();
+        }
+    };
     $.swallowBackspace = function () {
         $(W.document).on('keydown', function (evt) {
             var ele = $(evt.target || evt.srcElement);
