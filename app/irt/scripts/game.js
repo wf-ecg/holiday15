@@ -20,13 +20,14 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
     var Df = {
-        linger: 7777,
+        linger: 3333,
     };
     var El = {
         game: '.game',
         input: '.gameInput',
         jumble: '.jumble',
         output: '.gameOutput',
+        button: '.jumble button',
     };
 
 // PRIVATE
@@ -200,9 +201,11 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             }());
 
             El.input.fadeOut(cf.linger, function () {
-                El.input.show();
-                $.publish('next.Game');
-                (typeof cb !== 'function') || cb();
+                El.button.show().focus().on(ACT, function () {
+                    El.button.hide();
+                    $.publish('next.Game');
+                    (typeof cb !== 'function') || cb();
+                });
             });
         }
 
@@ -210,6 +213,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
         // INIT
         function doBindings() {
             El = $.reify(El);
+            El.button.hide();
 
             $(W).on(ACT, function (evt) { // allow keyboard users to fly
                 var key = evt.keyCode;
