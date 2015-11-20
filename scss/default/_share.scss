@@ -40,7 +40,7 @@
             display: inline-block;
             line-height: 1.5;
             margin-left: $Space;
-            position: relative;
+            //position: relative;
             text-align: center;
             white-space: nowrap;
             zoom: 1;
@@ -64,7 +64,7 @@
             &::after {
                 font-family: FontAwesome;
                 font-size: $Size;
-                position: relative;
+                //position: relative;
             }
         }
         .icon-share {

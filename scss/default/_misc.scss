@@ -8,6 +8,7 @@
     }
     div {
         @include transition(all 0.25s);
+        position: relative;
     }
 }
 .celldiv {
