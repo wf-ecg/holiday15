@@ -19,31 +19,6 @@
         width: 69%;
         z-index: 1;
 
-        > ul {
-            list-style: none;
-            padding: 0.5em;
-            a {
-                border-radius: 0.5em;
-                display: block;
-                font-weight: 600;
-                margin: 2px 0;
-                padding: 0.5em;
-
-                img {
-                    margin-right: 0.5em;
-                }
-                &:hover {
-                    background-color: rgba(33,33,33,0.5);
-                    text-decoration: none;
-                }
-                &::before {
-                    content: "\f0d9";
-                    float: right;
-                    font-family: FontAwesome;
-                    margin: 0.5em;
-                }
-            }
-        }
         .shareBar {
             margin: auto;
             //position: relative;

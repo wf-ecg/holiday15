@@ -9,9 +9,11 @@ html, body {
     line-height: 1;
     min-height: 100%;
 }
-a:focus {
-    color: white;
-    text-decoration: underline;
+a {
+    &:focus {
+        color: white;
+        text-decoration: underline;
+    }
 }
 button {
     border: none;
@@ -27,6 +29,7 @@ footer {
     background: #44464a;
     border-top: 5px solid #888;
     color: white;
+    font-family: $sans;
     line-height: 1.3;
     text-align: left;
 
@@ -34,6 +37,7 @@ footer {
         border-left: 1px solid white;
         display: inline-block;
         line-height: 1;
+        list-style: none;
         margin: 0.5em 1em 0 0;
         padding-left: 1em;
         &:first-child {
@@ -44,18 +48,28 @@ footer {
             text-decoration: underline;
         }
     }
-}
-header, footer {
-    font-family: $sans;
-    li {
-        list-style: none;
+    @media (max-width: $break - 1) {
+        .stage, nav {
+            display: none!important;
+        }
+    }
+    @media (min-width: $break) {
+        $off: 5em;
+        .stage {
+            float: left;
+            height: $off;
+            margin-top: -$off - 0.25em;
+            margin-right: -100%;
+            opacity: 0.5;
+        }
     }
 }
 header {
     background-color: white;
+    font-family: $sans;
 
-    nav ul li a {
-        margin: 1em;
+    li {
+        list-style: none;
     }
     .mobile {
         background-image: url('../images/icons/wf_mobile_bg.png');
@@ -67,6 +81,16 @@ header {
         img {
             @include middify;
             height: 40px;
+        }
+    }
+    @media (max-width: $break - 1) {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        > * {
+            min-height: 50px !important;
+            position: fixed;
+            width: inherit;
         }
     }
 }
@@ -89,16 +113,24 @@ p {
     line-height: 1.4;
 }
 
-/// ETC
-
-.clearfix {
-    @include clearfix;
+// BASIC PHYSICS
+.celldiv {
+    padding-top: 50px;
+    .desktop & {
+        padding-top: 0;
+        padding-bottom: 7em;
+    }
 }
-
-.ui-page-active {
-    height: 100%;
+.container {
+    * {
+        @include transform(scale(1.00));
+        @include transform-style( preserve-3d );
+    }
+    div {
+        @include transition(all 0.25s);
+        position: relative;
+    }
 }
-
 .frame {
     border-collapse: collapse;
     display: table;
@@ -115,7 +147,15 @@ p {
         height: 500%;
     }
 }
+.ui-page-active {
+    height: 100%;
+}
 
+/// ETC
+
+.clearfix {
+    @include clearfix;
+}
 .upgradeframe {
     background-color: #ccc;
     font-family: 'arial black';
@@ -124,35 +164,4 @@ p {
     position: fixed;
     width: 100%;
 }
-
-@media (max-width: $break - 1) {
-    footer {
-        .stage, nav {
-            display: none!important;
-        }
-    }
-    header {
-        position: absolute;
-        width: 100%;
-        z-index: 1;
-        > * {
-            min-height: 50px !important;
-            position: fixed;
-            width: inherit;
-        }
-    }
-}
-@media (min-width: $break) {
-    $off: 5em;
-    footer {
-        .stage {
-            float: left;
-            height: $off;
-            margin-top: -$off - 0.25em;
-            margin-right: -100%;
-            opacity: 0.5;
-        }
-    }
-}
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

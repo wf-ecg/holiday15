@@ -1,24 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* DEFAULT/_misc.scss */
 
-.container {
-    * {
-        @include transform(scale(1.00));
-        @include transform-style( preserve-3d );
-    }
-    div {
-        @include transition(all 0.25s);
-        position: relative;
-    }
-}
-.celldiv {
-    padding-top: 50px;
-    .desktop & {
-        padding-top: 0;
-        padding-bottom: 7em;
-    }
-}
-
 /// TEXT
 
 nav.fineprint {
