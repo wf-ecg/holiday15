@@ -14,6 +14,7 @@
     //position: relative;
 
     h2 {
+        font-size: 2.4em;
         font-weight: 600;
         line-height: 1;
     }
@@ -39,6 +40,8 @@
     &:hover, &:active { @include transform(scale(1.03)); }
 
     section {
+        background-size: cover;
+        background-position: 40% 50%;
         color: white;
         font-family: $sans;
         height: 100%;
@@ -58,7 +61,7 @@
 .sq-sm {
     @extend .sq-;
 
-    height: 21em;
+    height: 18em;
     div.flow {
         width: 68%;
     }
@@ -67,7 +70,7 @@
     @extend .sq-;
 
     float: right;
-    height: 67.5em;
+    height: 38em;
     text-align: center;
 
     @media (max-width: 991px) {
