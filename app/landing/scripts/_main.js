@@ -60,11 +60,11 @@ define(['jquery', 'lodash', 'modal'], function
                 header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
             }
         });
-        $.watchResize2(function () {
+        $.watchResize(function () {
             if (!button.is('.collapsed')) {
                 button.click();
             }
-        }, 'button token TODO');
+        });
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');

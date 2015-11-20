@@ -70,13 +70,12 @@ nav {
     }
     &:not(.collapsed) {
         span.icon-bar {
-
             @include transform-origin( 40% );
 
             &:nth-child(2) {
                 position: absolute;
                 top: 0.7em;
-                @include transform ( rotate(45deg) );
+                @include transform( rotate(45deg) );
             }
             &:nth-child(3) {
                 background-color: transparent;
@@ -84,7 +83,7 @@ nav {
             &:last-child {
                 position: absolute;
                 top: 0.7em;
-                @include transform ( rotate(-45deg) );
+                @include transform( rotate(-45deg) );
             }
         }
     }

@@ -82,20 +82,12 @@ define(['jquery', 'lodash'], function ($, _) {
             $(this).addClass('mouse');
         });
     };
-    $.watchResize = function (fn) {
-        $(W).off('resize.Util');
+    $.watchResize = function (fn, ns) {
+        ns = 'resize.' + (ns || 'Util');
+        $(W).off(ns);
         if (fn) {
-            $.watchResize.last = fn;
-            $(W).on('resize.Util', fn);
             fn();
-        }
-    };
-    $.watchResize2 = function (fn) {
-        $(W).off('resize.Util2');
-        if (fn) {
-            $.watchResize2.last = fn;
-            $(W).on('resize.Util2', fn);
-            fn();
+            $(W).on(ns, fn);
         }
     };
     $.swallowBackspace = function () {
@@ -107,14 +99,16 @@ define(['jquery', 'lodash'], function ($, _) {
         });
     };
     $.markDesktop = function () {
-        $.watchResize(function () {
+        var isDesktop = function () {
             if (W.navigator.userAgent.match(/mobi/i)
                 || $(W).width() < 768) { // simulate
                 $('html').removeClass('desktop');
             } else {
                 $('html').addClass('desktop');
             }
-        });
+        };
+
+        $.watchResize(isDesktop, 'Desktop');
     };
 
     // - - - - - - - - - - - - - - - - - -
