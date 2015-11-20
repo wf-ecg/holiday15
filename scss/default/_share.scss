@@ -4,7 +4,6 @@
 .shareBar {
     opacity: 0.5;
     &:hover {
-        cursor: pointer;
         opacity: 0.8;
     }
     header & {
@@ -53,6 +52,7 @@
             width: $Radius;
             &:hover, &:focus {
                 color: $Over;
+                cursor: pointer;
             }
         }
         .icon-facebook,
