@@ -1,23 +1,44 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* DEFAULT/_misc.scss */
+/* DEFAULT/_etc.scss */
 
-header {
-    display: table-cell;
+.clearfix {
+    @include clearfix;
+}
+.upgradeframe {
+    background-color: #ccc;
+    font-family: 'arial black';
+    height: 100%;
+    padding: 9em;
+    position: fixed;
+    width: 100%;
 }
 
-.container * {
-    @include transform(scale(1.00));
-    @include transition(all 0.25s);
-    @include transform-style( preserve-3d );
+/// TEXT
+
+nav.fineprint {
+    font-size: 10pt;
+    padding-top: 1em;
+    text-align: center;
+}
+p.fineprint {
+    font-size: 8pt;
+    padding: 1em 0;
+
+    .desktop & {
+        font-size: 9pt;
+        padding-right: 5em;
+    }
 }
 
-$look: 4em;
+/// NAV
+
 .lookdown, .lookup {
+    $look: 4em;
     @include transition(all 0.25s);
     @include centify;
 
     cursor: pointer;
-    font-size: $look / 2 !important;
+    font-size: $look / 2;
     height: $look / 2;
     opacity: 0.3;
     overflow: hidden;

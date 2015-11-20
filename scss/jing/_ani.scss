@@ -1,0 +1,14 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* JING/_ani.scss */
+
+@include keyframes(flow) {
+    0% { background-position: 0% 0%; }
+    33% { background-position: 333% 33%; }
+    66% { background-position: 0% 66%; }
+    100% { background-position: 666% 100%; }
+}
+@mixin flow {
+    @include animation (flow 99s ease-in-out infinite alternate);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

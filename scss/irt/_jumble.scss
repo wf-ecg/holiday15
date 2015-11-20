@@ -2,13 +2,11 @@
 /* IRT/_jumble.scss */
 
 .jumble {
-    margin: auto;
-    max-width: 80%;
-    min-width: 320px;
-    padding: 4em 2em;
-    text-align: center;
     z-index: 1;
 
+    > button {
+        background-color: $a_d_plum;
+    }
     hr {
         background-color: $blueL;
         border: 0;
@@ -16,9 +14,9 @@
         margin: 1em;
         opacity: 0.5;
     }
-    span {
-        //border: $stroke outset $trans;
+    .slot, .tile {
         border-radius: $stroke;
+        color: $blueD;
         font-size: 2em;
         line-height: 1.75em;
         margin: $stroke / 2;
@@ -27,55 +25,53 @@
         &.space {
             margin-left: 0.5em;
         }
-        &.slot {
-            background-color: $bkgr;
-            color: $trans;
-            font-weight: 500;
-            opacity: 0.5;
-            &.unsolved {
-                background-color: $blueL;
-                //border: $stroke outset $blueB;
-                opacity: 0.3;
-            }
-            &.now {
-                @include throb;
-                //border-color: lime;
-            }
-            &.bad {
-                //border-color: red;
-                color: red;
-            }
-            &.solved {
-                border-color: $trans;
+    }
+    .slot {
+        background-color: $bkgr;
+        color: $trans;
+        font-weight: 500;
+        opacity: 0.5;
+        &.unsolved {
+            background-color: $blueL;
+            opacity: 0.3;
+        }
+        &.now {
+            @include throb;
+        }
+        &.wrong {
+            background-color: red;
+            color: red;
+        }
+        &.solved {
+            border-color: $trans;
+            color: white;
+            opacity: 1;
+        }
+    }
+    .tile {
+        background-color: $blueL;
+        border-color: $blueL;
+        text-shadow: $shadL;
+        &.used {
+            color: white;
+            cursor: not-allowed;
+            opacity: 0.3;
+            text-shadow: $shadD;
+        }
+        &.unused {
+            cursor: pointer;
+            &:hover {
                 color: white;
                 opacity: 1;
             }
         }
-        &.tile {
-            background-color: $blueL;
-            border-color: $blueL;
-            text-shadow: $shadL;
-            &.used {
-                color: white;
-                cursor: not-allowed;
-                opacity: 0.8;
-                text-shadow: $shadD;
-            }
-            &.unused {
-                cursor: pointer;
-                &:hover {
-                    color: white;
-                    opacity: 1;
-                }
-            }
-        }
     }
-    .won {
-        border: 0.5em groove gold;
-        margin: -0.5em;
-        text-shadow: $shadF;
-        &.used {
-            opacity: 0.6;
+    &.won {
+        .tile.used {
+            opacity: 0.3;
+        }
+        .solved {
+            background-color: $blueX;
         }
     }
 }

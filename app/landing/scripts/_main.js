@@ -10,62 +10,90 @@
  TODO
 
  */
-define(['jquery', 'videojs', 'modal'], function
-    MAIN($, videojs, Modal) {
+define(['jquery', 'lodash', 'modal'], function
+    MAIN($, _, Modal) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
-    var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 0;
-    var PC = !W.navigator.userAgent.match(/mobi/i);
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
-//EXTEND
-    $.scrollMain = function (px, ms) {
-        $('html,body').animate({scrollTop: px}, (ms || 999), 'swing');
-    };
-
-//  PRIVATE
-    function pausevids() { // pause everything
-        $.each(videojs.players, function () {
-            this.pause();
-        });
+    function db(num) {
+        return W.debug > (num || 1);
     }
-
-    function playvid(data) {
-        videojs(data.target.find('video')[0]).play();
+    function expose(obj, log) {
+        if (db()) {
+            W.Main = Main; // expose for dev
+            $.extend(Main, obj);
+        }
+        if (log) {
+            C.info(Nom, 'expose', Main);
+        }
     }
-
-    function bindVids() {
-        Modal.bind('.glyphicon-play-circle', '#Video1', playvid, pausevids);
-
-        if (Main.mobile) {
-            $.each(videojs.players, function () {
-                this.on('pause', Modal.hide);
-            });
+    function swapper() {
+        if ($(W).width() > 992) {
+            $('.tile.magic').prependTo('.masonry-container');
+        } else {
+            $('.tile.magic').appendTo('.masonry-container');
         }
     }
 
-    function getMasony() {
-        $('.masonry-container').masonry({
-            itemSelector: '.tile',
-            gutter: 0,
-            columnWidth: 30,
+//EXTEND
+    expose({
+        Modal: Modal,
+    });
+    var header = $('header').first();
+    var pushin = $('.pushin').first();
+    var footer = $('footer').first();
+    var button;
+
+    header.load('../includes/main_header.html header > *', function () {
+        button = header.find('button').first();
+        button.click(function () {
+            $('.row-offcanvas').toggleClass('active');
+            button.toggleClass('collapsed');
+
+            if (button.is('.collapsed')) {
+                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+            } else {
+                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+            }
         });
+        $.watchResize2(function () {
+            if (!button.is('.collapsed')) {
+                button.click();
+            }
+        }, 'button token TODO');
+    });
+
+    pushin.load('../includes/main_pushin.html .pushin > *');
+    footer.load('../includes/main_footer.html footer > *');
+
+    $.watchInputDevice();
+    $.markDesktop();
+
+//  PRIVATE
+    function doBindings() {
+        Modal.init('.ui-page > .modal');
+        Modal.bind('.glyphicon-play-circle', '#Video1', function () {
+            $('.modal').find('iframe').attr('src', 'https://youtu.be/FQ-N98e816k');
+        }, function () {
+            $('.modal').find('iframe').attr('src', '');
+        });
+        $('.tile').on('mouseup', function (evt) {
+            var a = $(evt.delegateTarget).find('a')[0];
+            a && a.click();
+        });
+        $(W).on('resize', swapper);
+        swapper();
     }
-    window.setTimeout(function () {
-        $('.stagecoach-logo').dblclick(getMasony);
-    }, 999);
 
 //  INIT
     $(function () {
-        if (Db) {
-            W.main = Main;
-            Main.Modal = Modal; // expose for dev
-            C.info(Nom, 'init @', new Date(), 'debug:', Db, Main);
-        }
+        C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
 
-        bindVids();
+        doBindings();
     });
 
 });

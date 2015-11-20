@@ -1,0 +1,34 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* IRT/_status.scss */
+
+.status {
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    font: 600 1.3em/1 $sans;
+    margin: 1em;
+    padding: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+
+    .desktop & {
+        margin: 2em;
+    }
+    .timer {
+        &.stopped {
+            color: $blueX;
+        }
+        &.started {
+            color: white;
+        }
+        &.over {
+            color: red;
+        }
+    }
+    .score {
+        margin-left: 2em;
+    }
+    @media (max-width: 479px) {
+        font-size: 2em;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

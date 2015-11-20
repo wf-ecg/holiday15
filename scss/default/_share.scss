@@ -1,0 +1,82 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* DEFAULT/_share.scss */
+
+.shareBar {
+    opacity: 0.5;
+    &:hover {
+        opacity: 0.75;
+    }
+    header & {
+        font-size: 15px;
+        padding: 30px 20px 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    $QB: cubic-bezier(0.5, 0, 0.5, 1);
+    $Face: #3a5795;
+    $Goog: #d73d32;
+    $Gen:  #fcd65c;
+    $Twit: #55acee;
+    $Pin:  #cb2027;
+
+    $Bkgr: #333;
+    $Norm: #fff;
+    $Over: #ccc;
+    $Radius: 1.8em;
+    $Size: $Radius / 1.4;
+    $Space: $Radius / 1.8;
+
+    .shares {
+        font-size: $Size;
+        line-height: 0;
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        & > li {
+            background-color: $Bkgr;
+            border-radius: 9em;
+            display: inline-block;
+            line-height: 1.5;
+            margin-left: $Space;
+            //position: relative;
+            text-align: center;
+            white-space: nowrap;
+            zoom: 1;
+        }
+        & > li > a {
+            color: $Norm;
+            display: block;
+            height: $Radius;
+            text-decoration: none;
+            width: $Radius;
+            &:hover, &:focus {
+                color: $Over;
+                cursor: pointer;
+            }
+        }
+        .icon-facebook,
+        .icon-googleplus,
+        .icon-pinterest,
+        .icon-share,
+        .icon-twitter {
+            @include transform( scale(0.95) );
+            &::after {
+                font-family: FontAwesome;
+                font-size: $Size;
+                //position: relative;
+            }
+        }
+        .icon-share {
+            @include transform( scale(0.9, 0.75) );
+            @include transform-origin( 50%, 33% ); // comma for compass
+        }
+        .icon-facebook::after { content: '\f09a'; }
+        .icon-googleplus::after { content: '\f0d5'; left: 0.05em; }
+        .icon-share::after { content: '\f0e0'; }
+        .icon-twitter::after { content: '\f099'; }
+        .icon-pinterest::after { content: '\f231'; }
+    }
+
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

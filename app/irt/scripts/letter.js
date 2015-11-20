@@ -10,13 +10,13 @@
  ...
  */
 
-define(['jquery', 'lodash'], function
-    KLASS($, _) { // closure
+define(['jquery', 'lodash', 'xtn'], function
+    KLASS($, _, xtn) { // closure
     'use strict';
 
 // CLASS
     var Nom = 'Letter';
-    var Self = Letter;
+    var Self = xtn(Letter);
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
     var Df = {
@@ -25,34 +25,9 @@ define(['jquery', 'lodash'], function
         letter: 'x',
         type: '',
     };
-    var cache = {};
 
 // PRIVATE
-    function db(num) {
-        return W.debug > (num || 1);
-    }
-    var dump = function () {
-        return JSON.stringify(this);
-    };
-    function Cf(obj) {
-        var id = Math.random() * 1e20; // ensure whole number and zeros
 
-        if (obj.constructor === Self) {
-            return cache[obj['.cf']];
-        } else {
-            while(cache[id]) id++; // prevent collision
-            return cache[id] = $.extend({}, Df, obj, {'#':id});
-        }
-    }
-    function cacheConfigs(self, cf) {
-        cf = Cf(cf); // nab a private property
-        if (db()) { // expose if debugging
-            Self.cache = cache;
-            self.cf = cf;
-        }
-        self['.cf'] = cf['#']; // keep a cache key
-        return cf;
-    }
 
 // STATIC
     Letter.assemble = function (str) {
@@ -72,10 +47,10 @@ define(['jquery', 'lodash'], function
     };
     Letter.prototype = {
         constructor: Self,
-        toString: dump,
-        valueOf: dump,
+        toString: Self.dump,
+        valueOf: Self.dump,
         letter: function (str) {
-            var cf = Cf(this);
+            var cf = Self.Cf(this);
             if (typeof str === 'string') {
                 cf.letter = str[0];
                 return this;
@@ -84,7 +59,7 @@ define(['jquery', 'lodash'], function
             }
         },
         gap: function (num) {
-            var cf = Cf(this);
+            var cf = Self.Cf(this);
             if (typeof num === 'number') {
                 cf.gap = Math.abs(num);
                 return this;
@@ -93,28 +68,28 @@ define(['jquery', 'lodash'], function
             }
         },
         type: function (str) {
-            var cf = Cf(this);
+            var cf = Self.Cf(this);
             if (typeof str === 'string') {
                 cf.type = str;
                 return this;
             } else {
-                return cf.type;
+                return cf.ele.attr('class');
             }
         },
-        displayXfor: function (str, num) {
-            var cf = Cf(this);
-            var ele = cf.ele;
-            var org = cf.letter;
+        markWrong: function (ms) {
+            var cf = Self.Cf(this),
+                ele = cf.ele;
 
-            ele.addClass('bad').html(str);
+            ele.addClass('wrong');
 
             _.delay(function () {
-                ele.removeClass('bad').html(org);
-            }, num || 3e3);
+                ele.removeClass('wrong');
+            }, ms || 3e3);
         },
         tweakWidth: function (max) {
-            var cf = Cf(this);
-            var px;
+            var cf = Self.Cf(this),
+                px;
+
             if (cf.ele.outerWidth() + 1 < max) {
                 px = parseInt(cf.ele.css('padding-right'), 10);
                 cf.ele.css({
@@ -123,9 +98,9 @@ define(['jquery', 'lodash'], function
                 });
             }
         },
-        element: function () {
-            var cf = Cf(this);
-            var ele = cf.ele;
+        ele: function () {
+            var cf = Self.Cf(this),
+                ele = cf.ele;
 
             if (ele) {
                 return ele;
@@ -144,14 +119,19 @@ define(['jquery', 'lodash'], function
                 return cf.ele = ele;
             }
         },
-        solve: function () {
-            var cf = Cf(this);
-            var ele = cf.ele;
-            ele.addClass('solved').removeClass('unsolved bad now');
+        solved: function () {
+            var cf = Self.Cf(this);
+            cf.ele.addClass('solved').removeClass('unsolved wrong now');
+            return this;
+        },
+        used: function () {
+            var cf = Self.Cf(this);
+            cf.ele.addClass('used').removeClass('unused').attr('tabIndex', '');
+            return this;
         },
         check: function (str) {
-            var cf = Cf(this);
-            this.displayXfor(str, 999);
+            var cf = Self.Cf(this);
+            this.markWrong(999);
             return (str === cf.letter);
         },
     };
@@ -160,10 +140,12 @@ define(['jquery', 'lodash'], function
     function Letter(cf) {
         var self = this;
 
+        cf = $.extend({}, Df, cf);
+
         if (self.constructor !== Self) {
             throw new Error('not a constructor call');
         }
-        cf = cacheConfigs(self, cf);
+        cf = Self.cacheConfigs(self, cf);
         self.letter(cf.letter);
         self.gap(cf.gap);
     }

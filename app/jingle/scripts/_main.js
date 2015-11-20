@@ -10,16 +10,26 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
-    MAIN($, _, Seq, Shuf, Data, Msg) {
+define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr'], function
+    MAIN($, _, Seq, Shuf, Data, Msg, skrollr) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
-    var W = (W && W.window || window), C = (W.C || W.console || {});
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     function db(num) {
         return W.debug > (num || 1);
+    }
+    function expose(obj, log) {
+        if (db()) {
+            W.Main = Main; // expose for dev
+            $.extend(Main, obj);
+        }
+        if (log) {
+            C.info(Nom, 'expose', Main);
+        }
     }
 
     var pair, correct, anagram, play, scroll;
@@ -30,24 +40,52 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
         random: !true,
     }); // blank but randomized
     var ACT = 'keypress click';
-    var seg = 1200;
+    var seg = 860;
 
-//EXTEND
-    watchResize(function () {
-        Main.mobile = Boolean(W.navigator.userAgent.match(/mobi/i));
-        if (Main.mobile) {
-            $('html').addClass('mobile');
-        } else {
-            $('html').removeClass('mobile');
-        }
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
+    expose({
+        shuffle: shuffle,
+        sequence: sequence,
+        Data: Data,
+        // Skor: skrollr.init({
+        //     forceHeight: true,
+        //     mobileCheck: function (){return true},
+        //     skrollrBody: 'skrollr-body',
+        // });
+    });
+    var header = $('header').first();
+    var pushin = $('.pushin').first();
+    var footer = $('footer').first();
+    var button;
+
+    header.load('../includes/main_header.html header > *', function () {
+        button = header.find('button').first();
+        button.click(function () {
+            $('.row-offcanvas').toggleClass('active');
+            button.toggleClass('collapsed');
+
+            if (button.is('.collapsed')) {
+                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+            } else {
+                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+            }
+        });
+        $.watchResize2(function () {
+            if (!button.is('.collapsed')) {
+                button.click();
+            }
+        }, 'button token TODO');
     });
 
-    $.scrollMain = function (px, ms) {
-        $('html,body').animate({scrollTop: px}, (ms || 333), 'swing');
-    };
+    pushin.load('../includes/main_pushin.html .pushin > *');
+    footer.load('../includes/main_footer.html footer > *');
 
-    $('header').first().load('../includes/main_header.html header > *');
+    $.watchInputDevice();
+    $.markDesktop();
 
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
     function begin() {
         var tmp;
 
@@ -81,9 +119,9 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             scroll.one('scroll', begin); // wait and allow a scroll to begin
         }, 2222));
     }
-    function scrollUp() {
+    function scrollUp(off) {
         msgs.cheer();
-        scroll.scrollTop(0);
+        scroll.scrollTop(off);
     }
     function scrollDown() {
         scroll.animate({
@@ -98,8 +136,8 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
 
     function doNext() {
         var i, j, l, w;
-
-        if (scroll.scrollTop() < seg) return;
+        var off = (scroll.scrollTop() - seg) % seg;
+        if (off < 0) return;
 
         try {
             i = sequence.getNext();
@@ -114,28 +152,18 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             shuffle.tiles[j].get().addClass('correct');
             if (l && (i !== j) && (l !== w)) {
                 shuffle.swap(i, j);
-                scrollUp();
+                scrollUp(off);
                 C.log(Nom, 'doNext SWAP', [i, j], [l, w], [shuffle.toString()]);
             } else {
                 C.log(Nom, 'doNext skip', [i, j], [l, w], [shuffle.toString()]);
                 doNext();
             }
         }
-        if (sequence.check() < 2)
-            return doNext();
+        if (sequence.check() < 3) { // sooo close just keep going
+            scroll.scrollTop(seg);
+        }
     }
 
-//  PRIVATE
-    function watchInputDevice() {
-        var body = $('body');
-        body.on('keydown', function () {
-            body.removeClass('mouse');
-            body.addClass('keyboard');
-        }).on('mousemove', function () {
-            body.removeClass('keyboard');
-            body.addClass('mouse');
-        });
-    }
     function watchScroll(fn) {
         if (fn) {
             watchScroll.last = fn;
@@ -144,38 +172,17 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message'], function
             scroll.off('scroll', watchScroll.last);
         }
     }
-    function watchResize(fn) {
-        if (fn) {
-            watchResize.last = fn;
-            $(W).on('resize', fn);
-            fn();
-        } else {
-            $(W).off('resize', watchResize.last);
-        }
-    }
     function doBindings() {
         scroll = $('.scrollOuter');
         play = scroll.find('button');
         $('.lookdown').on(ACT, scrollDown).find('div').attr('tabIndex', 0);
-        watchInputDevice();
-    }
-    function expose() {
-        W.Main = Main; // expose for dev
-        $.extend(Main, {
-            shuffle: shuffle,
-            sequence: sequence,
-            data: Data,
-        });
-        C.log(Main);
     }
 
 //  INIT
     $(function () {
+        C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
         Main.begin = begin;
         doBindings();
-        if (db()) {
-            expose();
-        }
         begin();
     });
 

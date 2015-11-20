@@ -1,46 +1,63 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
-a:hover {
-    text-decoration: none;
+.reverse {
+    @include transform( scaleX(-1) );
 }
-
-.view-container {
+.clear {
+    clear: both;
+}
+.ui-page {
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
-    position: relative;
+    //position: relative;
 }
-
-.stagecoach-footer {
-    margin-top: 50px;
-    width: 100%;
+.pushin {
+    .shareBar {
+        $Bkgr: white;
+        $Norm: $a_d_teal;
+        $Over: $a_teal;
+        .shares li {
+            background-color: $Bkgr;
+            a { color: $Norm;
+                &:hover, &:focus { color: $Over; }
+            }
+        }
+    }
 }
-
-img.stagecoach-logo {
-    height: 80px;
-}
-
-.big-, .big-red-ital, .big-white {
+.big- {
     font-family: $serif;
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 600;
     line-height: 1.1;
     //text-shadow: 0 0 3px gray;
 }
+.big-red {
+    @extend .big-;
+    color: $wf_red;
+}
 .big-red-ital {
-    color: $a_warmred;
+    @extend .big-red;
     font-style: italic;
 }
 .big-white {
+    @extend .big-;
     color: white;
 }
-
-@media (min-width: 768px) {
-    .container {
-        padding-left: 30px;
-    }
+.big-block {
+    @extend .big-white;
+    font-size: 48px;
+    font-weight: 800;
 }
+
+.shrink {
+    font-size: 0.8em;
+}
+.bloat {
+    font-size: 1.4em;
+}
+
 @media (max-width: 479px) {
-    .container {
+    section .container {
         padding: 0px;
     }
 }

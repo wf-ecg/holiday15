@@ -6,16 +6,16 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // DEFS
 
-.bg-white { background-color: white !important; }
-.bg-wf-gray { background: $a_d_coolgray; }
-.bg-wf-purple { background:  $a_d_red; }
-.bg-wf-blue { background: $a_d_teal; }
-.bg-wf-red { background: $a_d_red; }
-.bg-wf-orange { background: $a_d_orange; }
-.bg-wf-green { background: $a_d_green; }
+.bg-d_coolgray { background: $a_d_coolgray; }
+.bg-plum { background:  $a_plum; }
+.bg-d_teal { background: $a_d_teal; }
+.bg-warmred { background: $a_warmred; }
+.bg-d_orange { background: $a_d_orange; }
+.bg-d_green { background: $a_d_green; }
+.bg-magenta { background: $a_magenta; }
+.bg-n_air { background: $n_air; }
 
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-@import 'land/_base';
 @import 'land/_btn';
 @import 'land/_caro';
 @import 'land/_misc';

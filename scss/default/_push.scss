@@ -1,0 +1,63 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* DEFAULT/_push.scss */
+
+.pushin {
+
+    nav {
+        @include background-image( url("../images/bkgrs/original-bubbles-dark.png"), linear-gradient(top, $a_d_teal 22%, $a_teal 88%) );
+        background-size: cover;
+        box-shadow: 1px 2px 3px black;
+        display: block;
+        font-size: 2em;
+        height: 100%;
+        .no-touch & {
+            //left: 0; // fix for safari?
+        }
+        margin-top: 50px;
+        position: fixed;
+        text-transform: uppercase;
+        width: 69%;
+        z-index: 1;
+
+        .shareBar {
+            margin: auto;
+            //position: relative;
+            text-align: center;
+            top: 5em;
+            ul {
+                display: inline;
+            }
+            li {
+                margin: 0.25em;
+            }
+        }
+    }
+}
+
+/// OFF CANVAS
+
+.row-offcanvas {
+    $Off: 67%;
+    &, .sidebar-offcanvas {
+        @include transition(all .25s ease-out);
+        position: relative;
+    }
+    &.row-offcanvas-right { right: 0; }
+    &.row-offcanvas-left { left: 0; }
+    &.row-offcanvas-right .sidebar-offcanvas { right: -$Off; }
+    &.row-offcanvas-left  .sidebar-offcanvas { left: -$Off; }
+    &.row-offcanvas-right.active { right: $Off; }
+    &.row-offcanvas-left.active { left: $Off; }
+    .sidebar-offcanvas {
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        width: $Off;
+    }
+    &.active .sidebar-offcanvas {
+        opacity: 1;
+        z-index: 1;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

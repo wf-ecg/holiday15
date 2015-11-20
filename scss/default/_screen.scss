@@ -19,8 +19,8 @@ $X9: 9999px;
 }
 .ui-page {
     > div {
-        @include media(font-size, 0.7em, $X0, $XS, $X0, $SM);
-        @include media(font-size, 0.8em, $XS, $SM, $SM, $MD);
+        @include media(font-size, 0.6em, $X0, $XS, $X0, $SM);
+        @include media(font-size, 0.7em, $XS, $SM, $SM, $MD);
         @include media(font-size, 0.9em, $SM, $MD, $MD, $LG);
         @include media(font-size, 1.0em, $MD, $LG, $LG, $XL);
         @include media(font-size, 1.2em, $LG, $XL, $XL, $X9);
@@ -37,7 +37,13 @@ $X9: 9999px;
         @include media(border-top, 1px solid blue,    $XL, $X9, $X9, $X9);
     }
 }
-
+html {
+    .desktop { display: none; }
+    &.desktop {
+        .desktop { display: inherit; }
+        .mobile { display: none; }
+    }
+}
 // SMALL
 @media (max-width: $break), (max-device-width: $break) {}
 // SMALL PORTRAIT

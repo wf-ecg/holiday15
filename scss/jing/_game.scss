@@ -1,12 +1,12 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* IRT/_game.scss */
+/* JING/_game.scss */
 
 .game {
     @include nosel;
     display: table-cell;
     line-height: 2;
     overflow: hidden;
-    position: relative;
+    //position: relative;
     vertical-align: middle;
 
     .intro, .outro {

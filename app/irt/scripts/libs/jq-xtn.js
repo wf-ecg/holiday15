@@ -15,16 +15,6 @@ define(['jquery', 'lodash'], function ($, _) {
         });
     };
 
-    $.watchResize = function (fn) {
-        if (fn) {
-            $.watchResize.last = fn;
-            $(W).on('resize', fn);
-            fn();
-        } else {
-            $(W).off('resize', watchResize.last);
-        }
-    };
-
 });
 /*
 

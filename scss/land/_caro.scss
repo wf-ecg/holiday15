@@ -26,7 +26,6 @@
         }
     }
 }
-
 .carousel-control {
 
     &.left,
@@ -58,25 +57,36 @@
         right: 0em;
     }
 }
-
-.carousel .carousel-inner .full {
-    background-image: linear-gradient(to top, #ddd 22%, #eee 55%, #ddd 88%);
-
-    .container {
-        left: 0; right: 0; bottom: 0; top: 0;
-        margin: auto;
-        position: absolute;
-
+.carousel .carousel-inner {
+    .full {
+        float: right;
     }
-    img {
-        min-height: 300px;
-        min-width: 999px;
+    .item {
+        background-color: white;
+    }
+    .container > .bloat {
+        @include middify;
+        height: 50%;
+        left: 20px;
         width: 100%;
     }
-}
-@media (max-width: 767px) {
-    .carousel {
-        margin-top: 3em;
+    img {
+        min-height: 150px;
+        max-height: 300px;
+        width: 100%;
+    }
+    @media (max-width: $break - 1) {
+        padding-bottom: 40%;
+
+        .full img {
+            margin-left: -100%;
+            min-width: 200%;
+        }
+        .container > .bloat {
+            left: 0;
+            text-align: center;
+            top: 200%;
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

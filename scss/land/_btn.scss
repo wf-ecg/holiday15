@@ -1,18 +1,11 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_btn.scss */
 
-button {
-    border: none;
-    border-radius: 3px;
-    color: white;
-    display: block;
-    font-size: 20px;
-    margin: auto;
-    padding: 3px 30px;
-    text-align: center;
-}
-
 button.btn-tile {
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 0.3em 0.6em;
+
     &.purple {
         background-color: $a_magenta;
         color: white;
@@ -22,13 +15,23 @@ button.btn-tile {
         color: white;
     }
     &.blue {
-        background-color: $a_teal;
+        background-color: $a_d_teal;
         color: white;
     }
     &.orange {
         background-color: $a_orange;
         color: white;
     }
+}
+.glyphicon-play-circle {
+    @include middify;
+    background-image: url('../images/buttons/video-play-icon.png');
+    background-size: contain;
+    color: transparent;
+    cursor: pointer;
+    font-size: 90px;
+    height: 100px;
+    width: 100px;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

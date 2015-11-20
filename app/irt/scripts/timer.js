@@ -53,7 +53,7 @@ define(['jquery'], function
             if (cf.time <= cf.bottom) {
                 self.finish();
             } else {
-                if (cf.time <= 0) {
+                if (cf.time <= cf.warn) {
                     self.over();
                 }
                 cf.time--;
@@ -87,9 +87,14 @@ define(['jquery'], function
             finish: function () {
                 self.stop();
                 cf.cb();
+                $.publish('finish.' + Nom);
             },
             add: function (num) {
                 cf.time += num;
+                return self;
+            },
+            ele: function () {
+                return cf.div;
             },
             over: function () {
                 cf.div.addClass('over');
@@ -113,13 +118,14 @@ define(['jquery'], function
             stop: function () {
                 cf.div.addClass('stopped').removeClass('started');
                 W.clearTimeout(cf.timeout);
+                return self;
             },
             update: function () {
                 self.display();
             },
             force: function (txt) {
                 cf.div.html(txt);
-                return cf.div;
+                return self;
             },
             set: function (num) {
                 cf.time = num || 0;

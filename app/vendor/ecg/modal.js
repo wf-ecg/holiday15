@@ -15,12 +15,15 @@ define(['jquery'], function ($) {
     'use strict';
 
     var Nom = 'Modal';
-    var W = (W && W.window || window), C = (W.C || W.console || {});
-    var Db = W.debug > 1;
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
     var Df, El, self;
-
     var Act = 'keypress click';
     var cleanup = $.Callbacks();
+
+    function db(num) {
+        return W.debug > (num || 1);
+    }
 
     // DEFAULTS
     Df = {
@@ -32,7 +35,7 @@ define(['jquery'], function ($) {
     // ELEMENTS
     El = {
         closers: '.closer, .cancel', // all "closers"
-        modal: 'body > div.modal', // only top level containers
+        modal: 'body > div.modal, .ui-page > div.modal', // only top level containers
         watcher: 'body',
     };
 
@@ -107,15 +110,22 @@ define(['jquery'], function ($) {
             /// deactivate container and do whatever cleaning
             El.modal.removeClass('active');
             cleanup.fire();
-            Df.trigger.focus(); // restore focus
+            try {
+                Df.trigger.focus(); // restore focus
+            } catch (err) {
+                if (db())
+                    C.log('no trigger to focus on');
+            }
             return self;
         },
-        init: function () {
+        init: function (sel) {
             if (Df.inited) {
                 return null;
             }
-            if (Db) {
-                C.info(Nom, 'debug:', Db, self);
+            El.modal = sel || El.modal;
+
+            if (db()) {
+                C.info(Nom, 'debug:', db(), self);
                 self[Nom] = Df;
             }
             Df.inited = true;
@@ -136,6 +146,7 @@ define(['jquery'], function ($) {
                     self.hide(); // escape key
                 }
             });
+            return self;
         }
     };
 

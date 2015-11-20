@@ -20,6 +20,7 @@ require.config({
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
         modal: '../../vendor/ecg/modal',
+        skrollr: '../../vendor/skrollr/skrollr',
         utils: '../../vendor/ecg/utils',
         //
         beacon: 'libs/ecg-beacon',
