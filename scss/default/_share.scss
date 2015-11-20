@@ -2,18 +2,18 @@
 /* DEFAULT/_share.scss */
 
 .shareBar {
-    header & {
-        position: absolute;
-        padding: 30px 20px 10px;
-        right: 0;
-        top: 0;
-    }
     opacity: 0.5;
     &:hover {
         cursor: pointer;
         opacity: 0.8;
     }
-
+    header & {
+        font-size: 15px;
+        padding: 30px 20px 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
     $QB: cubic-bezier(0.5, 0, 0.5, 1);
     $Face: #3a5795;
     $Goog: #d73d32;

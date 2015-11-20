@@ -21,15 +21,14 @@
     p {
         font-size: 1.4em;
     }
-
     div.creeper {
-        bottom: 1em;
+        bottom: 0.5em;
         overflow: hidden;
         position: absolute;
         right: 0;
         width: 30%;
         img {
-            max-width: 150%;
+            max-width: 133%;
         }
     }
 }
@@ -63,7 +62,7 @@
 
     height: 18em;
     div.flow {
-        width: 68%;
+        width: 63%;
     }
 }
 .sq-lg {
@@ -74,7 +73,7 @@
     text-align: center;
 
     @media (max-width: 991px) {
-        height: 44em;
+        height: 38em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
