@@ -7,11 +7,23 @@
 .clear {
     clear: both;
 }
-.view-container {
+.ui-page {
     background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
     position: relative;
 }
-
+.pushin {
+    .shareBar {
+        $Bkgr: white;
+        $Norm: $a_d_teal;
+        $Over: $a_teal;
+        .shares li {
+            background-color: $Bkgr;
+            a { color: $Norm;
+                &:hover, &:focus { color: $Over; }
+            }
+        }
+    }
+}
 .big- {
     font-family: $serif;
     font-size: 2em;
