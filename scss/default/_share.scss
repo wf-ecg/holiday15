@@ -4,7 +4,7 @@
 .shareBar {
     opacity: 0.5;
     &:hover {
-        opacity: 0.8;
+        opacity: 0.75;
     }
     header & {
         font-size: 15px;
@@ -22,7 +22,7 @@
 
     $Bkgr: #333;
     $Norm: #fff;
-    $Over: #999;
+    $Over: #ccc;
     $Radius: 1.8em;
     $Size: $Radius / 1.4;
     $Space: $Radius / 1.8;

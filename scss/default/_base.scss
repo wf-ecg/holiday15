@@ -54,11 +54,11 @@ footer {
         }
     }
     @media (min-width: $break) {
-        $off: 5em;
+        $off: 6em;
         .stage {
             float: left;
             height: $off;
-            margin-top: -$off - 0.25em;
+            margin-top: -$off - 0.3em;
             margin-right: -100%;
             opacity: 0.5;
         }
@@ -116,9 +116,10 @@ p {
 // BASIC PHYSICS
 .celldiv {
     padding-top: 50px;
+    padding-bottom: 3em;
     .desktop & {
         padding-top: 0;
-        padding-bottom: 7em;
+        padding-bottom: 9em;
     }
 }
 .container {
