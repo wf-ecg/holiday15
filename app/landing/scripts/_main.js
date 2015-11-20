@@ -31,6 +31,13 @@ define(['jquery', 'lodash', 'modal'], function
             C.info(Nom, 'expose', Main);
         }
     }
+    function swapper() {
+        if ($(W).width() > 992) {
+            $('.tile.magic').prependTo('.masonry-container');
+        } else {
+            $('.tile.magic').appendTo('.masonry-container');
+        }
+    }
 
 //EXTEND
     expose({
@@ -70,10 +77,16 @@ define(['jquery', 'lodash', 'modal'], function
     function doBindings() {
         Modal.init('.ui-page > .modal');
         Modal.bind('.glyphicon-play-circle', '#Video1', function () {
-            $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/TjMcYh5QPX4');
+            $('.modal').find('iframe').attr('src', 'https://youtu.be/FQ-N98e816k');
         }, function () {
             $('.modal').find('iframe').attr('src', '');
         });
+        $('.tile').on('mouseup', function (evt) {
+            var a = $(evt.delegateTarget).find('a')[0];
+            a && a.click();
+        });
+        $(W).on('resize', swapper);
+        swapper();
     }
 
 //  INIT

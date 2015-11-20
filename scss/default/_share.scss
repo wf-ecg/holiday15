@@ -2,18 +2,17 @@
 /* DEFAULT/_share.scss */
 
 .shareBar {
+    opacity: 0.5;
+    &:hover {
+        opacity: 0.75;
+    }
     header & {
-        position: absolute;
+        font-size: 15px;
         padding: 30px 20px 10px;
+        position: absolute;
         right: 0;
         top: 0;
     }
-    opacity: 0.5;
-    &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-    }
-
     $QB: cubic-bezier(0.5, 0, 0.5, 1);
     $Face: #3a5795;
     $Goog: #d73d32;
@@ -23,7 +22,7 @@
 
     $Bkgr: #333;
     $Norm: #fff;
-    $Over: #999;
+    $Over: #ccc;
     $Radius: 1.8em;
     $Size: $Radius / 1.4;
     $Space: $Radius / 1.8;
@@ -40,7 +39,7 @@
             display: inline-block;
             line-height: 1.5;
             margin-left: $Space;
-            position: relative;
+            //position: relative;
             text-align: center;
             white-space: nowrap;
             zoom: 1;
@@ -53,6 +52,7 @@
             width: $Radius;
             &:hover, &:focus {
                 color: $Over;
+                cursor: pointer;
             }
         }
         .icon-facebook,
@@ -64,7 +64,7 @@
             &::after {
                 font-family: FontAwesome;
                 font-size: $Size;
-                position: relative;
+                //position: relative;
             }
         }
         .icon-share {

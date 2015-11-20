@@ -59,35 +59,33 @@
 }
 .carousel .carousel-inner {
     .full {
-        background-image: linear-gradient(to top, #ddd 22%, #eee 55%, #ddd 88%);
+        float: right;
     }
-    .container {
-        left: 0; right: 0; bottom: 0; top: 0;
-        margin: auto;
-        position: absolute;
-
+    .item {
+        background-color: white;
     }
     .container > .bloat {
-        bottom: 20px;
+        @include middify;
+        height: 50%;
         left: 20px;
-        position: absolute;
         width: 100%;
     }
     img {
         min-height: 150px;
+        max-height: 300px;
         width: 100%;
     }
     @media (max-width: $break - 1) {
-        padding-bottom: 14em;
+        padding-bottom: 40%;
 
         .full img {
             margin-left: -100%;
             min-width: 200%;
         }
         .container > .bloat {
-            bottom: -10em !important;
             left: 0;
             text-align: center;
+            top: 200%;
         }
     }
 }
