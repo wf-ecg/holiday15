@@ -1,5 +1,17 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* DEFAULT/_misc.scss */
+/* DEFAULT/_etc.scss */
+
+.clearfix {
+    @include clearfix;
+}
+.upgradeframe {
+    background-color: #ccc;
+    font-family: 'arial black';
+    height: 100%;
+    padding: 9em;
+    position: fixed;
+    width: 100%;
+}
 
 /// TEXT
 

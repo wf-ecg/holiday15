@@ -150,18 +150,4 @@ p {
 .ui-page-active {
     height: 100%;
 }
-
-/// ETC
-
-.clearfix {
-    @include clearfix;
-}
-.upgradeframe {
-    background-color: #ccc;
-    font-family: 'arial black';
-    height: 100%;
-    padding: 9em;
-    position: fixed;
-    width: 100%;
-}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
