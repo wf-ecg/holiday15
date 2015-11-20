@@ -11,16 +11,17 @@
         font-size: 2em;
         height: 100%;
         .no-touch & {
-            left: 0; // fix for safari?
+            //left: 0; // fix for safari?
         }
         margin-top: 50px;
-        padding: 0.5em;
         position: fixed;
         text-transform: uppercase;
         width: 69%;
         z-index: 1;
 
         > ul {
+            list-style: none;
+            padding: 0.5em;
             a {
                 border-radius: 0.5em;
                 display: block;
@@ -36,20 +37,23 @@
                     text-decoration: none;
                 }
                 &::before {
-                    content: "\f0da";
+                    content: "\f0d9";
                     float: right;
                     font-family: FontAwesome;
-                    margin-top: 0.7em;
+                    margin: 0.5em;
                 }
             }
         }
         .shareBar {
             margin: auto;
             position: relative;
+            text-align: center;
             top: 5em;
-
+            ul {
+                display: inline;
+            }
             li {
-                margin-left: 0.5em;
+                margin: 0.25em;
             }
         }
     }

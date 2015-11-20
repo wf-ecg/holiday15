@@ -54,8 +54,33 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
         //     skrollrBody: 'skrollr-body',
         // });
     });
+    var header = $('header').first();
+    var pushin = $('.pushin').first();
+    var footer = $('footer').first();
+    var button;
 
-    $('header').first().load('../includes/main_header.html header > *');
+    header.load('../includes/main_header.html header > *', function () {
+        button = header.find('button').first();
+        button.click(function () {
+            $('.row-offcanvas').toggleClass('active');
+            button.toggleClass('collapsed');
+
+            if (button.is('.collapsed')) {
+                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+            } else {
+                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+            }
+        });
+        $.watchResize2(function () {
+            if (!button.is('.collapsed')) {
+                button.click();
+            }
+        }, 'button token TODO');
+    });
+
+    pushin.load('../includes/main_pushin.html .pushin > *');
+    footer.load('../includes/main_footer.html footer > *');
+
     $.watchInputDevice();
     $.markDesktop();
 
