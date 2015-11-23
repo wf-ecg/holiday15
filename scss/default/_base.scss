@@ -115,6 +115,7 @@ p {
 
 // BASIC PHYSICS
 .celldiv {
+    -webkit-overflow-scrolling: touch;
     padding-top: 50px;
     padding-bottom: 3em;
     .desktop & {
