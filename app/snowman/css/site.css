@@ -5174,7 +5174,7 @@ html, body {
   min-height: 100%; }
 
 body {
-  background: url(../images/bg-snowman-bright.png) bottom repeat-x white;
+  background: url(../../images/bkgrs/bubbles-magenta.jpg) bottom repeat-x white;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -6073,7 +6073,7 @@ footer {
   display: table;
   width: 100%;
   height: 100%;
-  background-image: url("../images/bg-snowman-bright.png");
+  background-image: url("../../images/bkgrs/bubbles-magenta.jpg");
   background-repeat: no-repeat;
   background-attachment: relative;
   background-position: bottom;
