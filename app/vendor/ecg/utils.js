@@ -98,17 +98,26 @@ define(['jquery', 'lodash'], function ($, _) {
             }
         });
     };
-    $.markDesktop = function () {
-        var isDesktop = function () {
-            if (W.navigator.userAgent.match(/mobi/i)
+    $.markAgent = function () {
+        var ua = W.navigator.userAgent;
+
+        $.watchResize(function () {
+            if (ua.match(/mobi/i)
                 || $(W).width() < 768) { // simulate
                 $('html').removeClass('desktop');
             } else {
                 $('html').addClass('desktop');
             }
-        };
-
-        $.watchResize(isDesktop, 'Desktop');
+            if (ua.match(/chrome/i)) {
+                $('html').addClass('chrome');
+            } else if (ua.match(/safari/i)) {
+                $('html').addClass('safari');
+            } else if (ua.match(/firefox/i)) {
+                $('html').addClass('firefox');
+            } else if (ua.match(/trident/i)) {
+                $('html').addClass('trident');
+            }
+        }, 'markAgent');
     };
 
     // - - - - - - - - - - - - - - - - - -

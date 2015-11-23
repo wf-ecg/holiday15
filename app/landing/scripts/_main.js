@@ -71,7 +71,7 @@ define(['jquery', 'lodash', 'modal'], function
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markDesktop();
+    $.markAgent();
 
 //  PRIVATE
     function doBindings() {

@@ -46,7 +46,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         me.html(str);
     });
 
-    $.markDesktop();
+    $.markAgent();
     $.swallowBackspace();
     $.watchInputDevice();
 
