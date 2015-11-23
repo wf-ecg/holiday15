@@ -1,0 +1,30 @@
+/* PROJ / custom */
+
+#Container {
+    @include coldHaze(5px);
+    @include clearfix;
+
+    font-size: .8em;
+    margin: 1em; @include centify(); position: relative;
+    padding: 1em;
+    width: 90%; min-width: 800px; max-width: 1234px;
+    .lt-ie9 & { max-width: 1111px; }
+}
+#Copy {
+    float: left;
+    margin: 1em;
+    min-width: 200px;
+    width: $leftside;
+}
+#Toy {
+    border: none;
+    box-sizing: content-box;
+    margin: auto;
+    max-width: $slideW;
+    overflow: hidden;
+    width: 100%;
+
+    background-color: none;
+    background-size: 100%;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

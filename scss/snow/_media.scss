@@ -1,0 +1,62 @@
+/* PROJ / media */
+
+body {
+    overflow: hidden;
+}
+
+@media print {
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+    .NOPRINT, #Container, .mobile, .nav, .noprint {
+        display: none !important;
+    }
+    #Preview {
+        background: none;
+        overflow: hidden;
+        position: absolute;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+    #Container {
+        border: none;
+        box-shadow: none;
+        margin: 0px;
+        min-width: 300px;
+        overflow: hidden;
+        padding: 0.5em;
+        padding-bottom: 3em;
+        top: $headH;
+        width: 100%;
+    }
+    #Copy {
+        padding: 1em;
+    }
+    #Preview {
+        top: $headH;
+    }
+    #Toy, #Copy {
+        float: none;
+        margin: auto;
+        text-align: center;
+        width: auto;
+    }
+    .create {
+        text-align: center;
+    }
+    .shared {
+        text-align: center;
+    }
+    .scramble, .preview {
+        display: inline-block;
+        float: none;
+    }
+    .logo.desktop { display: none; }
+    .logo.mobile { display: block; }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

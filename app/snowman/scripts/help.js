@@ -1,6 +1,5 @@
 /*jslint white:false */
-/*global document, jQuery, window, Help:true, $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$,
- */
+/*global document, jQuery, window, Help:true, $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$ */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Help;
 

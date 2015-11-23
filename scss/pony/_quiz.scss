@@ -11,17 +11,17 @@ blockquote,
 .serif {
     font-family: 'Archer A', 'Archer B', serif;
 }
- 
+
 
 
 
 
 .winning-horse-icon {
-  width: 400px;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  padding-top:0;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    padding-top:0;
 }
 
 .winning-horse-intro {
@@ -34,7 +34,7 @@ blockquote,
     margin-top: 0;
     margin-bottom: 10px;
 
-}                                   
+}
 
 .winning-horse-name {
     text-transform: uppercase;
@@ -66,15 +66,15 @@ blockquote,
     padding-bottom: 40px;
     margin-top:-10px;
 
-        .btn-restart {
-            background-color: #0095C8;
-            font-family: 'myriad-pro', sans-serif;
-            text-transform: uppercase;
-            font-size: 18px;
-            text-align: center;
-            color: #fff;
-            font-weight: 400;
-        }
+    .btn-restart {
+        background-color: #0095C8;
+        font-family: 'myriad-pro', sans-serif;
+        text-transform: uppercase;
+        font-size: 18px;
+        text-align: center;
+        color: #fff;
+        font-weight: 400;
+    }
 }
 
 
@@ -1926,7 +1926,7 @@ a.btn {
 }
 
 @media screen and (min-width: 768px) {
-    
+
 }
 
 .quiz input[type="radio"] {
@@ -4280,39 +4280,39 @@ a.btn {
 
 
 .progbar {
-  height: 4px;
-  border-radius: 2px;
-  background: #d6d7d9;
-  position: relative;
-  margin-bottom: 2.875em; }
-  .progbar__status--default {
+    height: 4px;
+    border-radius: 2px;
+    background: #d6d7d9;
+    position: relative;
+    margin-bottom: 2.875em; }
+.progbar__status--default {
     background-color: #52bab3; }
-    .progbar__status--default:after {
-      background-color: #6fc6c0; }
-  .progbar__status--success {
+.progbar__status--default:after {
+    background-color: #6fc6c0; }
+.progbar__status--success {
     background-color: #5ece7f; }
-    .progbar__status--success:after {
-      background-color: #7dd898; }
-  .progbar__status--error {
+.progbar__status--success:after {
+    background-color: #7dd898; }
+.progbar__status--error {
     background-color: #e67478; }
-    .progbar__status--error:after {
-      background-color: #ec979a; }
-  .progbar__status--warning {
+.progbar__status--error:after {
+    background-color: #ec979a; }
+.progbar__status--warning {
     background-color: #ff784f; }
-    .progbar__status--warning:after {
-      background-color: #ff9778; }
-  .progbar__status--info {
+.progbar__status--warning:after {
+    background-color: #ff9778; }
+.progbar__status--info {
     background-color: #9279c3; }
-    .progbar__status--info:after {
-      background-color: #a995d0; }
+.progbar__status--info:after {
+    background-color: #a995d0; }
 
 [class^="progbar__"] {
-  display: block;
-  width: 50%;
-  height: 100%;
-  border-radius: inherit;
-  position: relative; }
-  [class^="progbar__"]:after {
+    display: block;
+    width: 50%;
+    height: 100%;
+    border-radius: inherit;
+    position: relative; }
+[class^="progbar__"]:after {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -4320,30 +4320,30 @@ a.btn {
     top: -8px; }
 
 .site-logo {
-  background-image: url("../img/logo.svg");
-  background-repeat: no-repeat;
-  width: 115px;
-  height: 45px;
-  display: inline-block; }
+    background-image: url("../img/logo.svg");
+    background-repeat: no-repeat;
+    width: 115px;
+    height: 45px;
+    display: inline-block; }
 
 .icn--nav-toggle {
-  width: 25px;
-  height: 17px;
-  border-top: solid 3px #797e83;
-  border-bottom: solid 3px #797e83;
-  position: relative; }
-  .icn--nav-toggle:before {
+    width: 25px;
+    height: 17px;
+    border-top: solid 3px #797e83;
+    border-bottom: solid 3px #797e83;
+    position: relative; }
+.icn--nav-toggle:before {
     width: 25px;
     height: 3px;
     background: #999da1;
     top: 4px; }
 .icn--close {
-  background-image: url("../img/icn-close.svg");
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  right: 4%;
-  top: 4%; }
+    background-image: url("../img/icn-close.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    right: 4%;
+    top: 4%; }
 

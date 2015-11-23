@@ -1,8 +1,5 @@
 /*jslint white:false */
-/*globals document, jQuery, window,
-    Help, Page, Slide:true,
-    $JssorEasing$, $JssorSlider$,
-*/
+/*global document, _, jQuery, window, Help, Page */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Slides;
 
@@ -15,10 +12,10 @@ Slides = {
     C: null,
     div: '.snowmen',
     preview: '#Preview',
-    closePreview: Function,
-    openPreview: Function,
-    scramble: Function,
-    makeLink: Function,
+    closePreview: new Function,
+    openPreview: new Function,
+    scramble: new Function,
+    makeLink: new Function,
 };
 
 Slides.init = function ($) {

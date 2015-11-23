@@ -1,0 +1,67 @@
+/* PROJ / buttons */
+
+.arrow {
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 45px;
+    position: absolute;
+    overflow: hidden;
+    top: 123px;
+    width: 50px;
+
+        &.left { left: -5px; }
+        &.right { right: -35px; }
+    &:hover {
+        &.left { left: -3px; }
+        &.right { right: -32px; }
+    }
+    &:active {
+        opacity: 0.9;
+        &.left { left: -5px   !important; }
+        &.right { right: -35px !important; }
+    }
+    .top & {
+        &.left { background-image: url('../images/buttons/arrow-left.png'); }
+        &.right{ background-image: url('../images/buttons/arrow-right.png'); }
+    }
+    .middle & {
+        &.left { background-image: url('../images/buttons/arrow-left.png'); }
+        &.right{ background-image: url('../images/buttons/arrow-right.png'); }
+    }
+    .bottom & {
+        &.left { background-image: url('../images/buttons/arrow-left.png'); }
+        &.right{ background-image: url('../images/buttons/arrow-right.png'); }
+    }
+}
+.button {
+    border: 1px solid $edge_hi;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    margin-right: 0.75em;
+    padding: 4px 1.25em 3px 1.25em;
+    text-decoration: none;
+    text-shadow: $mini_shad;
+
+    @include backGrad( $icy_shok, $icy_deep);
+    &:hover { @include backGrad( $icy_shok, $icy_shok); }
+    &:active{ @include backGrad( $icy_deep, $icy_deep); }
+
+    &.preview {   @include backGrad( $lime_hi, $lime_lo);
+        &:hover { @include backGrad( $lime_hi, $lime_hi); }
+        &:active{ @include backGrad( $lime_lo, $lime_lo); }
+    }
+    &.scramble {  @include backGrad( $purp_hi, $purp_lo);
+        &:hover { @include backGrad( $purp_hi, $purp_hi); }
+        &:active{ @include backGrad( $purp_hi, $purp_hi); }
+    }
+    &.build {     @include backGrad( $red_hi, $red_lo);
+        &:hover { @include backGrad( $red_hi, $red_hi); }
+        &:active{ @include backGrad( $red_lo, $red_lo); }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

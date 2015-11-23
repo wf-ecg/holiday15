@@ -1,17 +1,14 @@
 /*jslint white:false */
-/*globals document, jQuery, window,
-    Help, Page:true,
-    $JssorEasing$, $JssorSlider$,
-*/
+/*global document, jQuery, window, Help, Page:true, $JssorEasing$, $JssorSlider$, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Page;
 
 W = W || window;
 C = C || W.console;
 Page = {
-    getMode: Function,
-    reset: Function,
-    reSource: Function,
+    getMode: new Function,
+    reset: new Function,
+    reSource: new Function,
 };
 
 Page.getMode = function () {

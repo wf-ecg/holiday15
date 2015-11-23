@@ -1,3 +1,6 @@
+/*jslint white:false */
+/*global */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 function hideStartScreen() {
     $('#welcome').removeClass('visible').addClass('hidden');

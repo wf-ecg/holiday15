@@ -1,5 +1,5 @@
 /*jslint white:false */
-/*global document, jQuery, window, Help, Page, Slides, $JssorEasing$, $JssorSlider$, */
+/*global document, jQuery, window, Page, Slides */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C;
 
