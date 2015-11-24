@@ -100,7 +100,7 @@ $(document).ready(function () {
         }
 
         console.log(
-            "snowmanWidth: " + snowmanWidth +
+            " snowmanWidth: " + snowmanWidth +
             " snowmanHeight: " + snowmanHeight +
             " screenHeight: " + screenHeight +
             " screenWidth: " + screenWidth +

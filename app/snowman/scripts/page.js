@@ -1,38 +1,43 @@
-/*jslint white:false */
-/*global document, jQuery, window, Help, Page:true, $JssorEasing$, $JssorSlider$, */
+/*jslint  white:false */
+/*globals define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W, C, Page;
+define(['jquery', 'help'], function ($, Help) {
+    var W, C, Page;
 
-W = W || window;
-C = C || W.console;
-Page = {
-    getMode: new Function,
-    reset: new Function,
-    reSource: new Function,
-};
+    W = W || window;
+    C = C || W.console;
 
-Page.getMode = function () {
-    return parseInt(Help.getParameterByName('m') || '-1', 10);
-};
+    Page = {
+        getMode: new Function,
+        reset: new Function,
+        reSource: new Function,
+    };
 
-Page.reset = function (cb) {
-    $('body').animate({
-        'scrollTop': 0,
-    }, 333);
+    Page.getMode = function () {
+        return parseInt(Help.getParameterByName('m') || '-1', 10);
+    };
 
-    W.setTimeout(function () {
-        if (cb) {
-            cb();
-        }
-        W.scrollTo(0, 0);
-        W.scrollTo(0, 1);
-    }, 999);
-};
+    Page.reset = function (cb) {
+        $('body').animate({
+            'scrollTop': 0,
+        }, 333);
 
-Page.reSource = function (eles) {
-    //C.debug(eles);
-    $(eles).each(function (i, e) {
-        var me = $(e);
-        me.attr('src', me.data('src'));
-    });
-};
+        W.setTimeout(function () {
+            if (cb) {
+                cb();
+            }
+            W.scrollTo(0, 0);
+            W.scrollTo(0, 1);
+        }, 999);
+    };
+
+    Page.reSource = function (eles) {
+        //C.debug(eles);
+        $(eles).each(function (i, e) {
+            var me = $(e);
+            me.attr('src', me.data('src'));
+        });
+    };
+
+    return Page;
+});
