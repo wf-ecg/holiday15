@@ -87,7 +87,7 @@ function retractPanel() {
 function focusPanel() {
     var current = $('.panel-collapse.in h2');
     current.attr("tabIndex", -1).focus();
-    console.log(current);
+    //console.log(current);
 }
 
 $(document).ready(function () {
@@ -220,12 +220,12 @@ $(document).ready(function () {
 
                 var ponyName = ponies[rand];
 
-                console.log(rand);
-                console.log(ponies);
+                //console.log(rand);
+                //console.log(ponies);
 
                 var pn = ponyName;
 
-                console.log(pn);
+                //console.log(pn);
 
                 switch (pn) {
 
