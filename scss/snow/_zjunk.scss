@@ -1,89 +1,28 @@
 /* PROJ / zjunk */
 
-h1 {
-    font-family: $serif;
-    font-weight: 800;
-    font-size: 62px;
-    text-transform: uppercase;
-}
-
-#game{
-    height: 100%;
-}
-
 #snowmen {
-    /*background-color: red;*/
     background-color: transparent;
-    width: 100%;
     left: 0;
-    right: 0;
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;
     min-width: 300px;
     position: relative;
-}
-
-footer {
-    font-family: Verdana, Geneva, sans-serif;
-    background-color: #3F3F3F;
-    color: #B3B3B3;
-    font-size: 8px;
-    height: 50px;
-    padding-top: 25px;
-    border-top: #B3B3B3 solid 4px;
-    width: 100%;
     right: 0;
-    left: 0;
-    text-align: center;
-
-    ul li a {
-        color: #B3B3B3;
-        font-size: 8px;
-
-        &:hover {
-            text-decoration: none;
-            color: #B3B3B3;
-            font-size: 8px;
-        }
-    }
+    width: 100%;
 }
-
 
 .btn-primary {
-    color: #fff;
-    background-color: #6a0737;
-    border-color: #6a0737;
-    text-transform: uppercase;
+    background-color: #6a0737 !important;
+    border-color: #6a0737 !important;
+    color: #fff !important;
+    font-size: 18px;
     font-weight: 600;
     padding: 10px 12px;
-    font-size: 18px;
-
-    &:hover {
-        color: #fff;
-        background-color: #6a0737;
-        border-color: #6a0737;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-    &:focus {
-        color: #fff;
-        background-color: #6a0737;
-        border-color: #6a0737;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-    &:active {
-        color: #fff;
-        background-color: #6a0737;
-        border-color: #6a0737;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-
+    text-transform: uppercase;
 }
 
-#welcome {
+#Welcome {
     max-width: 100%;
     text-align: center;
     margin-right: auto;
@@ -120,6 +59,10 @@ footer {
     }
 
     h1 {
+        font-family: $serif;
+        font-weight: 800;
+        font-size: 62px;
+        text-transform: uppercase;
         margin: 0 auto 25px auto;
         color: #fff;
         text-align: center;
@@ -129,6 +72,7 @@ footer {
 }
 
 btn {
+    @include nosel();
     display: inline-block;
     padding: 10px 12px;
     margin-bottom: 0;
@@ -138,13 +82,7 @@ btn {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     background-image: none;
     border: 1px solid transparent;
     border-radius: 3px;
@@ -159,15 +97,6 @@ btn {
     position: relative;
     width: 100px;
 }
-
-p {
-    font-family: 'myriad-pro', sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.42857143;
-    margin-bottom: 25px;
-}
-
 
 #snowmanButtons {
     box-sizing: border-box;
@@ -196,23 +125,6 @@ p {
     min-width: 300px;
     position: relative;
     width: 100%;
-}
-
-.slider {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    height: auto;
-    display: block;
-    right: 0;
-    left: 0;
-
-    div {
-        width: 100%;
-        height: auto;
-    }
 }
 
 .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
@@ -252,9 +164,6 @@ div.snowman-buttons-container {
     max-width: 600px;
     width: 100%;
     border: .25em solid transparent;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
 }
 
 div.box {

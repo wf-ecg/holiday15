@@ -120,13 +120,13 @@ define(['jquery', 'lodash', 'page', 'slides', 'smartResize'], function
         /// misc.js
 
         function hideStartScreen() {
-            $('#welcome').removeClass('visible').addClass('hidden');
+            $('#Welcome').removeClass('visible').addClass('hidden');
             $('.stagecoach-footer').removeClass('visible').addClass('hidden');
             $('#game').removeClass('hidden').addClass('visible');
         }
 
         function showStartScreen() {
-            $('#welcome').removeClass('hidden').addClass('visible');
+            $('#Welcome').removeClass('hidden').addClass('visible');
             $('#stageCoach').removeClass('hidden').addClass('visible');
             $('#game').removeClass('visible').addClass('hidden');
         }
@@ -136,7 +136,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'smartResize'], function
         });
 
         function showGame() {
-            $('#welcome').removeClass('visible').addClass('hidden');
+            $('#Welcome').removeClass('visible').addClass('hidden');
             $('#stageCoach').removeClass('visible').addClass('hidden');
             $('#game').removeClass('hidden').addClass('visible');
         }
