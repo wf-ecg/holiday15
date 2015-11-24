@@ -121,14 +121,12 @@ define(['jquery', 'lodash', 'page', 'slides'], function
 
         function hideStartScreen() {
             $('#Welcome').removeClass('visible').addClass('hidden');
-            $('.stagecoach-footer').removeClass('visible').addClass('hidden');
-            $('#game').removeClass('hidden').addClass('visible');
+            $('#Game').removeClass('hidden').addClass('visible');
         }
 
         function showStartScreen() {
             $('#Welcome').removeClass('hidden').addClass('visible');
-            $('#stageCoach').removeClass('hidden').addClass('visible');
-            $('#game').removeClass('visible').addClass('hidden');
+            $('#Game').removeClass('visible').addClass('hidden');
         }
 
         $("#btnStart").click(function () {
@@ -137,8 +135,7 @@ define(['jquery', 'lodash', 'page', 'slides'], function
 
         function showGame() {
             $('#Welcome').removeClass('visible').addClass('hidden');
-            $('#stageCoach').removeClass('visible').addClass('hidden');
-            $('#game').removeClass('hidden').addClass('visible');
+            $('#Game').removeClass('hidden').addClass('visible');
         }
 
 
