@@ -60,7 +60,10 @@
                 <h1>Snowman <br>Shuffle</h1>
                 <p>Swipe the snowman parts right or left to <br>create your personal snowman.</p>
                 <p>Or for a random snowman, try the<br> <b>SHUFFLE</b> button.</p>
-                <a class="btn btn-primary btn-start" id="btnStart" href="javascript:L=location;L.hash='m1';L.reload();"> Play </a>
+                <a class="btn btn-primary btn-start" id="btnStart" onclick="
+                      window.location.hash = 'm1';
+                      return undefined;
+                   "> Play </a>
               </div>
 
               <div id="Game" class="animated hidden">
@@ -186,89 +189,30 @@
                 <!-- end Preview -->
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="Preview5555" tabindex="-1" role="dialog" aria-labelledby="PreviewLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="PreviewLabel"></h4>
-                      </div>
-                      <div class="modal-body">
-                        <div class="splash"></div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div id="results-container" class="animated slideInDown hidden">
-                  <div id="quiz-results" class="panel-group panel-group-winner" role="tablist" aria-multiselectable="true">
-                    <div class="panel-body panel-body-winner">
-                      <div class="quiz-question">
-                        <div class="responses">
-                          <h2 class="winning-horse-intro"><p>Share with friends and family!</p></h2>
-
-                          <div class="share-quiz-footer">
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                   preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
-                              </svg>
-                            </span>
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                   preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
-                              </svg>
-                            </span>
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                   preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
-                              </svg>
-                            </span>
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                   preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
-                              </svg>
-                            </span>
-                          </div>
-                          <button class="btn btn-primary btn-block" href="index.html" id="makeAnotherSnowman">Make Another</button>
-                        </div>
-                        <!-- .responses-->
-                      </div>
-                      <!--.quiz-question -->
-                    </div>
-                    <!--.panel-body-->
-                  </div>
-                  <!--.panel-group-->
-                </div>
-                <!-- results-container -->
-
-
-
-
                 <div id="snowmanButtons">
 
                   <div class="snowman-buttons-container">
                     <div class="box">
-                      <a href="javascript:Slides.scramble();" type="button" class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
+                      <a onclick="
+                            Slides.scramble();
+                            return undefined;
+                         " class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
                     </div>
                     <div class="box">
-                      <a href="javascript:Slides.openPreview();" type="button" class="btn btn-primary btn-block btn-preview"> Share </a>
+                      <a onclick="
+                            Slides.openPreview();
+                            return undefined;
+                         " class="btn btn-primary btn-block btn-preview"> Share </a>
                     </div>
                     <div style="clear:both;"></div>
                   </div>
+                  <!--end snowmanButtons-->
                 </div>
-                <!--end snowmanButtons-->
 
-
+                <!--end #Game-->
               </div>
-              <!--end game-->
+              <!-- end Container -->
             </div>
-            <!-- end Container -->
 
 
             <!-- END GAME -->
