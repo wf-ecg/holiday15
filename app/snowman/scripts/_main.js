@@ -10,7 +10,7 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'page', 'slides', 'smartResize'], function
+define(['jquery', 'lodash', 'page', 'slides'], function
     MAIN($, _, Page, Slides) {
     'use strict';
 
