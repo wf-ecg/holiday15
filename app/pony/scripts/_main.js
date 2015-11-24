@@ -67,6 +67,7 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
 
 //  PRIVATE
     function doBindings() {
+        $('.shareBar').first().load('../includes/main_share.html .shareBar > *');
     }
 
 //  INIT
