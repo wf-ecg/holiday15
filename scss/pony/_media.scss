@@ -5,76 +5,91 @@
         color: #000 !important;
         text-shadow: none !important;
         background: transparent !important;
-        box-shadow: none !important
+        box-shadow: none !important;
     }
+
     a,
     a:visited {
-        text-decoration: underline
+        text-decoration: underline;
     }
+
     a[href]:after {
-        content: " (" attr(href) ")"
+        content: " (" attr(href) ")";
     }
+
     abbr[title]:after {
-        content: " (" attr(title) ")"
+        content: " (" attr(title) ")";
     }
+
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
-        content: ""
+        content: "";
     }
+
     pre,
     blockquote {
         border: 1px solid #999;
-        page-break-inside: avoid
+        page-break-inside: avoid;
     }
+
     thead {
-        display: table-header-group
+        display: table-header-group;
     }
+
     tr,
     img {
-        page-break-inside: avoid
+        page-break-inside: avoid;
     }
+
     img {
-        max-width: 100% !important
+        max-width: 100% !important;
     }
+
     p,
     h2,
     h3 {
         orphans: 3;
-        widows: 3
+        widows: 3;
     }
+
     h2,
     h3 {
-        page-break-after: avoid
+        page-break-after: avoid;
     }
+
     select {
-        background: #fff !important
+        background: #fff !important;
     }
+
     .navbar {
-        display: none
+        display: none;
     }
-    .btn>.caret,
-    .dropup>.btn>.caret {
-        border-top-color: #000 !important
+
+    .btn > .caret,
+    .dropup > .btn > .caret {
+        border-top-color: #000 !important;
     }
+
     .label {
-        border: 1px solid #000
+        border: 1px solid #000;
     }
+
     .table {
-        border-collapse: collapse !important
+        border-collapse: collapse !important;
     }
+
     .table td,
     .table th {
-        background-color: #fff !important
+        background-color: #fff !important;
     }
+
     .table-bordered th,
     .table-bordered td {
-        border: 1px solid #ddd !important
+        border: 1px solid #ddd !important;
     }
 }
 
-
 @media screen and (min-width: 667px) {
-
     .quiz .panel-body .quiz-question {
         max-width: 50%;
         margin: 0 auto;
@@ -85,18 +100,14 @@
     }
 }
 
-
-
 @media (max-width: 767px) {
-
-
     .btn-restart {
         background: #0095C8;
         text-align: center;
         color: #fff;
         font-size: 20px;
         width: 100%;
-        text-transform:uppercase;
+        text-transform: uppercase;
         margin-top: 30px;
         margin-bottom: 30px;
         border-radius: 0;
@@ -112,12 +123,9 @@
             color: #fff;
         }
     }
-
-
-
 }
-@media (min-width: 768px) {
 
+@media (min-width: 768px) {
     .quiz-question {
         max-width: 40em;
         margin: 0 auto;
@@ -126,12 +134,11 @@
         text-align: center;
         vertical-align: top;
     }
-
-
 }
+
 @media (min-width: 992px) {
     .container {
-        width: 970px
+        width: 970px;
     }
 
     .quiz .panel-body .quiz-question {
@@ -142,11 +149,11 @@
         text-align: center;
         vertical-align: top;
     }
-
 }
+
 @media (min-width: 1200px) {
     .container {
-        width: 1170px
+        width: 1170px;
     }
 
     .quiz .panel-body .quiz-question {
@@ -157,5 +164,4 @@
         text-align: center;
         vertical-align: top;
     }
-
 }
