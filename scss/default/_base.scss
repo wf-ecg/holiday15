@@ -25,6 +25,10 @@ button {
     padding: 0.2em 1.5em;
     text-align: center;
 }
+div {
+    @include transition(all 0.25s);
+    position: relative;
+}
 footer {
     background: #44464a;
     border-top: 5px solid #888;
@@ -137,14 +141,6 @@ p {
     }
     > section {
         height: 500%;
-    }
-    * {
-        //@include transform( scale(1) );
-        //@include transform-style(preserve-3d);
-    }
-    div {
-        @include transition(all 0.25s);
-        position: relative;
     }
 }
 .ui-page-active {
