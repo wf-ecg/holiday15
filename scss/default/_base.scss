@@ -76,8 +76,7 @@ header {
         list-style: none;
     }
     .mobile {
-        background-image: url('../images/logos/wf_mobile_bg.png');
-        background-size: 100% 100%;
+        @include background-image( linear-gradient(top, #d5172f 0%, #8e0114 100%));
         border-bottom: 1px solid white;
         display: block;
         width: 100%;
