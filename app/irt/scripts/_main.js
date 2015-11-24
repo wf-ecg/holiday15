@@ -45,9 +45,9 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         var me = $(this),
             str = me.html();
         if ($('html').is('.wystar')) {
-            str = str.replace(/holidays\/irt\//g, 'holidays/irt/wystar.html');
+            str = str.replace(/\/holidays\//g, '/holidays/jingle-jumbles/wystar.html');
         } else {
-            str = str.replace(/holidays\/irt\//g, 'holidays/irt/index.html');
+            str = str.replace(/\/holidays\//g, '/holidays/jingle-jumbles/index.html');
         }
         me.html(str);
     });
