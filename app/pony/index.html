@@ -5,13 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=8">
     <title>What’s your pony personality?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-
+    <!--  -->
+    <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
+        (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../vendor/misc/animate.css" type="text/css" media="all">
     <link rel="stylesheet" href="../build/pony.css" type="text/css" media="all">
+    <!--  -->
+    <script src="../vendor/misc/hammer.min.js"></script>
+    <script src="../vendor/misc/respond.min.js"></script>
+    <script src="../vendor/misc/picturefill.min.js"></script>
 
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
 
   </head>
+
   <body class="page page-id-10 page-parent page-template-default">
     <div id="page-wrap" class="hfeed site">
 
@@ -772,15 +783,6 @@
 
     </div>
   </div>
-
-  <script type="text/javascript" src="/lib/modernizr/2.6.2/modernizr.js"></script>
-  <script type="text/javascript" src="../vendor/jq/jquery.min.js"></script>
-  <script type="text/javascript" src="../vendor/misc/hammer.min.js"></script>
-  <script type="text/javascript" src="../vendor/misc/respond.min.js"></script>
-  <script type="text/javascript" src="../vendor/misc/picturefill.min.js"></script>
-  <script type="text/javascript" src="../vendor/misc/vendor.js"></script>
-
-  <script type="text/javascript" src="./scripts/quizPannel.js"></script>
 
 </body>
 </html>
