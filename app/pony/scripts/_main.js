@@ -10,7 +10,7 @@
  TODO
 
  */
-define(['jquery', 'lodash', '../../vendor/misc/vendor', 'quizPannel'], function
+define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPannel'], function
     MAIN($, _) {
     'use strict';
 

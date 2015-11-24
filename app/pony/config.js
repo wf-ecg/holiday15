@@ -27,6 +27,9 @@ require.config({
         stats: 'libs/ecg-stats',
         xtn: 'libs/drt-xtn',
         //
+        hammer: '../../vendor/misc/hammer.min',
+        respond: '../../vendor/misc/respond.min',
+        picfill: '../../vendor/misc/picturefill.min',
     },
 });
 
