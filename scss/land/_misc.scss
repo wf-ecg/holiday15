@@ -2,7 +2,7 @@
 /* LAND/_misc.scss */
 
 .reverse {
-    @include transform( scaleX(-1) );
+    @include transform( scaleX(-1) !important);
 }
 .clear {
     clear: both;
