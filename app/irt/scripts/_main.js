@@ -26,7 +26,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     var duration = 120;
     var game, message, timer;
     var share = {
-        score: '',
         title: '',
         message: '',
         link: '',
@@ -94,7 +93,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         updateShare(score, rating);
     }
     function updateShare(score, rating) {
-        share.score = score;
         share.title = 'I scored ' + score + '.';
 
         switch (rating) {
