@@ -42,16 +42,5 @@ header {
 .navbar button {
     display: none;
 }
-.container {
-    * {
-        @include transform(scale(1.00));
-        @include transform-style( preserve-3d );
-    }
-    div {
-        @include transition(all 0.25s);
-        position: relative;
-    }
-}
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */

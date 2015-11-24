@@ -87,9 +87,9 @@ header {
         position: absolute;
         width: 100%;
         z-index: 1;
-        > * {
-            min-height: 50px !important;
-            position: fixed;
+        > div {
+            min-height: 50px;
+            position: fixed !important;
             width: inherit;
         }
     }
@@ -137,6 +137,14 @@ p {
     }
     > section {
         height: 500%;
+    }
+    * {
+        //@include transform( scale(1) );
+        //@include transform-style(preserve-3d);
+    }
+    div {
+        @include transition(all 0.25s);
+        position: relative;
     }
 }
 .ui-page-active {

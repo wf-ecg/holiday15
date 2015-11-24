@@ -31,6 +31,9 @@
         overflow: hidden;
         position: relative;
         width: $slideW;
+        div {
+            @include transition(none);
+        }
     }
 
     #Preview & {
