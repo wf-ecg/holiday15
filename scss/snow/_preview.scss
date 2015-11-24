@@ -1,0 +1,126 @@
+/* PROJ / preview */
+
+#Preview {
+    @include middify();
+    @include backGrad($haze6, $haze6);
+    cursor: not-allowed;
+    display: none;
+    position: absolute;
+    width: 100%; height: 100%;
+
+    .splash {
+        //max-width: 100%;
+        position: relative; left: 184px; top: 333px;
+        width: 300px;
+        z-index: 10;
+    }
+    .nav {
+        @include centify();
+        background-color: white;
+        border: 1px solid $edge_hi;
+        .lt-ie9 & { border-color: $wf_red; }
+        border-radius: 5px;
+        box-shadow: $midi_shad;
+        display: table;
+        margin-top: $headH;
+        padding: 3px 12px;
+        position: relative;
+        z-index: 100;
+
+        a:hover {
+            &, * {
+                @include opacity(0.6);
+            }
+        }
+        .c52 { // modify placement of Share menu
+            left: initial !important;
+            position: fixed;
+        }
+        a.printLink {
+            .lt-ie9 & { display: none; }
+        }
+        a.closeLink {
+            background: url('../images/buttons/close-red.png') right 6px no-repeat;
+            .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
+            @include background-size( 13px );
+            // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
+            color: $wf_red;
+            display: inline-block;
+            padding: 4px 20px 4px 1px;
+            position: relative;
+            text-decoration: none;
+            z-index: 40;
+        }
+        a.emailOnly {
+            background-position: 0 7px;
+            color: #434343;
+            display: inline-block;
+            padding: 4px 1px 4px 24px;
+            position: relative;
+            text-decoration: none;
+            z-index: 40;
+        }
+        .sideUtility {
+            overflow: visible;
+        }
+    }
+}
+
+#Clone {
+    @include middify();
+    cursor: default;
+    position: absolute;
+    top: -3em;
+
+    .arrow { display: none; }
+    .corners {
+        $gap: 3px;
+        $size: 10;
+
+        @include centify();
+        border: $size * 1px solid transparent;
+        position: absolute; top: 1.7%; bottom: 0; height: 97%; width: 97%;
+        & {
+            @include border-image( url('../images/frame/borderFrame.png') $size round);
+        }
+        .lt-ie9 & { border: $size * 0.5px solid white; }
+
+        .tl, .tr, .bl, .br {
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 50px;
+            position: absolute;
+            width: 50px;
+            z-index: 9;
+        }
+        .tl {
+            background-image: url('../images/frame/corner_TL-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_TL.png'); }
+            left: $gap;
+            top: $gap;
+        }
+        .tr {
+            background-image: url('../images/frame/corner_TR-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_TR.png'); }
+            right: $gap;
+            top: $gap;
+        }
+        .bl {
+            background-image: url('../images/frame/corner_BL-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_BL.png'); }
+            bottom: $gap;
+            left: $gap;
+        }
+        .br {
+            background-image: url('../images/frame/corner_BR-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_BR.png'); }
+            bottom: $gap;
+            right: $gap;
+        }
+    }
+    .ui-draggable * {
+        cursor: help;
+        &:active { cursor: move; }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

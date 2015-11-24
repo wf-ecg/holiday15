@@ -72,7 +72,7 @@ header {
         list-style: none;
     }
     .mobile {
-        background-image: url('../images/icons/wf_mobile_bg.png');
+        background-image: url('../images/logos/wf_mobile_bg.png');
         background-size: 100% 100%;
         border-bottom: 1px solid white;
         display: block;
@@ -121,16 +121,6 @@ p {
     .desktop & {
         padding-top: 0;
         padding-bottom: 9em;
-    }
-}
-.container {
-    * {
-        @include transform(scale(1.00));
-        @include transform-style( preserve-3d );
-    }
-    div {
-        @include transition(all 0.25s);
-        position: relative;
     }
 }
 .frame {
