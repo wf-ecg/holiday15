@@ -25,6 +25,12 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     var totalWon;
     var duration = 120;
     var game, message, timer;
+    var share = {
+        score: '',
+        title: '',
+        message: '',
+        link: '',
+    };
     var El = {
         intro: '.intro',
         outro: '.outro',
@@ -70,18 +76,42 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         El.score.html('Score: ' + (score || 0));
     }
     function showRating(score) {
-        El.outro //
-            .find('.score').text(score);
-        El.rating //
-            .find('span').removeClass('active');
+        var rating = '';
+
+        El.outro.find('.score').text(score);
+        El.rating.find('span').removeClass('active');
 
         if (score > 4) {
-            El.rating.find('.good').addClass('active');
+            rating = 'good';
         } else if (score > 2) {
-            El.rating.find('.okay').addClass('active');
+            rating = 'okay';
         } else if (score > 0) {
-            El.rating.find('.lame').addClass('active');
+            rating = 'lame';
         }
+        if (rating) {
+            El.rating.find('.' + rating).addClass('active');
+        }
+        updateShare(score, rating);
+    }
+    function updateShare(score, rating) {
+        share.score = score;
+        share.title = 'I scored ' + score + '.';
+
+        switch (rating) {
+            case 'okay':
+                share.title += ' I’m a Jingle Jumbles rock star.';
+                share.message = 'Now it’s your turn.';
+                break
+            case 'good':
+                share.title += ' I’m a Jingle Jumbles word master.';
+                share.message = 'I double-dog dare you to beat my score.';
+                break
+            default:
+                share.title += ' I’m a Jingle Jumbles natural.';
+                share.message = 'Can you beat my score?';
+        }
+        share.message += ' See how many Jingle Jumbles you can solve.';
+        C.warn(share);
     }
     function hideAreas() {
         El.jumble.hide();
