@@ -57,5 +57,11 @@
         font-size: 1.6em;
         font-weight: 800;
     }
+    .ratings {
+        span {
+            display: none;
+            &.active { display: initial; }
+        }
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
