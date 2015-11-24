@@ -22,7 +22,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     // - - - - - - - - - - - - - - - - - -
     // EXTEND
     var ACT = 'keypress click';
-    var totalWon = 0;
+    var totalWon;
     var duration = 120;
     var game, message, timer;
     var El = {
@@ -33,6 +33,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         again: '.outro button',
         score: '.status .score',
         header: 'header',
+        rating: '.ratings',
     };
 
     $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
@@ -68,6 +69,20 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     function updateScore(score) {
         El.score.html('Score: ' + (score || 0));
     }
+    function showRating(score) {
+        El.outro //
+            .find('.score').text(score);
+        El.rating //
+            .find('span').removeClass('active');
+
+        if (score > 4) {
+            El.rating.find('.good').addClass('active');
+        } else if (score > 2) {
+            El.rating.find('.okay').addClass('active');
+        } else if (score > 0) {
+            El.rating.find('.lame').addClass('active');
+        }
+    }
     function hideAreas() {
         El.jumble.hide();
         El.intro.hide();
@@ -77,6 +92,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         El.outro.find('.shareBar ul').appendTo(El.header.find('.shareBar'));
 
         hideAreas();
+        showRating(0);
         El.intro.show();
         timer.force('Start');
     }
@@ -85,8 +101,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
 
         timer.stop();
         hideAreas();
-        El.outro.show() //
-            .find('.score').text(totalWon);
+        El.outro.show();
+        showRating(totalWon);
         timer.reset();
     }
     function showJumble() {
