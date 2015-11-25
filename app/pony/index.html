@@ -48,7 +48,7 @@
 
 
         <div id="results-container" class="animated slideInDown hidden">
-          <div id="quiz-results" class="panel-group panel-group-winner" role="tablist" aria-multiselectable="true">
+          <div id="quiz-results" class="panel-group panel-group-winner" role="tablist">
             <div class="panel-body panel-body-winner">
               <div class="quiz-question">
                 <div class="responses">
@@ -79,17 +79,17 @@
               <!-- playing-area -->
               <div class="playing-area">
 
-                <div class="panel-group" id="quiz-group" role="tablist" aria-multiselectable="true">
+                <div class="panel-group" id="quiz-group" role="tablist">
 
                   <div class="panel active close-0">
-                    <div class="panel-heading" role="tab" id="question-header-0" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-0">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-0" aria-expanded="false" aria-controls="question-0">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-0">
                           <span class="sr-clip">Question 0</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-0" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="quiz-header-0">
+                    <div id="question-0" class="panel-collapse collapse in" role="tabpanel">
                       <div class="panel-body welcome-body">
 
                         <!-- screen reader previous controls -->
@@ -98,7 +98,7 @@
                           <section class="col-lg-4 col-md-3 col-sm-1 hidden-xs"></section>
                           <section class="col-lg-4 col-md-6 col-sm-10 col-xs-12">
 
-                            <img src="./images/icons/pony1.svg" class="header-image-0" alt="pony">
+                            <img src="./images/icons/pony1.svg" class="header-image-0">
                             <h1 class="quiz-title">What’s your pony personality?</h1>
                             <p class="quiz-instructions">If you were a Wells Fargo pony, which one would you be? Take the quiz to find out. Giddy-up and get&nbsp;started.</p>
 
@@ -108,8 +108,7 @@
 
                                 <label class="btn btn-start" id="q0">
                                   <input type="radio" class="hidden" name="q0-ok-lets-do-it" value="creative_0"
-                                         data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1" aria-expanded="false"
-                                         aria-controls="question-1" aria-hidden="true">
+                                         data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1">
                                   <span class="response-text btn-start">Take Quiz</span>
                                 </label>
                               </div>
@@ -128,22 +127,22 @@
 
 
                   <div class="panel close-1">
-                    <div class="panel-heading" role="tab" id="question-header-1" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-1">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-1" aria-expanded="false" aria-controls="question-1">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-1">
                           <span class="sr-clip">Question 1</span>
                         </a>
                       </h4>
                     </div>
 
-                    <div id="question-1" class="animated panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-1">
+                    <div id="question-1" class="animated panel-collapse collapse" role="tabpanel">
                       <div class="panel-body traditional">
 
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-0" aria-controls="question-0">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-0">Go to previous question.</a>
 
                         <div class="quiz-question">
-                          <img src="./images/icons/apple.svg" class="question-header-image header-image-2" alt="apple-icon">
+                          <img src="./images/icons/apple.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>What’s your favorite snack?</p></h2>
 
                           <div class="responses">
@@ -172,17 +171,17 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
 
 
-                        <a href="#question-2" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-2">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2" aria-expanded="false" aria-controls="question-2" aria-hidden="true">
+                        <a href="#question-2" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-0" aria-expanded="false" aria-controls="question-0" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-0">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -195,21 +194,21 @@
 
 
                   <div class="panel close-2">
-                    <div class="panel-heading" role="tab" id="question-header-2" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-2">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-2" aria-expanded="false" aria-controls="question-2">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-2">
                           <span class="sr-clip">Question 2</span>
                         </a>
                       </h4>
                     </div>
 
-                    <div id="question-2" class="animated  panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-2">
+                    <div id="question-2" class="animated  panel-collapse collapse " role="tabpanel">
                       <div class="panel-body traditional">
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-1" aria-controls="question-1">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-1">Go to previous question.</a>
 
                         <div class="quiz-question">
-                          <img src="./images/icons/mailbox.svg" class="question-header-image header-image-2" alt="quiz-02-friends">
+                          <img src="./images/icons/mailbox.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>What is your favorite item to deliver?</p></h2>
 
                           <div class="responses">
@@ -238,15 +237,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-3" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-3">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3" aria-expanded="false" aria-controls="question-3" aria-hidden="true">
+                        <a href="#question-3" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1" aria-expanded="false" aria-controls="question-1" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -258,20 +257,20 @@
 
 
                   <div class="animated panel close-3">
-                    <div class="panel-heading" role="tab" id="question-header-3" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-3">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-3" aria-expanded="false" aria-controls="question-3">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-3">
                           <span class="sr-clip">Question 3</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-3" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-3">
+                    <div id="question-3" class="animated panel-collapse collapse " role="tabpanel">
                       <div class="panel-body traditional">
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-2" aria-controls="question-2">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-2">Go to previous question.</a>
 
                         <div class="quiz-question">
-                          <img src="./images/icons/map_US.svg" class="question-header-image header-image-3" alt="q3-icon">
+                          <img src="./images/icons/map_US.svg" class="question-header-image header-image-3">
                           <h2 class="quiz-title"><p>What’s your favorite one-horse town?</p></h2>
 
                           <div class="responses">
@@ -300,16 +299,16 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-4" class="sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-4">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4" aria-expanded="false" aria-controls="question-4" aria-hidden="true">
+                        <a href="#question-4" class="sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2" aria-expanded="false" aria-controls="question-2" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -322,20 +321,20 @@
 
 
                   <div class="panel close-4">
-                    <div class="panel-heading" role="tab" id="question-header-4" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-4">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-4" aria-expanded="false" aria-controls="question-4">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-4">
                           <span class="sr-clip">Question 4</span>
                         </a>
                       </h4>
                     </div>
 
-                    <div id="question-4" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-4">
+                    <div id="question-4" class="animated panel-collapse collapse " role="tabpanel">
                       <div class="panel-body traditional">
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-3" aria-controls="question-3">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-3">Go to previous question.</a>
                         <div class="quiz-question">
-                          <img src="./images/icons/musicnotes.svg" class="question-header-image header-image-2" alt="quiz-02-friends">
+                          <img src="./images/icons/musicnotes.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>What’s your favorite song?</p></h2>
 
                           <div class="responses">
@@ -364,15 +363,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-5" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-5">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5" aria-expanded="false" aria-controls="question-5" aria-hidden="true">
+                        <a href="#question-5" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3" aria-expanded="false" aria-controls="question-3" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -385,19 +384,19 @@
 
 
                   <div class="panel close-5">
-                    <div class="panel-heading" role="tab" id="question-header-5" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-5">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-5" aria-expanded="false" aria-controls="question-5">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-5">
                           <span class="sr-clip">Question 5</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-5" class="animated  panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-5">
+                    <div id="question-5" class="animated  panel-collapse collapse" role="tabpanel">
                       <div class="panel-body traditional">
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-4" aria-controls="question-4">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-4">Go to previous question.</a>
                         <div class="quiz-question">
-                          <img src="./images/icons/gift.svg" class="question-header-image header-image-2" alt="gift-icons">
+                          <img src="./images/icons/gift.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>What’s a great gift for a gift horse?</p></h2>
 
                           <div class="responses">
@@ -426,15 +425,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-6" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-6">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6" aria-expanded="false" aria-controls="question-6" aria-hidden="true">
+                        <a href="#question-6" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4" aria-expanded="false" aria-controls="question-4" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -447,20 +446,20 @@
 
 
                   <div class="panel close-6">
-                    <div class="panel-heading" role="tab" id="question-header-6" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-6">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-6" aria-expanded="false" aria-controls="question-6">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-6">
                           <span class="sr-clip">Question 6</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-6" class="animated  panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-6">
+                    <div id="question-6" class="animated  panel-collapse collapse" role="tabpanel">
                       <div class="panel-body traditional">
 
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-5" aria-controls="question-5">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-5">Go to previous question.</a>
                         <div class="quiz-question">
-                          <img src="./images/icons/dog.svg" class="question-header-image header-image-2" alt="dog-icon">
+                          <img src="./images/icons/dog.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>Who's your dog in your dog and pony show?</p></h2>
 
                           <div class="responses">
@@ -489,15 +488,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-7" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-7">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7" aria-expanded="false" aria-controls="question-7" aria-hidden="true">
+                        <a href="#question-7" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5" aria-expanded="false" aria-controls="question-5" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -509,20 +508,20 @@
 
 
                   <div class="panel close-7">
-                    <div class="panel-heading" role="tab" id="question-header-7" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-7">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-7" aria-expanded="false" aria-controls="question-7">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-7">
                           <span class="sr-clip">Question 7</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-7" class="animated panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-7">
+                    <div id="question-7" class="animated panel-collapse collapse" role="tabpanel">
                       <div class="panel-body traditional">
 
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7" aria-controls="question-7">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7">Go to previous question.</a>
                         <div class="quiz-question">
-                          <img src="./images/icons/wagonwheel.svg" class="question-header-image header-image-2" alt="quiz-02-friends">
+                          <img src="./images/icons/wagonwheel.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>What is your favorite western?</p></h2>
 
                           <div class="responses">
@@ -552,15 +551,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-8" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-8">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8" aria-expanded="false" aria-controls="question-8" aria-hidden="true">
+                        <a href="#question-8" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6" aria-expanded="false" aria-controls="question-6" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -576,20 +575,20 @@
 
 
                   <div class="panel close-8">
-                    <div class="panel-heading" role="tab" id="question-header-8" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-8">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-8" aria-expanded="false" aria-controls="question-8">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-8">
                           <span class="sr-clip">Question 8</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-8" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-8">
+                    <div id="question-8" class="animated panel-collapse collapse " role="tabpanel">
                       <div class="panel-body traditional">
 
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7" aria-controls="question-7">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7">Go to previous question.</a>
                         <div class="quiz-question">
-                          <img src="./images/icons/tumbleweed.svg" class="question-header-image header-image-2" alt="q8-icon">
+                          <img src="./images/icons/tumbleweed.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>How do you handle tumbleweed?</p></h2>
 
 
@@ -619,16 +618,16 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-9" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-9">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-9" aria-expanded="false" aria-controls="question-9" aria-hidden="true">
+                        <a href="#question-9" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-9">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7" aria-expanded="false" aria-controls="question-7" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -640,20 +639,20 @@
 
 
                   <div class="panel close-9">
-                    <div class="panel-heading" role="tab" id="question-header-9" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-9">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-9" aria-expanded="false" aria-controls="question-9">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-9">
                           <span class="sr-clip">Question 9</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-9" class="animated panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-9">
+                    <div id="question-9" class="animated panel-collapse collapse" role="tabpanel">
                       <div class="panel-body traditional">
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-8" aria-controls="question-8">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-8">Go to previous question.</a>
 
                         <div class="quiz-question">
-                          <img src="./images/icons/paint.svg" class="question-header-image header-image-2" alt="q9-icon">
+                          <img src="./images/icons/paint.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>If you were a horse of a different color,<br> what would it be?</p></h2>
 
                           <div class="responses">
@@ -682,15 +681,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-10">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10" aria-expanded="false" aria-controls="question-10" aria-hidden="true">
+                        <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8" aria-expanded="false" aria-controls="question-8" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -702,20 +701,20 @@
 
 
                   <div class="panel close-10">
-                    <div class="panel-heading" role="tab" id="question-header-10" aria-hidden="true">
+                    <div class="panel-heading" role="tab" id="question-header-10">
                       <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-10" aria-expanded="false" aria-controls="question-10">
+                        <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-10">
                           <span class="sr-clip">Question 10</span>
                         </a>
                       </h4>
                     </div>
-                    <div id="question-10" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-9">
+                    <div id="question-10" class="animated panel-collapse collapse " role="tabpanel">
                       <div class="panel-body traditional">
                         <!-- screen reader previous controls -->
-                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-9" aria-controls="question-9">Go to previous question.</a>
+                        <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-9">Go to previous question.</a>
 
                         <div class="quiz-question">
-                          <img src="./images/icons/ribbon.svg" class="question-header-image header-image-2" alt="q9-icon">
+                          <img src="./images/icons/ribbon.svg" class="question-header-image header-image-2">
                           <h2 class="quiz-title"><p>Famous horse you admire most?</p></h2>
 
                           <div class="responses">
@@ -744,15 +743,15 @@
                               </div>
                             </div>
                           </div>
-                          <!-- responses -->
+
 
                         </div>
                         <!-- .quiz-question -->
-                        <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-10">Go to the next question.</a>
-                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10" aria-expanded="false" aria-controls="question-10" aria-hidden="true">
+                        <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
+                        <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10">
                           <span class="glyphicon glyphicon-chevron-down"></span>
                         </div>
-                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8" aria-expanded="false" aria-controls="question-8" aria-hidden="true">
+                        <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
                           <span class="glyphicon glyphicon-chevron-up"></span>
                         </div>
                       </div>
@@ -763,18 +762,18 @@
                   <!--.panel-->
                 </div>
                 <!-- .panel-group -->
-                <div class="progress-indicators" aria-hidden="true" style="margin-top: -100px;">
-                  <div class="progress-button active" role="button" data-parent="#quiz-group" data-target="#question-0" aria-expanded="false" aria-controls="question-0"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-1" aria-expanded="false" aria-controls="question-1"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-2" aria-expanded="false" aria-controls="question-2"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-3" aria-expanded="false" aria-controls="question-3"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-4" aria-expanded="false" aria-controls="question-4"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-5" aria-expanded="false" aria-controls="question-5"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-6" aria-expanded="false" aria-controls="question-6"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-7" aria-expanded="false" aria-controls="question-7"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-8" aria-expanded="false" aria-controls="question-8"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-9" aria-expanded="false" aria-controls="question-9"></div>
-                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-10" aria-expanded="false" aria-controls="question-10"></div>
+                <div class="progress-indicators" style="margin-top: -100px;">
+                  <div class="progress-button active" role="button" data-parent="#quiz-group" data-target="#question-0"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-1"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-2"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-3"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-4"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-5"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-6"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-7"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-8"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-9"></div>
+                  <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-10"></div>
                 </div>
               </div>
             </section>
