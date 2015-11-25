@@ -1,6 +1,10 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* PONY/_misc.scss */
 
+.pony .celldiv {
+    padding: 0;
+}
+
 .ui-page-active {
     @include background-image( url('../images/bkgrs/bubbles-red.jpg') ); // linear-gradient(top, $trans 66%, red 88%),
     background-size: cover;

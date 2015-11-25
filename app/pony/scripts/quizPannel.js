@@ -7,6 +7,8 @@ define(['jquery', 'hammer'], function ($, Hammer) {
     W = W || window;
     C = C || W.console;
 
+    var panelRatio = 0.84;
+
     (function () { // from http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
         var Nom = 'smartresize';
 
@@ -113,7 +115,7 @@ define(['jquery', 'hammer'], function ($, Hammer) {
             progressCenter = (panels.length) / 2 * progressHeight;
 
             // Set the height of the panel to fil the screen, assuming a 10 pixel ribbon
-            $('.panel-body').height(bodyheight);
+            $('.panel-body').height(bodyheight * panelRatio);
             // Center the indicators
             $('.progress-indicators').css("margin-top", "-" + progressCenter + "px");
         }
@@ -212,7 +214,7 @@ define(['jquery', 'hammer'], function ($, Hammer) {
 
 
                 // Set the height of the panel to fil the screen, assuming a 10 pixel ribbon
-                $('.panel-body').height(bodyheight);
+                $('.panel-body').height(bodyheight * panelRatio);
 
 
 
