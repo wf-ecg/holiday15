@@ -73,7 +73,7 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markAgent();
+    //$.markAgent();
 
 //  PRIVATE
     function doBindings() {

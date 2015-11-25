@@ -82,7 +82,7 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markAgent();
+    //$.markAgent();
 
     // - - - - - - - - - - - - - - - - - -
     // PRIVATE
