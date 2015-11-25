@@ -1,0 +1,31 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PONY/_misc.scss */
+
+.pony .celldiv {
+    padding: 0;
+}
+
+.ui-page-active {
+    @include background-image( url('../images/bkgrs/bubbles-red.jpg') ); // linear-gradient(top, $trans 66%, red 88%),
+    background-size: cover;
+}
+.shareBar2 {
+    .outro & {
+        font-size: 1.7em;
+    }
+    $Bkgr: white;
+    $Norm: #165267;
+    $Over: #2394a0;
+
+    .shares li {
+        background-color: $Bkgr;
+
+        a { color: $Norm;
+            &:hover, &:focus { color: $Over; }
+        }
+    }
+}
+.stage {
+    display: none;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
