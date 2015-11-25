@@ -6,19 +6,21 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta http-equiv="cache-control" content="max-age=0, must-revalidate">
     <meta name="viewport" content="width=device-width">
-    <meta name="author" content="ECG Interactive Design (IxD)">
-    <meta content="Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
-          We design and develop with a focus on web standards and best practices." name="description">
     <!--  -->
     <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
         (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
+    <meta name="author" content="ECG Interactive Design (IxD)">
+    <meta content="Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
+          We design and develop with a focus on web standards and best practices." name="description">
+    <!-- css -->
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="/lib/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/lib/video-js/ecg/video-js.css">
     <link rel="stylesheet" href="../build/land.css">
-    <!--  -->
+    <!-- hacks -->
     <script src="../vendor/ecg/glober.js"></script>
+
     <script src="/lib/requirejs/2.1.17/require.js"
             data-main="./config"
             data-main="./build/app"
@@ -132,7 +134,7 @@
                   <div class="tile  sq-sm  col-lg-6  col-md-6  col-sm-12  col-xs-12">
                     <section class="bg-d_teal" style="background-image: url('../images/landing/frosty-snap.png');">
 
-                      <span class="glyphicon glyphicon-play-circle"></span>
+                      <span tabindex="0" class="glyphicon glyphicon-play-circle"></span>
 
                     </section>
                   </div>
@@ -167,8 +169,7 @@
                           WHAT’S YOUR PONY PERSONALITY?
                         </h2>
 
-                        <p>If you were a Wells Fargo Pony, <br>
-                          which one would you be?
+                        <p>If you were a Wells Fargo Pony, which one would you be?
                           Take the quiz and find out.</p>
 
                         <a href="http://www.wellsfargomedia.com/holidays/pony-quiz/index.html" target="viewer">
@@ -193,7 +194,7 @@
 
                         <p>Scroll (Swipe) through word puzzles for holiday messages.</p>
 
-                        <a href="http://10.89.101.100/wf-ecg/holiday15/0/irt/index.html">
+                        <a href="http://10.89.101.100/wf-ecg/holiday15/0/irt/index.html" target="viewer">
                           <button class="btn-tile blue">Play Game</button>
                         </a>
                       </div>
@@ -216,7 +217,9 @@
 
                         <p>And help children too!</p>
 
-                        <button class="btn-tile blue">Learn More</button>
+                        <a href="http://www.wellsfargohistory.com/history/meet-nellie/" target="viewer">
+                          <button class="btn-tile blue">Learn More</button>
+                        </a>
                       </div>
 
                     </section>

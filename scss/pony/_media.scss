@@ -1,0 +1,193 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PONY/_media.scss */
+
+.pony {
+
+    @media (min-width: 768px) {
+        .quiz .responses-label {
+            font-size: 18px;
+            padding-left: 50px;
+        }
+    }
+
+
+
+
+
+
+
+    @media (min-width: 768px) {
+
+        .quiz .welcome .responses-label {
+            font-size: 16px;
+            font-weight: normal;
+            color: white;
+            line-height: 1.125;
+            text-transform: uppercase;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .quiz .responses-label {
+            font-size: 18px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .quiz #question-0 .quiz-title {
+            margin: 0 auto 25px auto;
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.125;
+            color: white;
+            text-transform: uppercase;
+            font-family: $serif;
+        }
+
+        .quiz #question-0 p.quiz-instructions {
+            font-size: 20px;
+            font-weight: 400;
+            font-family: $sans;
+            line-height: 1.350;
+            margin-bottom: 65px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .quiz #question-0 .quiz-title {
+            margin: 0 auto 15px auto;
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.125;
+            color: white;
+            text-transform: uppercase;
+            font-family: $serif;
+        }
+
+        .quiz #question-0 p.quiz-instructions {
+            font-size: 20px;
+            font-weight: 300;
+            font-family: $sans;
+            line-height: 1.200;
+            margin-bottom: 25px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .quiz-controls {
+            width: 100px;
+            height: 50px;
+            margin-left: -50px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        img.header-image-winner {
+            width: 300px;
+            height: 300px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .winning-horse-bio {
+            font-family: $sans;
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.200;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+    }
+
+    @media (min-width: 600px) {
+        img.header-image-winner {
+            width: 250px;
+            height: 250px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .winning-horse-bio {
+            font-family: $sans;
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.200;
+            padding-right: 15%;
+            padding-left: 15%;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        img.header-image-winner {
+            width: 350px;
+            height: 350px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+            padding-top: 0;
+        }
+    }
+
+    @media (max-width: 600px) {
+        img.header-image-winner {
+            width: 200px;
+            height: 200px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .winning-horse-bio {
+            font-family: $sans;
+            color: white;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.200;
+            padding-right: 5%;
+            padding-left: 5%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .header-image-0 {
+            width: 350px;
+            height: 350px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header-image-0 {
+            width: 250px;
+            height: 250px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .quiz #welcome h1 {
+            font-family: $serif;
+            color: white;
+            font-size: 40px;
+            font-weight: 600;
+            text-align: center !important;
+            text-transform: uppercase;
+            margin: 70px auto 25px auto;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

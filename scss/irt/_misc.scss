@@ -33,11 +33,16 @@ header .mobile {
     $Bkgr: white;
     $Norm: #165267;
     $Over: #2394a0;
+
     .shares li {
         background-color: $Bkgr;
+
         a { color: $Norm;
             &:hover, &:focus { color: $Over; }
         }
     }
+}
+.stage {
+    display: none;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

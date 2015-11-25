@@ -81,6 +81,10 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             clearGame();
 
             pair = Data.get();
+            if (!pair || !pair.anagram) {
+                pair = Data.get();
+                C.error('whoops Data running out');
+            }
             tiles = Letter.assemble(pair.anagram.toUpperCase());
             slots = Letter.assemble(pair.correct.toUpperCase());
 
@@ -203,8 +207,8 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             El.input.hide().empty();
             El.button.show().focus().on(ACT, function () {
                 $.publish('next.Game');
-                (typeof cb !== 'function') || cb();
-                El.button.hide();
+                (typeof cb !== 'function') || cb(); //nextPuzzle();
+                El.button.off(ACT).hide();
             });
         }
 

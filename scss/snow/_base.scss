@@ -1,0 +1,44 @@
+/* PROJ / base */
+
+html {
+    height: 100%;
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    line-height: 1.5;
+}
+body {
+    background: url('../images/bkgrs/bubbles-magenta.jpg') bottom repeat-x white;
+    @include background-size( cover ); -ms-behavior: url('./vendor/backgroundsize.htc');
+    height: 100%;
+}
+
+#Container {
+    h1, h3 {
+        color: $wf_red;
+    }
+    h1 {
+        font-size: 21px;
+        line-height: 1.3;
+    }
+    h2 {
+        font-size: 19px;
+        font-style: italic;
+    }
+    h3 {
+        font-size: 16px;
+        font-weight: 800;
+    }
+    a:link, a:visited, a:hover, a:active {
+        color: white;
+        text-decoration: none;
+    }
+    p {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    ul {
+        font-weight: bold;
+        list-style: none;
+        padding-left: 0;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

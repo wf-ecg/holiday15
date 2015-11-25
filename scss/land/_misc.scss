@@ -2,14 +2,13 @@
 /* LAND/_misc.scss */
 
 .reverse {
-    @include transform( scaleX(-1) );
+    @include transform( scaleX(-1) !important);
 }
 .clear {
     clear: both;
 }
 .ui-page {
-    background-image: linear-gradient(to bottom, #eee 22%, #fff 88%);
-    //position: relative;
+    @include background-image( linear-gradient(top, #eee 22%, #fff 88%) );
 }
 .pushin {
     .shareBar {

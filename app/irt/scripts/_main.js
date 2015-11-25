@@ -22,9 +22,14 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     // - - - - - - - - - - - - - - - - - -
     // EXTEND
     var ACT = 'keypress click';
-    var totalWon = 0;
+    var totalWon;
     var duration = 120;
     var game, message, timer;
+    var share = {
+        title: '',
+        message: '',
+        link: '',
+    };
     var El = {
         intro: '.intro',
         outro: '.outro',
@@ -33,20 +38,21 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         again: '.outro button',
         score: '.status .score',
         header: 'header',
+        rating: '.ratings',
     };
 
     $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
         var me = $(this),
             str = me.html();
         if ($('html').is('.wystar')) {
-            str = str.replace(/holidays\/irt\//g, 'holidays/irt/wystar.html');
+            str = str.replace(/\/holidays\//g, '/irt/holidays/jingle-jumbles/wystar.html');
         } else {
-            str = str.replace(/holidays\/irt\//g, 'holidays/irt/index.html');
+            str = str.replace(/\/holidays\//g, '/irt/holidays/jingle-jumbles/index.html');
         }
         me.html(str);
     });
 
-    $.markDesktop();
+    $.markAgent();
     $.swallowBackspace();
     $.watchInputDevice();
 
@@ -68,6 +74,43 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     function updateScore(score) {
         El.score.html('Score: ' + (score || 0));
     }
+    function showRating(score) {
+        var rating = '';
+
+        El.outro.find('.score').text(score);
+        El.rating.find('span').removeClass('active');
+
+        if (score > 4) {
+            rating = 'good';
+        } else if (score > 2) {
+            rating = 'okay';
+        } else if (score > 0) {
+            rating = 'lame';
+        }
+        if (rating) {
+            El.rating.find('.' + rating).addClass('active');
+        }
+        updateShare(score, rating);
+    }
+    function updateShare(score, rating) {
+        share.title = 'I scored ' + score + '.';
+
+        switch (rating) {
+            case 'okay':
+                share.title += ' I’m a Jingle Jumbles rock star.';
+                share.message = 'Now it’s your turn.';
+                break
+            case 'good':
+                share.title += ' I’m a Jingle Jumbles word master.';
+                share.message = 'I double-dog dare you to beat my score.';
+                break
+            default:
+                share.title += ' I’m a Jingle Jumbles natural.';
+                share.message = 'Can you beat my score?';
+        }
+        share.message += ' See how many Jingle Jumbles you can solve.';
+        C.warn(share);
+    }
     function hideAreas() {
         El.jumble.hide();
         El.intro.hide();
@@ -77,6 +120,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         El.outro.find('.shareBar ul').appendTo(El.header.find('.shareBar'));
 
         hideAreas();
+        showRating(0);
         El.intro.show();
         timer.force('Start');
     }
@@ -85,8 +129,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
 
         timer.stop();
         hideAreas();
-        El.outro.show() //
-            .find('.score').text(totalWon);
+        El.outro.show();
+        showRating(totalWon);
         timer.reset();
     }
     function showJumble() {
@@ -140,8 +184,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             timer.stop();
         });
         $.subscribe('next.Game', function () {
-            message.init();
-            timer.add(1).start();
+            message.init(); // show instructions
+            timer.add(1).start();  // restart the timer
         });
 
         showIntro();

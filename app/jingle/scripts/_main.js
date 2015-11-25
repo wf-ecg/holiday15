@@ -71,18 +71,18 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
                 header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
             }
         });
-        $.watchResize2(function () {
+        $.watchResize(function () {
             if (!button.is('.collapsed')) {
                 button.click();
             }
-        }, 'button token TODO');
+        });
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markDesktop();
+    $.markAgent();
 
     // - - - - - - - - - - - - - - - - - -
     // PRIVATE

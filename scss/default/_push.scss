@@ -10,13 +10,10 @@
         display: block;
         font-size: 2em;
         height: 100%;
-        .no-touch & {
-            //left: 0; // fix for safari?
-        }
         margin-top: 50px;
         position: fixed;
         text-transform: uppercase;
-        width: 69%;
+        width: 67%;
         z-index: 1;
 
         .shareBar {
@@ -58,6 +55,14 @@
     &.active .sidebar-offcanvas {
         opacity: 1;
         z-index: 1;
+    }
+    // hacks for non-chrome
+    nav {
+        @include transition(all .25s);
+        right: -$Off;
+    }
+    &.active nav {
+        right: 0;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -39,10 +39,6 @@ nav {
     border: none;
     margin: 0;
 
-    button {
-        margin: 0.5em;
-        z-index: 2;
-    }
     nav {
         display: none;
     }
@@ -53,6 +49,9 @@ nav {
 .navbar .navbar-toggle {
     border: 0;
     font-size: 20px;
+    height: 32px;
+    margin: 0.5em;
+    z-index: 2;
 
     * {
         @include transition(all 0.25s);
@@ -70,21 +69,16 @@ nav {
     }
     &:not(.collapsed) {
         span.icon-bar {
-
-            @include transform-origin( 40% );
+            @include transform-origin( 13%, 50% );
 
             &:nth-child(2) {
-                position: absolute;
-                top: 0.7em;
-                @include transform ( rotate(45deg) );
+                @include transform( rotate(45deg) );
             }
             &:nth-child(3) {
                 background-color: transparent;
             }
             &:last-child {
-                position: absolute;
-                top: 0.7em;
-                @include transform ( rotate(-45deg) );
+                @include transform( rotate(-45deg) );
             }
         }
     }
