@@ -13,7 +13,8 @@
     <meta content="Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
           We design and develop with a focus on web standards and best practices." name="description">
     <!-- css -->
-    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
     <link rel="stylesheet" href="../vendor/misc/animate.css" type="text/css" media="all">
     <link rel="stylesheet" href="../build/pony.css" type="text/css" media="all">
     <!-- hacks -->
@@ -28,10 +29,23 @@
     ></script>
   </head>
 
-  <body>
+  <body class="loading"><div data-role="page" class="pony">
+      <!--[if lt IE 10]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+      <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+      browser</a> to improve your web experience.</p> </div><![endif]-->
 
-    <div page page-id-10 page-parent page-template-default>
+      <div class="pushin"></div>
+
+      <div class="frame">
+        <header></header>
+
+        <section>
+          <div class="celldiv game row-offcanvas row-offcanvas-right">
+
+    <div  page-parent page-template-default>
       <div id="page-wrap" class="hfeed site">
+
+
 
         <div id="results-container" class="animated slideInDown hidden">
           <div id="quiz-results" class="panel-group panel-group-winner" role="tablist" aria-multiselectable="true">
@@ -50,15 +64,11 @@
                   </div>
                   <button class="btn btn-restart" href="index.html" id="newQuiz">Play Again</button>
                 </div>
-                <!-- .responses-->
               </div>
-              <!--.quiz-question -->
             </div>
-            <!--.panel-body-->
           </div>
-          <!--.panel-group-->
+          <!-- results-container -->
         </div>
-        <!-- results-container -->
 
 
 
@@ -769,11 +779,27 @@
               </div>
             </section>
           </form>
+
+          <!--myQuiz-->
         </div>
 
+        <!--page-wrap-->
       </div>
+      <!--page-parent-->
     </div>
-  </div>
 
-</body>
+
+
+            <!-- END GAME -->
+          </div>
+        </section>
+
+        <footer></footer>
+
+        <!-- END FRAME -->
+      </div>
+
+      <div class="modal"></div>
+
+    </div></body>
 </html>
