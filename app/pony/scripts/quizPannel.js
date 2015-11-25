@@ -37,6 +37,11 @@ define(['jquery', 'hammer'], function ($, Hammer) {
 
     })();
 
+    navigator.userAgent.match(/trident/i) && $('label').one('click', function () {
+        $(this).find('input').click().trigger('change');
+        //C.log('foo gareth');
+    });
+
 // Set close gradient classes on form panels
     function updatePanelClasses() {
         var panels = $('.panel');
