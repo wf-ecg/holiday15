@@ -140,9 +140,6 @@ p.quiz-instructions {
     top: -2px;
 }
 
-.quiz {
-    background-color: none;
-}
 
 .quiz .panel-group {
     margin: 0;
@@ -155,7 +152,6 @@ p.quiz-instructions {
 
 .quiz .panel-body {
     padding: 0;
-    background-color: none;
     position: relative;
     display: table;
     width: 100%;
@@ -261,9 +257,6 @@ h4.panel-title a {
     background-color: transparent;
 }
 
-.quiz .panel-title:focus {
-    background-color: none;
-}
 
 .quiz .progress-indicators {
     position: absolute;
@@ -439,7 +432,6 @@ h4.panel-title a {
     .panel-group {
         padding: 0;
         margin-bottom: 0;
-        background-color: none;
     }
 
     .panel-group-winner, .quiz-question {
