@@ -6,7 +6,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
-.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
+.panel-group .panel-heading + .panel-collapse > .list-group, .panel-group .panel-heading + .panel-collapse > .panel-body {
     border-top: none;
 }
 
@@ -25,11 +25,10 @@ h1 {
     margin-bottom: 15px;
 }
 
-
 .btn-start {
     font-family: $sans;
     background-color: #75040C;
-    color:white;
+    color: white;
     font-size: 20px;
     font-weight: 400;
     height: 50px;
@@ -39,31 +38,32 @@ h1 {
     border-radius: 3px;
     padding-right: 13px;
     padding-left: 10px;
+
     &:hover {
         background: #8B181B;
-        color: white!important;
+        color: white !important;
     }
+
     &:active {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
+
     &:selected {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
+
     &:visited {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
 }
-
-
-
 
 .btn-restart {
     font-family: $sans;
     background-color: #75040C;
-    color:white;
+    color: white;
     font-size: 20px;
     font-weight: 400;
     height: 50px;
@@ -76,19 +76,22 @@ h1 {
 
     &:hover {
         background: #8B181B;
-        color: white!important;
+        color: white !important;
     }
+
     &:active {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
+
     &:selected {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
+
     &:visited {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
 }
 
@@ -97,12 +100,12 @@ h1 {
     position: relative;
     display: table;
     width: 100%;
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .panel {
     padding: 0;
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .panel-title {
@@ -123,8 +126,6 @@ h1 {
     margin-left: auto;
     text-align: center;
 }
-
-
 
 .sr-clip {
     display: none;
@@ -160,9 +161,7 @@ h1 {
     color: inherit;
 }
 
-
 .welcome {
-
     .quiz-question {
         max-width: 50em;
         margin: 0 auto;
@@ -170,7 +169,6 @@ h1 {
         display: table-cell;
         text-align: center;
         vertical-align: top;
-
     }
 }
 
@@ -197,7 +195,7 @@ footer {
     padding-top: 25px;
     border-top: #B3B3B3 solid 4px;
 
-    ul li a  {
+    ul li a {
         color: #B3B3B3;
         font-size: 8px;
 
@@ -216,7 +214,8 @@ footer {
 }
 
 svg:not(:root) {
-    overflow: hidden; }
+    overflow: hidden;
+}
 
 img {
     height: auto;
@@ -248,11 +247,12 @@ a.btn {
     border: 2px solid white;
     border-radius: 3px;
 }
+
 @media (max-width: 767px) {
     .btn-restart {
         font-family: $sans;
         background-color: #75040C;
-        color:white;
+        color: white;
         font-size: 20px;
         font-weight: 400;
         height: 50px;
@@ -271,3 +271,4 @@ a.btn {
         }
     }
 }
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -4,7 +4,7 @@
 h1.quiz-title {
     font-family: $serif;
     font-weight: 600;
-    text-align: center!important;
+    text-align: center !important;
     color: white;
     font-size: 42px;
     margin-top: 70px;
@@ -12,7 +12,7 @@ h1.quiz-title {
 }
 
 h2.quiz-title {
-    margin: 0 auto 50px auto;;
+    margin: 0 auto 50px auto;
     font-size: 40px;
     font-weight: 500;
     line-height: 1.125;
@@ -22,7 +22,7 @@ h2.quiz-title {
 .btn-quiz {
     font-family: $sans;
     background-color: #75040C;
-    color:white;
+    color: white;
     font-size: 20px;
     font-weight: 400;
     height: 50px;
@@ -31,24 +31,27 @@ h2.quiz-title {
     margin-bottom: 5px;
     border-radius: 3px;
     width: 300px;
+
     &:hover {
         background: #8B181B;
-        color: white!important;
+        color: white !important;
     }
+
     &:active {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
+
     &:selected {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
+
     &:visited {
         background: #75040C;
-        color: white!important;
+        color: white !important;
     }
 }
-
 
 p.quiz-instructions {
     font-size: 20px;
@@ -81,7 +84,6 @@ p.quiz-instructions {
     color: white;
     max-width: 960px;
 }
-
 
 .quiz #welcome .panel-body .quiz-question {
     max-width: 50%;
@@ -122,8 +124,8 @@ p.quiz-instructions {
     cursor: pointer;
 }
 
-.quiz .traditional input[type='radio']:checked+.filler,
-.quiz .linear input[type='radio']:checked+.filler {
+.quiz .traditional input[type='radio']:checked + .filler,
+.quiz .linear input[type='radio']:checked + .filler {
     background-color: white;
     color: #8B181B;
 }
@@ -166,14 +168,13 @@ p.quiz-instructions {
     width: 100%;
 }
 
-.quiz .active .panel-body {
+.quiz .active .panel-body {}
 
-}
 h4.panel-title a {
     height: 0;
 }
 
-.panel-heading{
+.panel-heading {
     height: 0;
 }
 
@@ -225,7 +226,7 @@ h4.panel-title a {
     background: #0095C8;
     border: 2px solid white;
     padding: 15px 30px;
-    border-radius: 0;;
+    border-radius: 0;
     margin-bottom: 30px;
     color: #000;
     font-size: 18px;
@@ -240,8 +241,7 @@ h4.panel-title a {
     outline: 0;
 }
 
-
-.panel-group .panel+.panel {
+.panel-group .panel + .panel {
     margin-top: 0;
 }
 
@@ -258,7 +258,7 @@ h4.panel-title a {
 }
 
 .quiz .panel-heading:focus {
-    background-color:transparent;
+    background-color: transparent;
 }
 
 .quiz .panel-title:focus {
@@ -334,13 +334,13 @@ h4.panel-title a {
     margin-left: -37px;
     background-color: rgba(0, 0, 0, 0.15);
     color: white;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .quiz-controls span {
     line-height: 37px;
     font-size: 14px;
-    top: 0
+    top: 0;
 }
 
 .winning-horse-intro {
@@ -390,7 +390,6 @@ h4.panel-title a {
 }
 
 #results-container {
-
     .quiz-results {
         height: 100%;
         margin-top: 0;
@@ -404,8 +403,9 @@ h4.panel-title a {
             color: white;
             cursor: pointer;
         }
+
         i {
-            color:#8B181B;
+            color: #8B181B;
             cursor: pointer;
         }
 
@@ -438,21 +438,18 @@ h4.panel-title a {
 
     .panel-group {
         padding: 0;
-        margin-bottom:0;
+        margin-bottom: 0;
         background-color: none;
     }
 
     .panel-group-winner, .quiz-question {
         height: 100%;
-
     }
 }
 
 .quiz .progress-button.answered {
     background-color: white;
 }
-
-
 
 .quiz #welcome .quiz-title {
     color: white;
@@ -471,7 +468,5 @@ h4.panel-title a {
     text-align: center;
     vertical-align: top;
 }
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -1,7 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* PONY/_media.scss */
 
-
 @media screen and (min-width: 768px) {
     .quiz .responses-label {
         font-size: 18px;
@@ -24,7 +23,7 @@
 @media screen and (min-width: 768px) {
     .quiz-title,
     .quiz-finish-title {
-        margin: 30px auto 50px auto;;
+        margin: 30px auto 50px auto;
         font-size: 40px;
         font-weight: 500;
         line-height: 1.125;
@@ -72,6 +71,7 @@
         width: 350px;
         height: 350px;
     }
+
     .quiz .welcome .responses-label {
         font-size: 16px;
         font-weight: normal;
@@ -88,9 +88,8 @@
 }
 
 @media screen and (min-width: 768px) {
-
     .quiz #question-0 .quiz-title {
-        margin: 0 auto 25px auto;;
+        margin: 0 auto 25px auto;
         font-size: 40px;
         font-weight: 600;
         line-height: 1.125;
@@ -106,12 +105,11 @@
         line-height: 1.350;
         margin-bottom: 65px;
     }
-
 }
-@media screen and (max-width: 768px) {
 
+@media screen and (max-width: 768px) {
     .quiz #question-0 .quiz-title {
-        margin: 0 auto 15px auto;;
+        margin: 0 auto 15px auto;
         font-size: 32px;
         font-weight: 600;
         line-height: 1.125;
@@ -127,29 +125,26 @@
         line-height: 1.200;
         margin-bottom: 25px;
     }
-
 }
 
 @media screen and (min-width: 768px) {
     .quiz-controls {
         width: 100px;
         height: 50px;
-        margin-left: -50px
+        margin-left: -50px;
     }
 }
 
-
-
 @media screen and (max-width: 768px) {
-
     img.header-image-winner {
         width: 300px;
         height: 300px;
         margin-right: auto;
         margin-left: auto;
         text-align: center;
-        padding-top:0;
+        padding-top: 0;
     }
+
     .winning-horse-bio {
         font-family: $sans;
         color: white;
@@ -171,8 +166,9 @@
         margin-right: auto;
         margin-left: auto;
         text-align: center;
-        padding-top:0;
+        padding-top: 0;
     }
+
     .winning-horse-bio {
         font-family: $sans;
         color: white;
@@ -188,17 +184,16 @@
 }
 
 @media screen and (max-width: 1199px) {
-
     img.header-image-winner {
         width: 350px;
         height: 350px;
         margin-right: auto;
         margin-left: auto;
         text-align: center;
-        padding-top:0;
+        padding-top: 0;
     }
-
 }
+
 @media screen and (max-width: 600px) {
     img.header-image-winner {
         width: 200px;
@@ -206,8 +201,9 @@
         margin-right: auto;
         margin-left: auto;
         text-align: center;
-        padding-top:0;
+        padding-top: 0;
     }
+
     .winning-horse-bio {
         font-family: $sans;
         color: white;
@@ -229,8 +225,6 @@
     }
 }
 
-
-
 @media screen and (max-width: 768px) {
     .header-image-0 {
         width: 250px;
@@ -239,13 +233,12 @@
 }
 
 @media screen and (min-width: 768px) {
-
     .quiz #welcome h1 {
         font-family: $serif;
         color: white;
         font-size: 40px;
         font-weight: 600;
-        text-align: center!important;
+        text-align: center !important;
         text-transform: uppercase;
         margin: 70px auto 25px auto;
     }
