@@ -72,13 +72,6 @@ p.quiz-instructions {
     background-color: white;
 }
 
-@media screen and (min-width: 768px) {
-    .quiz .responses-label {
-        font-size: 18px;
-        padding-left: 50px;
-    }
-}
-
 .quiz #welcome .panel-body {
     background: transparent;
     color: white;
@@ -205,22 +198,10 @@ h4.panel-title a {
     vertical-align: top;
 }
 
-@media screen and (min-width: 768px) {
-    .quiz-question {
-        padding: 2em 2em 4em 2em;
-    }
-}
-
 .question-header-image {
     width: 100px;
     height: auto;
     margin-bottom: 15px;
-}
-
-@media screen and (min-width: 768px) {
-    .question-header-image {
-        width: 175px;
-    }
 }
 
 .quiz-title,
@@ -230,24 +211,6 @@ h4.panel-title a {
     margin: 0;
     line-height: 1.125;
     color: white;
-}
-
-@media screen and (min-width: 768px) {
-    .quiz-title,
-    .quiz-finish-title {
-        margin: 30px auto 50px auto;;
-        font-size: 40px;
-        font-weight: 500;
-        line-height: 1.125;
-        font-family: $serif;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .quiz-title,
-    .quiz-finish-title {
-        font-size: 42px;
-    }
 }
 
 .quiz-finish-title {
@@ -277,14 +240,6 @@ h4.panel-title a {
     outline: 0;
 }
 
-
-@media screen and (min-width: 768px) {
-    .quiz .panel-heading {
-        height: 0;
-        border: none;
-        background-color: transparent;
-    }
-}
 
 .panel-group .panel+.panel {
     margin-top: 0;
@@ -321,12 +276,6 @@ h4.panel-title a {
     margin-top: 0;
 }
 
-@media screen and (min-width: 768px) {
-    .quiz .progress-indicators {
-        right: 15px;
-    }
-}
-
 .quiz .progress-button {
     display: block;
     margin: 10px auto;
@@ -339,26 +288,12 @@ h4.panel-title a {
     transition: opacity 0.5s;
 }
 
-@media screen and (min-width: 768px) {
-    .quiz .progress-button {
-        width: 10px;
-        height: 10px;
-    }
-}
-
 .quiz .progress-button.active {
     width: 10px;
     height: 10px;
     margin: 5px auto;
     opacity: 1;
     pointer-events: none;
-}
-
-@media screen and (min-width: 768px) {
-    .quiz .progress-button.active {
-        width: 15px;
-        height: 15px;
-    }
 }
 
 .quiz .progress-button.answered {
@@ -383,69 +318,6 @@ h4.panel-title a {
     width: 125px;
 }
 
-@media screen and (min-width: 768px) {
-    .header-image-0 {
-        width: 350px;
-        height: 350px;
-    }
-    .quiz .welcome .responses-label {
-        font-size: 16px;
-        font-weight: normal;
-        color: white;
-        line-height: 1.125;
-        text-transform: uppercase;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .quiz .responses-label {
-        font-size: 18px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-
-    .quiz #question-0 .quiz-title {
-        margin: 0 auto 25px auto;;
-        font-size: 40px;
-        font-weight: 600;
-        line-height: 1.125;
-        color: white;
-        text-transform: uppercase;
-        font-family: $serif;
-    }
-
-    .quiz #question-0 p.quiz-instructions {
-        font-size: 20px;
-        font-weight: 400;
-        font-family: $sans;
-        line-height: 1.350;
-        margin-bottom: 65px;
-    }
-
-}
-@media screen and (max-width: 768px) {
-
-    .quiz #question-0 .quiz-title {
-        margin: 0 auto 15px auto;;
-        font-size: 32px;
-        font-weight: 600;
-        line-height: 1.125;
-        color: white;
-        text-transform: uppercase;
-        font-family: $serif;
-    }
-
-    .quiz #question-0 p.quiz-instructions {
-        font-size: 20px;
-        font-weight: 300;
-        font-family: $sans;
-        line-height: 1.200;
-        margin-bottom: 25px;
-    }
-
-}
-
 .quiz #question-0 .quiz-skip .quiz-skip-icon {
     color: #BB0826;
 }
@@ -465,102 +337,12 @@ h4.panel-title a {
     cursor: pointer
 }
 
-@media screen and (min-width: 768px) {
-    .quiz-controls {
-        width: 100px;
-        height: 50px;
-        margin-left: -50px
-    }
-}
-
 .quiz-controls span {
     line-height: 37px;
     font-size: 14px;
     top: 0
 }
 
-
-@media screen and (max-width: 768px) {
-
-    img.header-image-winner {
-        width: 300px;
-        height: 300px;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        padding-top:0;
-    }
-    .winning-horse-bio {
-        font-family: $sans;
-        color: white;
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 35px;
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 1.200;
-        padding-right: 5%;
-        padding-left: 5%;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    img.header-image-winner {
-        width: 250px;
-        height: 250px;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        padding-top:0;
-    }
-    .winning-horse-bio {
-        font-family: $sans;
-        color: white;
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 35px;
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 1.200;
-        padding-right: 15%;
-        padding-left: 15%;
-    }
-}
-
-@media screen and (max-width: 1199px) {
-
-    img.header-image-winner {
-        width: 350px;
-        height: 350px;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        padding-top:0;
-    }
-
-}
-@media screen and (max-width: 600px) {
-    img.header-image-winner {
-        width: 200px;
-        height: 200px;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        padding-top:0;
-    }
-    .winning-horse-bio {
-        font-family: $sans;
-        color: white;
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 35px;
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 1.200;
-        padding-right: 5%;
-        padding-left: 5%;
-    }
-}
 .winning-horse-intro {
     font-family: $serif;
     font-size: 42px;
@@ -671,39 +453,10 @@ h4.panel-title a {
 }
 
 
-@media screen and (min-width: 768px) {
-    .header-image-0 {
-        width: 350px;
-        height: 350px;
-    }
-}
-
-
-
-@media screen and (max-width: 768px) {
-    .header-image-0 {
-        width: 250px;
-        height: 250px;
-    }
-}
-
 
 .quiz #welcome .quiz-title {
     color: white;
     max-width: 960px;
-}
-
-@media screen and (min-width: 768px) {
-
-    .quiz #welcome h1 {
-        font-family: $serif;
-        color: white;
-        font-size: 40px;
-        font-weight: 600;
-        text-align: center!important;
-        text-transform: uppercase;
-        margin: 70px auto 25px auto;
-    }
 }
 
 .quiz #welcome .button .responses-label {
