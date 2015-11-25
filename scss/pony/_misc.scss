@@ -1,0 +1,48 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* PONY/_misc.scss */
+
+.ui-page-active {
+    @include background-image( linear-gradient(top, $trans 66%, $blueX 88%), url('../images/bkgrs/original-bubbles-big.jpg') );
+    background-size: cover;
+}
+html {
+    .wystar { display: none; }
+    &.wystar {
+        .wystar { display: inherit; }
+        .wells { display: none; }
+    }
+}
+header .mobile {
+    .wystar & {
+        background: $wystar;
+        img {
+            @include middify;
+            height: 40px;
+        }
+    }
+}
+.loading {
+    .wells, .wystar {
+        display: none;
+    }
+}
+.shareBar {
+    .outro & {
+        font-size: 1.7em;
+    }
+    $Bkgr: white;
+    $Norm: #165267;
+    $Over: #2394a0;
+
+    .shares li {
+        background-color: $Bkgr;
+
+        a { color: $Norm;
+            &:hover, &:focus { color: $Over; }
+        }
+    }
+}
+.stage {
+    display: none;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
