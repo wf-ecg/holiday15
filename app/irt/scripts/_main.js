@@ -184,8 +184,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             timer.stop();
         });
         $.subscribe('next.Game', function () {
-            message.init();
-            timer.add(1).start();
+            message.init(); // show instructions
+            timer.add(1).start();  // restart the timer
         });
 
         showIntro();

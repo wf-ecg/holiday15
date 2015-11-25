@@ -84,7 +84,7 @@ define(function () {
     }
 
     Data.get = function () {
-        var opts;
+        var opts, suck = 0;
 
         if (TEST) {
             return {
@@ -93,8 +93,11 @@ define(function () {
             };
         }
         do { // TODO prevent suck
+            if (suck++) {
+                C.warn('whoops Data running out');
+            }
             opts = nextArray(Data.anagrams);
-        } while (opts.length < 2);
+        } while (suck < 99 && opts.length < 2);
 
         return {
             correct: opts[0],
