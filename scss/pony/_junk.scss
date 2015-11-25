@@ -4,8 +4,8 @@
 $Prime: #75040c;
 
 html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+    //-ms-text-size-adjust: 100%;
+    //-webkit-text-size-adjust: 100%;
 }
 
 h1 {
@@ -19,46 +19,30 @@ h1 {
     margin-bottom: 15px;
 }
 
-.btn {
-    background-color: $Prime !important;
-    border-color: $Prime !important;
-    color: white !important;
-    display: block;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0.25em auto;
-    padding: 0.5em;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.btn-start {
-    margin-top: 1em;
-    width: 8em;
-}
-
-@media (max-width: 767px) {
-    .btn-restart {
-        font-family: $sans;
-        background-color: $Prime;
-        color: white;
-        font-size: 20px;
-        font-weight: 400;
-        height: 50px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 5px;
-        border-radius: 3px;
-        padding-right: 15px;
-        padding-left: 20px;
-
+#page-wrap {
+    color: white;
+    .btn {
+        background-color: $Prime !important;
+        border-color: $Prime !important;
+        color: white !important;
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0.25em auto;
+        padding: 0.5em;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
         &:hover {
-            border: 1px solid #0095c8;
-            background: $Prime;
-            text-align: center;
-            color: white;
+            background: #8b181b !important;
         }
+    }
+    .btn-quiz {
+        width: 300px;
+    }
+    .btn-start, .btn-restart {
+        margin-top: 1em;
+        width: 8em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -90,13 +74,6 @@ h1 {
     padding-top: 80px;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-.header-image-0 {
-    width: 260px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
 
 .sr-clip {
     display: none;
