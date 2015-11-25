@@ -40,18 +40,28 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
     var footer = $('footer').first();
     var button;
 
+    function detachShare(x) {
+        if (!x) {
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
+    }
+
     header.load('../includes/main_header.html header > *', function () {
         button = header.find('button').first();
+
         button.click(function () {
             $('.row-offcanvas').toggleClass('active');
             button.toggleClass('collapsed');
 
             if (button.is('.collapsed')) {
-                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+                detachShare(true);
             } else {
-                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+                detachShare(false);
             }
         });
+
         $.watchResize(function () {
             if (!button.is('.collapsed')) {
                 button.click();
@@ -63,7 +73,7 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markAgent();
+    //$.markAgent();
 
 //  PRIVATE
     function doBindings() {

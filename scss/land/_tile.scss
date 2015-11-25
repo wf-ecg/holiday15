@@ -51,8 +51,10 @@
             height: 100%;
 
             button {
-                position: absolute;
-                bottom: 1em;
+                html:not(.msie) & {
+                    position: absolute;
+                    bottom: 1em;
+                }
             }
         }
         div.flow {

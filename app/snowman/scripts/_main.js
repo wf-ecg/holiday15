@@ -65,18 +65,40 @@ define(['jquery', 'lodash', 'page', 'slides'], function
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markAgent();
+    //$.markAgent();
 
 //  PRIVATE
+    function hideStartScreen() {
+        $('#Welcome').removeClass('visible').addClass('hidden');
+        $('#Game').removeClass('hidden').addClass('visible');
+    }
+
+    function showStartScreen() {
+        $('#Welcome').removeClass('hidden').addClass('visible');
+        $('#Game').removeClass('visible').addClass('hidden');
+    }
+
+    function showGame() {
+        $('#Welcome').removeClass('visible').addClass('hidden');
+        $('#Game').removeClass('hidden').addClass('visible');
+    }
+
+    function hashchange() {
+        if (W.location.hash.length < 2) {
+            W.location.reload();
+        } else {
+            W.location.reload();
+        }
+    }
+
     function doBindings() {
         var mode = Page.getMode();
 
-        FastClick.attach(W.document.body);
         Page.reset(function () {
             Page.reSource($('[data-src]'));
             $('.loader').fadeOut(999);
-            Slides.init(W.jQuery);
-            //Slides.makeLink(false); <--- needed?
+            Slides.init($);
+            Slides.makeLink(false); // <--- needed?
         });
 
         /// EVENTS
@@ -85,11 +107,15 @@ define(['jquery', 'lodash', 'page', 'slides'], function
             Slides.closePreview();
             e.preventDefault();
         });
+
         $('body').on('keydown', function (evt) {
-            //C.debug('keydown', evt.keyCode);
             if (evt.keyCode === 27) {
                 Slides.closePreview();
             }
+        });
+
+        $("#btnStart").click(function () {
+            showGame();
         });
 
         /// MODES
@@ -99,13 +125,14 @@ define(['jquery', 'lodash', 'page', 'slides'], function
         $('.greeting').show();
 
         if (mode > 0) {
-
             $('.create').show();
 
             switch (mode) {
                 case 0:
+                    showStartScreen();
                     break;
-                case 2:
+                case 1:
+                    hideStartScreen();
                     $('.charity').show();
                     break;
                 case 3:
@@ -116,51 +143,9 @@ define(['jquery', 'lodash', 'page', 'slides'], function
             $('.create, .arrow').remove();
         }
 
+        $(W).on('hashchange', hashchange);
 
-        /// misc.js
-
-        function hideStartScreen() {
-            $('#Welcome').removeClass('visible').addClass('hidden');
-            $('#Game').removeClass('hidden').addClass('visible');
-        }
-
-        function showStartScreen() {
-            $('#Welcome').removeClass('hidden').addClass('visible');
-            $('#Game').removeClass('visible').addClass('hidden');
-        }
-
-        $("#btnStart").click(function () {
-            showGame();
-        });
-
-        function showGame() {
-            $('#Welcome').removeClass('visible').addClass('hidden');
-            $('#Game').removeClass('hidden').addClass('visible');
-        }
-
-
-        /// watchWindowHash.js
-
-        $(W).bind('hashchange', function (e) {
-            var hashwith = '';
-
-            if (W.location.hash === '') {
-                W.location.hash = '';
-                W.document.title = 'Snowman Scramble';
-
-                showStartScreen();
-            } else {
-                W.location.hash = W.location.hash.substring(1);
-                W.document.title = 'View my snowman';
-
-                hideStartScreen();
-            }
-        });
-
-        $(W).trigger('hashchange');
-
-
-
+        FastClick.attach(W.document.body);
     }
 
 //  INIT

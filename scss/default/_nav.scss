@@ -42,8 +42,18 @@ nav {
     nav {
         display: none;
     }
+    .navbar-header,
+    .navbar-toggle {
+        .desktop .land & {
+            display: none;
+        }
+        display: block;
+        float: right;
+    }
     .navbar-brand {
-        height: 80px;
+        .desktop .land & {
+            height: 80px;
+        }
     }
 }
 .navbar .navbar-toggle {
