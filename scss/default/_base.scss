@@ -71,13 +71,21 @@ footer {
 header {
     background-color: white;
     font-family: $sans;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    > div {
+        min-height: 50px;
+        position: fixed;
+        width: inherit;
+    }
 
     li {
         list-style: none;
     }
     .mobile {
         @include background-image( linear-gradient(top, #d5172f 0%, #8e0114 100%));
-        border-bottom: 1px solid white;
+        //border-bottom: 1px solid white;
         display: block;
         width: 100%;
 
@@ -86,14 +94,13 @@ header {
             height: 40px;
         }
     }
-    @media (max-width: $break - 1) {
-        position: absolute;
-        width: 100%;
-        z-index: 1;
+    .desktop .land & {
+        position: initial;
+        width: initial;
+        z-index: initial;
         > div {
-            min-height: 50px;
-            position: fixed !important;
-            width: inherit;
+            min-height: initial;
+            position: initial;
         }
     }
 }
@@ -121,7 +128,8 @@ p {
     -webkit-overflow-scrolling: touch;
     padding-top: 50px;
     padding-bottom: 3em;
-    .desktop & {
+
+    .desktop .land & {
         padding-top: 0;
         padding-bottom: 9em;
     }
