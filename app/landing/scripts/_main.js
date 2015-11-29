@@ -81,7 +81,7 @@ define(['jquery', 'lodash', 'modal'], function
 //  PRIVATE
     function doBindings() {
         Modal.init('.ui-page > .modal');
-        Modal.bind('.glyphicon-play-circle', '#Video1', function () {
+        Modal.bind('#videoPony', '#Video1', function () {
             $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
         }, function () {
             $('.modal').find('iframe').attr('src', '');
