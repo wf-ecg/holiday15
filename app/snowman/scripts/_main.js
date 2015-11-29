@@ -37,12 +37,11 @@ define(['jquery', 'lodash', 'page', 'slides'], function
         Page: Page,
         Slides: Slides,
     });
-    
-    $.ajaxSetup ({
-    // Disable caching of AJAX responses
-    cache: false
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
     });
-    
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();
@@ -96,7 +95,6 @@ define(['jquery', 'lodash', 'page', 'slides'], function
             W.location.reload();
         }
     }
-    
 
     function doBindings() {
         var mode = Page.getMode();
@@ -153,10 +151,9 @@ define(['jquery', 'lodash', 'page', 'slides'], function
         $(W).on('hashchange', hashchange);
 
         FastClick.attach(W.document.body);
-        
+
         $('.shareBar').first().load('../includes/snowman_share.html .shareBar > *');
     }
-
 
 //  INIT
     $(function () {

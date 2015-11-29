@@ -43,10 +43,9 @@ define(['jquery', 'lodash', 'modal'], function
     expose({
         Modal: Modal,
     });
-    
-    $.ajaxSetup ({
-    // Disable caching of AJAX responses
-    cache: false
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
     });
 
     var header = $('header').first();

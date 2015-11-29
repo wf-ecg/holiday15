@@ -35,12 +35,11 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
 //EXTEND
     expose({
     });
-    
-    $.ajaxSetup ({
-    // Disable caching of AJAX responses
-    cache: false
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
     });
-    
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();

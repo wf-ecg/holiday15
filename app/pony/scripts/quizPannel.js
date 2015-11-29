@@ -260,7 +260,6 @@ define(['jquery', 'hammer'], function ($, Hammer) {
 
         });
 
-
         $('#newQuiz').click(function () {
             location.reload();
         });
