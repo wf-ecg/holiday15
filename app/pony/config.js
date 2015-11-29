@@ -21,10 +21,10 @@ require.config({
         console: '../../vendor/ecg/console',
         modal: '../../vendor/ecg/modal',
         utils: '../../vendor/ecg/utils',
+        beacon: '../../vendor/ecg/beacon',
+        stats: '../../vendor/ecg/stats',
         //
-        beacon: 'libs/ecg-beacon',
         jqxtn: 'libs/jq-xtn',
-        stats: 'libs/ecg-stats',
         xtn: 'libs/drt-xtn',
         //
         hammer: '../../vendor/misc/hammer.min',
@@ -58,7 +58,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     require(['boots', 'jqmobi', '_main'], function () {
 
         _.delay(function () {
-            if (W.debug < -2) {
+            if (W.debug < 2) {
                 require(['stats'], function (stats) {
                     stats.init('HOLI-PONY');
                 });
