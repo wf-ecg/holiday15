@@ -1,7 +1,7 @@
 /*jslint  white:false */
 /*global define, window, $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$ */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-define(['jquery'], function ($) {
+define(['jquery', 'jssor', 'jssors'], function ($) {
 
     var W, C, Help;
 

@@ -47,7 +47,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
             }
             W.debug++;
         }
-        if (W.debug > 0) { // any debug should attempt livereload
+        if (W.debug > 1) { // any debug should attempt livereload
             require(['lr']);
             C.warn('LiveReloading');
         }
