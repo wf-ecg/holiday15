@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'page', 'slides'], function
-    MAIN($, _, Page, Slides) {
+define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
+    MAIN($, _, Page, Slides, FastClick) {
     'use strict';
 
     var Nom = 'Main';

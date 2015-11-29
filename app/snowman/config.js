@@ -27,6 +27,10 @@ require.config({
         jqxtn: 'libs/jq-xtn',
         xtn: 'libs/drt-xtn',
         //
+        jssor: '../../vendor/jssor/jssor',
+        jssors: '../../vendor/jssor/jssor.slider',
+        fastclick: '../../vendor/misc/fastclick',
+        bootsh: '../../vendor/bootstrap/bootstrapIeHelper',
     },
 });
 
@@ -52,7 +56,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', '_main'], function () {
+    require(['boots', 'jqmobi', 'jssor', 'jssors', 'bootsh', '_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {
