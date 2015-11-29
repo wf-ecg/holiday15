@@ -152,98 +152,98 @@ define(['jquery', 'hammer'], function ($, Hammer) {
                 case "eltoro":
                     document.getElementById("pn").innerHTML = "El Toro";
                     document.getElementById("pnBio").innerHTML =
-                        "'The Bull' worked in Wells Fargo’s Mexico City headquarters. At 27 years of age, he was oldest horse in the stables and only worked a few hours a week to keep him limber.";
+                        "'The Bull' worked in Wells&nbsp;Fargo’s Mexico City headquarters. At 27 years of age, he was oldest horse in the stables and only worked a few hours a week to keep him&nbsp;limber.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/eltoro.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "mollie":
                     document.getElementById("pn").innerHTML = "Mollie";
                     document.getElementById("pnBio").innerHTML =
-                        "A beautiful white mare that led the stagecoach team that brought stagecoach President Hayes to Roseburg, Oregon, narrowly missing a run-in with the notorious bandit, Black Bart.";
+                        "A beautiful white mare that led the stagecoach team that brought stagecoach President Hayes to Roseburg, Oregon, narrowly missing a run-in with the notorious bandit, Black&nbsp;Bart.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/mollie.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "snowflake":
                     document.getElementById("pn").innerHTML = "Snowflake";
                     document.getElementById("pnBio").innerHTML =
-                        "A pristine white horse, Snowflake lived in New Jersey and rode a ferry across the Hudson every morning to pull a wagon throughout Manhattan. ";
+                        "A pristine white horse, Snowflake lived in New Jersey and rode a ferry across the Hudson every morning to pull a wagon throughout&nbsp;Manhattan. ";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/snowflake.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "king":
                     document.getElementById("pn").innerHTML = "King";
                     document.getElementById("pnBio").innerHTML =
-                        "A black horse, King faithfully served Wells Fargo in Las Vegas, New Mexico, and Los Angeles.";
+                        "A black horse, King faithfully served Wells&nbsp;Fargo in Las Vegas, New Mexico, and Los&nbsp;Angeles.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/king.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "nellie":
                     document.getElementById("pn").innerHTML = "Nellie";
                     document.getElementById("pnBio").innerHTML =
-                        "With blazing speed, Nellie helped get her driver’s sick brother to a doctor and then finished her Wells Fargo route.";
+                        "With blazing speed, Nellie helped get her driver’s sick brother to a doctor and then finished her Wells&nbsp;Fargo&nbsp;route.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/nellie.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "buck":
                     document.getElementById("pn").innerHTML = "Buck";
                     document.getElementById("pnBio").innerHTML =
-                        "Handsome Buck started working for Wells Fargo in 1900 in Ardmore Oklahoma Territory. White he wasn’t the largest horse in the stable, Buck could pull a fully-loaded express wagon all by himself.";
+                        "Handsome Buck started working for Wells&nbsp;Fargo in 1900 in Ardmore Oklahoma Territory. White he wasn’t the largest horse in the stable, Buck could pull a fully-loaded express wagon all by&nbsp;himself.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/buck.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "mack":
                     document.getElementById("pn").innerHTML = "Mack";
                     document.getElementById("pnBio").innerHTML =
-                        "One of the most beloved horses that ever worked for Wells Fargo, the chestnut-colored Mack pulled a stagecoach on the Pioneer Stage Line from Placerville, California to Carson City, Nevada.";
+                        "One of the most beloved horses that ever worked for Wells&nbsp;Fargo, the chestnut-colored Mack pulled a stagecoach on the Pioneer Stage Line from Placerville, California to Carson City,&nbsp;Nevada.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/mack.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "prince":
                     document.getElementById("pn").innerHTML = "Prince";
                     document.getElementById("pnBio").innerHTML =
-                        "A striking gray horse that got his name because he was the most handsome horse in Ardmore, Oklahoma Territory stables and because he cost the princely sum of $125.";
+                        "A striking gray horse that got his name because he was the most handsome horse in Ardmore, Oklahoma Territory stables and because he cost the princely sum of&nbsp;$125.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/prince.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "dandy":
                     document.getElementById("pn").innerHTML = "Dandy";
                     document.getElementById("pnBio").innerHTML =
-                        "A big bay horse with a white mane, Dandy was one of the most valuable and expensive horses in 1895 Auburn, California. Wells Fargo paid $18 – top dollar in those days – to get him.";
+                        "A big bay horse with a white mane, Dandy was one of the most valuable and expensive horses in 1895 Auburn, California. Wells&nbsp;Fargo paid $18 – top dollar in those days – to get&nbsp;him.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/dandy.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "billy":
                     document.getElementById("pn").innerHTML = "Billy";
                     document.getElementById("pnBio").innerHTML =
-                        "A trusty Appaloosa and an early media star featured in the February 1914 issue of the Wells Fargo Messenger.";
+                        "A trusty Appaloosa and an early media star featured in the February 1914 issue of the Wells&nbsp;Fargo&nbsp;Messenger.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/billy.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "trixie":
                     document.getElementById("pn").innerHTML = "Trixie";
                     document.getElementById("pnBio").innerHTML =
-                        "A fine brown and white Paint, Trixie was born and raised in Ardmore, Oklahoma Territory and started working for Wells Fargo in 1918, often donning a wool blanket in the winter months to stay warm.";
+                        "A fine brown and white Paint, Trixie was born and raised in Ardmore, Oklahoma Territory and started working for Wells&nbsp;Fargo in 1918, often donning a wool blanket in the winter months to stay&nbsp;warm.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/trixie.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "grace":
                     document.getElementById("pn").innerHTML = "Grace";
                     document.getElementById("pnBio").innerHTML =
-                        "Had a reputation for delivering customers express shipments in Los Angeles with a dignified manner and  was one of the last ponies to ever work for Wells Fargo.";
+                        "Had a reputation for delivering customers express shipments in Los Angeles with a dignified manner and  was one of the last ponies to ever work for Wells&nbsp;Fargo.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/grace.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "maggie":
                     document.getElementById("pn").innerHTML = "Maggie";
                     document.getElementById("pnBio").innerHTML =
-                        "A brown mare with over 20 years service that represented Wells Fargo in the first annual San Francisco Work Horse Parade in 1909.";
+                        "A brown mare with over 20 years service that represented Wells&nbsp;Fargo in the first annual San Francisco Work Horse Parade in&nbsp;1909.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/maggie.svg' class='header-image-winner' alt='pony'>";
                     break;
                 case "al":
                     document.getElementById("pn").innerHTML = "Al";
                     document.getElementById("pnBio").innerHTML =
-                        "So beloved by his driver, Al was bought by the driver and retired to the driver’s ranch to live out the rest of his days in peace and quiet.";
+                        "So beloved by his driver, Al was bought by the driver and retired to the driver’s ranch to live out the rest of his days in peace and&nbsp;quiet.";
                     document.getElementById("pnIcon").innerHTML =
                         "<img src='./images/icons/pony/al.svg' class='header-image-winner' alt='pony'>";
                     break;
@@ -259,6 +259,7 @@ define(['jquery', 'hammer'], function ($, Hammer) {
             var result_page = $('#results-container');
 
         });
+
 
         $('#newQuiz').click(function () {
             location.reload();
