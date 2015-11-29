@@ -37,6 +37,11 @@ define(['jquery', 'lodash', 'page', 'slides'], function
         Page: Page,
         Slides: Slides,
     });
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
+    });
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();

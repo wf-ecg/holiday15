@@ -43,6 +43,11 @@ define(['jquery', 'lodash', 'modal'], function
     expose({
         Modal: Modal,
     });
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
+    });
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();
