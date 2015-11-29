@@ -142,6 +142,10 @@ nav ul.menu a img { margin-right: 0.5em; }
 .row-offcanvas nav { -moz-transition: all 0.25s; -o-transition: all 0.25s; -webkit-transition: all 0.25s; transition: all 0.25s; right: -67%; }
 .row-offcanvas.active nav { right: 0; }
 
+.snowman-buttons-container .shareBar { margin: auto 0px; text-align: left; }
+.snowman-buttons-container .shareBar ul { display: inline; margin-left:0px; }
+.snowman-buttons-container .shareBar li { margin: 0.25em; }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* DEFAULT/_screen.scss */
 @media (min-width: 0px) and (max-width: 519px) and (orientation: portrait), (min-width: 0px) and (max-width: 767px) and (orientation: landscape) { .ui-page > div { font-size: 0.6em; } }
@@ -168,6 +172,7 @@ html.desktop .mobile { display: none; }
 .shareBar:hover { opacity: 0.75; }
 header .shareBar { font-size: 15px; padding: 30px 20px 10px; position: absolute; right: 0; top: 0; }
 .shareBar .shares { font-size: 1.28571em; line-height: 0; list-style: none; margin: 0; padding-left: 0; }
+#snowmanShareBar .shareBar .shares { font-size: 1.7em !important; line-height: 0; list-style: none; margin: 0; padding-left: 0; }
 .shareBar .shares > li { background-color: #333; border-radius: 9em; display: inline-block; line-height: 1.5; margin-left: 1em; text-align: center; white-space: nowrap; zoom: 1; }
 .shareBar .shares > li > a { color: #fff; display: block; height: 1.8em; text-decoration: none; width: 1.8em; }
 .shareBar .shares > li > a:hover, .shareBar .shares > li > a:focus { color: #ccc; cursor: pointer; }
@@ -332,6 +337,7 @@ body { overflow: hidden; }
 @media print { body { height: 100%; overflow: hidden; }
   .NOPRINT, #Container, .mobile, .nav, .noprint { display: none !important; }
   #Preview { background: none; overflow: hidden; position: absolute; } }
+  
 @media (max-width: 768px) { body { overflow: auto; }
   #Container { border: none; box-shadow: none; margin: 0px; min-width: 300px; overflow: hidden; padding: 0.5em; padding-bottom: 3em; top: 40px; width: 100%; }
   #Copy { padding: 1em; }
@@ -342,6 +348,15 @@ body { overflow: hidden; }
   .scramble, .preview { display: inline-block; float: none; }
   .logo.desktop { display: none; }
   .logo.mobile { display: block; } }
+  
+  @media (min-width: 0px) and (max-width: 630px) {
+  
+  .frame {width:100% !important;}
+  #Container { padding: 0.5em auto 3em auto; width: 100% !important; min-width: 300px; }
+  #Game {width:100% !important; min-width:300px !important; margin:auto;}
+  #Toy { float: none; margin: auto 0px; text-align: center; width: 100%; }
+  #Copy { float: none; margin: auto; text-align: center; width: auto; }
+ }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* >^!^< */

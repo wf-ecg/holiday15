@@ -91,8 +91,8 @@ p { font-size: 1em; line-height: 1.4; }
 .modal * { max-width: 100%; }
 .modal.active { display: block !important; }
 .modal > div { background-color: white; border-radius: 3px; box-shadow: 0 3px 24px -4px black; display: block; z-index: 1100; /* center */ position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 960px; height: 540px; }
-.modal > div a.closer { background: url("../images/buttons/close.png") no-repeat; height: 32px; position: absolute; right: -20px; top: -15px; width: 32px; z-index: 9; }
-.modal > div a.closer img { border: 0; }
+.closer { background: url("../images/buttons/close.png") no-repeat; height: 32px; position: absolute; right: 20px; top: 20px; width: 32px; z-index: 999; }
+.closer img { border: 0; }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* DEFAULT/_nav.scss */
@@ -204,8 +204,11 @@ button.btn-tile.purple { background-color: #ae2573; color: white; }
 button.btn-tile.red { background-color: #ec1c29; color: white; }
 button.btn-tile.blue { background-color: #00698c; color: white; }
 button.btn-tile.orange { background-color: #ed8800; color: white; }
+button.btn-tile.clear { background-color:transparent; color: white; padding-left:0em !important; }
 
 .glyphicon-play-circle { top: 0; right: 0; bottom: 0; left: 0; margin: auto; position: absolute; background-image: url("../images/buttons/video-play-icon.png"); background-size: contain; color: transparent; cursor: pointer; font-size: 90px; height: 100px; width: 100px; }
+.modal > div a.closer { background: url("../images/buttons/close.png") no-repeat; height: 32px; position: absolute; right: -20px; top: -15px; width: 32px; z-index: 9; }
+.modal > div a.closer img { border: 0; }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* LAND/_caro.scss */
@@ -280,6 +283,23 @@ html:not(.msie) .masonry-container .sq- section button, html:not(.msie) .masonry
 .masonry-container .sq-sm p { padding-right: 3em; }
 .masonry-container .sq-lg { float: right; height: 38em; text-align: center; }
 @media (max-width: 991px) { .masonry-container .sq-lg { height: 38em; } }
+
+/* Internet Explorer 10+*/ 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    button.btn-tile {
+     position: absolute !important;
+     bottom: -2em !important;
+     margin-left:0px !important;
+    }
+}
+/*Microsoft Edge Browser -- button alignment issue*/
+@supports (-ms-accelerator:true) {
+    button.btn-tile {
+     position: absolute !important;
+     bottom: auto !important;
+     margin-left:0px !important;
+    }
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

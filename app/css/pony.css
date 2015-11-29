@@ -164,10 +164,11 @@ html.desktop .mobile { display: none; }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* DEFAULT/_share.scss */
-.shareBar { opacity: 0.5; }
+.shareBar { opacity: 0.5;}
 .shareBar:hover { opacity: 0.75; }
 header .shareBar { font-size: 15px; padding: 30px 20px 10px; position: absolute; right: 0; top: 0; }
 .shareBar .shares { font-size: 1.28571em; line-height: 0; list-style: none; margin: 0; padding-left: 0; }
+.share-quiz-footer .shareBar .shares { font-size: 2.57142em; line-height: 0; list-style: none; margin: 0; padding-left: 0; }
 .shareBar .shares > li { background-color: #333; border-radius: 9em; display: inline-block; line-height: 1.5; margin-left: 1em; text-align: center; white-space: nowrap; zoom: 1; }
 .shareBar .shares > li > a { color: #fff; display: block; height: 1.8em; text-decoration: none; width: 1.8em; }
 .shareBar .shares > li > a:hover, .shareBar .shares > li > a:focus { color: #ccc; cursor: pointer; }
@@ -180,6 +181,9 @@ header .shareBar { font-size: 15px; padding: 30px 20px 10px; position: absolute;
 .shareBar .shares .icon-twitter::after { content: '\f099'; }
 .shareBar .shares .icon-pinterest::after { content: '\f231'; }
 
+.centify { left: 0; right: 0; margin-left: auto; margin-right: auto; }
+
+.middify { left: 0; right: 0; top: 0; bottom: 0; margin: auto; }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* PONY/_all.scss */
@@ -237,13 +241,14 @@ h1 { font-family: "Archer SSm A", "Archer SSm B", serif; font-weight: 600; font-
 h1.quiz-title { font-family: "Archer SSm A", "Archer SSm B", serif; font-weight: 600; text-align: center !important; color: white; font-size: 42px; margin-top: 70px; margin-bottom: 25px; }
 
 h2.quiz-title { margin: 0 auto 50px auto; font-size: 40px; font-weight: 500; line-height: 1.125; font-family: "Archer SSm A", "Archer SSm B", serif; }
+@media (max-width:600px) {h2.quiz-title { font-size: 30px; } }
 
 p.quiz-instructions { font-size: 20px; font-weight: 400; font-family: "myriad-pro", sans-serif; line-height: 1.350; }
 
 .quiz-skip .quiz-skip-icon { border: none; border-radius: 50%; width: 32px; height: 32px; line-height: 26px; margin-left: 3px; vertical-align: middle; text-align: center; }
 
 .quiz .progress-button.answered { background-color: white; }
-.quiz input[type='radio'] { border: 0; clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; overflow: hidden; -webkit-appearance: none; visibility: hidden; display: none; }
+.quiz input[type='radio'] { border: 0; clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; overflow: hidden; }
 .quiz .traditional .filler, .quiz .linear .filler { text-align: center; color: #000; line-height: 30px; font-weight: bold; display: block; width: 30px; height: 30px; background-color: #FCC60A; border-radius: 50%; position: absolute; left: -3px; top: -3px; cursor: pointer; }
 .quiz .traditional input[type='radio']:checked + .filler, .quiz .linear input[type='radio']:checked + .filler { background-color: white; color: #8B181B; }
 .quiz .linear .filler { content: ''; background-color: #AE1E23; border: 2px solid #FCC60A; width: 28px; height: 28px; left: 3px; top: -2px; }
@@ -277,7 +282,7 @@ h4.panel-title a { height: 0; }
 
 .response-text { position: relative; z-index: 5; }
 
-.quiz-question { max-width: 20em; margin: 0 auto; padding: 1.5em 1em 1em 1em; display: table-cell; text-align: center; vertical-align: top; }
+.quiz-question { max-width: 20em; margin: 0 auto; padding: 2.5em 1em 1em 1em; display: table-cell; text-align: center; vertical-align: top; }
 
 .quiz-title, .quiz-finish-title { font-weight: 700; font-size: 22px; margin: 0; line-height: 1.125; color: white; }
 @media (min-width: 768px) { .quiz-title, .quiz-finish-title { margin: 30px auto 50px auto; font-size: 40px; font-weight: 500; line-height: 1.125; font-family: "Archer SSm A", "Archer SSm B", serif; } }
@@ -292,6 +297,13 @@ h4.panel-title a { height: 0; }
 .quiz-submit:focus, .quiz-submit:active { outline: 0; }
 
 .panel-group .panel + .panel { margin-top: 0; }
+
+.pseudoHidden {
+    border:none;
+    width:0%;
+    height:0%;
+    font-size:0%;
+}
 
 .quiz-controls { position: absolute; bottom: 0; left: 50%; -webkit-appearance: none; border: 0; width: 74px; height: 37px; text-align: center; margin-left: -37px; background-color: rgba(0, 0, 0, 0.15); color: white; cursor: pointer; }
 .quiz-controls span { line-height: 37px; font-size: 14px; top: 0; }
@@ -314,12 +326,20 @@ h4.panel-title a { height: 0; }
 @media (max-width: 1199px) { img.header-image-winner { width: 350px; height: 350px; margin-right: auto; margin-left: auto; text-align: center; padding-top: 0; } }
 @media (max-width: 600px) { img.header-image-winner { width: 200px; height: 200px; margin-right: auto; margin-left: auto; text-align: center; padding-top: 0; } }
 
-.share-your-pony { text-align: center; color: white; font-size: 20px; border-radius: 3px; margin-top: 10px; margin-bottom: 30px; }
+.share-your-pony {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
 
 .share-quiz-footer span { height: 35px; width: 35px; }
 
 #results-container .quiz-results { height: 100%; margin-top: 0; padding-top: 0; }
-#results-container .share-quiz-footer { margin: 0 auto 15px auto; }
+#results-container .share-quiz-footer { margin: 15px auto 15px auto; }
 #results-container .share-quiz-footer .fa-circle { color: white; cursor: pointer; }
 #results-container .share-quiz-footer i { color: #8B181B; cursor: pointer; }
 #results-container .share-quiz-footer span { margin-left: 15px; margin-right: 15px; cursor: pointer; height: 35px; width: 35px; }
@@ -332,7 +352,7 @@ h4.panel-title a { height: 0; }
 @media (min-width: 768px) { #question-0 .quiz-title { margin: 0 auto 25px auto; font-size: 40px; font-weight: 600; line-height: 1.125; color: white; text-transform: uppercase; font-family: "Archer SSm A", "Archer SSm B", serif; } }
 @media (max-width: 768px) { #question-0 .quiz-title { margin: 0 auto 15px auto; font-size: 32px; font-weight: 600; line-height: 1.125; color: white; text-transform: uppercase; font-family: "Archer SSm A", "Archer SSm B", serif; } }
 @media (min-width: 768px) { #question-0 p.quiz-instructions { margin-bottom: 65px; } }
-@media (max-width: 768px) { #question-0 p.quiz-instructions { font-weight: 300; line-height: 1.200; margin-bottom: 25px; } }
+@media (max-width: 9999px) { #question-0 p.quiz-instructions { font-weight: 300; line-height: 1.200; margin-bottom: 25px; } }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
