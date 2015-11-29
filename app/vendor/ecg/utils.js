@@ -105,8 +105,10 @@ define(['jquery', 'lodash'], function ($, _) {
             if (ua.match(/mobi/i)
                 || $(W).width() < 768) { // simulate
                 $('html').removeClass('desktop');
+                $('html').addClass('mobi');
             } else {
-                $('html').addClass('desktop');
+                $('html').removeClass('mobi');
+                //$('html').addClass('desktop');
             }
             if (ua.match(/chrome/i)) {
                 $('html').addClass('chrome');

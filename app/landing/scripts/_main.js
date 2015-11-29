@@ -43,6 +43,11 @@ define(['jquery', 'lodash', 'modal'], function
     expose({
         Modal: Modal,
     });
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
+    });
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();
@@ -71,12 +76,12 @@ define(['jquery', 'lodash', 'modal'], function
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    //$.markAgent();
+    $.markAgent();
 
 //  PRIVATE
     function doBindings() {
         Modal.init('.ui-page > .modal');
-        Modal.bind('.glyphicon-play-circle', '#Video1', function () {
+        Modal.bind('#videoPony', '.ponyVideo', function () {
             $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
         }, function () {
             $('.modal').find('iframe').attr('src', '');

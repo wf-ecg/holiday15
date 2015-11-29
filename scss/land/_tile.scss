@@ -88,4 +88,21 @@
     }
 }
 
+/* TODO gareth */
+/* Internet Explorer 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    button.btn-tile {
+        position: absolute !important;
+        bottom: -2em !important;
+        margin-left:0px !important;
+    }
+}
+/* Microsoft Edge Browser -- button alignment issue */
+@supports (-ms-accelerator: true) {
+    button.btn-tile {
+        position: absolute !important;
+        bottom: auto !important;
+        margin-left:0px !important;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

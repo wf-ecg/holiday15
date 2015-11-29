@@ -19,6 +19,8 @@ h2.quiz-title {
     font-family: $serif;
 }
 
+/* TODO gareth */
+@media (max-width:600px) {h2.quiz-title { font-size: 30px; } }
 
 p.quiz-instructions {
     font-size: 20px;
@@ -53,9 +55,6 @@ p.quiz-instructions {
         margin: -1px;
         padding: 0;
         overflow: hidden;
-        -webkit-appearance: none;
-        visibility: hidden;
-        display: none;
     }
 
     .traditional .filler,
@@ -241,7 +240,7 @@ h4.panel-title a {
 .quiz-question {
     max-width: 20em;
     margin: 0 auto;
-    padding: 1.5em 1em 1em 1em;
+    padding: 2.5em 1em 1em 1em;
     display: table-cell;
     text-align: center;
     vertical-align: top;
@@ -295,6 +294,13 @@ h4.panel-title a {
 
 .panel-group .panel + .panel {
     margin-top: 0;
+}
+
+.pseudoHidden {
+    border:none;
+    width:0%;
+    height:0%;
+    font-size:0%;
 }
 
 .quiz-controls {
@@ -447,6 +453,7 @@ img.header-image-winner {
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 30px;
+    font-weight: 600;
 }
 
 .share-quiz-footer span {
@@ -462,7 +469,7 @@ img.header-image-winner {
     }
 
     .share-quiz-footer {
-        margin: 0 auto 15px auto;
+        margin: 15px auto 15px auto;
 
         .fa-circle {
             color: white;
@@ -540,7 +547,7 @@ img.header-image-winner {
         @media (min-width: 768px) {
             margin-bottom: 65px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 9999px) {
             font-weight: 300;
             line-height: 1.200;
             margin-bottom: 25px;

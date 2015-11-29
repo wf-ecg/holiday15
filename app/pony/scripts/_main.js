@@ -35,6 +35,11 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
 //EXTEND
     expose({
     });
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
+    });
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();
@@ -48,7 +53,7 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
         }
     }
 
-    header.load('../includes/main_header.html header > *', function () {
+    header.load('../includes/pony_header.html header > *', function () {
         button = header.find('button').first();
 
         button.click(function () {
@@ -56,9 +61,9 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
             button.toggleClass('collapsed');
 
             if (button.is('.collapsed')) {
-                detachShare(true);
-            } else {
                 detachShare(false);
+            } else {
+                detachShare(true);
             }
         });
 
@@ -73,11 +78,11 @@ define(['jquery', 'lodash', 'hammer', 'respond', 'picfill', 'vendor', 'quizPanne
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    //$.markAgent();
+    $.markAgent();
 
 //  PRIVATE
     function doBindings() {
-        $('.shareBar').first().load('../includes/main_share.html .shareBar > *');
+        $('.shareBar').first().load('../includes/pony_share.html .shareBar > *');
     }
 
 //  INIT

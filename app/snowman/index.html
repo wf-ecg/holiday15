@@ -12,13 +12,13 @@
     <meta name="author" content="Wells Fargo">
     <!-- static -->
     <link rel="canonical" href="http://www.wellsfargomedia.com/holidays/snowman/index.html">
-    <meta property="og:title" content="Happy Holidays">
+    <meta property="og:title" content="Build Your Own Snowman">
     <meta property="og:description" content="Create a snowman as cool as you with the Snowman Shuffle at wellsfargo.com/holidays#snowman">
     <meta property="og:image" content="http://www.wellsfargomedia.com/holidays/images/share/og-snowman.png">
-    <!--
-    <meta property="og:type" content="***TYPE***">
-    <meta property="og:url" content="***URL***"
-    -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.wellsfargomedia.com/holidays/snowman/index.html">
+    <meta property="fb:app_id" content="744661099000077">
+
     <!-- css -->
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
@@ -59,7 +59,7 @@
                 <img id="snowmanIcon" src="./images/snowman-icon.svg" class="">
 
                 <h1>Snowman <br>Shuffle</h1>
-                <p>Swipe the snowman parts right or left to <br>create your personal snowman.</p>
+                <p>Swipe the snowman parts right or left to create your personal&nbsp;snowman.</p>
                 <p>Or for a random snowman, try the<br> <b>SHUFFLE</b> button.</p>
                 <a class="btn btn-primary btn-start" id="btnStart" onclick="
                       window.location.hash = 'm1';
@@ -166,20 +166,26 @@
                   </div>
 
                   <div class="snowman-buttons-container">
-                    <div class="box" style="width: 100%;">
+                    <div class="box" id="snowmanButton1">
                       <a onclick="
                             Slides.scramble();
                             return undefined;
                          " class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
                     </div>
-                    <div class="box hide">
+                    <div class="box" id="snowmanButton2">
                       <a onclick="
-                            Slides.openPreview();
-                            return undefined;
-                         " class="btn btn-primary btn-block btn-preview"> Share </a>
+                            document.getElementById( 'snowmanButton1' ).style.display = 'none';
+                            document.getElementById( 'snowmanButton2' ).style.display = 'none';
+                            document.getElementById( 'snowmanShareBar' ).style.display = 'block';" 
+                            class="btn btn-primary btn-block btn-preview"> Share </a>
                     </div>
+                    <div id="snowmanShareBar" class="share-quiz-footer" style="display:none; width:100%">
+                            <div class="shareBar" style="display:inherit; float:left; width:auto; margin-left:0px; padding-left:0px;"></div>
+                            <button class="btn btn-restart" onclick="window.location.href='index.html'" id="newSnowman" style="display:inherit; float:right;">New Snowman</button>
+                        </div>
                     <div style="clear:both;"></div>
-                  </div>
+  
+                  </div> <!-- end snowman-buttons-container -->
 
                 </div>
                 <!-- end Toy -->

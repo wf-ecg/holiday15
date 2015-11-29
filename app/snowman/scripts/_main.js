@@ -37,12 +37,17 @@ define(['jquery', 'lodash', 'page', 'slides'], function
         Page: Page,
         Slides: Slides,
     });
+
+    $.ajaxSetup ({ // disable caching
+        cache: false,
+    });
+
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var footer = $('footer').first();
     var button;
 
-    header.load('../includes/main_header.html header > *', function () {
+    header.load('../includes/snowman_header.html header > *', function () {
         button = header.find('button').first();
         button.click(function () {
             $('.row-offcanvas').toggleClass('active');
@@ -65,7 +70,7 @@ define(['jquery', 'lodash', 'page', 'slides'], function
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    //$.markAgent();
+    $.markAgent();
 
 //  PRIVATE
     function hideStartScreen() {
@@ -146,6 +151,8 @@ define(['jquery', 'lodash', 'page', 'slides'], function
         $(W).on('hashchange', hashchange);
 
         FastClick.attach(W.document.body);
+
+        $('.shareBar').first().load('../includes/snowman_share.html .shareBar > *');
     }
 
 //  INIT
