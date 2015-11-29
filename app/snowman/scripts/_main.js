@@ -70,7 +70,7 @@ define(['jquery', 'lodash', 'page', 'slides'], function
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    //$.markAgent();
+    $.markAgent();
 
 //  PRIVATE
     function hideStartScreen() {
