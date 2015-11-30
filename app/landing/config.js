@@ -21,9 +21,8 @@ require.config({
         console: '../../vendor/ecg/console',
         modal: '../../vendor/ecg/modal',
         utils: '../../vendor/ecg/utils',
-        //
-        beacon: 'libs/ecg-beacon',
-        stats: 'libs/ecg-stats',
+        beacon: '../../vendor/ecg/beacon',
+        stats: '../../vendor/ecg/stats',
         //
         angular: '../../vendor/ng/angular.min',
         angularAMD: '../../vendor/ng/angularAMD.min',
@@ -46,7 +45,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
             }
             W.debug++;
         }
-        if (W.debug > 0) { // any debug should attempt livereload
+        if (W.debug > 1) { // any debug should attempt livereload
             require(['lr']);
             C.warn('LiveReloading');
         }
@@ -58,7 +57,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     require(['boots', 'jqmobi', '_main'], function () {
 
         _.delay(function () {
-            if (W.debug < -2) {
+            if (W.debug < 2) {
                 require(['stats'], function (stats) {
                     stats.init('HOLI-LAND');
                 });
