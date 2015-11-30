@@ -1,0 +1,38 @@
+<div class="shareBar" id="shareBarDynamic"><debug>[async pony_share_dynamic]</debug>
+
+  <ul class="shares">
+    <li>
+      <a class="icon-facebook"
+         href="#"
+         onclick="facebookDynamicPony(document.getElementById('pn').innerHTML);"
+         target="External"
+         title="Share to Facebook">
+        <span class="ada">(opens dialog)</span>
+      </a>
+    </li>
+    <li>
+      <a class="icon-twitter"
+         href="#"
+         onclick="tweetDynamic(document.getElementById('pn').innerHTML);"
+         target="external"
+         title="Share to Twitter">
+        <span class="ada">(opens dialog)</span>
+      </a>
+    </li>
+    <li>
+      <a class="icon-googleplus"
+         id="shareGooglePost"
+         href="#"
+         onclick="googlePlusDynamicPony(document.getElementById('pn').innerHTML);"
+         target="external"
+         title="Share to Google Plus"><span class="ada">(opens dialog)</span></a></li>
+    <li>
+      <a class="icon-share"
+         href="#"
+         onclick="emailDynamic(document.getElementById('pn').innerHTML);"
+         title="Share by Email">
+        <span class="ada">(opens dialog)</span>
+      </a>
+    </li>
+  </ul>
+</div>
