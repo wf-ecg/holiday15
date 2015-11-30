@@ -64,6 +64,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
                 button.click();
             }
         });
+        bindDialog();
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
@@ -73,6 +74,16 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
     $.markAgent();
 
 //  PRIVATE
+    function bindDialog() { // off site dialog
+        var dialog = $('.modal .dialog'); // thing to show
+        var triggers = $('.shareBar .shares a'); // intercept these
+
+        Modal.bind(triggers, dialog, function (data) {
+            dialog.find('.utilitybtn') // find the go button
+                .attr('href', data.source[0].href); // transfer url
+        });
+    }
+
     function hideStartScreen() {
         $('#Welcome').removeClass('visible').addClass('hidden');
         $('#Game').removeClass('hidden').addClass('visible');
