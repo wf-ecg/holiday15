@@ -70,6 +70,7 @@ define(['jquery', 'lodash', 'modal'], function
                 button.click();
             }
         });
+        bindDialog();
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
@@ -79,16 +80,35 @@ define(['jquery', 'lodash', 'modal'], function
     $.markAgent();
 
 //  PRIVATE
+    function bindDialog() { // off site dialog
+        var dialog = $('.modal .dialog'); // thing to show
+        var triggers = $('.shareBar .shares a'); // intercept these
+
+        Modal.bind(triggers, dialog, function (data) {
+            dialog.find('.utilitybtn') // find the go button
+                .attr('href', data.source[0].href); // transfer url
+        });
+    }
+
     function doBindings() {
         Modal.init('.ui-page > .modal');
         Modal.bind('#videoPony', '.ponyVideo', function () {
-            $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+            var src = $('.modal').find('iframe').attr('src');
+
+            if ($('html').is('.mobi')) {
+                W.open('https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+                _.defer(Modal.hide);
+            } else if (!src) {
+                $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+            }
+
         }, function () {
             $('.modal').find('iframe').attr('src', '');
         });
+
         $('.tile').on('mouseup', function (evt) {
             var a = $(evt.delegateTarget).find('a')[0];
-            a && a.click();
+            a && a.click(); // make surrounding tile trigger button
         });
         $(W).on('resize', swapper);
         swapper();

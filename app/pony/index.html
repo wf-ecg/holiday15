@@ -32,6 +32,9 @@
             data-main="./config"
             data-main="./build/app"
     ></script>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="../vendor/wf/dynamicShare.js"></script>
   </head>
 
   <body class="loading"><div data-role="page" class="pony">
@@ -64,7 +67,7 @@
                           <p class="share-your-pony">Share your pony personality:</p>
                           <div class="share-quiz-footer">
 
-                            <div class="shareBar"></div>
+                            <div id="shareBarDynamic" class="shareBar"></div>
 
                           </div>
                           <button class="btn btn-restart" href="index.html" id="newQuiz">Play Again</button>
@@ -728,9 +731,9 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q10-tigger">
+                                        <label class="btn btn-quiz" id="q10-trigger">
                                           <input type="radio" class="hidden" name="q10" value="mack_100:snowflake_100">
-                                          <span class="response-text">Tigger</span>
+                                          <span class="response-text">Trigger</span>
                                         </label>
                                       </div>
                                     </div>
@@ -806,7 +809,28 @@
         <!-- END FRAME -->
       </div>
 
-      <div class="modal"></div>
+      <div class="modal">
+
+        <!-- OFFSITE DIALOG -->
+        <div class="dialog">
+          <div class="header">
+            <img alt="" src="../images/logos/wf-square.svg" width="50">
+          </div>
+          <div class="content">
+            <h2>You are leaving this Wells Fargo website</h2>
+            <p>
+              You are leaving a Wells Fargo site and entering a website that Wells Fargo does not control.
+              Wells Fargo has provided this link for your convenience,
+              but does not endorse and is not responsible for the content,
+              links, privacy policy, or security policy of this website.
+            </p>
+          </div>
+          <div class="footer">
+            <a href="javascript:;" class="cancel">Cancel</a><a class="utilitybtn">Continue</a>
+          </div>
+        </div>
+
+      </div>
 
     </div></body>
 </html>
