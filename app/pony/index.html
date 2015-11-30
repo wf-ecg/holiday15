@@ -32,6 +32,8 @@
             data-main="./config"
             data-main="./build/app"
     ></script>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script src="../vendor/wf/dynamicShare.js"></script>
   </head>
 
   <body class="loading"><div data-role="page" class="pony">
@@ -64,7 +66,7 @@
                           <p class="share-your-pony">Share your pony personality:</p>
                           <div class="share-quiz-footer">
 
-                            <div class="shareBar"></div>
+                            <div id="shareBarDynamic" class="shareBar"></div>
 
                           </div>
                           <button class="btn btn-restart" href="index.html" id="newQuiz">Play Again</button>
@@ -728,9 +730,9 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q10-tigger">
+                                        <label class="btn btn-quiz" id="q10-trigger">
                                           <input type="radio" class="hidden" name="q10" value="mack_100:snowflake_100">
-                                          <span class="response-text">Tigger</span>
+                                          <span class="response-text">Trigger</span>
                                         </label>
                                       </div>
                                     </div>

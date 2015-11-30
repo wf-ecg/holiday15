@@ -82,7 +82,8 @@ define(['jquery', 'lodash', 'quizPannel'], function
 
 //  PRIVATE
     function doBindings() {
-        $('.shareBar').first().load('../includes/pony_share.html .shareBar > *');
+        $('.shareBar:not(#shareBarDynamic)').first().load('../includes/pony_share.html .shareBar > *');
+        $('#shareBarDynamic').first().load('../includes/pony_share_dynamic.html #shareBarDynamic > *');
     }
 
 //  INIT
