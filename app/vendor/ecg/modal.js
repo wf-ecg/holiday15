@@ -101,7 +101,9 @@ define(['jquery'], function ($) {
                     ele.find('a, button') //
                         .attr('tabindex', '0') //
                         .first().focus().end() //
-                        .last().one('blur', self.hide);
+                        .last().one('blur', function () {
+                        ele.find('a, button').first().focus(); // loop back
+                    });
                 });
             }
             return self;
