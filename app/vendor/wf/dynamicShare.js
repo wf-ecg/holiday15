@@ -24,7 +24,7 @@ function facebookDynamicPony(ponyName) {
 function googlePlusDynamicPony(ponyName) {
 
     var options = {
-        contenturl: 'http://www.wellsfargo.com/holidays#pony',
+        contenturl: 'http://www.wellsfargomedia.com/holidays/pony/index.html',
         contentdeeplinkid: '/pages',
         clientid: '549262275864-diq538uo7217empmla5omrfqekn8quk3.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
