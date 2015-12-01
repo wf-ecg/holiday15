@@ -293,9 +293,8 @@ define(['jquery', 'hammer'], function ($, Hammer) {
             displayCase();
         });
 
-        var hammertime = new Hammer(document.body, {preventDefault: true});
-
-        hammertime.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
+        //var hammertime = new Hammer(document.body, {preventDefault: false});
+        //hammertime.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
 
     });
 
