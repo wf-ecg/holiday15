@@ -9,34 +9,6 @@ define(['jquery', 'hammer'], function ($, Hammer) {
 
     var panelRatio = 0.84;
 
-    (function () { // from http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-        var Nom = 'smartresize';
-
-        var debounce = function (func, threshold, execAsap) {
-            var timeout;
-
-            return function () { // debounced
-                var obj = this, args = arguments;
-
-                function delayed() {
-                    if (!execAsap)
-                        func.apply(obj, args);
-                    timeout = null;
-                }
-                if (timeout) {
-                    clearTimeout(timeout);
-                } else if (execAsap) {
-                    func.apply(obj, args);
-                }
-                timeout = setTimeout(delayed, threshold || 100);
-            };
-        };
-        $.fn[Nom] = function (fn) {
-            return fn ? this.bind('resize', debounce(fn)) : this.trigger(Nom);
-        };
-
-    })();
-
     navigator.userAgent.match(/trident/i) && $('label').one('click', function () {
         $(this).find('input').click().trigger('change');
         //C.log('foo gareth');
@@ -127,10 +99,6 @@ define(['jquery', 'hammer'], function ($, Hammer) {
 
         quizInit();
         updatePanelClasses();
-
-        $(W).smartresize(function () {
-            quizInit();
-        });
 
         //update certain display setting whenever collapse events occur
         $('#quiz-group').on('shown.bs.collapse', function () {
