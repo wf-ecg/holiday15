@@ -98,7 +98,7 @@
     }
 }
 /* Microsoft Edge Browser -- button alignment issue */
-@supports (-ms-accelerator: true) {
+@media (-ms-accelerator: true) {
     button.btn-tile {
         position: absolute !important;
         bottom: auto !important;
