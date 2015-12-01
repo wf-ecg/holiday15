@@ -1,7 +1,7 @@
 /*jslint  white:false */
 /*global define, window, FB, gapi */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/platform.js'], function (F, G) {
+define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/platform.js'], function () {
     var W, C;
 
     W = W || window;
@@ -12,17 +12,18 @@ define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/
     FB.init({appId: '744661099000077', status: true, cookie: true});
 
     function facebookDynamicPony(ponyName) {
+        ponyName = ponyName || W.document.getElementById('pn').innerHTML;
         // calling the API ...
         var obj = {
-            method: 'feed',
-            redirect_uri: 'http://www.wellsfargo.com/holidays#pony',
-            link: 'http://www.wellsfargomedia.com/holidays/pony/index.html',
-            picture: 'http://www.wellsfargomedia.com/holidays/pony/images/icons/social/ponies/PonyTile_' +
-                ponyName + '.jpg',
-            name: 'I’m just like ' + ponyName + '.',
             caption: 'Wells Fargo',
             description: 'What’s your pony personality? ' +
-                'Take the quiz to find out at wellsfargo.com/holidays#pony.'
+                'Take the quiz to find out at wellsfargo.com/holidays#pony.',
+            link: 'http://www.wellsfargomedia.com/holidays/pony/index.html',
+            method: 'feed',
+            name: 'I’m just like ' + ponyName + '.',
+            picture: 'http://www.wellsfargomedia.com/holidays/pony/images/icons/social/ponies/PonyTile_' +
+                ponyName + '.jpg',
+            redirect_uri: 'http://www.wellsfargo.com/holidays#pony',
         };
 
 //        function callback(response) {
@@ -33,46 +34,47 @@ define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/
     }
 
     function googlePlusDynamicPony(ponyName) {
+        ponyName = ponyName || W.document.getElementById('pn').innerHTML;
 
-        var options = {
-            contenturl: 'http://www.wellsfargomedia.com/holidays/pony/index.html',
-            contentdeeplinkid: '/pages',
-            clientid: '549262275864-diq538uo7217empmla5omrfqekn8quk3.apps.googleusercontent.com',
-            cookiepolicy: 'single_host_origin',
-            prefilltext: 'I’m most like' +
-                ponyName + '. ' +
-                'What’s your pony personality? ' +
-                'Take the quiz to find out at wellsfargo.com/holidays#pony.',
+        var obj = {
             calltoactionlabel: 'PLAY',
+            calltoactiondeeplinkid: '/pages/create',
             calltoactionurl: 'http://www.wellsfargo.com/holidays#pony',
-            calltoactiondeeplinkid: '/pages/create'
+            clientid: '549262275864-diq538uo7217empmla5omrfqekn8quk3.apps.googleusercontent.com',
+            contentdeeplinkid: '/pages',
+            contenturl: 'http://www.wellsfargomedia.com/holidays/pony/index.html',
+            cookiepolicy: 'single_host_origin',
+            prefilltext: 'I’m most like' + ponyName +
+                '. What’s your pony personality? ' +
+                'Take the quiz to find out at wellsfargo.com/holidays#pony.',
         };
 
         // Call the render method when appropriate within your app to display the button.
-        gapi.interactivepost.render('shareGooglePost', options);
+        gapi.interactivepost.render('shareGooglePost', obj);
 
     }
 
     function tweetDynamic(ponyName) {
+        ponyName = ponyName || W.document.getElementById('pn').innerHTML;
 
-        var tweetUrl = 'https://twitter.com/share?' +
-            'text=I’m just like ' + encodeURIComponent(ponyName) +
+        var url = 'https://twitter.com/share?' +
+            'text=I’m just like ' + ponyName +
             '. What’s your pony personality? ' +
             'Take the quiz to find out at wellsfargo.com/holidays#pony.';
 
-        W.open(tweetUrl);
+        W.open(url);
     }
 
     function emailDynamic(ponyName) {
+        ponyName = ponyName || W.document.getElementById('pn').innerHTML;
 
-        var emailUrl = 'mailto:?subject=' +
-            'What’s%20Your%20Pony%20Personality?&body=I’m%20most%20like%20' +
-            ponyName +
+        var url = 'mailto:?subject=What’s%20Your%20Pony%20Personality?&body=' +
+            'I’m%20most%20like%20' + encodeURIComponent(ponyName) +
             '. What’s%20your%20pony%20personality?' +
             '%20Take%20the%20quiz%20to%20find%20out%20at%20' +
             'https://www.wellsfargo.com/holidays%23pony';
 
-        W.open(emailUrl);
+        W.open(url);
     }
 
     return {
