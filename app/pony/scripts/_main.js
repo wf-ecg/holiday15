@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizPannel'], function
-    MAIN($, _) {
+define(['jquery', 'lodash', 'quizPannel', 'modal'], function
+    MAIN($, _, xx, Modal) {
     'use strict';
 
     var Nom = 'Main';
@@ -93,6 +93,7 @@ define(['jquery', 'lodash', 'quizPannel'], function
     }
 
     function doBindings() {
+        Modal.init('.ui-page > .modal');
         $('.shareBar:not(#shareBarDynamic)').first().load('../includes/pony_share.html .shareBar > *');
         $('#shareBarDynamic').first().load('../includes/pony_share_dynamic.html #shareBarDynamic > *');
     }
