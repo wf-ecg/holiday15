@@ -1,5 +1,5 @@
 /*jslint  white:false */
-/*globals define, window */
+/*global define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 define(['jquery', 'help'], function ($, Help) {
     var W, C, Page;
@@ -8,9 +8,9 @@ define(['jquery', 'help'], function ($, Help) {
     C = C || W.console;
 
     Page = {
-        getMode: new Function,
-        reset: new Function,
-        reSource: new Function,
+        getMode: Function,
+        reset: Function,
+        reSource: Function,
     };
 
     Page.getMode = function () {
