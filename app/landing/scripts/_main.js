@@ -77,7 +77,26 @@ define(['jquery', 'lodash', 'modal'], function
     footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
-    $.markAgent();
+    $.watchResize(function () {
+        var ua = W.navigator.userAgent;
+        if (ua.match(/mobi/i)
+            || $(W).width() < 768) { // simulate
+            $('html').removeClass('desktop');
+            $('html').addClass('mobi');
+        } else {
+            $('html').removeClass('mobi');
+            $('html').addClass('desktop');
+        }
+        if (ua.match(/chrome/i)) {
+            $('html').addClass('chrome');
+        } else if (ua.match(/safari/i)) {
+            $('html').addClass('safari');
+        } else if (ua.match(/firefox/i)) {
+            $('html').addClass('firefox');
+        } else if (ua.match(/trident/i)) {
+            $('html').addClass('trident');
+        }
+    }, 'markAgent');
 
 //  PRIVATE
     function bindDialog() { // off site dialog
