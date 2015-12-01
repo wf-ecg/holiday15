@@ -44,14 +44,12 @@ define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/
             contentdeeplinkid: '/pages',
             contenturl: 'http://www.wellsfargomedia.com/holidays/pony/index.html',
             cookiepolicy: 'single_host_origin',
-            prefilltext: 'I’m most like' + ponyName +
+            prefilltext: 'I’m most like ' + ponyName +
                 '. What’s your pony personality? ' +
                 'Take the quiz to find out at wellsfargo.com/holidays#pony.',
         };
-
         // Call the render method when appropriate within your app to display the button.
-        gapi.interactivepost.render('shareGooglePost', obj);
-
+        C.log('g+', obj, gapi.interactivepost.render('shareGooglePost', obj));
     }
 
     function tweetDynamic(ponyName) {
