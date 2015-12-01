@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
-    MAIN($, _, Page, Slides, FastClick) {
+define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
+    MAIN($, _, Page, Slides, FastClick, Modal) {
     'use strict';
 
     var Nom = 'Main';
@@ -108,6 +108,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
     }
 
     function doBindings() {
+        Modal.init('.ui-page > .modal');
         var mode = Page.getMode();
 
         Page.reset(function () {

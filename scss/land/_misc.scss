@@ -1,6 +1,10 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* LAND/_misc.scss */
 
+.trident.desktop .land header {
+    height: 99px;
+    position: relative;
+}
 .reverse {
     @include transform( scaleX(-1) !important);
 }
@@ -55,7 +59,7 @@
     font-size: 1.4em;
 }
 .stage {
-    display: none;
+    //display: none;
 }
 
 @media (max-width: 479px) {

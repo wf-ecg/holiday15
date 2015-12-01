@@ -100,7 +100,7 @@ header {
         z-index: initial;
         > div {
             min-height: initial;
-            position: initial;
+            position: static;
         }
     }
 }
