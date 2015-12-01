@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizpanel', 'modal'], function //, 'dynashare'
-    MAIN($, _, QP, Modal) {
+define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
+    MAIN($, _, QP, Modal, Dynash) {
     'use strict';
 
     var Nom = 'Main';
@@ -33,7 +33,12 @@ define(['jquery', 'lodash', 'quizpanel', 'modal'], function //, 'dynashare'
     }
 
 //EXTEND
+    W.Dynash = Dynash;
+
     expose({
+        Dynash: Dynash,
+        Modal: Modal,
+        QP: QP,
     });
 
     $.ajaxSetup ({ // disable caching

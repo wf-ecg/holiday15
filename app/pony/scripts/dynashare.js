@@ -75,4 +75,10 @@ define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/
         W.open(emailUrl);
     }
 
+    return {
+        facebook: facebookDynamicPony,
+        google: googlePlusDynamicPony,
+        tweet: tweetDynamic,
+        email: emailDynamic,
+    };
 });
