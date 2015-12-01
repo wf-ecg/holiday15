@@ -1,3 +1,12 @@
+/*jslint  white:false */
+/*global define, window, FB, gapi */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/platform.js'], function (F, G) {
+    var W, C;
+
+    W = W || window;
+    C = C || W.console;
+
 // Dynamic Social Share
 
 FB.init({appId: "744661099000077", status: true, cookie: true});
@@ -55,3 +64,5 @@ function emailDynamic(ponyName) {
 
     window.open(emailUrl);
 }
+
+});

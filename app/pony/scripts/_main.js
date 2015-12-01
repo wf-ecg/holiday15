@@ -10,7 +10,7 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizPannel', 'modal'], function
+define(['jquery', 'lodash', 'quizPannel', 'modal', 'dynashare'], function
     MAIN($, _, xx, Modal) {
     'use strict';
 
