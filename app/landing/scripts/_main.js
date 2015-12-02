@@ -74,7 +74,6 @@ define(['jquery', 'lodash', 'modal'], function
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
-    footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
     $.watchResize(function () {

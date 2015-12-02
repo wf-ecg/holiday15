@@ -81,7 +81,6 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
-    footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
     $.markAgent();

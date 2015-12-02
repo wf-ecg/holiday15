@@ -79,7 +79,6 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
-    footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
     //$.markAgent();
