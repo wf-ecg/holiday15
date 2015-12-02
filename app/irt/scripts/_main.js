@@ -41,7 +41,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         rating: '.ratings',
     };
 
-    $('.shareBar').first().load('../includes/main_share.html .shareBar > *', function () {
+    $('.shareBar').first().load('../includes/irt_share.html .shareBar > *', function () {
         var me = $(this),
             str = me.html();
         if ($('html').is('.wystar')) {

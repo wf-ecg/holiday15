@@ -163,7 +163,6 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
 
         FastClick.attach(W.document.body);
 
-        $('.shareBar').first().load('../includes/snowman_share.html .shareBar > *');
     }
 
 //  INIT
