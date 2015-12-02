@@ -94,7 +94,7 @@ header {
             height: 40px;
         }
     }
-    .desktop .land & {
+    .desktop .land &, .desktop .irt & {
         position: initial;
         width: initial;
         z-index: initial;
