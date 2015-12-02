@@ -41,6 +41,19 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         rating: '.ratings',
     };
 
+    var SLUGS = {
+        index: 'http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/',
+        greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game',
+    };
+
+    if (!$('html').is('.wystar')) {
+        SLUGS.index += 'index.html';
+        SLUGS.greet += ' from Wells Fargo.';
+    } else {
+        SLUGS.index += 'wystar.html';
+        SLUGS.greet += ' from Wells Fargo and WyStar Global Retirement Solutions.';
+    }
+
     $.watchResize(function () {
         var ua = W.navigator.userAgent;
         if (ua.match(/mobi/i)
@@ -101,24 +114,55 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         updateShare(score, rating);
     }
     function updateShare(score, rating) {
-        share.title = 'I scored ' + score + '.';
+        share.score = 'I scored ' + score + '.';
 
         switch (rating) {
             case 'okay':
-                share.title += ' I’m a Jingle Jumbles rock star.';
-                share.message = 'Now it’s your turn.';
+                share.title = share.score + ' I’m a Jingle Jumbles rock star. ';
+                share.message = 'Now it’s your turn. ';
                 break
             case 'good':
-                share.title += ' I’m a Jingle Jumbles word master.';
-                share.message = 'I double-dog dare you to beat my score.';
+                share.title = share.score + ' I’m a Jingle Jumbles word master. ';
+                share.message = 'I double-dog dare you to beat my score. ';
                 break
             default:
-                share.title += ' I’m a Jingle Jumbles natural.';
-                share.message = 'Can you beat my score?';
+                share.title = share.score + ' I’m a Jingle Jumbles natural. ';
+                share.message = 'Can you beat my score? ';
         }
-        share.message += ' See how many Jingle Jumbles you can solve.';
-        C.warn(share);
+        share.message += 'See how many Jingle Jumbles you can solve. ';
+        //C.warn(share);
+
+        function querify(str, obj) {
+            var url = str.replace('|', ':') + $.param(obj).replace(/\+/g, '%20');
+            //C.info(obj, url); //W.open(url);
+            return url;
+        }
+
+        $('#shareBarDynamic a.icon-facebook')
+            .attr('href', querify('https|//www.facebook.com/dialog/feed?', {///www.facebook.com/sharer/sharer.php?u=
+                app_id: '189445374730755',
+                display: 'popup',
+                caption: share.score,
+                description: share.title + share.message,
+                link: SLUGS.index,
+                redirect_uri: SLUGS.index,
+            }));
+        $('#shareBarDynamic a.icon-twitter')
+            .attr('href', querify('https|//twitter.com/intent/tweet?', {
+                url: SLUGS.index,
+                text: share.title,
+            }));
+        $('#shareBarDynamic a.icon-googleplus')
+            .attr('href', querify('https|//plus.google.com/share?', {
+                url: SLUGS.index,
+            }));
+        $('#shareBarDynamic a.icon-share')
+            .attr('href', querify('mailto|?', {
+                subject: 'Wells Fargo Jingle Jumbles',
+                body: share.title + share.message + SLUGS.index,
+            }));
     }
+
     function hideAreas() {
         El.jumble.hide();
         El.intro.hide();
