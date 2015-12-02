@@ -41,17 +41,6 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         rating: '.ratings',
     };
 
-    $('.shareBar').first().load('../includes/irt_share.html .shareBar > *', function () {
-        var me = $(this),
-            str = me.html();
-        if ($('html').is('.wystar')) {
-            str = str.replace(/\/holidays\//g, '/irt/holidays/jingle-jumbles/wystar.html');
-        } else {
-            str = str.replace(/\/holidays\//g, '/irt/holidays/jingle-jumbles/index.html');
-        }
-        me.html(str);
-    });
-
     $.markAgent();
     $.swallowBackspace();
     $.watchInputDevice();
