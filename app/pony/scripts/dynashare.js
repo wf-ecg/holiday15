@@ -22,7 +22,7 @@ define(['http://connect.facebook.net/en_US/all.js', 'https://apis.google.com/js/
             method: 'feed',
             name: 'I’m just like ' + ponyName + '.',
             picture: 'http://www.wellsfargomedia.com/holidays/pony/images/icons/social/ponies/PonyTile_' +
-                ponyName + '.jpg',
+                ponyName.replace(/\s/g, '') + '.jpg', // remove spaces for filename
             redirect_uri: 'http://www.wellsfargo.com/holidays#pony',
         };
 
