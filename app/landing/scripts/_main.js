@@ -50,28 +50,24 @@ define(['jquery', 'lodash', 'modal'], function
 
     var header = $('header').first();
     var pushin = $('.pushin').first();
-    var footer = $('footer').first();
-    var button;
+    var button = header.find('button').first();
 
-    header.load('../includes/main_header.html header > *', function () {
-        button = header.find('button').first();
-        button.click(function () {
-            $('.row-offcanvas').toggleClass('active');
-            button.toggleClass('collapsed');
+    button.click(function () {
+        $('.row-offcanvas').toggleClass('active');
+        button.toggleClass('collapsed');
 
-            if (button.is('.collapsed')) {
-                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
-            } else {
-                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
-            }
-        });
-        $.watchResize(function () {
-            if (!button.is('.collapsed')) {
-                button.click();
-            }
-        });
-        bindDialog();
+        if (button.is('.collapsed')) {
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
     });
+    $.watchResize(function () {
+        if (!button.is('.collapsed')) {
+            button.click();
+        }
+    });
+    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *');
 

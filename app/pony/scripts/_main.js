@@ -47,8 +47,7 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
 
     var header = $('header').first();
     var pushin = $('.pushin').first();
-    var footer = $('footer').first();
-    var button;
+    var button = header.find('button').first();
 
     function detachShare(x) {
         if (!x) {
@@ -58,27 +57,23 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
         }
     }
 
-    header.load('../includes/pony_header.html header > *', function () {
-        button = header.find('button').first();
+    button.click(function () {
+        $('.row-offcanvas').toggleClass('active');
+        button.toggleClass('collapsed');
 
-        button.click(function () {
-            $('.row-offcanvas').toggleClass('active');
-            button.toggleClass('collapsed');
-
-            if (button.is('.collapsed')) {
-                detachShare(false);
-            } else {
-                detachShare(true);
-            }
-        });
-
-        $.watchResize(function () {
-            if (!button.is('.collapsed')) {
-                button.click();
-            }
-        });
-        bindDialog();
+        if (button.is('.collapsed')) {
+            detachShare(false);
+        } else {
+            detachShare(true);
+        }
     });
+
+    $.watchResize(function () {
+        if (!button.is('.collapsed')) {
+            button.click();
+        }
+    });
+    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *');
 
