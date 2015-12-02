@@ -1,5 +1,5 @@
 <div class="shareBar" id="shareBarDynamic"><debug>[async pony_share_dynamic]</debug>
-  <div id="shareGooglePost"></div> <!-- required empty div for Google+ -->
+
 
   <ul class="shares">
     <li>
@@ -13,7 +13,7 @@
       <a class="icon-twitter"
          href="javascript: Dynash.tweet();"
          title="Share to Twitter">
-        <span class="ada">(opens dialog)</span>
+        <span class="ada" id="shareGooglePost">(opens dialog)</span>
       </a>
     </li>
     <li>
@@ -22,13 +22,13 @@
          title="Share to Google Plus">
         <span class="ada">(opens dialog)</span></a>
     </li>
-    <li>
+    <!-- <li>
       <a class="icon-share"
          href="javascript: Dynash.email();"
          title="Share by Email">
         <span class="ada">(opens dialog)</span>
       </a>
-    </li>
+    </li> -->
   </ul>
 
 </div>
