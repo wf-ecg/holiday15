@@ -124,7 +124,7 @@ module.exports = function (grunt) {
                 options: {
                     base: '<%= pkg.bases %>',
                     //hostname: 'localhost', // Change this to '0.0.0.0' to access the server from outside
-                    open: 'http://localhost:<%= pkg.port1 %>', // target url to open
+                    open: 'http://localhost:<%= pkg.port1 %>/<%= pkg.index %>', // target url to open
                 },
             },
             // https://github.com/gruntjs/grunt-contrib-connect

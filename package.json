@@ -26,6 +26,7 @@
         "../.."
     ],
     "group": "docs/wf-ecg/holiday15/0",
+    "index": "list.html",
     "port0": 7325,
     "port1": 8325,
     "zzzzz": 0
