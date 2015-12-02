@@ -94,12 +94,14 @@ header {
             height: 40px;
         }
     }
-    .desktop .land &, .desktop .irt & {
-        position: initial;
+    .desktop .land &,
+    .desktop .irt & {
+        min-height: 75px;
+        position: static;
         width: initial;
         z-index: initial;
         > div {
-            min-height: initial;
+            min-height: 75px;
             position: static;
         }
     }
