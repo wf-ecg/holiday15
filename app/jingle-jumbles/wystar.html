@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js wystar">
+  <head>
+    <title>WySTAR Jingle Jumbles</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="cache-control" content="max-age=0, must-revalidate">
+    <meta name="viewport" content="width=device-width">
+    <!--  -->
+    <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
+        (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
+    <meta name="author" content="WySTAR">
+    <meta content="See how many Jingle Jumbles you can solve." name="description">
+    <!-- static -->
+    <link rel="canonical" href="http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/wystar.html">
+    <meta id="OGt" property="og:title" content="WySTAR Jingle Jumbles">
+    <meta id="OGd" property="og:description" content="See how many Jingle Jumbles you can solve.">
+    <meta id="OGi" property="og:image" content="http://www.wellsfargomedia.com/irt/holidays/images/share/og-jingle.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/wystar.html">
+    <meta property="fb:app_id" content="189445374730755">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../build/irt.css">
+    <!-- hacks -->
+    <script src="../vendor/ecg/glober.js"></script>
+
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
+  </head>
+
+  <body class="loading"><div data-role="page" class="irt">
+      <!--[if lt IE 10]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+      <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+      browser</a> to improve your web experience.</p> </div><![endif]-->
+
+      <div class="frame">
+
+        <header>
+
+          <div class="mobile">
+            <img class="logo wystar" src="../images/logos/wystar-logo-rev.png" alt="Wystar">
+          </div>
+
+          <div class="container">
+            <div class="row">
+
+              <nav class="navbar"><a class="desktop navbar-brand" rel="external" href="..">
+                  <img class="logo wystar" alt="Wells Fargo" src="../images/logos/wystar-logo-rev.png">
+                </a>
+              </nav>
+
+              <div class="shareBar">
+
+                <ul class="shares">
+
+                  <li>
+                    <a class="icon-facebook"
+                       href="https://www.facebook.com/sharer/sharer.php?u=http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/wystar.html"
+                       target="external"
+                       title="Share on Facebook"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-twitter"
+                       href="https://twitter.com/intent/tweet?url=https://www.wellsfargo.com/irt/holidays/jingle-jumbles/wystar.html&text=Happy Holidays! Enjoy holiday magic, games, and more."
+                       target="external"
+                       title="Share on Twitter"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-googleplus"
+                       href="https://plus.google.com/share?url=http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/wystar.html"
+                       target="external"
+                       title="Share on Google Plus"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-share"
+                       href="mailto:?subject='Tis%20the%20season%20to%20share%20holiday%20magic&body=Enjoy%20holiday%20magic,%20games,%20and%20more%20at%20https://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/wystar.html"
+                       title="Share by Email"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+
+        </header>
+
+        <section>
+          <div class="celldiv game">
+
+            <div class="intro">
+              <h1>
+                We hope your holidays are letter perfect.
+              </h1>
+              <p>
+                Choose letters to turn a Jingle Jumble into a holiday greeting.<br>
+                See how many you can solve in 2 minutes.
+              </p>
+
+
+              <br>
+              <button><img class="gift" src="../images/icons/gift.png" alt="">Start</button>
+            </div>
+
+            <div class="outro">
+              <h2>
+                Your Jingle Jumbles score is <span class="score">{{score}}</span>
+              </h2>
+              <p class="ratings">
+                <span class="lame">Congratulations! You’re a Jingle Jumbles natural!<br></span>
+                <span class="okay">Wow! You’re a Jingle Jumbles rock star!<br></span>
+                <span class="good">Jingle all the way! You’re a word master.<br></span>
+              </p>
+
+              <!--<img class="gift" src="../images/icons/gift.png" alt="gift">-->
+
+              <button><img class="gift" src="../images/icons/gift.png" alt="">Play Again</button>
+              <h2>
+                Happy Holidays!<br>
+                Share with family and friends!
+              </h2>
+
+              <div class="shareBar" id="shareBarDynamic">
+
+
+                <ul class="shares">
+                  <li>
+                    <a class="icon-facebook"
+                       href="https://www.facebook.com/dialog/feed?app_id=189445374730755&display=popup&caption=I%20scored%20"+{{score}}+ ".&description=I%27m%20a%20Jingle%20Jumbles%20rock%20star.%20Now%20it%27s%20your%20turn.%20See%20how%20many%20Jingle%20Jumbles%20you%20can%20solve.&link=http%3A%2F%2Fwww.wellsfargomedia.com%2Firt%2Fholidays%2Fjingle-jumbles%2Fwystar.html&redirect_uri=http%3A%2F%2Fwww.wellsfargomedia.com%2Firt%2Fholidays%2Fjingle-jumbles%2Fwystar.html"
+                       title="Share to Facebook">
+                      <span class="ada">(opens dialog)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="icon-twitter"
+                       href="https://twitter.com/intent/tweet?url=https://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/wystar.html&text=I scored " + {{score}} + ". I%27m a Jingle Jumbles rock star."
+                       title="Share to Twitter">
+                       <span class="ada" id="shareGooglePost">(opens dialog)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="icon-googleplus"
+                       href="http%3A%2F%2Fwww.wellsfargomedia.com%2Firt%2Fholidays%2Fjingle-jumbles%2Fwystar.html"
+                       title="Share to Google Plus">
+                      <span class="ada">(opens dialog)</span></a>
+                  </li>
+                  <li>
+                    <a class="icon-share"
+                       href="mailto:?subject=Wells%20Fargo%20Jingle%20Jumbles&body=I%20scored%20"+{{score}}+ ".%20I%27m%20a%20Jingle%20Jumbles%20rock%20star.%20Now%20it%27s%20your%20turn.%20See%20how%20many%20Jingle%20Jumbles%20you%20can%20solve.%20http%3A%2F%2Fwww.wellsfargomedia.com%2Firt%2Fholidays%2Fjingle-jumbles%2Fwystar.html"
+                       title="Share by Email">
+                      <span class="ada">(opens dialog)</span>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+
+            <div class="jumble">
+              <div class="message"></div>
+
+              <div class="gameOutput"></div>
+              <hr>
+              <div class="gameInput"></div>
+
+              <button class="next">Next Phrase</button>
+
+              <div class="status">
+                <span class="timer"></span>
+                <span class="score"></span>
+              </div>
+            </div>
+
+            <!-- END GAME -->
+          </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <img class="stage wells" src="../images/logos/wf_icon_en-blk.svg">
+
+            <p class="wells fineprint">
+              Wells Fargo Institutional Retirement and Trust<br>
+              Recordkeeping trustee and/or custody services are provided by Wells&nbsp;Fargo Institutional Retirement and Trust, a business unit of Wells&nbsp;Fargo Bank, N.A.
+              The information contained herein and any information provided by employees and representatives of Wells&nbsp;Fargo Bank is for educational purposes only
+              and does not constitute investment, financial, tax or legal advice.<br>
+              © 2015 Wells Fargo Bank, N.A. All rights reserved. ECG-1261325
+            </p>
+            <p class="wystar fineprint">
+              Recordkeeping, trustee, and/or custody services are provided by WySTAR Global Retirement Solutions,
+              a business unit of Wells Fargo Bank, N.A. Any information provided by WySTAR Global Retirement Solutions
+              is for educational purposes only and does not constitute investment, financial, tax, or legal advice.<br>
+              © 2015 WySTAR Global Retirement Solutions. All rights reserved. ECG-1261325
+            </p>
+
+          </div>
+        </footer>
+
+        <!-- END FRAME -->
+      </div>
+
+      <div class="modal"></div>
+
+    </div></body>
+</html>
