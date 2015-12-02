@@ -41,7 +41,26 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         rating: '.ratings',
     };
 
-    $.markAgent();
+    $.watchResize(function () {
+        var ua = W.navigator.userAgent;
+        if (ua.match(/mobi/i)
+            || $(W).width() < 768) { // simulate
+            $('html').removeClass('desktop');
+            $('html').addClass('mobile');
+        } else {
+            $('html').removeClass('mobile');
+            $('html').addClass('desktop');
+        }
+        if (ua.match(/chrome/i)) {
+            $('html').addClass('chrome');
+        } else if (ua.match(/safari/i)) {
+            $('html').addClass('safari');
+        } else if (ua.match(/firefox/i)) {
+            $('html').addClass('firefox');
+        } else if (ua.match(/trident/i)) {
+            $('html').addClass('trident');
+        }
+    }, 'markAgent');
     $.swallowBackspace();
     $.watchInputDevice();
 
@@ -106,7 +125,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         El.outro.hide();
     }
     function showIntro() {
-        El.outro.find('.shareBar ul').appendTo(El.header.find('.shareBar'));
+        //El.outro.find('.shareBar ul').appendTo(El.header.find('.shareBar'));
 
         hideAreas();
         showRating(0);
@@ -114,7 +133,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         timer.force('Start');
     }
     function showOutro() {
-        El.header.find('.shareBar ul').appendTo(El.outro.find('.shareBar'));
+        //El.header.find('.shareBar ul').appendTo(El.outro.find('.shareBar'));
 
         timer.stop();
         hideAreas();
