@@ -46,6 +46,10 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game',
     };
 
+    // repair page determination
+    if (W.location.hash.slice(1) === 'wystar') {
+        W.location.href = 'wystar.html';
+    }
     if (!$('html').is('.wystar')) {
         SLUGS.index += 'index.html';
         SLUGS.greet += ' from Wells Fargo.';
