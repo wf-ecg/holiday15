@@ -91,7 +91,6 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
-        $('#shareBarDynamic').first().load('../includes/pony_share_dynamic.html #shareBarDynamic > *');
     }
 
 //  INIT
