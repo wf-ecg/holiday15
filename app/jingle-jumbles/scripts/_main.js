@@ -115,11 +115,11 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         if (rating) {
             El.rating.find('.' + rating).addClass('active');
         }
-        updateShare(score, rating);
+        customizeShare(score, rating);
     }
-    function updateShare(score, rating) {
-        share.score = 'I scored ' + score + '.';
 
+    function customizeShare(score, rating) {
+        share.score = 'I scored ' + score + '.';
         switch (rating) {
             case 'okay':
                 share.title = share.score + ' I’m a Jingle Jumbles rock star. ';
@@ -134,7 +134,11 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
                 share.message = 'Can you beat my score? ';
         }
         share.message += 'See how many Jingle Jumbles you can solve. ';
-        //C.warn(share);
+
+        updateShare(share);
+    }
+
+    function updateShare(share) {
 
         function querify(str, obj) {
             var url = str.replace('|', ':') + $.param(obj).replace(/\+/g, '%20');
