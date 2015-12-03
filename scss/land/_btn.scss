@@ -27,6 +27,18 @@ button.btn-tile {
         color: white;
         padding-left: 0em !important; /* TODO gareth */
     }
+    /* Internet Explorer 10+ */
+    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        bottom: -2em !important;
+        margin-left: 0px !important;
+        position: absolute !important;
+    }
+    /* Microsoft Edge Browser -- button alignment issue */
+    @media (-ms-accelerator: true) {
+        bottom: auto !important;
+        margin-left: 0px !important;
+        position: absolute !important;
+    }
 }
 .glyphicon-play-circle {
     @include middify;
