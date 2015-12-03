@@ -5,24 +5,12 @@
     display: none;
     margin: 2.5em 0;
 }
-.disclosure {
-    color: gray;
-    font-family: sans-serif;
-    font-size: 10px;
-}
 .dot {
     background-color: red;
     overflow: hidden;
     position: absolute;
     width: 3px; height: 3px;
     z-index: 999999;
-}
-.footer {
-    bottom: 0px;
-    font-size: 0.6em;
-    padding: 1em;
-    position: absolute;
-    white-space: nowrap;
 }
 .freeze {
     overflow: hidden !important;
@@ -37,31 +25,6 @@ div.loader {
     img {
         @include middify();
         position: absolute;
-    }
-}
-.logo {
-    img {
-        display: inline-block;
-        max-height: 100%;
-    }
-    &.desktop {
-        height: 50px;
-        margin: 0;
-        text-align: left;
-        width: 180px;
-        img { max-height: 100%; }
-    }
-    &.mobile {
-        background-size: 1px 100%;
-        .wells & { background-image: url(../images/logos/wf_mobile_bg.png); }
-        .wystar & { @include backGrad( white, $edge_hi); }
-        box-shadow: $mini_shad;
-        display: none;
-        height: $headH;
-        position: fixed;
-        text-align: center;
-        width: 100%;
-        z-index: 999;
     }
 }
 .splash {
