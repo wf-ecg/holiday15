@@ -37,6 +37,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
         Page: Page,
         Slides: Slides,
     });
+    W.Slides = Slides;
 
     $.ajaxSetup ({ // disable caching
         cache: false,
