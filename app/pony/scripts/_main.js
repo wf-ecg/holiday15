@@ -84,8 +84,13 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
         var triggers = $('.shareBar .shares a'); // intercept these
 
         Modal.bind(triggers, dialog, function (data) {
-            dialog.find('.utilitybtn') // find the go button
-                .attr('href', data.source[0].href); // transfer url
+            var btn = dialog.find('.utilitybtn'); // find the go button
+            var src = data.source[0];
+
+            if (src.target) {
+                btn.attr('target', src.target); // transfer target
+            }
+            btn.attr('href', src.href); // transfer url
         });
     }
 
