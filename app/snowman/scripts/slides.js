@@ -201,8 +201,9 @@ define(['jquery', 'lodash', 'help', 'page'], function ($, _, Help, Page) {
         };
 
         self.finish = function () {
+            $('.arrow').remove();
             $.publish('Snowed', {
-                href: self.makeLink(true),
+                href: self.makeLink(false),
             });
         };
 
