@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
-    MAIN($, _, Modal, Timer, Game, Message) {
+define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message', 'share'], function
+    MAIN($, _, Modal, Timer, Game, Message, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -25,6 +25,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
     var totalWon;
     var duration = 120;
     var game, message, timer;
+
     var El = {
         intro: '.intro',
         outro: '.outro',
@@ -35,26 +36,10 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         header: 'header',
         rating: '.ratings',
     };
-    var share = {
-        greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game',
-        index: 'http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/',
-        link: '',
-        message: '',
-        score: '',
-        subject: 'Wells Fargo Jingle Jumbles',
-        title: '',
-    };
 
     // repair page determination
     if (W.location.hash.slice(1) === 'wystar') {
         W.location.href = 'wystar.html';
-    }
-    if (!$('html').is('.wystar')) {
-        share.index += 'index.html';
-        share.greet += ' from Wells Fargo.';
-    } else {
-        share.index += 'wystar.html';
-        share.greet += ' from Wells Fargo and WyStar Global Retirement Solutions.';
     }
 
     $.watchResize(function () {
@@ -114,67 +99,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         if (rating) {
             El.rating.find('.' + rating).addClass('active');
         }
-        customizeShare(score, rating);
-    }
-
-    function customizeShare(score, rating) {
-        share.score = 'I scored ' + score + '.';
-
-        switch (rating) {
-            case 'okay':
-                share.title = share.score + ' I’m a Jingle Jumbles rock star.';
-                share.message = 'Now it’s your turn. ';
-                break;
-            case 'good':
-                share.title = share.score + ' I’m a Jingle Jumbles word master.';
-                share.message = 'I double-dog dare you to beat my score. ';
-                break;
-            default:
-                share.title = share.score + ' I’m a Jingle Jumbles natural.';
-                share.message = 'Can you beat my score? ';
-        }
-
-        share.message += 'See how many Jingle Jumbles you can solve.';
-
-        share.long = share.title + ' ' + share.message;
-        share.email = share.title + ' ' + share.message + ' ' + share.index;
-
-        updateShare(share);
-    }
-
-    function updateShare(share) {
-
-        function querify(str, obj) {
-            var url = str.replace('|', ':') + $.param(obj).replace(/\+/g, '%20');
-
-            db() && C.info(obj, url);
-            db(1) && W.open(url);
-            return url;
-        }
-
-        $('#shareBarDynamic a.icon-facebook')
-            .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
-                app_id: '189445374730755',
-                caption: share.score,
-                description: share.long,
-                display: 'popup',
-                link: share.index,
-                redirect_uri: share.index,
-            }));
-        $('#shareBarDynamic a.icon-twitter')
-            .attr('href', querify('https|//twitter.com/intent/tweet?', {
-                text: share.title,
-                url: share.index,
-            }));
-        $('#shareBarDynamic a.icon-googleplus')
-            .attr('href', querify('https|//plus.google.com/share?', {
-                url: share.index,
-            }));
-        $('#shareBarDynamic a.icon-share')
-            .attr('href', querify('mailto|?', {
-                body: share.email,
-                subject: share.subject,
-            }));
+        Share.tweak(score, rating);
     }
 
     function hideAreas() {
@@ -233,6 +158,7 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
 
         expose({
             Modal: Modal,
+            Share: Share,
             message: message,
             game: game,
             timer: timer,
