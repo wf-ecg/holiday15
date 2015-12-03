@@ -1,34 +1,38 @@
 <div class="shareBar" id="shareBarDynamic"><debug>[async pony_share_dynamic]</debug>
-  <div id="shareGooglePost"></div> <!-- required empty div for Google+ -->
 
   <ul class="shares">
+
     <li>
       <a class="icon-facebook"
-         href="javascript:Dynash.facebook(document.getElementById('pn').innerHTML);void(0);"
+         href="javascript: Dynash.facebook();"
          title="Share to Facebook">
         <span class="ada">(opens dialog)</span>
       </a>
     </li>
+
     <li>
       <a class="icon-twitter"
-         href="javscript:Dynash.tweet(document.getElementById('pn').innerHTML);void(0);"
+         href="javascript: Dynash.tweet();"
          title="Share to Twitter">
-        <span class="ada">(opens dialog)</span>
+        <span class="ada" id="shareGooglePost">(opens dialog)</span>
       </a>
     </li>
+
     <li>
       <a class="icon-googleplus"
-         id="shareGooglePost"
-         href="javascript:Dynash.google(document.getElementById('pn').innerHTML);void(0);"
+         href="javascript: Dynash.google();"
          title="Share to Google Plus">
         <span class="ada">(opens dialog)</span></a>
     </li>
+    <!--
     <li>
       <a class="icon-share"
-         href="javascript:Dynash.email(document.getElementById('pn').innerHTML);void(0);"
+         href="javascript: Dynash.email();"
          title="Share by Email">
         <span class="ada">(opens dialog)</span>
       </a>
     </li>
+    -->
   </ul>
+
 </div>

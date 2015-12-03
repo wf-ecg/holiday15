@@ -145,7 +145,7 @@
 // UNITS
 
 @mixin rex($prop, $rem){
-    #{$prop}: $rem * $remx;
+    //#{$prop}: $rem * $remx;
     //#{$prop}: $rem * 1rem;
 }
 

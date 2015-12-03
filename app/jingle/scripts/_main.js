@@ -56,30 +56,25 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
     });
     var header = $('header').first();
     var pushin = $('.pushin').first();
-    var footer = $('footer').first();
-    var button;
+    var button = header.find('button').first();
 
-    header.load('../includes/main_header.html header > *', function () {
-        button = header.find('button').first();
-        button.click(function () {
-            $('.row-offcanvas').toggleClass('active');
-            button.toggleClass('collapsed');
+    button.click(function () {
+        $('.row-offcanvas').toggleClass('active');
+        button.toggleClass('collapsed');
 
-            if (button.is('.collapsed')) {
-                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
-            } else {
-                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
-            }
-        });
-        $.watchResize(function () {
-            if (!button.is('.collapsed')) {
-                button.click();
-            }
-        });
+        if (button.is('.collapsed')) {
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
+    });
+    $.watchResize(function () {
+        if (!button.is('.collapsed')) {
+            button.click();
+        }
     });
 
     pushin.load('../includes/main_pushin.html .pushin > *');
-    footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
     //$.markAgent();

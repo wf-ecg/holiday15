@@ -1,23 +1,21 @@
 /*jslint  white:false */
-/*globals define, window */
+/*global define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-define(['lodash', 'help', 'page'], function (_, Help, Page) {
-    var W, C;
+define(['jquery', 'lodash', 'help', 'page'], function ($, _, Help, Page) {
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
-    W = W || window;
-    C = C || W.console;
-
-    Slides = {
+    var Slides = {
         $: '.slider',
         A: null,
         B: null,
         C: null,
         div: '.snowmen',
         preview: '#Preview',
-        closePreview: new Function,
-        openPreview: new Function,
-        scramble: new Function,
-        makeLink: new Function,
+        closePreview: Function,
+        openPreview: Function,
+        scramble: Function,
+        makeLink: Function,
     };
 
     Slides.init = function ($) {
@@ -54,6 +52,46 @@ define(['lodash', 'help', 'page'], function (_, Help, Page) {
         self.C = new $JssorSlider$(self.$[2].id, Help.makeOptions({
             $StartIndex: self.ic,
         }));
+
+        // Reference http://www.jssor.com/development/tip-make-responsive-slider.html
+        //  you can remove responsive code if you don't want the slider scales while window resizes
+
+        //  responsive code begin
+
+        function scaleSlider() {
+            //C.debug('scale');
+            var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
+
+            paddingWidth = 0; //                                                    reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
+            minReserveWidth = 0; //                                                 minimum width should reserve for text
+            parentElement = self.B.$Elmt.parentNode;
+            parentWidth = parentElement.clientWidth; //                             evaluate parent container width
+
+            if (parentWidth) {
+                availableWidth = parentWidth - paddingWidth; //                     exclude blank width
+                sliderWidth = availableWidth * 1; //                                calculate slider width as 100% of available width
+                sliderWidth = Math.min(sliderWidth, 600); //                        slider width is maximum 600
+                sliderWidth = Math.max(sliderWidth, 600); //                        slider width is minimum 200
+
+                if (availableWidth - sliderWidth < minReserveWidth) { //            evaluate free width for text, if the width is less than minReserveWidth then fill parent container
+                    sliderWidth = availableWidth; //                                set slider width to available width
+                    sliderWidth = Math.max(sliderWidth, 200); //                    slider width is minimum 200
+                }
+
+                self.A.$ScaleWidth(sliderWidth);
+                self.B.$ScaleWidth(sliderWidth);
+                self.C.$ScaleWidth(sliderWidth);
+            } else {
+                W.setTimeout(scaleSlider, 30);
+            }
+        }
+
+        scaleSlider();
+
+        if (!W.navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
+            $(W).on('resize orientationchange', scaleSlider);
+        }
+        /* responsive code end */
 
         function disableBtnForSecs(sel, sec) {
             var btn, url, slug = 'javascript';
@@ -123,7 +161,7 @@ define(['lodash', 'help', 'page'], function (_, Help, Page) {
             } else if (mode === true) {
                 mode = Page.getMode();
             }
-            window.location.hash = stub + (mode ? toke + 'm' + mode : ''); // TODO why no W?
+            W.location.hash = stub + (mode ? toke + 'm' + mode : '');
 
             return href;
         };

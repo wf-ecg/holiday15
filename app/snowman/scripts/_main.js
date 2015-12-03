@@ -44,31 +44,26 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
 
     var header = $('header').first();
     var pushin = $('.pushin').first();
-    var footer = $('footer').first();
-    var button;
+    var button = header.find('button').first();
 
-    header.load('../includes/snowman_header.html header > *', function () {
-        button = header.find('button').first();
-        button.click(function () {
-            $('.row-offcanvas').toggleClass('active');
-            button.toggleClass('collapsed');
+    button.click(function () {
+        $('.row-offcanvas').toggleClass('active');
+        button.toggleClass('collapsed');
 
-            if (button.is('.collapsed')) {
-                pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
-            } else {
-                header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
-            }
-        });
-        $.watchResize(function () {
-            if (!button.is('.collapsed')) {
-                button.click();
-            }
-        });
-        bindDialog();
+        if (button.is('.collapsed')) {
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
     });
+    $.watchResize(function () {
+        if (!button.is('.collapsed')) {
+            button.click();
+        }
+    });
+    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *');
-    footer.load('../includes/main_footer.html footer > *');
 
     $.watchInputDevice();
     $.markAgent();
@@ -164,7 +159,6 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
 
         FastClick.attach(W.document.body);
 
-        $('.shareBar').first().load('../includes/snowman_share.html .shareBar > *');
     }
 
 //  INIT
