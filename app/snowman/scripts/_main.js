@@ -114,6 +114,16 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
 
         Modal.init('.ui-page > .modal');
 
+        $('#Snowman-finish').on('click', function () {
+            $('#snowmanButton1').hide();
+            $('#snowmanButton2').hide();
+            $('#snowmanShareBar').show();
+            Slides.finish();
+        });
+        $('#Snowman-scramble').on('click', function () {
+            Slides.scramble();
+        });
+
         $.subscribe('Snowed', function (evt, obj){
             Share.tweak(obj.href);
         });

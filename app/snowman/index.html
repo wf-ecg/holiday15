@@ -201,17 +201,10 @@
 
                   <div class="snowman-buttons-container">
                     <div class="box" id="snowmanButton1">
-                      <a onclick="
-                            Slides.scramble();
-                            return undefined;
-                         " class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
+                      <a id="Snowman-scramble" class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
                     </div>
                     <div class="box" id="snowmanButton2">
-                      <a onclick="
-                            document.getElementById('snowmanButton1').style.display = 'none';
-                            document.getElementById('snowmanButton2').style.display = 'none';
-                            document.getElementById('snowmanShareBar').style.display = 'block';"
-                         class="btn btn-primary btn-block btn-preview"> Share </a>
+                      <a id="Snowman-finish" class="btn btn-primary btn-block btn-preview"> Share </a>
                     </div>
                     <div id="snowmanShareBar" class="share-quiz-footer">
                       <p>Share with family and friends</p>
