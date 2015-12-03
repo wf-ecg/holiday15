@@ -62,6 +62,9 @@ nav {
     height: 32px;
     margin: 0.5em;
     z-index: 2;
+    html:not(.mobi) & {
+        display: none;
+    }
 
     * {
         @include transition(all 0.25s);
