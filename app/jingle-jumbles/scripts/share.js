@@ -17,6 +17,7 @@ define(['jquery'], function () {
 
     div = '#shareBarDynamic';
     share = {
+        fb_id: '189445374730755',
         greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game',
         index: 'http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/',
         link: '',
@@ -70,7 +71,7 @@ define(['jquery'], function () {
     function updateLinks() {
         div.find('a.icon-facebook')
             .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
-                app_id: '189445374730755',
+                app_id: share.fb_id,
                 caption: share.score,
                 description: share.long,
                 display: 'popup',

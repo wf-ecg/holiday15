@@ -17,6 +17,7 @@ define(['jquery'], function () {
 
     div = '#shareBarDynamic';
     share = {
+        fb_id: '744661099000077',
         greet: 'What’s your pony personality?',
         index: 'http://www.wellsfargomedia.com/holidays/pony/',
         link: '',
@@ -51,7 +52,7 @@ define(['jquery'], function () {
     function updateLinks() {
         div.find('a.icon-facebook')
             .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
-                app_id: '189445374730755',
+                app_id: share.fb_id,
                 caption: share.score,
                 description: share.long,
                 display: 'popup',
