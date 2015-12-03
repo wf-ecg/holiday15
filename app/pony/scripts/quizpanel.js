@@ -195,6 +195,8 @@ define(['jquery'], function ($) {
                         '<img src="./images/icons/pony/al.svg"');
                     break;
             }
+
+            $.publish('Ponied');
         }
 
         $('#QuizWelliFa input').change(function () {

@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
-    MAIN($, _, QP, Modal, Dynash) {
+define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
+    MAIN($, _, QP, Modal, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -33,15 +33,13 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
     }
 
 //EXTEND
-    W.Dynash = Dynash;
-
     expose({
-        Dynash: Dynash,
+        Share: Share,
         Modal: Modal,
         QP: QP,
     });
 
-    $.ajaxSetup ({ // disable caching
+    $.ajaxSetup({// disable caching
         cache: false,
     });
 
@@ -86,14 +84,22 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
         var triggers = $('.shareBar .shares a'); // intercept these
 
         Modal.bind(triggers, dialog, function (data) {
-            dialog.find('.utilitybtn') // find the go button
-                .attr('href', data.source[0].href); // transfer url
+            var btn = dialog.find('.utilitybtn'); // find the go button
+            var src = data.source[0];
+
+            if (src.target) {
+                btn.attr('target', src.target); // transfer target
+            }
+            btn.attr('href', src.href); // transfer url
         });
     }
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
-        $('#shareBarDynamic').first().load('../includes/pony_share_dynamic.html #shareBarDynamic > *');
+
+        $.subscribe('Ponied', function () {
+            Share.tweak($('#pn').text());
+        });
     }
 
 //  INIT

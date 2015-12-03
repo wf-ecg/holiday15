@@ -17,10 +17,8 @@ h2.quiz-title {
     font-weight: 500;
     line-height: 1.125;
     font-family: $serif;
+    @media (max-width:600px) { font-size: 30px; }
 }
-
-/* TODO gareth */
-@media (max-width:600px) {h2.quiz-title { font-size: 30px; } }
 
 p.quiz-instructions {
     font-size: 20px;

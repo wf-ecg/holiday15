@@ -1,6 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* PROJ */
-// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* SNOW */
+
 @mixin backGrad($clr1: white, $clr2: black){
     background-color: $clr1;
     @include background-image( linear-gradient(top, $clr1 1%, $clr2 99%) );
@@ -59,8 +59,6 @@ $red_hi: #c40000;   $red_lo: #990000;
 @import "_custom";
 @import "_misc";
 @import "_preview";
-
-@import "_zjunk";
 
 @import "_media";
 

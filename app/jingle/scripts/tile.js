@@ -90,7 +90,7 @@ define(['jquery', 'lodash'], function
                 }
             },
             saveOffset: function () {
-                return self.pos = cf.ele.position();
+                return (self.pos = cf.ele.position());
             },
             init: function (char) {
                 set(char);

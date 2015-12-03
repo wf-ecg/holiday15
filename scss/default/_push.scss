@@ -28,6 +28,7 @@
         }
 
         .shareBar {
+            display: none;
             margin: auto;
             //position: relative;
             text-align: center;
@@ -76,10 +77,5 @@
         right: 0;
     }
 }
-
-/* TODO gareth */
-.snowman-buttons-container .shareBar { margin: auto 0px; text-align: left; }
-.snowman-buttons-container .shareBar ul { display: inline; margin-left:0px; }
-.snowman-buttons-container .shareBar li { margin: 0.25em; }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

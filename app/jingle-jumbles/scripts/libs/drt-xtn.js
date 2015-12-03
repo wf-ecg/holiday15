@@ -20,7 +20,7 @@ define(['jquery', 'lodash'], function
             } else {
                 while(cache[id]) id++; // prevent collision
                 cf['#'] = id;
-                return cache[id] = cf;
+                return (cache[id] = cf);
             }
         };
 

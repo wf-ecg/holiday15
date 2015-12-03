@@ -116,7 +116,7 @@ define(['jquery', 'lodash', 'xtn'], function
                 if (ele.is('.tile')) {
                     ele.attr('tabIndex', 0);
                 }
-                return cf.ele = ele;
+                return (cf.ele = ele);
             }
         },
         solved: function () {
