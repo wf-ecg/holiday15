@@ -18,12 +18,11 @@ define(['jquery'], function () {
     div = '#shareBarDynamic';
     share = {
         fb_id: '744661099000077',
-        greet: 'What’s your pony personality?',
+        greet: 'Build Your Own Snowman!',
         index: 'http://www.wellsfargomedia.com/holidays/pony/',
         link: '',
-        message: 'Take the quiz to find out at wellsfargo.com/holidays#pony. #WFpony',
-        score: '',
-        subject: 'What’s your pony personality?',
+        message: 'Create a snowman as cool as you with the Snowman Shuffle..com/holidays#pony. #WFpony',
+        subject: 'Build Your Own Snowman',
         title: '',
     };
 
@@ -33,17 +32,14 @@ define(['jquery'], function () {
         return false;
     };
 
-    tweak = function (pony) {
+    tweak = function (link) {
         if (init) {
             init = init();
         }
-        var jpg = 'PonyTile_' + pony.replace(/\s/g, '') + '.jpg';
+        share.index = link;
 
-        share.score = 'I’m most like ' + pony + '.';
-        share.image = share.index + 'images/icons/social/ponies/' + jpg;
-
-        share.short = share.score + ' ' + share.message;
-        share.long = share.score + ' ' + share.greet + ' ' + share.message;
+        share.short = share.greet + ' ' + share.message;
+        share.long = share.greet + ' ' + share.greet + ' ' + share.message;
         share.email = share.long + ' ' + share.index;
 
         updateLinks();
@@ -53,11 +49,11 @@ define(['jquery'], function () {
         div.find('a.icon-facebook')
             .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
                 app_id: share.fb_id,
-                caption: share.score,
+                caption: share.greet,
                 description: share.long,
                 display: 'popup',
                 link: share.index,
-                picture: share.image,
+                //picture: share.image,
                 redirect_uri: share.index,
             }));
 

@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
-    MAIN($, _, Page, Slides, FastClick, Modal) {
+define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], function
+    MAIN($, _, Page, Slides, FastClick, Modal, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -35,6 +35,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
 //EXTEND
     expose({
         Page: Page,
+        Share: Share,
         Slides: Slides,
     });
     W.Slides = Slides;
@@ -109,8 +110,13 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal'], function
     }
 
     function doBindings() {
-        Modal.init('.ui-page > .modal');
         var mode = Page.getMode();
+
+        Modal.init('.ui-page > .modal');
+
+        $.subscribe('Snowed', function (evt, obj){
+            Share.tweak(obj.href);
+        });
 
         Page.reset(function () {
             Page.reSource($('[data-src]'));

@@ -152,10 +152,6 @@ define(['jquery', 'lodash', 'help', 'page'], function ($, _, Help, Page) {
             $('#OG_url').attr('content', href);
 
             if (mode === false) {
-                if (W.ga)
-                    W.ga('send', 'event', 'SNOWMAN', msg + stub, {
-                        'nonInteraction': true
-                    });
                 C.warn('send', 'event', 'SNOWMAN', msg + stub);
                 return href;
             } else if (mode === true) {
@@ -202,6 +198,12 @@ define(['jquery', 'lodash', 'help', 'page'], function ($, _, Help, Page) {
                 makeClone();
                 $('#Preview .splash').stikit(1.11, 2.3);
             }, 333);
+        };
+
+        self.finish = function () {
+            $.publish('Snowed', {
+                href: self.makeLink(true),
+            });
         };
 
         self.closePreview = function () {
