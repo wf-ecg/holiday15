@@ -21,7 +21,7 @@ define(['jquery'], function () {
         greet: 'Build Your Own Snowman!',
         index: 'http://www.wellsfargomedia.com/holidays/pony/',
         link: '',
-        message: 'Create a snowman as cool as you with the Snowman Shuffle..com/holidays#pony. #WFpony',
+        message: 'Create a snowman as cool as you with the Snowman Shuffle.',
         subject: 'Build Your Own Snowman',
         title: '',
     };
@@ -38,9 +38,8 @@ define(['jquery'], function () {
         }
         share.index = link;
 
-        share.short = share.greet + ' ' + share.message;
-        share.long = share.greet + ' ' + share.greet + ' ' + share.message;
-        share.email = share.long + ' ' + share.index;
+        share.long = share.greet + ' ' + share.message;
+        share.email = share.message + ' ' + share.index;
 
         updateLinks();
     };
@@ -59,7 +58,7 @@ define(['jquery'], function () {
 
         div.find('a.icon-twitter')
             .attr('href', querify('https|//twitter.com/intent/tweet?', {
-                text: share.short,
+                text: share.greet,
                 url: share.index,
             }));
 
