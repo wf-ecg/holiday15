@@ -59,8 +59,8 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
 
     $.watchResize(function () {
         var ua = W.navigator.userAgent;
-        if (ua.match(/mobi/i)
-            || $(W).width() < 768) { // simulate
+        if (ua.match(/mobi/i) ||
+            $(W).width() < 768) { // simulate
             $('html').removeClass('desktop');
             $('html').addClass('mobile');
         } else {
@@ -124,11 +124,11 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
             case 'okay':
                 share.title = share.score + ' I’m a Jingle Jumbles rock star.';
                 share.message = 'Now it’s your turn. ';
-                break
+                break;
             case 'good':
                 share.title = share.score + ' I’m a Jingle Jumbles word master.';
                 share.message = 'I double-dog dare you to beat my score. ';
-                break
+                break;
             default:
                 share.title = share.score + ' I’m a Jingle Jumbles natural.';
                 share.message = 'Can you beat my score? ';
@@ -147,14 +147,13 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message'], function
         function querify(str, obj) {
             var url = str.replace('|', ':') + $.param(obj).replace(/\+/g, '%20');
 
-            if (db()) {
-                C.info(obj, url); //W.open(url);
-            }
+            db() && C.info(obj, url);
+            db(1) && W.open(url);
             return url;
         }
 
         $('#shareBarDynamic a.icon-facebook')
-            .attr('href', querify('https|//www.facebook.com/dialog/feed?', {///www.facebook.com/sharer/sharer.php?u=
+            .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
                 app_id: '189445374730755',
                 caption: share.score,
                 description: share.long,

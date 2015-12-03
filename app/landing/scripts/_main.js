@@ -74,8 +74,8 @@ define(['jquery', 'lodash', 'modal'], function
     $.watchInputDevice();
     $.watchResize(function () {
         var ua = W.navigator.userAgent;
-        if (ua.match(/mobi/i)
-            || $(W).width() < 768) { // simulate
+        if (ua.match(/mobi/i) ||
+            $(W).width() < 768) { // simulate
             $('html').removeClass('desktop');
             $('html').addClass('mobi');
         } else {
