@@ -91,8 +91,9 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
-        $.subscribe('Pony', function (evt, pony) {
-            Share.tweak(pony);
+
+        $.subscribe('Ponied', function () {
+            Share.tweak($('#pn').text());
         });
     }
 

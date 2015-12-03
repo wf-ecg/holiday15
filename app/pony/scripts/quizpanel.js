@@ -114,8 +114,6 @@ define(['jquery'], function ($) {
                 $('#pnIcon').html(c + ' class="header-image-winner" alt="pony">');
             }
 
-            $.publish('Pony', pn);
-
             switch (pn) {
                 case 'eltoro':
                     writeIt('El Toro',
@@ -197,6 +195,8 @@ define(['jquery'], function ($) {
                         '<img src="./images/icons/pony/al.svg"');
                     break;
             }
+
+            $.publish('Ponied');
         }
 
         $('#QuizWelliFa input').change(function () {
