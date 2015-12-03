@@ -114,6 +114,8 @@ define(['jquery'], function ($) {
                 $('#pnIcon').html(c + ' class="header-image-winner" alt="pony">');
             }
 
+            $.publish('Pony', pn);
+
             switch (pn) {
                 case 'eltoro':
                     writeIt('El Toro',

@@ -39,7 +39,7 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
         QP: QP,
     });
 
-    $.ajaxSetup ({ // disable caching
+    $.ajaxSetup({// disable caching
         cache: false,
     });
 
@@ -91,6 +91,9 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
+        $.subscribe('Pony', function (evt, pony) {
+            Share.tweak(pony);
+        });
     }
 
 //  INIT

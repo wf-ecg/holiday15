@@ -17,52 +17,33 @@ define(['jquery'], function () {
 
     div = '#shareBarDynamic';
     share = {
-        greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game',
-        index: 'http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/',
+        greet: 'What’s your pony personality?',
+        index: 'http://www.wellsfargomedia.com/holidays/pony/',
         link: '',
-        message: '',
+        message: 'Take the quiz to find out at wellsfargo.com/holidays#pony. #WFpony',
         score: '',
-        subject: 'Wells Fargo Jingle Jumbles',
+        subject: 'What’s your pony personality?',
         title: '',
     };
 
     init = function (sel) {
         div = $(sel || div);
 
-        if (!$('html').is('.wystar')) {
-            share.index += 'index.html';
-            share.greet += ' from Wells Fargo.';
-        } else {
-            share.index += 'wystar.html';
-            share.greet += ' from Wells Fargo and WyStar Global Retirement Solutions.';
-        }
-
         return false;
     };
 
-    tweak = function (score, rating) {
+    tweak = function (pony) {
         if (init) {
             init = init();
         }
-        share.score = 'I scored ' + score + '.';
+        var jpg = 'PonyTile_' + pony.replace(/\s/g, '') + '.jpg';
 
-        switch (rating) {
-            case 'okay':
-                share.title = share.score + ' I’m a Jingle Jumbles rock star.';
-                share.message = 'Now it’s your turn. ';
-                break;
-            case 'good':
-                share.title = share.score + ' I’m a Jingle Jumbles word master.';
-                share.message = 'I double-dog dare you to beat my score. ';
-                break;
-            default:
-                share.title = share.score + ' I’m a Jingle Jumbles natural.';
-                share.message = 'Can you beat my score? ';
-        }
+        share.score = 'I’m most like ' + pony + '.';
+        share.image = share.index + 'images/icons/social/ponies/' + jpg;
 
-        share.message += 'See how many Jingle Jumbles you can solve.';
-        share.long = share.title + ' ' + share.message;
-        share.email = share.title + ' ' + share.message + ' ' + share.index;
+        share.short = share.score + ' ' + share.message;
+        share.long = share.score + ' ' + share.greet + ' ' + share.message;
+        share.email = share.long + ' ' + share.index;
 
         updateLinks();
     };
@@ -75,12 +56,13 @@ define(['jquery'], function () {
                 description: share.long,
                 display: 'popup',
                 link: share.index,
+                picture: share.image,
                 redirect_uri: share.index,
             }));
 
         div.find('a.icon-twitter')
             .attr('href', querify('https|//twitter.com/intent/tweet?', {
-                text: share.title,
+                text: share.short,
                 url: share.index,
             }));
 
