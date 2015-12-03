@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
-    MAIN($, _, QP, Modal, Dynash) {
+define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
+    MAIN($, _, QP, Modal, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -33,15 +33,13 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
     }
 
 //EXTEND
-    W.Dynash = Dynash;
-
     expose({
-        Dynash: Dynash,
+        Share: Share,
         Modal: Modal,
         QP: QP,
     });
 
-    $.ajaxSetup ({ // disable caching
+    $.ajaxSetup({// disable caching
         cache: false,
     });
 
@@ -93,7 +91,10 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'dynashare'], function
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
-        $('#shareBarDynamic').first().load('../includes/pony_share_dynamic.html #shareBarDynamic > *');
+
+        $.subscribe('Ponied', function () {
+            Share.tweak($('#pn').text());
+        });
     }
 
 //  INIT
