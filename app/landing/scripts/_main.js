@@ -31,13 +31,6 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
             C.info(Nom, 'expose', Main);
         }
     }
-    function swapper() {
-        if ($(W).width() > 992) {
-            $('.tile.magic').prependTo('.masonry-container');
-        } else {
-            $('.tile.magic').prependTo('.masonry-container');
-        }
-    }
 
 //EXTEND
     expose({
@@ -114,8 +107,6 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
             var a = $(evt.delegateTarget).find('a')[0];
             a && a.click(); // make surrounding tile trigger button
         });
-        $(W).on('resize', swapper);
-        swapper();
     }
 
 //  INIT
