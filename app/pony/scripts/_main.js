@@ -19,6 +19,9 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
+
     function db(num) {
         return W.debug > (num || 0);
     }
@@ -32,7 +35,9 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         }
     }
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
     expose({
         Share: Share,
         QP: QP,
@@ -83,7 +88,9 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
     $.watchInputDevice();
     $.markAgent();
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
+
     function gameMode() {
         if ($('html').is('.mobi')) {
             return;

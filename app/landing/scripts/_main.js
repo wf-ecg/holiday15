@@ -19,6 +19,9 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
+
     function db(num) {
         return W.debug > (num || 0);
     }
@@ -32,7 +35,9 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         }
     }
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
     expose({
         Modal: Modal,
     });
@@ -87,7 +92,8 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         }
     }, 'markAgent');
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
 
     function doBindings() {
         Modal.init('.ui-page > .modal');

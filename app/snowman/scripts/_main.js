@@ -19,6 +19,9 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
+
     function db(num) {
         return W.debug > (num || 0);
     }
@@ -32,7 +35,9 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         }
     }
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
     expose({
         Page: Page,
         Share: Share,
@@ -84,7 +89,9 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
     $.watchInputDevice();
     $.markAgent();
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
+
     function gameMode() {
         if ($('html').is('.mobi')) {
             return;
