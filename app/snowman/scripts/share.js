@@ -18,7 +18,7 @@ define(['jquery'], function () {
     div = '#shareBarDynamic';
     share = {
         fb_id: '744661099000077',
-        greet: 'Build Your Own Snowman!',
+        greet: 'Check out my snowman and make your own!',
         index: 'http://www.wellsfargomedia.com/holidays/pony/',
         link: '',
         message: 'Create a snowman as cool as you with the Snowman Shuffle.',
@@ -48,7 +48,7 @@ define(['jquery'], function () {
         div.find('a.icon-facebook')
             .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
                 app_id: share.fb_id,
-                caption: share.greet,
+                caption: share.subject,
                 description: share.long,
                 display: 'popup',
                 link: share.index,
