@@ -35,7 +35,7 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         if ($(W).width() > 992) {
             $('.tile.magic').prependTo('.masonry-container');
         } else {
-            $('.tile.magic').appendTo('.masonry-container');
+            $('.tile.magic').prependTo('.masonry-container');
         }
     }
 
