@@ -37,10 +37,11 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         Page: Page,
         Share: Share,
         Slides: Slides,
+        game: gameMode,
     });
     W.Slides = Slides; // must expose for html bound events
 
-    $.ajaxSetup ({ // disable caching
+    $.ajaxSetup({// disable caching
         cache: false,
     });
 
@@ -48,29 +49,49 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
 
+    function detachShare(x) {
+        if (!x) {
+            $('.row-offcanvas').removeClass('active');
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            $('.row-offcanvas').addClass('active');
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
+    }
+
     button.click(function () {
-        $('.row-offcanvas').toggleClass('active');
         button.toggleClass('collapsed');
 
         if (button.is('.collapsed')) {
-            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+            detachShare(false);
         } else {
-            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+            detachShare(true);
         }
     });
     $.watchResize(function () {
         if (!button.is('.collapsed')) {
             button.click();
         }
+        gameMode();
     });
     bindDialog(); // external site warning
 
-    pushin.load('../includes/main_pushin.html .pushin > *');
+    pushin.load('../includes/main_pushin.html .pushin > *', function () {
+        $(W).trigger('resize');
+    });
 
     $.watchInputDevice();
     $.markAgent();
 
 //  PRIVATE
+    function gameMode() {
+        if ($('html').is('.mobi')) {
+            return;
+        }
+        button.click();
+        $('.frame .row-offcanvas').removeClass('active');
+        header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+    }
 
     function hideStartScreen() {
         $('#Welcome').removeClass('visible').addClass('hidden');
@@ -98,7 +119,6 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
     function doBindings() {
         var mode = Page.getMode();
 
-
         $('#Snowman-finish').on('click', function () {
             $('#snowmanButton1').hide();
             $('#snowmanButton2').hide();
@@ -113,7 +133,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
             W.location.reload();
         });
 
-        $.subscribe('Snowed', function (evt, obj){
+        $.subscribe('Snowed', function (evt, obj) {
             Share.tweak(obj.href);
         });
 

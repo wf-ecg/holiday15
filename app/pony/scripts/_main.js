@@ -36,6 +36,7 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
     expose({
         Share: Share,
         QP: QP,
+        game: gameMode,
     });
 
     $.ajaxSetup({// disable caching
@@ -48,14 +49,15 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
 
     function detachShare(x) {
         if (!x) {
+            $('.row-offcanvas').removeClass('active');
             pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
         } else {
+            $('.row-offcanvas').addClass('active');
             header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
         }
     }
 
     button.click(function () {
-        $('.row-offcanvas').toggleClass('active');
         button.toggleClass('collapsed');
 
         if (button.is('.collapsed')) {
@@ -69,15 +71,26 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         if (!button.is('.collapsed')) {
             button.click();
         }
+        gameMode();
     });
     bindDialog();
 
-    pushin.load('../includes/main_pushin.html .pushin > *');
+    pushin.load('../includes/main_pushin.html .pushin > *', function () {
+        $(W).trigger('resize');
+    });
 
     $.watchInputDevice();
     $.markAgent();
 
 //  PRIVATE
+    function gameMode() {
+        if ($('html').is('.mobi')) {
+            return;
+        }
+        button.click();
+        $('.frame .row-offcanvas').removeClass('active');
+        header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+    }
 
     function doBindings() {
 
