@@ -106,6 +106,7 @@ define(['jquery', 'lodash', 'modal'], function
                 btn.attr('target', src.target); // transfer target
             }
             btn.attr('href', src.href); // transfer url
+            btn.on('click', Modal.hide);
         });
     }
 
@@ -114,13 +115,11 @@ define(['jquery', 'lodash', 'modal'], function
         Modal.bind('#videoPony', '.ponyVideo', function () {
             var src = $('.modal').find('iframe').attr('src');
 
-            if ($('html').is('.mobi')) {
-                W.open('https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
-                _.defer(Modal.hide);
-            } else if (!src) {
-                $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+            if (!src) {
+                _.defer(function () {
+                    $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+                });
             }
-
         }, function () {
             $('.modal').find('iframe').attr('src', '');
         });

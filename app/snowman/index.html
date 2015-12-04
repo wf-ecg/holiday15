@@ -75,40 +75,7 @@
               </nav>
 
               <!-- SHAREBAR -->
-              <div class="shareBar desktop">
-
-                <ul class="shares">
-
-                  <li>
-                    <a class="icon-facebook"
-                       href="https://www.facebook.com/sharer/sharer.php?u=http://www.wellsfargomedia.com/holidays/snowman/index.html"
-                       target="external"
-                       title="Share on Facebook"><span class="ada">(opens dialog)</span></a>
-                  </li>
-
-                  <li>
-                    <a class="icon-twitter"
-                       href="https://twitter.com/intent/tweet?url=https://www.wellsfargo.com/holidays%23snowman&text=Create a snowman as cool as you with the Snowman Shuffle."
-                       target="external"
-                       title="Share on Twitter"><span class="ada">(opens dialog)</span></a>
-                  </li>
-
-                  <li>
-                    <a class="icon-googleplus"
-                       href="https://plus.google.com/share?url=http://www.wellsfargomedia.com/holidays/snowman/index.html"
-                       target="external"
-                       title="Share on Google Plus"><span class="ada">(opens dialog)</span></a>
-                  </li>
-                  <!--
-                  <li>
-                    <a class="icon-share"
-                       href="mailto:?subject=Build%20Your%20Own%20Snowman?&body=Create%20a%20snowman%20as%20cool%20as%20you%20with%20the%20Snowman%20Shuffle%20at%20https://www.wellsfargo.com/holidays%23snowman"
-                       title="Share by Email"><span class="ada">(opens dialog)</span></a>
-                  </li>
-                  -->
-                </ul>
-
-              </div>
+              <div class="shareBar desktop"></div>
 
               <!-- /container+row -->
             </div>
@@ -129,8 +96,8 @@
                 <p>Swipe the snowman parts right or left to create your personal&nbsp;snowman.</p>
                 <p>Or for a random snowman, try the<br> <b>SHUFFLE</b> button.</p>
                 <a class="btn btn-primary btn-start" id="btnStart" onclick="
-                      window.location.hash = 'm1';
-                      return undefined;
+          window.location.hash = 'm1';
+          return undefined;
                    "> Play </a>
               </div>
 
@@ -234,61 +201,65 @@
 
                   <div class="snowman-buttons-container">
                     <div class="box" id="snowmanButton1">
-                      <a onclick="
-                            Slides.scramble();
-                            return undefined;
-                         " class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
+                      <a id="Snowman-scramble" class="btn btn-primary btn-block btn-scramble"> Shuffle </a>
                     </div>
                     <div class="box" id="snowmanButton2">
-                      <a onclick="
-                            document.getElementById( 'snowmanButton1' ).style.display = 'none';
-                            document.getElementById( 'snowmanButton2' ).style.display = 'none';
-                            document.getElementById( 'snowmanShareBar' ).style.display = 'block';"
-                            class="btn btn-primary btn-block btn-preview"> Share </a>
+                      <a id="Snowman-finish" class="btn btn-primary btn-block btn-preview"> Share </a>
                     </div>
-
                     <div id="snowmanShareBar" class="share-quiz-footer">
 
-                      <div class="shareBar">
-                        <ul class="shares"
-                            data-url="http://www.wellsfargomedia.com/holidays/snowman/index.html"
-                            data-share-text="Create a snowman as cool as you with the Snowman Shuffle at wellsfargo.com/holidays#snowman"
-                            data-media="./images/share/og-snowman.png"
-                            data-description="Build Your Own Snowman">
+                      <p style="
+                         color: white;
+                         font-size: 20px;
+                         font-weight: 600;
+                         margin-top: 10px;
+                         margin-bottom: 30px;
+                         text-align: center;
+                         ">Share with family and friends:</p>
 
+                      <div class="shareBar" id="shareBarDynamic">
+                        <ul class="shares">
                           <li>
                             <a class="icon-facebook"
-                               href="https://www.facebook.com/sharer/sharer.php?u=http://www.wellsfargomedia.com/holidays/snowman/index.html"
+                               href=""
                                target="external"
-                               title="Share on Facebook"><span class="ada">(opens dialog)</span></a>
+                               title="Share to Facebook">
+                              <span class="ada">(opens dialog)</span>
+                            </a>
                           </li>
 
                           <li>
                             <a class="icon-twitter"
-                               href="https://twitter.com/intent/tweet?url=https://www.wellsfargo.com/holidays%23snowman&text=Create a snowman as cool as you with the Snowman Shuffle."
+                               href=""
                                target="external"
-                               title="Share on Twitter"><span class="ada">(opens dialog)</span></a>
+                               title="Share to Twitter">
+                              <span class="ada">(opens dialog)</span>
+                            </a>
                           </li>
 
                           <li>
                             <a class="icon-googleplus"
-                               href="https://plus.google.com/share?url=http://www.wellsfargomedia.com/holidays/snowman/index.html"
+                               href=""
                                target="external"
-                               title="Share on Google Plus"><span class="ada">(opens dialog)</span></a>
+                               title="Share to Google Plus">
+                              <span class="ada">(opens dialog)</span></a>
                           </li>
                           <!--
                           <li>
                             <a class="icon-share"
-                               href="mailto:?subject=Build%20Your%20Own%20Snowman?&body=Create%20a%20snowman%20as%20cool%20as%20you%20with%20the%20Snowman%20Shuffle%20at%20https://www.wellsfargo.com/holidays%23snowman"
-                               title="Share by Email"><span class="ada">(opens dialog)</span></a>
+                               href=""
+                               title="Share by Email">
+                              <span class="ada">(opens dialog)</span>
+                            </a>
                           </li>
                           -->
                         </ul>
+
                       </div>
 
-                      <button class="btn btn-restart" onclick="window.location.reload();" id="newSnowman" style="display:inherit; float:right;">Make Another</button>
+                      <button class="btn btn-restart" onclick="Slides.makeLink(true);" id="newSnowman">Make Another</button>
+
                     </div>
-                    <div style="clear:both;"></div>
 
                   </div> <!-- end snowman-buttons-container -->
 

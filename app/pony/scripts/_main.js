@@ -91,6 +91,7 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
                 btn.attr('target', src.target); // transfer target
             }
             btn.attr('href', src.href); // transfer url
+            btn.on('click', Modal.hide);
         });
     }
 

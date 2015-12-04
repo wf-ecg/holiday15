@@ -83,6 +83,10 @@ $Prime: #6a0737;
     margin-top: 1em;
     width: 6em;
 }
+.btn-restart {
+    margin-top: 1em;
+    width: 10em;
+}
 
 div.snowman-buttons-container {
     .box {
@@ -91,17 +95,22 @@ div.snowman-buttons-container {
         float: left;
         width: 50%;
     }
-    .share-quiz-footer {
-        display: none;
-    }
-    .shareBar {
-        float: left;
+}
+.share-quiz-footer {
+    display: none;
 
-        ul {
-            font-size: 1.7em;
-        }
-        li {
-            margin: 0.25em;
+    .shareBar {
+        .shares {
+            font-size: 2.57142em;
+            line-height: 0;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            text-align: center;
+
+            li {
+                margin: 0 0.5em;
+            }
         }
     }
 }
