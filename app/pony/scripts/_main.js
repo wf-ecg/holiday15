@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
-    MAIN($, _, QP, Modal, Share) {
+define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
+    MAIN($, _, QP, bindDialog, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -35,7 +35,6 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
 //EXTEND
     expose({
         Share: Share,
-        Modal: Modal,
         QP: QP,
     });
 
@@ -79,24 +78,8 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
     $.markAgent();
 
 //  PRIVATE
-    function bindDialog() { // off site dialog
-        var dialog = $('.modal .dialog'); // thing to show
-        var triggers = $('.shareBar .shares a'); // intercept these
-
-        Modal.bind(triggers, dialog, function (data) {
-            var btn = dialog.find('.utilitybtn'); // find the go button
-            var src = data.source[0];
-
-            if (src.target) {
-                btn.attr('target', src.target); // transfer target
-            }
-            btn.attr('href', src.href); // transfer url
-            btn.on('click', Modal.hide);
-        });
-    }
 
     function doBindings() {
-        Modal.init('.ui-page > .modal');
 
         $.subscribe('Ponied', function () {
             Share.tweak($('#pn').text());

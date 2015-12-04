@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], function
-    MAIN($, _, Page, Slides, FastClick, Modal, Share) {
+define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], function
+    MAIN($, _, Page, Slides, FastClick, bindDialog, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -38,7 +38,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
         Share: Share,
         Slides: Slides,
     });
-    W.Slides = Slides;
+    W.Slides = Slides; // must expose for html bound events
 
     $.ajaxSetup ({ // disable caching
         cache: false,
@@ -63,7 +63,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
             button.click();
         }
     });
-    bindDialog();
+    bindDialog(); // external site warning
 
     pushin.load('../includes/main_pushin.html .pushin > *');
 
@@ -71,21 +71,6 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
     $.markAgent();
 
 //  PRIVATE
-    function bindDialog() { // off site dialog
-        var dialog = $('.modal .dialog'); // thing to show
-        var triggers = $('.shareBar .shares a'); // intercept these
-
-        Modal.bind(triggers, dialog, function (data) {
-            var btn = dialog.find('.utilitybtn'); // find the go button
-            var src = data.source[0];
-
-            if (src.target) {
-                btn.attr('target', src.target); // transfer target
-            }
-            btn.attr('href', src.href); // transfer url
-            btn.on('click', Modal.hide);
-        });
-    }
 
     function hideStartScreen() {
         $('#Welcome').removeClass('visible').addClass('hidden');
@@ -113,7 +98,6 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
     function doBindings() {
         var mode = Page.getMode();
 
-        Modal.init('.ui-page > .modal');
 
         $('#Snowman-finish').on('click', function () {
             $('#snowmanButton1').hide();

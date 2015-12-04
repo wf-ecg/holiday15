@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'modal'], function
-    MAIN($, _, Modal) {
+define(['jquery', 'lodash', 'dialog', 'modal'], function
+    MAIN($, _, bindDialog, Modal) {
     'use strict';
 
     var Nom = 'Main';
@@ -94,24 +94,10 @@ define(['jquery', 'lodash', 'modal'], function
     }, 'markAgent');
 
 //  PRIVATE
-    function bindDialog() { // off site dialog
-        var dialog = $('.modal .dialog'); // thing to show
-        var triggers = $('.shareBar .shares a'); // intercept these
-
-        Modal.bind(triggers, dialog, function (data) {
-            var btn = dialog.find('.utilitybtn'); // find the go button
-            var src = data.source[0];
-
-            if (src.target) {
-                btn.attr('target', src.target); // transfer target
-            }
-            btn.attr('href', src.href); // transfer url
-            btn.on('click', Modal.hide);
-        });
-    }
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
+
         Modal.bind('#videoPony', '.ponyVideo', function () {
             var src = $('.modal').find('iframe').attr('src');
 
