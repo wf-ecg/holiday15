@@ -103,7 +103,7 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
 
             if (!src) {
                 _.defer(function () {
-                    $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+                    $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/FQ-N98e816k?autoplay=1&rel=0&showinfo=0');
                 });
             }
         }, function () {
