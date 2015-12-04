@@ -19,6 +19,7 @@ require.config({
         data: '../../vendor/ecg/anagrams',
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
+        dialog: '../../vendor/ecg/dialog',
         modal: '../../vendor/ecg/modal',
         utils: '../../vendor/ecg/utils',
         beacon: '../../vendor/ecg/beacon',
