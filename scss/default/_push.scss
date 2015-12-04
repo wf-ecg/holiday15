@@ -7,7 +7,7 @@
         //@include background-image( url("../images/bkgrs/original-bubbles-dark.png"), linear-gradient(top, $a_m_coolgray 22%, $a_l_coolgray 88%) );
         @include background-image( url("../images/bkgrs/original-bubbles-dark.png"), linear-gradient(top, $a_teal 22%, $a_d_teal 88%) );
         background-size: cover, cover !important;
-        box-shadow: 1px 2px 3px black;
+        //box-shadow: 1px 2px 3px black;
         display: block;
         font-size: 2em;
         height: 100%;
