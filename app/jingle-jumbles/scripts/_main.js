@@ -78,6 +78,13 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message', 'share'], funct
         }
     }
 
+    function checkPath() {
+        // determine if we are doing an IRT site
+        // apply footer and header and pushin appropriate
+        // also change the GA token
+        //
+    }
+
     // - - - - - - - - - - - - - - - - - -
     // WIRING
     function updateScore(score) {
