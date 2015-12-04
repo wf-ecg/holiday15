@@ -88,7 +88,11 @@ define(['jquery'], function ($) {
                     return; // allow for spacebar open
                 }
                 if (fixer) {
-                    fixer(data);
+                    try {
+                        fixer(data);
+                    } catch (err) {
+                        C.error(err);
+                    }
                 }
                 self.show(data.target);
             }).data(Nom, data);

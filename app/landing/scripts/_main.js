@@ -116,9 +116,10 @@ define(['jquery', 'lodash', 'modal'], function
             var src = $('.modal').find('iframe').attr('src');
 
             if (!src) {
-                $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+                _.defer(function () {
+                    $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+                });
             }
-
         }, function () {
             $('.modal').find('iframe').attr('src', '');
         });
