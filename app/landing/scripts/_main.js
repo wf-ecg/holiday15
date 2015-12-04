@@ -11,7 +11,7 @@
 
  */
 define(['jquery', 'lodash', 'dialog', 'modal'], function
-    MAIN($, _, bindDialog, Modal) {
+    MAIN($, _, Dialog, Modal) {
     'use strict';
 
     var Nom = 'Main';
@@ -41,6 +41,7 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         cache: false,
     });
 
+    var dialog = $('.modal .dialog').first();
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
@@ -60,9 +61,9 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
             button.click();
         }
     });
-    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *');
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
 
     $.watchInputDevice();
     $.watchResize(function () {

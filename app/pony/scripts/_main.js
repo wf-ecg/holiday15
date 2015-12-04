@@ -11,7 +11,7 @@
 
  */
 define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
-    MAIN($, _, QP, bindDialog, Share) {
+    MAIN($, _, QP, Dialog, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -43,6 +43,7 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         cache: false,
     });
 
+    var dialog = $('.modal .dialog').first();
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
@@ -73,11 +74,11 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         }
         gameMode();
     });
-    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *', function () {
         $(W).trigger('resize');
     });
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
 
     $.watchInputDevice();
     $.markAgent();

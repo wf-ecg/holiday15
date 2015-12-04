@@ -11,7 +11,7 @@
 
  */
 define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], function
-    MAIN($, _, Page, Slides, FastClick, bindDialog, Share) {
+    MAIN($, _, Page, Slides, FastClick, Dialog, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -45,6 +45,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         cache: false,
     });
 
+    var dialog = $('.modal .dialog').first();
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
@@ -74,11 +75,11 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         }
         gameMode();
     });
-    bindDialog(); // external site warning
 
     pushin.load('../includes/main_pushin.html .pushin > *', function () {
         $(W).trigger('resize');
     });
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
 
     $.watchInputDevice();
     $.markAgent();
