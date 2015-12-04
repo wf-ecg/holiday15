@@ -83,6 +83,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
                 btn.attr('target', src.target); // transfer target
             }
             btn.attr('href', src.href); // transfer url
+            btn.on('click', Modal.hide);
         });
     }
 

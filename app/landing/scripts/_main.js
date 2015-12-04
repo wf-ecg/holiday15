@@ -106,6 +106,7 @@ define(['jquery', 'lodash', 'modal'], function
                 btn.attr('target', src.target); // transfer target
             }
             btn.attr('href', src.href); // transfer url
+            btn.on('click', Modal.hide);
         });
     }
 
