@@ -54,12 +54,22 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
+    var gaToke = '';
+
+    if (location.href.match('irt')) {
+        gaToke = 'HOLI-IRT';
+        html.addClass('IRT');
+    } else {
+        gaToke = 'HOLI-JING';
+        html.addClass('ENT');
+    }
+
     require(['boots', 'jqmobi', 'jqxtn', '../../jumbles/_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {
                 require(['stats'], function (stats) {
-                    stats.init('HOLI-JING');
+                    stats.init(gaToke);
                 });
             }
         }, 1e3);

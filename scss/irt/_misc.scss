@@ -42,6 +42,25 @@ header .mobile {
         }
     }
 }
+.ENT {
+    .shareBar {
+    }
+    #shareBarDynamic {
+        .shares {
+            font-size: 2.57142em;
+            line-height: 0;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            text-align: center;
+
+            li {
+                margin: 0 0.5em;
+            }
+        }
+    }
+}
+
 .stage {
     display: none;
 }
