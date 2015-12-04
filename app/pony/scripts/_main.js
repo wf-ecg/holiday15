@@ -20,7 +20,7 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
         C = (W.C || W.console || {});
 
     function db(num) {
-        return W.debug > (num || 1);
+        return W.debug > (num || 0);
     }
     function expose(obj, log) {
         if (db()) {
