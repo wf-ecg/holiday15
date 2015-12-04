@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>Wells Fargo Jingle Jumbles</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="cache-control" content="max-age=0, must-revalidate">
+    <meta name="viewport" content="width=device-width">
+    <!--  -->
+    <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
+        (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
+    <meta name="author" content="Wells Fargo">
+    <meta content="See how many Jingle Jumbles you can solve." name="description">
+    <!-- static -->
+    <link rel="canonical" href="http://www.wellsfargomedia.com/holidays/jumbles/index.html">
+    <meta id="OGt" property="og:title" content="Wells Fargo Jingle Jumbles">
+    <meta id="OGd" property="og:description" content="Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game from Wells Fargo.">
+    <meta id="OGi" property="og:image" content="http://www.wellsfargomedia.com/holidays/images/share/og-jingle.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.wellsfargomedia.com/holidays/jingle-jumbles/index.html">
+    <meta property="fb:app_id" content="189445374730755">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../build/irt.css">
+    <!-- hacks -->
+    <script src="../vendor/ecg/glober.js"></script>
+
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
+  </head>
+
+  <body class="loading"><div data-role="page" class="irt">
+      <!--[if lt IE 10]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+      <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+      browser</a> to improve your web experience.</p> </div><![endif]-->
+
+      <div class="frame">
+
+        <header>
+
+          <div class="mobile">
+            <img class="logo wells" src="../images/logos/wf-oneline.svg" width="200" alt="Wells Fargo">
+          </div>
+
+          <div class="container">
+            <div class="row">
+
+              <nav class="navbar"><a class="desktop navbar-brand" rel="external" href="..">
+                  <img class="logo wells" alt="Wells Fargo" height="62" src="../images/logos/wf-square.svg">
+                </a>
+              </nav>
+
+              <!-- SHAREBAR -->
+              <div class="shareBar desktop">
+                <ul class="shares">
+
+                  <li>
+                    <a class="icon-facebook"
+                       href="https://www.facebook.com/sharer/sharer.php?u=http://www.wellsfargomedia.com/holidays/jumbles/index.html"
+                       target="external"
+                       title="Share on Facebook"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-twitter"
+                       href="https://twitter.com/intent/tweet?url=http://www.wellsfargomedia.com/holidays/jumbles/index.html&text=Play the holiday Jingle Jumbles anagram game from Wells Fargo."
+                       target="external"
+                       title="Share on Twitter"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-googleplus"
+                       href="https://plus.google.com/share?url=http://www.wellsfargomedia.com/holidays/jumbles/index.html"
+                       target="external"
+                       title="Share on Google Plus"><span class="ada">(opens dialog)</span></a>
+                  </li>
+                  <!--
+                  <li>
+                    <a class="icon-share"
+                       href="mailto:?subject=Holiday%20anagram%20game&body=Happy%20holidays!%20I%20thought%20you%20might%20like%20to%20play%20the%20holiday%20Jingle%20Jumbles%20anagram%20game%20from%20Wells%20Fargo.%20http://www.wellsfargomedia.com/holidays/jumbles/index.html"
+                       title="Share by Email"><span class="ada">(opens dialog)</span></a>
+                  </li>
+                  -->
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+
+        </header>
+
+        <section>
+          <div class="celldiv game">
+
+            <div class="intro">
+              <h1>
+                We hope your holidays are letter perfect.
+              </h1>
+              <p>
+                Choose letters to turn a Jingle Jumble into a holiday greeting.<br>
+                See how many you can solve in 2 minutes.
+              </p>
+
+
+              <br>
+              <button><img class="gift" src="../images/icons/gift.png" alt="">Start</button>
+            </div>
+
+            <div class="outro">
+              <h2>
+                Your Jingle Jumbles score is <span class="score">{{score}}</span>
+              </h2>
+              <p class="ratings">
+                <span class="lame">Congratulations! You’re a Jingle Jumbles natural!<br></span>
+                <span class="okay">Wow! You’re a Jingle Jumbles rock star!<br></span>
+                <span class="good">Jingle all the way! You’re a word master.<br></span>
+              </p>
+
+              <!--<img class="gift" src="../images/icons/gift.png" alt="gift">-->
+
+              <button><img class="gift" src="../images/icons/gift.png" alt="">Play Again</button>
+              <h2>
+                Happy Holidays!<br>
+                Share with family and friends!
+              </h2>
+
+              <div class="shareBar" id="shareBarDynamic">
+
+                <ul class="shares">
+                  <li>
+                    <a class="icon-facebook"
+                       href=""
+                       target="external"
+                       title="Share to Facebook">
+                      <span class="ada">(opens dialog)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="icon-twitter"
+                       href=""
+                       target="external"
+                       title="Share to Twitter">
+                      <span class="ada">(opens dialog)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="icon-googleplus"
+                       href=""
+                       target="external"
+                       title="Share to Google Plus">
+                      <span class="ada">(opens dialog)</span></a>
+                  </li>
+                  <!--
+                  <li>
+                    <a class="icon-share"
+                       href=""
+                       title="Share by Email">
+                      <span class="ada">(opens dialog)</span>
+                    </a>
+                  </li>
+                  -->
+                </ul>
+
+              </div>
+
+            </div>
+
+            <div class="jumble">
+              <div class="message"></div>
+
+              <div class="gameOutput"></div>
+              <hr>
+              <div class="gameInput"></div>
+
+              <button class="next">Next Phrase</button>
+
+              <div class="status">
+                <span class="timer"></span>
+                <span class="score"></span>
+              </div>
+            </div>
+
+            <!-- END GAME -->
+          </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <img class="stage" src="../images/logos/wf_icon_en-blk.svg">
+
+            <p class="fineprint">
+              © 2015 Wells Fargo Bank, N.A. All rights reserved. ECG-1261325
+            </p>
+
+          </div>
+        </footer>
+
+        <!-- END FRAME -->
+      </div>
+
+      <div class="modal"></div>
+
+    </div></body>
+</html>
