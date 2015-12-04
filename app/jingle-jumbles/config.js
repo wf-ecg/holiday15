@@ -64,7 +64,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
         html.addClass('ENT');
     }
 
-    require(['boots', 'jqmobi', 'jqxtn', '_main'], function () {
+    require(['boots', 'jqmobi', 'jqxtn', '../_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {
