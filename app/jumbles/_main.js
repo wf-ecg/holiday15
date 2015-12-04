@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message', 'share'], function
-    MAIN($, _, Modal, Timer, Game, Message, Share) {
+define(['jquery', 'lodash', 'dialog', 'modal', 'timer', 'game', 'message', 'share'], function
+    MAIN($, _, Dialog, Modal, Timer, Game, Message, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -37,56 +37,84 @@ define(['jquery', 'lodash', 'modal', 'timer', 'game', 'message', 'share'], funct
         rating: '.ratings',
     };
 
-    // repair page determination
-    if (W.location.hash.slice(1) === 'wystar') {
-        W.location.href = 'wystar.html';
-    }
 
-    $.watchResize(function () {
-        var ua = W.navigator.userAgent;
-        if (ua.match(/mobi/i) ||
-            $(W).width() < 768) { // simulate
-            $('html').removeClass('desktop');
-            $('html').addClass('mobile');
-        } else {
-            $('html').removeClass('mobile');
-            $('html').addClass('desktop');
-        }
-        if (ua.match(/chrome/i)) {
-            $('html').addClass('chrome');
-        } else if (ua.match(/safari/i)) {
-            $('html').addClass('safari');
-        } else if (ua.match(/firefox/i)) {
-            $('html').addClass('firefox');
-        } else if (ua.match(/trident/i)) {
-            $('html').addClass('trident');
-        }
-    }, 'markAgent');
-    $.swallowBackspace();
-    $.watchInputDevice();
-
-    // - - - - - - - - - - - - - - - - - -
-    // PRIVATE
     function db(num) {
         return W.debug > (num || 0);
     }
-    function expose(obj) {
-        if (db(0)) {
-            W.Main = Main; // expose for console
+    function expose(obj, log) {
+        if (db()) {
+            W.Main = Main; // expose for dev
             $.extend(Main, obj);
-            C.info(Nom, 'expose', obj);
+        }
+        if (log) {
+            C.info(Nom, 'expose', Main);
         }
     }
 
-    function checkPath() {
-        // determine if we are doing an IRT site
-        // apply footer and header and pushin appropriate
-        // also change the GA token
-        //
+    expose({
+        Share: Share,
+        game: gameMode,
+    });
+
+    $.ajaxSetup({// disable caching
+        cache: false,
+    });
+
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
+    var dialog = $('.modal .dialog').first();
+    var header = $('header').first();
+    var pushin = $('.pushin').first();
+    var button = header.find('button').first();
+
+    function detachShare(x) {
+        if (!x) {
+            $('.row-offcanvas').removeClass('active');
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            $('.row-offcanvas').addClass('active');
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
     }
+
+    button.click(function () {
+        button.toggleClass('collapsed');
+
+        if (button.is('.collapsed')) {
+            detachShare(false);
+        } else {
+            detachShare(true);
+        }
+    });
+
+    $.watchResize(function () {
+        if (!button.is('.collapsed')) {
+            button.click();
+        }
+        gameMode();
+    });
+
+    pushin.load('../includes/main_pushin.html .pushin > *', function () {
+        $(W).trigger('resize');
+    });
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
+
+    $.swallowBackspace();
+    $.watchInputDevice();
+    $.markAgent();
 
     // - - - - - - - - - - - - - - - - - -
     // WIRING
+    function gameMode() {
+        if ($('html').is('.mobi')) {
+            return;
+        }
+        button.click();
+        $('.frame .row-offcanvas').removeClass('active');
+        header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+    }
+
     function updateScore(score) {
         El.score.html('Score: ' + (score || 0));
     }
