@@ -201,7 +201,14 @@ define(['jquery', 'lodash', 'help', 'page'], function ($, _, Help, Page) {
         };
 
         self.finish = function () {
+            var toy;
+
             $('.arrow').remove();
+            $('.slider').css('box-shadow','none');
+
+            toy = $('#snowmen');
+            toy.replaceWith(toy.clone());
+
             $.publish('Snowed', {
                 href: self.makeLink(false) + '+m1',
             });

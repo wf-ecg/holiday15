@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
-    MAIN($, _, QP, Modal, Share) {
+define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
+    MAIN($, _, QP, bindDialog, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -20,7 +20,7 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
         C = (W.C || W.console || {});
 
     function db(num) {
-        return W.debug > (num || 1);
+        return W.debug > (num || 0);
     }
     function expose(obj, log) {
         if (db()) {
@@ -35,8 +35,8 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
 //EXTEND
     expose({
         Share: Share,
-        Modal: Modal,
         QP: QP,
+        game: gameMode,
     });
 
     $.ajaxSetup({// disable caching
@@ -49,14 +49,15 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
 
     function detachShare(x) {
         if (!x) {
+            $('.row-offcanvas').removeClass('active');
             pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
         } else {
+            $('.row-offcanvas').addClass('active');
             header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
         }
     }
 
     button.click(function () {
-        $('.row-offcanvas').toggleClass('active');
         button.toggleClass('collapsed');
 
         if (button.is('.collapsed')) {
@@ -70,33 +71,28 @@ define(['jquery', 'lodash', 'quizpanel', 'modal', 'share'], function
         if (!button.is('.collapsed')) {
             button.click();
         }
+        gameMode();
     });
     bindDialog();
 
-    pushin.load('../includes/main_pushin.html .pushin > *');
+    pushin.load('../includes/main_pushin.html .pushin > *', function () {
+        $(W).trigger('resize');
+    });
 
     $.watchInputDevice();
     $.markAgent();
 
 //  PRIVATE
-    function bindDialog() { // off site dialog
-        var dialog = $('.modal .dialog'); // thing to show
-        var triggers = $('.shareBar .shares a'); // intercept these
-
-        Modal.bind(triggers, dialog, function (data) {
-            var btn = dialog.find('.utilitybtn'); // find the go button
-            var src = data.source[0];
-
-            if (src.target) {
-                btn.attr('target', src.target); // transfer target
-            }
-            btn.attr('href', src.href); // transfer url
-            btn.on('click', Modal.hide);
-        });
+    function gameMode() {
+        if ($('html').is('.mobi')) {
+            return;
+        }
+        button.click();
+        $('.frame .row-offcanvas').removeClass('active');
+        header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
     }
 
     function doBindings() {
-        Modal.init('.ui-page > .modal');
 
         $.subscribe('Ponied', function () {
             Share.tweak($('#pn').text());

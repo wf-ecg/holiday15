@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'modal'], function
-    MAIN($, _, Modal) {
+define(['jquery', 'lodash', 'dialog', 'modal'], function
+    MAIN($, _, bindDialog, Modal) {
     'use strict';
 
     var Nom = 'Main';
@@ -20,7 +20,7 @@ define(['jquery', 'lodash', 'modal'], function
         C = (W.C || W.console || {});
 
     function db(num) {
-        return W.debug > (num || 1);
+        return W.debug > (num || 0);
     }
     function expose(obj, log) {
         if (db()) {
@@ -29,13 +29,6 @@ define(['jquery', 'lodash', 'modal'], function
         }
         if (log) {
             C.info(Nom, 'expose', Main);
-        }
-    }
-    function swapper() {
-        if ($(W).width() > 992) {
-            $('.tile.magic').prependTo('.masonry-container');
-        } else {
-            $('.tile.magic').appendTo('.masonry-container');
         }
     }
 
@@ -94,30 +87,16 @@ define(['jquery', 'lodash', 'modal'], function
     }, 'markAgent');
 
 //  PRIVATE
-    function bindDialog() { // off site dialog
-        var dialog = $('.modal .dialog'); // thing to show
-        var triggers = $('.shareBar .shares a'); // intercept these
-
-        Modal.bind(triggers, dialog, function (data) {
-            var btn = dialog.find('.utilitybtn'); // find the go button
-            var src = data.source[0];
-
-            if (src.target) {
-                btn.attr('target', src.target); // transfer target
-            }
-            btn.attr('href', src.href); // transfer url
-            btn.on('click', Modal.hide);
-        });
-    }
 
     function doBindings() {
         Modal.init('.ui-page > .modal');
+
         Modal.bind('#videoPony', '.ponyVideo', function () {
             var src = $('.modal').find('iframe').attr('src');
 
             if (!src) {
                 _.defer(function () {
-                    $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/F6yB2mWCQZI?autoplay=1&rel=0&showinfo=0');
+                    $('.modal').find('iframe').attr('src', 'https://www.youtube.com/embed/FQ-N98e816k?autoplay=1&rel=0&showinfo=0');
                 });
             }
         }, function () {
@@ -128,8 +107,6 @@ define(['jquery', 'lodash', 'modal'], function
             var a = $(evt.delegateTarget).find('a')[0];
             a && a.click(); // make surrounding tile trigger button
         });
-        $(W).on('resize', swapper);
-        swapper();
     }
 
 //  INIT

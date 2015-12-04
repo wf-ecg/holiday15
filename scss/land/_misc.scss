@@ -37,6 +37,9 @@
 .big-red {
     @extend .big-;
     color: $wf_red;
+    .mobi & {
+        font-size: 2.5em;
+    }
 }
 .big-red-ital {
     @extend .big-red;

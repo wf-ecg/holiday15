@@ -10,8 +10,8 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], function
-    MAIN($, _, Page, Slides, FastClick, Modal, Share) {
+define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], function
+    MAIN($, _, Page, Slides, FastClick, bindDialog, Share) {
     'use strict';
 
     var Nom = 'Main';
@@ -20,7 +20,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
         C = (W.C || W.console || {});
 
     function db(num) {
-        return W.debug > (num || 1);
+        return W.debug > (num || 0);
     }
     function expose(obj, log) {
         if (db()) {
@@ -37,10 +37,11 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
         Page: Page,
         Share: Share,
         Slides: Slides,
+        game: gameMode,
     });
-    W.Slides = Slides;
+    W.Slides = Slides; // must expose for html bound events
 
-    $.ajaxSetup ({ // disable caching
+    $.ajaxSetup({// disable caching
         cache: false,
     });
 
@@ -48,43 +49,48 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
 
+    function detachShare(x) {
+        if (!x) {
+            $('.row-offcanvas').removeClass('active');
+            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+        } else {
+            $('.row-offcanvas').addClass('active');
+            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+        }
+    }
+
     button.click(function () {
-        $('.row-offcanvas').toggleClass('active');
         button.toggleClass('collapsed');
 
         if (button.is('.collapsed')) {
-            pushin.find('.shareBar ul').appendTo(header.find('.shareBar'));
+            detachShare(false);
         } else {
-            header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
+            detachShare(true);
         }
     });
     $.watchResize(function () {
         if (!button.is('.collapsed')) {
             button.click();
         }
+        gameMode();
     });
-    bindDialog();
+    bindDialog(); // external site warning
 
-    pushin.load('../includes/main_pushin.html .pushin > *');
+    pushin.load('../includes/main_pushin.html .pushin > *', function () {
+        $(W).trigger('resize');
+    });
 
     $.watchInputDevice();
     $.markAgent();
 
 //  PRIVATE
-    function bindDialog() { // off site dialog
-        var dialog = $('.modal .dialog'); // thing to show
-        var triggers = $('.shareBar .shares a'); // intercept these
-
-        Modal.bind(triggers, dialog, function (data) {
-            var btn = dialog.find('.utilitybtn'); // find the go button
-            var src = data.source[0];
-
-            if (src.target) {
-                btn.attr('target', src.target); // transfer target
-            }
-            btn.attr('href', src.href); // transfer url
-            btn.on('click', Modal.hide);
-        });
+    function gameMode() {
+        if ($('html').is('.mobi')) {
+            return;
+        }
+        button.click();
+        $('.frame .row-offcanvas').removeClass('active');
+        header.find('.shareBar ul').appendTo(pushin.find('.shareBar'));
     }
 
     function hideStartScreen() {
@@ -113,8 +119,6 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
     function doBindings() {
         var mode = Page.getMode();
 
-        Modal.init('.ui-page > .modal');
-
         $('#Snowman-finish').on('click', function () {
             $('#snowmanButton1').hide();
             $('#snowmanButton2').hide();
@@ -124,8 +128,12 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
         $('#Snowman-scramble').on('click', function () {
             Slides.scramble();
         });
+        $('#Snowman-restart').on('click', function () {
+            Slides.makeLink(true);
+            W.location.reload();
+        });
 
-        $.subscribe('Snowed', function (evt, obj){
+        $.subscribe('Snowed', function (evt, obj) {
             Share.tweak(obj.href);
         });
 
