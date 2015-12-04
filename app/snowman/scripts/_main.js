@@ -124,6 +124,10 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'modal', 'share'], fu
         $('#Snowman-scramble').on('click', function () {
             Slides.scramble();
         });
+        $('#Snowman-restart').on('click', function () {
+            Slides.makeLink(true);
+            W.location.reload();
+        });
 
         $.subscribe('Snowed', function (evt, obj){
             Share.tweak(obj.href);
