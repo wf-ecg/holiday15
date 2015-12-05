@@ -11,13 +11,16 @@
 
  */
 define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], function
-    MAIN($, _, Page, Slides, FastClick, bindDialog, Share) {
+    MAIN($, _, Page, Slides, FastClick, Dialog, Share) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
+
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
 
     function db(num) {
         return W.debug > (num || 0);
@@ -32,7 +35,9 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         }
     }
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
     expose({
         Page: Page,
         Share: Share,
@@ -45,6 +50,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         cache: false,
     });
 
+    var dialog = $('.modal .dialog').first();
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
@@ -74,16 +80,18 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick', 'dialog', 'share'], f
         }
         gameMode();
     });
-    bindDialog(); // external site warning
 
     pushin.load('../includes/main_pushin.html .pushin > *', function () {
         $(W).trigger('resize');
     });
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
 
     $.watchInputDevice();
     $.markAgent();
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
+
     function gameMode() {
         if ($('html').is('.mobi')) {
             return;

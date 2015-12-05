@@ -11,13 +11,16 @@
 
  */
 define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
-    MAIN($, _, QP, bindDialog, Share) {
+    MAIN($, _, QP, Dialog, Share) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
+
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
 
     function db(num) {
         return W.debug > (num || 0);
@@ -32,7 +35,9 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         }
     }
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
     expose({
         Share: Share,
         QP: QP,
@@ -43,6 +48,7 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         cache: false,
     });
 
+    var dialog = $('.modal .dialog').first();
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
@@ -73,16 +79,18 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
         }
         gameMode();
     });
-    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *', function () {
         $(W).trigger('resize');
     });
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
 
     $.watchInputDevice();
     $.markAgent();
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
+
     function gameMode() {
         if ($('html').is('.mobi')) {
             return;

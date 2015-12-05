@@ -11,13 +11,16 @@
 
  */
 define(['jquery', 'lodash', 'dialog', 'modal'], function
-    MAIN($, _, bindDialog, Modal) {
+    MAIN($, _, Dialog, Modal) {
     'use strict';
 
     var Nom = 'Main';
     var Main = {};
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
+
+    // - - - - - - - - - - - - - - - - - -
+    // EXTEND
 
     function db(num) {
         return W.debug > (num || 0);
@@ -32,7 +35,9 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         }
     }
 
-//EXTEND
+    // - - - - - - - - - - - - - - - - - -
+    // PRIVATE
+
     expose({
         Modal: Modal,
     });
@@ -41,6 +46,7 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         cache: false,
     });
 
+    var dialog = $('.modal .dialog').first();
     var header = $('header').first();
     var pushin = $('.pushin').first();
     var button = header.find('button').first();
@@ -60,9 +66,9 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
             button.click();
         }
     });
-    bindDialog();
 
     pushin.load('../includes/main_pushin.html .pushin > *');
+    dialog.load('../includes/main_dialog.html .dialog > *', Dialog.bind);
 
     $.watchInputDevice();
     $.watchResize(function () {
@@ -86,7 +92,8 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         }
     }, 'markAgent');
 
-//  PRIVATE
+    // - - - - - - - - - - - - - - - - - -
+    // WIRING
 
     function doBindings() {
         Modal.init('.ui-page > .modal');

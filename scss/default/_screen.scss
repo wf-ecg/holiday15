@@ -38,14 +38,19 @@ $X9: 9999px;
     }
 }
 html {
-    .desktop { display: none; }
+    header .desktop { display: none; }
     &.desktop {
         .desktop { display: inherit; }
         .mobile { display: none; }
     }
 }
 // SMALL
-@media (max-width: $break), (max-device-width: $break) {}
+@media (max-width: $break - 1), (max-device-width: $break - 1) {
+    .desktop { display: none; }
+}
+@media (min-width: $break) and (min-device-width: $break) {
+    .mobile { display: none; }
+}
 // SMALL PORTRAIT
 @media (max-width: $break) and (orientation: portrait), (max-device-width: $break) and (orientation: portrait) {}
 // NORMAL

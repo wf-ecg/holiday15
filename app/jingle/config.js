@@ -19,6 +19,7 @@ require.config({
         data: '../../vendor/ecg/anagrams',
         boots: '../../vendor/bootstrap/js/bootstrap.min',
         console: '../../vendor/ecg/console',
+        dialog: '../../vendor/ecg/dialog',
         modal: '../../vendor/ecg/modal',
         skrollr: '../../vendor/skrollr/skrollr',
         utils: '../../vendor/ecg/utils',
@@ -52,7 +53,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', 'jqxtn', '_main'], function () {
+    require(['boots', 'jqmobi', 'jqxtn', '../_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {

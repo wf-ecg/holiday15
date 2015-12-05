@@ -55,7 +55,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', '_main'], function () {
+    require(['boots', 'jqmobi', '../_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {

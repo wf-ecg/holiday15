@@ -35,5 +35,7 @@ define(['jquery', 'modal'], function ($, Modal) {
         });
     }
 
-    return bindDialog;
+    return {
+        bind: bindDialog,
+    };
 });
