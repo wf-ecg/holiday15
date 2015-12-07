@@ -199,7 +199,7 @@ define(['jquery'], function ($) {
             $.publish('Ponied');
         }
 
-        $('#QuizWelliFa input').change(function () {
+        $('#myQuiz input').change(function () {
             //advance to next Question
             advancePanel();
             focusPanel();
