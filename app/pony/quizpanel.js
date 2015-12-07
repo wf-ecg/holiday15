@@ -9,9 +9,11 @@ define(['jquery'], function ($) {
 
     var panelRatio = 0.84;
 
-    W.navigator.userAgent.match(/trident/i) && $('label').one('click', function () {
-        $(this).find('input').click().trigger('change');
-    });
+    if (W.navigator.userAgent.match(/trident/i)) {
+        $('label').one('click', function () {
+            $(this).find('input').click().trigger('change');
+        });
+    }
 
 // Set close gradient classes on form panels
     function updatePanelClasses() {
