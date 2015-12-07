@@ -53,7 +53,7 @@ define(['jquery'], function () {
         div.find('a.icon-facebook')
             .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
                 app_id: share.fb_id,
-                caption: share.score,
+                caption: 'Wells Fargo',
                 description: share.long,
                 display: 'popup',
                 link: share.index,
