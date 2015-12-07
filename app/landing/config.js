@@ -8,27 +8,26 @@ W.SHIET = {};
 W.debug = Number(new Date('2015/12/01') > new Date());
 
 require.config({
-    baseUrl: 'scripts',
+    baseUrl: '.',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
         jquery: '/lib/jquery/1.11.3/jquery',
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
-        videojs: '/lib/video-js/ecg/video',
-        //
-        boots: '../../vendor/bootstrap/js/bootstrap.min',
-        console: '../../vendor/ecg/console',
-        dialog: '../../vendor/ecg/dialog',
-        modal: '../../vendor/ecg/modal',
-        utils: '../../vendor/ecg/utils',
-        beacon: '../../vendor/ecg/beacon',
-        stats: '../../vendor/ecg/stats',
-        //
-        angular: '../../vendor/ng/angular.min',
-        angularAMD: '../../vendor/ng/angularAMD.min',
-        angularRT: '../../vendor/ng/angular-route.min',
-        //
+        // ecg
+        beacon: '../libs/ecg/beacon',
+        console: '../libs/ecg/console',
+        dialog: '../libs/ecg/dialog',
+        modal: '../libs/ecg/modal',
+        stats: '../libs/ecg/stats',
+        utils: '../libs/ecg/utils',
+        // vendor
+        angular: '../vendor/ng/angular.min',
+        angularAMD: '../vendor/ng/angularAMD.min',
+        angularRT: '../vendor/ng/angular-route.min',
+        boots: '../vendor/bootstrap/js/bootstrap.min',
+        // custom
     },
     shim: { angularAMD: ['angular'], angularRT: ['angular'] },
 });
@@ -55,7 +54,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', '../_main'], function () {
+    require(['boots', 'jqmobi', '_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {
