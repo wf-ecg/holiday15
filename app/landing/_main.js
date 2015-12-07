@@ -96,8 +96,6 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
     // WIRING
 
     function doBindings() {
-        Modal.init('.ui-page > .modal');
-
         Modal.bind('#videoPony', '.ponyVideo', function () {
             var src = $('.modal').find('iframe').attr('src');
 

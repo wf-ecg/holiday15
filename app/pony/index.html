@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../vendor/misc/animate.css">
     <link rel="stylesheet" href="../build/pony.css">
     <!-- hacks -->
-    <script src="../vendor/ecg/glober.js"></script>
+    <script src="../libs/ecg/glober.js"></script>
 
     <script src="/lib/requirejs/2.1.17/require.js"
             data-main="./config"
@@ -121,11 +121,14 @@
               <div id="page-wrap" class="hfeed site">
 
                 <div id="results-container" class="animated slideInDown hidden" style="margin-top:50px;">
+
                   <div id="quiz-results" class="panel-group panel-group-winner" role="tablist">
                     <div class="panel-body panel-body-winner">
                       <div class="quiz-question">
                         <div class="responses">
+
                           <div id="pnIcon" class="winning-horse-icon"></div>
+
                           <h2 class="winning-horse-intro"><p>Your pony personality is</p></h2>
                           <h3 id="pn" class="winning-horse-name"></h3>
                           <p id="pnBio" class="winning-horse-bio text-center" style="width:80%; min-width:320px; margin:auto;"></p>
@@ -189,11 +192,9 @@
                   <!-- results-container -->
                 </div>
 
-
-
                 <div id="myQuiz" class="visible">
-                  <form id="QuizWelliFa" action="">
-                    <section id="quiz" class="quiz">
+
+                  <form class="quiz" action="">
 
                       <!-- playing-area -->
                       <div class="playing-area">
@@ -201,13 +202,7 @@
                         <div class="panel-group" id="quiz-group" role="tablist">
 
                           <div class="panel active close-0">
-                            <div class="panel-heading" role="tab" id="question-header-0">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-0">
-                                  <span class="sr-clip">Question 0</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-0" class="panel-collapse collapse in" role="tabpanel">
                               <div class="panel-body welcome-body">
 
@@ -243,22 +238,10 @@
                           </div>
                           <!--.panel-->
 
-
-
                           <div class="panel close-1">
-                            <div class="panel-heading" role="tab" id="question-header-1">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-1">
-                                  <span class="sr-clip">Question 1</span>
-                                </a>
-                              </h4>
-                            </div>
 
                             <div id="question-1" class="animated panel-collapse collapse" role="tabpanel">
                               <div class="panel-body traditional">
-
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-0">Go to previous question.</a>
 
                                 <div class="quiz-question">
                                   <img src="./images/icons/apple.svg" class="question-header-image header-image-2">
@@ -267,7 +250,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q1-appels">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q1" value="nellie_100:king_100">
                                           <span class="response-text">Apple pie</span>
                                         </label>
@@ -275,7 +258,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q1-oats">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q1" value="al_100:buck_100">
                                           <span class="response-text">Oats granola bar</span>
                                         </label>
@@ -283,7 +266,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q1-sugar-cookie">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q1" value="eltoro_100:mack_100">
                                           <span class="response-text">Sugar cookie</span>
                                         </label>
@@ -291,17 +274,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-
-
-                                <a href="#question-2" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-0">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -310,21 +286,10 @@
                           </div>
                           <!--.panel-->
 
-
-
                           <div class="panel close-2">
-                            <div class="panel-heading" role="tab" id="question-header-2">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-2">
-                                  <span class="sr-clip">Question 2</span>
-                                </a>
-                              </h4>
-                            </div>
 
                             <div id="question-2" class="animated  panel-collapse collapse " role="tabpanel">
                               <div class="panel-body traditional">
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-1">Go to previous question.</a>
 
                                 <div class="quiz-question">
                                   <img src="./images/icons/mailbox.svg" class="question-header-image header-image-2">
@@ -333,7 +298,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q2-mail">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q2" value="nellie_100:mollie_100">
                                           <span class="response-text">Mail</span>
                                         </label>
@@ -341,7 +306,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q2-boots">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q2" value="king_100:buck_100">
                                           <span class="response-text">Boots</span>
                                         </label>
@@ -349,7 +314,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q2-kittens">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q2" value="snowflake_100:mollie_100">
                                           <span class="response-text">Kitten</span>
                                         </label>
@@ -357,15 +322,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-3" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -374,19 +334,10 @@
                           </div>
                           <!--.panel-->
 
-
                           <div class="animated panel close-3">
-                            <div class="panel-heading" role="tab" id="question-header-3">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-3">
-                                  <span class="sr-clip">Question 3</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-3" class="animated panel-collapse collapse " role="tabpanel">
                               <div class="panel-body traditional">
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-2">Go to previous question.</a>
 
                                 <div class="quiz-question">
                                   <img src="./images/icons/map_US.svg" class="question-header-image header-image-3">
@@ -395,7 +346,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q3-uncertain-texas">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q3" value="king_100:eltoro_100">
                                           <span class="response-text">Uncertain, Texas</span>
                                         </label>
@@ -403,7 +354,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q3-burnt-corn-alabama">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q3" value="king_100:al_100">
                                           <span class="response-text">Burnt Corn, Alabama</span>
                                         </label>
@@ -411,7 +362,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q3-handsome-eddy-new-york">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q3" value="prince_100:dandy_100">
                                           <span class="response-text">Handsome Eddy, New York</span>
                                         </label>
@@ -419,16 +370,10 @@
                                     </div>
                                   </div>
 
-
-
                                 </div>
 
-                                <a href="#question-4" class="sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -437,21 +382,11 @@
                           </div>
                           <!--.panel-->
 
-
-
                           <div class="panel close-4">
-                            <div class="panel-heading" role="tab" id="question-header-4">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-4">
-                                  <span class="sr-clip">Question 4</span>
-                                </a>
-                              </h4>
-                            </div>
 
                             <div id="question-4" class="animated panel-collapse collapse " role="tabpanel">
                               <div class="panel-body traditional">
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-3">Go to previous question.</a>
+
                                 <div class="quiz-question">
                                   <img src="./images/icons/musicnotes.svg" class="question-header-image header-image-2">
                                   <h2 class="quiz-title"><p>What’s your favorite song?</p></h2>
@@ -459,7 +394,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q4-horse-no-name">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q4" value="buck_100:snowflake_100">
                                           <span class="response-text">“Horse With No Name”</span>
                                         </label>
@@ -467,7 +402,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q4-dont-fence-me-in">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q4" value="king_100:eltoro_100">
                                           <span class="response-text">“Don’t Fence Me In”</span>
                                         </label>
@@ -475,7 +410,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q4-wf-music-man">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q4" value="billy_100:nellie_100">
                                           <span class="response-text">“The Wells Fargo Wagon”</span>
                                         </label>
@@ -483,15 +418,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-5" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -500,20 +430,11 @@
                           </div>
                           <!--.panel-->
 
-
-
                           <div class="panel close-5">
-                            <div class="panel-heading" role="tab" id="question-header-5">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-5">
-                                  <span class="sr-clip">Question 5</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-5" class="animated  panel-collapse collapse" role="tabpanel">
                               <div class="panel-body traditional">
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-4">Go to previous question.</a>
+
                                 <div class="quiz-question">
                                   <img src="./images/icons/gift.svg" class="question-header-image header-image-2">
                                   <h2 class="quiz-title"><p>What’s a great gift for a gift horse?</p></h2>
@@ -521,7 +442,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q5-blanket">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q5" value="buck_100:snowflake_100">
                                           <span class="response-text">Blanket</span>
                                         </label>
@@ -529,7 +450,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q5-horse-shoes">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q5" value="king_100:eltoro_100">
                                           <span class="response-text">Horseshoes</span>
                                         </label>
@@ -537,7 +458,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q5-mr-ed-dvd-set">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q5" value="billy_100:nellie_100">
                                           <span class="response-text">“Mr. Ed” DVD set</span>
                                         </label>
@@ -545,15 +466,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-6" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -562,21 +478,11 @@
                           </div>
                           <!--.panel-->
 
-
-
                           <div class="panel close-6">
-                            <div class="panel-heading" role="tab" id="question-header-6">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-6">
-                                  <span class="sr-clip">Question 6</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-6" class="animated  panel-collapse collapse" role="tabpanel">
                               <div class="panel-body traditional">
 
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-5">Go to previous question.</a>
                                 <div class="quiz-question">
                                   <img src="./images/icons/dog.svg" class="question-header-image header-image-2">
                                   <h2 class="quiz-title"><p>Who’s your dog in your dog and pony show?</p></h2>
@@ -584,7 +490,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q6-rover">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q6" value="shamrock_100:eltoro_100">
                                           <span class="response-text">Rover</span>
                                         </label>
@@ -592,7 +498,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q6-spot">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q6" value="snowflake_100:buck_100">
                                           <span class="response-text">Spot</span>
                                         </label>
@@ -600,7 +506,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q6-jack">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q6" value="snowflake_100:molly_100">
                                           <span class="response-text">Jack</span>
                                         </label>
@@ -608,15 +514,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-7" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -625,29 +526,19 @@
                           </div>
                           <!--.panel-->
 
-
                           <div class="panel close-7">
-                            <div class="panel-heading" role="tab" id="question-header-7">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-7">
-                                  <span class="sr-clip">Question 7</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-7" class="animated panel-collapse collapse" role="tabpanel">
                               <div class="panel-body traditional">
 
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7">Go to previous question.</a>
                                 <div class="quiz-question">
                                   <img src="./images/icons/wagonwheel.svg" class="question-header-image header-image-2">
                                   <h2 class="quiz-title"><p>What is your favorite western?</p></h2>
 
                                   <div class="responses">
-
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q7-stagecoach">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q7" value="shamrock_100:eltoro_100">
                                           <span class="response-text">“Stagecoach”</span>
                                         </label>
@@ -655,7 +546,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q7-wells-fargo">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q7" value="snowflake_100:buck_100">
                                           <span class="response-text">“Wells Fargo”</span>
                                         </label>
@@ -663,7 +554,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q7-paint-your-wagon">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q7" value="snowflake_100:molly_100">
                                           <span class="response-text">“Paint Your Wagon”</span>
                                         </label>
@@ -671,15 +562,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-8" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -688,33 +574,19 @@
                           </div>
                           <!--.panel-->
 
-
-
-
-
-
                           <div class="panel close-8">
-                            <div class="panel-heading" role="tab" id="question-header-8">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-8">
-                                  <span class="sr-clip">Question 8</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-8" class="animated panel-collapse collapse " role="tabpanel">
                               <div class="panel-body traditional">
 
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7">Go to previous question.</a>
                                 <div class="quiz-question">
                                   <img src="./images/icons/tumbleweed.svg" class="question-header-image header-image-2">
                                   <h2 class="quiz-title"><p>How do you handle tumbleweed?</p></h2>
 
-
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q8-go-over">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q8" value="snowflake_100:king_100">
                                           <span class="response-text">Go over</span>
                                         </label>
@@ -722,7 +594,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q8-go-around">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q8" value="nellie_100:billy_100">
                                           <span class="response-text">Go around</span>
                                         </label>
@@ -730,7 +602,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q8-go-roll-with-it">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q8" value="snowflake_100:molly_100">
                                           <span class="response-text">Roll with it</span>
                                         </label>
@@ -738,16 +610,10 @@
                                     </div>
                                   </div>
 
-
-
                                 </div>
 
-                                <a href="#question-9" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-9">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -756,20 +622,11 @@
                           </div>
                           <!--.panel-->
 
-
                           <div class="panel close-9">
-                            <div class="panel-heading" role="tab" id="question-header-9">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-9">
-                                  <span class="sr-clip">Question 9</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-9" class="animated panel-collapse collapse" role="tabpanel">
                               <div class="panel-body traditional">
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-8">Go to previous question.</a>
-
+d
                                 <div class="quiz-question">
                                   <img src="./images/icons/paint.svg" class="question-header-image header-image-2">
                                   <h2 class="quiz-title"><p>If you were a horse of a different color,<br> what would it be?</p></h2>
@@ -777,7 +634,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q9-blue">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q9" value="nellie_100:billy_100">
                                           <span class="response-text">Blue</span>
                                         </label>
@@ -785,7 +642,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q9-orange">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q9" value="nellie_100:billy_100">
                                           <span class="response-text">Orange</span>
                                         </label>
@@ -793,7 +650,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q9-taupe">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q9" value="eltoro_100:mack_100">
                                           <span class="response-text">Taupe</span>
                                         </label>
@@ -801,15 +658,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -818,19 +670,10 @@
                           </div>
                           <!--.panel-->
 
-
                           <div class="panel close-10">
-                            <div class="panel-heading" role="tab" id="question-header-10">
-                              <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-10">
-                                  <span class="sr-clip">Question 10</span>
-                                </a>
-                              </h4>
-                            </div>
+
                             <div id="question-10" class="animated panel-collapse collapse " role="tabpanel">
                               <div class="panel-body traditional">
-                                <!-- screen reader previous controls -->
-                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-9">Go to previous question.</a>
 
                                 <div class="quiz-question">
                                   <img src="./images/icons/ribbon.svg" class="question-header-image header-image-2">
@@ -839,7 +682,7 @@
                                   <div class="responses">
                                     <div class="form-group response-group-0">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q10-trigger">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q10" value="mack_100:snowflake_100">
                                           <span class="response-text">Trigger</span>
                                         </label>
@@ -847,7 +690,7 @@
                                     </div>
                                     <div class="form-group response-group-1">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q10-seabiscuit">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q10" value="nellie_100:eltoro_100">
                                           <span class="response-text">Seabiscuit</span>
                                         </label>
@@ -855,7 +698,7 @@
                                     </div>
                                     <div class="form-group response-group-2">
                                       <div class="radio">
-                                        <label class="btn btn-quiz" id="q10-silver">
+                                        <label class="btn btn-quiz">
                                           <input type="radio" class="hidden" name="q10" value="eltoro_100:billy_100">
                                           <span class="response-text">Silver</span>
                                         </label>
@@ -863,15 +706,10 @@
                                     </div>
                                   </div>
 
-
                                 </div>
 
-                                <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse">Go to the next question.</a>
                                 <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10">
                                   <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
-                                  <span class="glyphicon glyphicon-chevron-up"></span>
                                 </div>
                               </div>
 
@@ -895,7 +733,7 @@
                           <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-10"></div>
                         </div>
                       </div>
-                    </section>
+
                   </form>
 
                   <!--myQuiz-->
@@ -913,7 +751,7 @@
             <img class="stage" src="../images/logos/wf_icon_en-blk.svg">
 
             <p class="fineprint">
-              © 2015 Wells Fargo Bank, N.A. All rights reserved. ECG-1261325
+              © 2015 Wells Fargo Bank, N.A. All rights reserved.
             </p>
 
           </div>

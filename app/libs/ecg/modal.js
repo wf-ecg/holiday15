@@ -30,11 +30,11 @@ define(['jquery'], function ($) {
         inited: false,
         begin: '<span class="ada" tabindex="0"> Beginning of dialog content </span>',
         closer: '<a class="closer" href="#"><span class="ada"> Close </span></a>',
+        closers: '.closer, .cancel', // all "closers"
         finish: '<span class="ada" tabindex="0"> End of dialog content </span>'
     };
     // ELEMENTS
     El = {
-        closers: '.closer, .cancel', // all "closers"
         modal: 'body > div.modal, .ui-page > div.modal', // only top level containers
         watcher: 'body',
     };
@@ -53,7 +53,7 @@ define(['jquery'], function ($) {
 
     $.fn.addCloser = function () {
         if (Df.closer && !this.contains('.closer')) {
-            El.closers = El.closers.add($(Df.closer).prependTo(this));
+            $(Df.closer).prependTo(this);
         }
         return this;
     };
@@ -142,7 +142,7 @@ define(['jquery'], function ($) {
             El.modal.on(Act, function (evt) {
                 var ele = $(evt.target);
 
-                if (El.closers.contains(ele) || ele.is(El.modal)) {
+                if (ele.is(El.modal) || ele.is(Df.closers)) {
                     evt.preventDefault(); // do change hash
                     self.hide();
                 }

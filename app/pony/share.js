@@ -18,11 +18,12 @@ define(['jquery'], function () {
     div = '#shareBarDynamic';
     share = {
         fb_id: '744661099000077',
-        greet: 'Check out my snowman and make your own!',
+        greet: 'What’s your pony personality?',
         index: 'http://www.wellsfargomedia.com/holidays/pony/',
         link: '',
-        message: 'Create a snowman as cool as you with the Snowman Shuffle.',
-        subject: 'Build Your Own Snowman',
+        message: 'Take the quiz to find out at wellsfargo.com/holidays#pony. #WFpony',
+        score: '',
+        subject: 'What’s your pony personality?',
         title: '',
     };
 
@@ -32,14 +33,18 @@ define(['jquery'], function () {
         return false;
     };
 
-    tweak = function (link) {
+    tweak = function (pony) {
         if (init) {
             init = init();
         }
-        share.index = link;
+        var jpg = 'PonyTile_' + pony.replace(/\s/g, '') + '.jpg';
 
-        share.long = share.greet + ' ' + share.message;
-        share.email = share.message + ' ' + share.index;
+        share.score = 'I’m most like ' + pony + '.';
+        share.image = share.index + 'images/icons/social/ponies/' + jpg;
+
+        share.short = share.score + ' ' + share.message;
+        share.long = share.score + ' ' + share.greet + ' ' + share.message;
+        share.email = share.long + ' ' + share.index;
 
         updateLinks();
     };
@@ -48,17 +53,17 @@ define(['jquery'], function () {
         div.find('a.icon-facebook')
             .attr('href', querify('https|//www.facebook.com/dialog/feed?', {
                 app_id: share.fb_id,
-                caption: share.subject,
+                caption: 'Wells Fargo',
                 description: share.long,
                 display: 'popup',
                 link: share.index,
-                //picture: share.image,
+                picture: share.image,
                 redirect_uri: share.index,
             }));
 
         div.find('a.icon-twitter')
             .attr('href', querify('https|//twitter.com/intent/tweet?', {
-                text: share.greet,
+                text: share.short,
                 url: share.index,
             }));
 
