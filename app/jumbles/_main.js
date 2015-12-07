@@ -10,7 +10,7 @@
  TODO
 
  */
-define(['jquery', 'lodash', 'dialog', 'modal', 'timer', 'game', 'message', './share'], function
+define(['jquery', 'lodash', 'dialog', 'modal', 'timer', 'game', 'message', 'share'], function
     MAIN($, _, Dialog, Modal, Timer, Game, Message, Share) {
     'use strict';
 
