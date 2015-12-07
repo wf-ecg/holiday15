@@ -20,6 +20,18 @@ body {
     }
 }
 
+#Game {
+    @media (min-width: 1px) {
+        zoom: 0.6;
+    }
+    @media (min-width: 768px) {
+        zoom: 0.8;
+    }
+    @media (min-width: 1200px) {
+        zoom: 1.0;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         overflow: auto;
