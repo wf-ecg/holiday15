@@ -146,7 +146,7 @@ define(['jquery'], function ($) {
                 case 'buck':
                     writeIt('Buck',
                         'Handsome Buck started working for Wells&nbsp;Fargo in 1900 in Ardmore Oklahoma Territory.' +
-                        'White he wasn’t the largest horse in the stable, Buck could pull a fully-loaded express wagon all by&nbsp;himself.',
+                        'While he wasn’t the largest horse in the stable, Buck could pull a fully-loaded express wagon all by&nbsp;himself.',
                         '<img src="./images/icons/pony/buck.svg"');
                     break;
                 case 'mack':
