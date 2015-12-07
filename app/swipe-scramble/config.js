@@ -8,7 +8,7 @@ W.SHIET = {};
 W.debug = Number(new Date('2015/12/01') > new Date());
 
 require.config({
-    baseUrl: 'scripts',
+    baseUrl: '.',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
         jquery: '/lib/jquery/1.11.3/jquery',
@@ -53,7 +53,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', 'jqxtn', '../_main'], function () {
+    require(['boots', 'jqmobi', 'jqxtn', '_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {
