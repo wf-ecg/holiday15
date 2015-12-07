@@ -17,8 +17,6 @@ define(['jquery', 'modal'], function ($, Modal) {
     var W = (W && W.window || window),
         C = (W.C || W.console || {});
 
-    Modal.init('.ui-page > .modal');
-
     function bindDialog() { // off site dialog
         var dialog = $('.modal .dialog'); // thing to show
         var triggers = $('.shareBar .shares a'); // intercept these
