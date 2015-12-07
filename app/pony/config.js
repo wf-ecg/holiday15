@@ -8,7 +8,7 @@ W.SHIET = {};
 W.debug = Number(new Date('2015/12/01') > new Date());
 
 require.config({
-    baseUrl: 'scripts',
+    baseUrl: '.',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
         jquery: '/lib/jquery/1.11.3/jquery',
@@ -16,18 +16,18 @@ require.config({
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
-        data: '../../libs/anagrams',
-        boots: '../../vendor/bootstrap/js/bootstrap.min',
-        console: '../../libs/ecg/console',
-        dialog: '../../libs/ecg/dialog',
-        modal: '../../libs/ecg/modal',
-        utils: '../../libs/ecg/utils',
-        beacon: '../../libs/ecg/beacon',
-        stats: '../../libs/ecg/stats',
+        data: '../libs/anagrams',
+        boots: '../vendor/bootstrap/js/bootstrap.min',
+        console: '../libs/ecg/console',
+        dialog: '../libs/ecg/dialog',
+        modal: '../libs/ecg/modal',
+        utils: '../libs/ecg/utils',
+        beacon: '../libs/ecg/beacon',
+        stats: '../libs/ecg/stats',
         //
-        hammer: '../../vendor/misc/hammer.min',
-        respond: '../../vendor/misc/respond.min',
-        picfill: '../../vendor/misc/picturefill.min',
+        hammer: '../vendor/misc/hammer.min',
+        respond: '../vendor/misc/respond.min',
+        picfill: '../vendor/misc/picturefill.min',
 
     },
 });
@@ -54,7 +54,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     }
 
     /// CUSTOM
-    require(['boots', 'jqmobi', 'hammer', 'respond', 'picfill', '../_main'], function () {
+    require(['boots', 'jqmobi', 'hammer', 'respond', 'picfill', '_main'], function () {
 
         _.delay(function () {
             if (W.debug < 2) {
