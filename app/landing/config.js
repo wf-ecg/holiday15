@@ -15,20 +15,19 @@ require.config({
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
-        videojs: '/lib/video-js/ecg/video',
+        // ecg
+        beacon: '../libs/ecg/beacon',
+        console: '../libs/ecg/console',
+        dialog: '../libs/ecg/dialog',
+        modal: '../libs/ecg/modal',
+        stats: '../libs/ecg/stats',
+        utils: '../libs/ecg/utils',
         // vendor
         angular: '../vendor/ng/angular.min',
         angularAMD: '../vendor/ng/angularAMD.min',
         angularRT: '../vendor/ng/angular-route.min',
         boots: '../vendor/bootstrap/js/bootstrap.min',
         // custom
-        console: '../libs/ecg/console',
-        dialog: '../libs/ecg/dialog',
-        modal: '../libs/ecg/modal',
-        utils: '../libs/ecg/utils',
-        beacon: '../libs/ecg/beacon',
-        stats: '../libs/ecg/stats',
-        //
     },
     shim: { angularAMD: ['angular'], angularRT: ['angular'] },
 });

@@ -15,20 +15,20 @@ require.config({
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
-        //
-        data: '../libs/anagrams',
-        boots: '../vendor/bootstrap/js/bootstrap.min',
+        // ecg
+        beacon: '../libs/ecg/beacon',
         console: '../libs/ecg/console',
         dialog: '../libs/ecg/dialog',
         modal: '../libs/ecg/modal',
-        utils: '../libs/ecg/utils',
-        beacon: '../libs/ecg/beacon',
         stats: '../libs/ecg/stats',
-        //
+        utils: '../libs/ecg/utils',
+        // vendor
+        boots: '../vendor/bootstrap/js/bootstrap.min',
         hammer: '../vendor/misc/hammer.min',
-        respond: '../vendor/misc/respond.min',
         picfill: '../vendor/misc/picturefill.min',
-
+        respond: '../vendor/misc/respond.min',
+        // custom
+        data: '../libs/anagrams',
     },
 });
 

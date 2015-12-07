@@ -15,23 +15,23 @@ require.config({
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
-        // vendor
-        boots: '../vendor/bootstrap/js/bootstrap.min',
-        jssor: '../vendor/jssor/jssor',
-        jssors: '../vendor/jssor/jssor.slider',
-        fastclick: '../vendor/misc/fastclick',
-        bootsh: '../vendor/bootstrap/bootstrapIeHelper',
-        // custom
-        jqxtn: '../libs/jq-xtn',
-        xtn: '../libs/drt-xtn',
-        data: '../libs/anagrams',
+        // ecg
+        beacon: '../libs/ecg/beacon',
         console: '../libs/ecg/console',
         dialog: '../libs/ecg/dialog',
         modal: '../libs/ecg/modal',
-        utils: '../libs/ecg/utils',
-        beacon: '../libs/ecg/beacon',
         stats: '../libs/ecg/stats',
-        //
+        utils: '../libs/ecg/utils',
+        // vendor
+        boots: '../vendor/bootstrap/js/bootstrap.min',
+        bootsh: '../vendor/bootstrap/bootstrapIeHelper',
+        fastclick: '../vendor/misc/fastclick',
+        jssor: '../vendor/jssor/jssor',
+        jssors: '../vendor/jssor/jssor.slider',
+        // custom
+        data: '../libs/anagrams',
+        jqxtn: '../libs/jq-xtn',
+        xtn: '../libs/drt-xtn',
     },
 });
 
