@@ -16,21 +16,19 @@ require.config({
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
-        data: '../../vendor/ecg/anagrams',
+        data: '../../libs/anagrams',
         boots: '../../vendor/bootstrap/js/bootstrap.min',
-        console: '../../vendor/ecg/console',
-        dialog: '../../vendor/ecg/dialog',
-        modal: '../../vendor/ecg/modal',
-        utils: '../../vendor/ecg/utils',
-        beacon: '../../vendor/ecg/beacon',
-        stats: '../../vendor/ecg/stats',
-        //
-        jqxtn: 'libs/jq-xtn',
-        xtn: 'libs/drt-xtn',
+        console: '../../libs/ecg/console',
+        dialog: '../../libs/ecg/dialog',
+        modal: '../../libs/ecg/modal',
+        utils: '../../libs/ecg/utils',
+        beacon: '../../libs/ecg/beacon',
+        stats: '../../libs/ecg/stats',
         //
         hammer: '../../vendor/misc/hammer.min',
         respond: '../../vendor/misc/respond.min',
         picfill: '../../vendor/misc/picturefill.min',
+
     },
 });
 

@@ -15,18 +15,18 @@ require.config({
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
-        //
-        data: '../../vendor/ecg/anagrams',
-        boots: '../../vendor/bootstrap/js/bootstrap.min',
-        console: '../../vendor/ecg/console',
-        dialog: '../../vendor/ecg/dialog',
-        modal: '../../vendor/ecg/modal',
-        skrollr: '../../vendor/skrollr/skrollr',
-        utils: '../../vendor/ecg/utils',
-        beacon: '../../vendor/ecg/beacon',
-        stats: '../../vendor/ecg/stats',
-        //
-        jqxtn: 'libs/jq-xtn',
+        // vendor
+        boots: '../vendor/bootstrap/js/bootstrap.min',
+        skrollr: '../vendor/skrollr/skrollr',
+        // custom
+        data: '../libs/anagrams',
+        console: '../libs/ecg/console',
+        dialog: '../libs/ecg/dialog',
+        modal: '../libs/ecg/modal',
+        utils: '../libs/ecg/utils',
+        beacon: '../libs/ecg/beacon',
+        stats: '../libs/ecg/stats',
+        jqxtn: '../libs/jq-xtn',
         //
     },
 });

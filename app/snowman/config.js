@@ -15,23 +15,23 @@ require.config({
         jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
-        //
-        data: '../../vendor/ecg/anagrams',
+        // vendor
         boots: '../../vendor/bootstrap/js/bootstrap.min',
-        console: '../../vendor/ecg/console',
-        dialog: '../../vendor/ecg/dialog',
-        modal: '../../vendor/ecg/modal',
-        utils: '../../vendor/ecg/utils',
-        beacon: '../../vendor/ecg/beacon',
-        stats: '../../vendor/ecg/stats',
-        //
-        jqxtn: 'libs/jq-xtn',
-        xtn: 'libs/drt-xtn',
-        //
         jssor: '../../vendor/jssor/jssor',
         jssors: '../../vendor/jssor/jssor.slider',
         fastclick: '../../vendor/misc/fastclick',
         bootsh: '../../vendor/bootstrap/bootstrapIeHelper',
+        // custom
+        jqxtn: '../../libs/jq-xtn',
+        xtn: '../../libs/drt-xtn',
+        data: '../../libs/anagrams',
+        console: '../../libs/ecg/console',
+        dialog: '../../libs/ecg/dialog',
+        modal: '../../libs/ecg/modal',
+        utils: '../../libs/ecg/utils',
+        beacon: '../../libs/ecg/beacon',
+        stats: '../../libs/ecg/stats',
+        //
     },
 });
 
