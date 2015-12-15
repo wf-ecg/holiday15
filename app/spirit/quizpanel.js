@@ -102,20 +102,20 @@ define(['jquery'], function ($) {
         });
 
         function displayCase() {
-            var ponies, rand, ponyName, pn;
+            var ponies, rand, name, nom;
 
             ponies = ['eltoro', 'mollie', 'snowflake', 'king', 'nellie', 'buck', 'mack', 'prince', 'dandy', 'billy', 'trixie', 'grace', 'maggie', 'al'];
             rand = Math.floor((Math.random() * ponies.length)); // returns a random number between 1 and x
-            ponyName = ponies[rand];
-            pn = ponyName;
+            name = ponies[rand];
+            nom = name;
 
             function writeIt(a, b, c) {
                 $('#pn').html(a);
                 $('#pnBio').html(b);
-                $('#pnIcon').html(c + ' class="header-image-winner" alt="pony">');
+                $('#pnIcon').html(c + ' class="header-image-winner" alt="winner">');
             }
 
-            switch (pn) {
+            switch (nom) {
                 case 'eltoro':
                     writeIt('El Toro',
                         '‘The Bull’ worked in Wells&nbsp;Fargo’s Mexico City headquarters. ' +

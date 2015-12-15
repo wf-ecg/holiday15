@@ -19,12 +19,12 @@ define(['jquery'], function () {
     div = '#shareBarDynamic';
     share = {
         fb_id: '744661099000077',
-        greet: 'What’s your pony personality?',
-        index: 'http://www.wellsfargomedia.com/holidays/pony/',
+        greet: 'What’s your holiday spirit level?',
+        index: 'http://www.wellsfargomedia.com/holidays/spirit/',
         link: '',
-        message: 'Take the quiz to find out at wellsfargo.com/holidays#pony. #WFpony',
+        message: 'Watch the Wells Fargo “Snowman” commercial and take the quiz to gauge your level of holiday spirit.',
         score: '',
-        subject: 'What’s your pony personality?',
+        subject: 'What’s your holiday spirit level?',
         title: '',
     };
 
