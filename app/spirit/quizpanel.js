@@ -104,7 +104,7 @@ define(['jquery'], function ($) {
         function displayCase() {
             var ponies, rand, name, nom;
 
-            ponies = ['eltoro', 'mollie', 'snowflake', 'king', 'nellie', 'buck', 'mack', 'prince', 'dandy', 'billy', 'trixie', 'grace', 'maggie', 'al'];
+            ponies = ['celebrate', 'pumpkinxmas', 'sweater'];
             rand = Math.floor((Math.random() * ponies.length)); // returns a random number between 1 and x
             name = ponies[rand];
             nom = name;
@@ -116,88 +116,24 @@ define(['jquery'], function ($) {
             }
 
             switch (nom) {
-                case 'eltoro':
-                    writeIt('El Toro',
-                        '‘The Bull’ worked in Wells&nbsp;Fargo’s Mexico City headquarters. ' +
-                        'At 27 years of age, he was oldest horse in the stables and only worked a few hours a week to keep him&nbsp;limber.',
-                        '<img src="./images/options/eltoro.svg"');
+                case 'celebrate':
+                    writeIt('Loyal',
+                        'You take one holiday at a time!',
+                        '<img src="./images/options/celebrate.svg"');
                     break;
-                case 'mollie':
-                    writeIt('Mollie',
-                        'A beautiful white mare that led the stagecoach team that brought stagecoach President Hayes to Roseburg, ' +
-                        'Oregon, narrowly missing a run-in with the notorious bandit, Black&nbsp;Bart.',
-                        '<img src="./images/options/mollie.svg"');
+                case 'pumpkinxmas':
+                    writeIt('Premier',
+                        'Way to go! You Deck the Halls the Day after Halloween.',
+                        '<img src="./images/options/pumpkinxmas.svg"');
                     break;
-                case 'snowflake':
-                    writeIt('Snowflake',
-                        'A pristine white horse, Snowflake lived in New Jersey and rode a ferry across the Hudson ' +
-                        'every morning to pull a wagon throughout&nbsp;Manhattan. ',
-                        '<img src="./images/options/snowflake.svg"');
-                    break;
-                case 'king':
-                    writeIt('King',
-                        'A black horse, King faithfully served Wells&nbsp;Fargo in Las Vegas, New Mexico, and Los&nbsp;Angeles.',
-                        '<img src="./images/options/king.svg"');
-                    break;
-                case 'nellie':
-                    writeIt('Nellie',
-                        'With blazing speed, Nellie helped get her driver’s sick brother to a doctor and then finished her Wells&nbsp;Fargo&nbsp;route.',
-                        '<img src="./images/options/nellie.svg"');
-                    break;
-                case 'buck':
-                    writeIt('Buck',
-                        'Handsome Buck started working for Wells&nbsp;Fargo in 1900 in Ardmore Oklahoma Territory.' +
-                        'While he wasn’t the largest horse in the stable, Buck could pull a fully-loaded express wagon all by&nbsp;himself.',
-                        '<img src="./images/options/buck.svg"');
-                    break;
-                case 'mack':
-                    writeIt('Mack',
-                        'One of the most beloved horses that ever worked for Wells&nbsp;Fargo, the chestnut-colored Mack ' +
-                        'pulled a stagecoach on the Pioneer Stage Line from Placerville, California to Carson City,&nbsp;Nevada.',
-                        '<img src="./images/options/mack.svg"');
-                    break;
-                case 'prince':
-                    writeIt('Prince',
-                        'A striking gray horse that got his name because he was the most handsome horse in Ardmore, ' +
-                        'Oklahoma Territory stables and because he cost the princely sum of&nbsp;$125.',
-                        '<img src="./images/options/prince.svg"');
-                    break;
-                case 'dandy':
-                    writeIt('Dandy',
-                        'A big bay horse with a white mane, Dandy was one of the most valuable and expensive horses in 1895 Auburn, California. ' +
-                        'Wells&nbsp;Fargo paid $18 – top dollar in those days – to get&nbsp;him.',
-                        '<img src="./images/options/dandy.svg"');
-                    break;
-                case 'billy':
-                    writeIt('Billy',
-                        'A trusty Appaloosa and an early media star featured in the February 1914 issue of the Wells&nbsp;Fargo&nbsp;Messenger.',
-                        '<img src="./images/options/billy.svg"');
-                    break;
-                case 'trixie':
-                    writeIt('Trixie',
-                        'A fine brown and white Paint, Trixie was born and raised in Ardmore, Oklahoma Territory and started ' +
-                        'working for Wells&nbsp;Fargo in 1918, often donning a wool blanket in the winter months to stay&nbsp;warm.',
-                        '<img src="./images/options/trixie.svg"');
-                    break;
-                case 'grace':
-                    writeIt('Grace',
-                        'Had a reputation for delivering customers express shipments in Los Angeles with a dignified manner and was ' +
-                        'one of the last ponies to ever work for Wells&nbsp;Fargo.',
-                        '<img src="./images/options/grace.svg"');
-                    break;
-                case 'maggie':
-                    writeIt('Maggie',
-                        'A brown mare with over 20 years service that represented Wells&nbsp;Fargo in the first annual San Francisco Work Horse Parade in&nbsp;1909.',
-                        '<img src="./images/options/maggie.svg"');
-                    break;
-                case 'al':
-                    writeIt('Al',
-                        'So beloved by his driver, Al was bought by the driver and retired to the driver’s ranch to live out the rest of his days in peace and&nbsp;quiet.',
-                        '<img src="./images/options/al.svg"');
+                case 'sweater':
+                    writeIt('Star',
+                        'There’s No Such Thing as an Ugly Holiday Sweater to you!',
+                        '<img src="./images/options/sweater.svg"');
                     break;
             }
 
-            $.publish('Ponied');
+            $.publish('Winner');
         }
 
         $('#myQuiz input').change(function () {
@@ -218,7 +154,7 @@ define(['jquery'], function ($) {
             target.change();
         });
 
-        $('#question-10 .responses').one('click', 'input:radio', function () {
+        $('#question-8 .responses').one('click', 'input:radio', function () {
             var bodyheight, panels, panelheight, vheight, vwidth;
 
             $('#myQuiz').removeClass('visible').addClass('hidden');
