@@ -1,0 +1,123 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* QUIZ/_panel.scss */
+
+.panel-group .panel-heading + .panel-collapse > .list-group,
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+    border-top: none;
+}
+.panel-body {
+    background-color: transparent !important;
+    display: table;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.panel {
+    padding: 0;
+    background-color: transparent !important;
+}
+.panel-title {
+    color: inherit;
+    font-size: 16px;
+    margin-top: 100px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.panel-body.welcome-body {
+    margin-top: 0px;
+    padding-top: 80px;
+}
+
+.quiz {
+    .panel-group {
+        margin: 0;
+    }
+
+    .panel {
+        border: 0;
+        border-radius: 0;
+    }
+
+    .panel-body {
+        padding: 0;
+        position: relative;
+        display: table;
+        width: 100%;
+    }
+
+    .panel-body .welcome-body {
+        padding: 0;
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+    .active .panel-body {}
+
+    .panel-heading {
+        border-radius: 0;
+        padding: 0;
+        border: 0;
+        height: 0;
+
+        @media (min-width: 768px) {
+            background-color: transparent;
+            border: none;
+            height: 0;
+        }
+    }
+
+    .active .panel-heading {
+        height: 0;
+    }
+
+    .panel-title a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .panel-heading:focus {
+        background-color: transparent;
+    }
+}
+
+h4.panel-title a {
+    height: 0;
+}
+
+.panel-heading {
+    height: 0;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+#results-container {
+
+    .panel-body {
+        padding: 0;
+        position: relative;
+        display: table;
+        width: 100%;
+        height: 100%;
+        background-image: none;
+        background-repeat: no-repeat;
+        background-attachment: relative;
+        background-position: bottom;
+        background-size: cover;
+    }
+
+    .panel-group {
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .panel-group-winner, .quiz-question {
+        height: 100%;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
