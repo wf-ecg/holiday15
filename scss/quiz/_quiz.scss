@@ -1,5 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* PONY/_quiz.scss */
+/* QUIZ/_quiz.scss */
 
 h1.quiz-title {
     font-family: $serif;
@@ -329,7 +329,7 @@ h4.panel-title a {
     }
 }
 
-.winning-horse-intro {
+.winning-intro {
     font-family: $serif;
     font-size: 42px;
     font-weight: 500;
@@ -339,7 +339,7 @@ h4.panel-title a {
     margin-bottom: 10px;
 }
 
-.winning-horse-name {
+.winning-name {
     text-transform: uppercase;
     font-family: $serif;
     font-size: 50px;
@@ -350,7 +350,7 @@ h4.panel-title a {
     margin-bottom: 25px;
 }
 
-.winning-horse-bio {
+.winning-bio {
     font-family: $sans;
     color: white;
     text-align: center;
@@ -450,7 +450,7 @@ img.header-image-winner {
     }
 }
 
-.share-your-pony {
+.share-this {
     text-align: center;
     color: white;
     font-size: 20px;
