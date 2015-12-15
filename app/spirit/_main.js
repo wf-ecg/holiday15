@@ -102,7 +102,7 @@ define(['jquery', 'lodash', 'quizpanel', 'dialog', 'share'], function
 
     function doBindings() {
 
-        $.subscribe('Ponied', function () {
+        $.subscribe('Winner', function () {
             Share.tweak($('#pn').text());
         });
     }
