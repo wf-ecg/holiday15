@@ -1,14 +1,27 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* QUIZ/_misc.scss */
 
-.ui-page .celldiv {
-    padding: 0;
-}
-
 .ui-page-active {
     @include background-image( url('../images/bkgrs/bubbles-red.jpg') ); // linear-gradient(top, $trans 66%, red 88%),
     background-size: cover;
 }
+
+.ui-page {
+    .celldiv {
+        padding: 0;
+    }
+
+    @media (min-width: 768px) {
+        .quiz .welcome .responses-label {
+            font-size: 16px;
+            font-weight: normal;
+            color: white;
+            line-height: 1.125;
+            text-transform: uppercase;
+        }
+    }
+}
+
 #page-wrap {
     top: 2em;
 }
