@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>What’s your holiday spirit level?</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="cache-control" content="max-age=0, must-revalidate">
+    <meta name="viewport" content="width=device-width">
+    <!--  -->
+    <script>(function(l,i,s,t){s=l.pathname;t=s.toLowerCase().replace(/index/,i||'index');t=t.match
+        (/\w+\.\w+$/)?t:t.replace(/\/*$/,'/index.html');if(t!==s)l.pathname=t;}(location));</script>
+    <meta name="author" content="Wells Fargo">
+    <!-- static -->
+    <link rel="canonical" href="http://www.wellsfargomedia.com/holidays/spirit/index.html">
+    <meta property="og:title" content="What’s your holiday spirit level?">
+    <meta property="og:description" content="I know my holiday spirit level. What’s yours? Take the quiz to find out.">
+    <meta property="og:image" content="http://www.wellsfargomedia.com/holidays/images/share/og-spirit.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.wellsfargomedia.com/holidays/spirit/index.html">
+    <meta property="fb:app_id" content="744661099000077">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/jquery/mobile/custom/jquery.mobile.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../vendor/misc/animate.css">
+    <link rel="stylesheet" href="../build/spirit.css">
+    <!-- hacks -->
+    <script src="../libs/ecg/glober.js"></script>
+
+    <script src="/lib/requirejs/2.1.17/require.js"
+            data-main="./config"
+            data-main="./build/app"
+    ></script>
+  </head>
+
+  <body class="loading"><div data-role="page" class="spirit">
+      <!--[if lt IE 10]><div class="upgradeframe"><h3>You are using an OUTDATED browser.</h3>
+      <p>Please consider installing and using a <a href="http://whatbrowser.org">modern<br>
+      browser</a> to improve your web experience.</p> </div><![endif]-->
+
+      <div class="pushin"><!-- async --></div>
+
+      <div class="frame">
+        <header>
+          <div class="mobile">
+            <img class="logo" src="../images/logos/wf-oneline.svg" width="200" alt="Wells Fargo">
+          </div>
+
+          <div class="container">
+            <div class="row">
+
+              <nav class="navbar">
+
+                <div class="navbar-header">
+
+                  <button type="button"
+                          class="navbar-toggle collapsed"
+                          data-toggle="collapse"
+                          aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+
+                  <!-- /.navbar-header -->
+                </div>
+
+                <a class="desktop navbar-brand" rel="external" href="..">
+                  <img class="logo" alt="Wells Fargo" height="62" src="../images/logos/wf-square.svg">
+                </a>
+
+              </nav>
+
+              <!-- SHAREBAR -->
+              <div class="shareBar desktop">
+
+                <ul class="shares">
+
+                  <li>
+                    <a class="icon-facebook"
+                       href="https://www.facebook.com/sharer/sharer.php?u=http://www.wellsfargomedia.com/holidays/spirit/index.html"
+                       target="external"
+                       title="Share on Facebook"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-twitter"
+                       href="https://twitter.com/intent/tweet?url=https://www.wellsfargo.com/holidays%23spirit&text=What’s your holiday spirit level? Take the quiz to find out."
+                       target="external"
+                       title="Share on Twitter"><span class="ada">(opens dialog)</span></a>
+                  </li>
+
+                  <li>
+                    <a class="icon-googleplus"
+                       href="https://plus.google.com/share?url=http://www.wellsfargomedia.com/holidays/spirit/index.html"
+                       target="external"
+                       title="Share on Google Plus"><span class="ada">(opens dialog)</span></a>
+                  </li>
+                  <!--
+                  <li>
+                    <a class="icon-share"
+                       href="mailto:?subject=&body="
+                       title="Share by Email"><span class="ada">(opens dialog)</span></a>
+                  </li>
+                  -->
+                </ul>
+
+              </div>
+
+              <!-- /container+row -->
+            </div>
+          </div>
+
+        </header>
+
+        <section>
+          <div class="celldiv game row-offcanvas row-offcanvas-right">
+
+              <div id="page-wrap" class="hfeed site">
+
+                <div id="results-container" class="animated slideInDown hidden" style="margin-top:50px;">
+
+                  <div id="quiz-results" class="panel-group panel-group-winner" role="tablist">
+                    <div class="panel-body panel-body-winner">
+                      <div class="quiz-question">
+                        <div class="responses">
+
+                          <div id="pnIcon" class="winning-icon"></div>
+
+                          <h2 class="winning-intro"><p>Your holiday spirit level is</p></h2>
+                          <h3 id="pn" class="winning-name"></h3>
+                          <p id="pnBio" class="winning-bio text-center" style="width:80%; min-width:320px; margin:auto;"></p>
+
+                          <p class="share-this">Share your holiday spirit level:</p>
+
+                          <div class="share-quiz-footer">
+                            <div class="shareBar" id="shareBarDynamic">
+
+
+                              <ul class="shares">
+                                <li>
+                                  <a class="icon-facebook"
+                                     href=""
+                                     target="external"
+                                     title="Share to Facebook">
+                                    <span class="ada">(opens dialog)</span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a class="icon-twitter"
+                                     href=""
+                                     target="external"
+                                     title="Share to Twitter">
+                                    <span class="ada">(opens dialog)</span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a class="icon-googleplus"
+                                     href=""
+                                     target="external"
+                                     title="Share to Google Plus">
+                                    <span class="ada">(opens dialog)</span></a>
+                                </li>
+                                <!--
+                                <li>
+                                  <a class="icon-share"
+                                     href=""
+                                     title="Share by Email">
+                                    <span class="ada">(opens dialog)</span>
+                                  </a>
+                                </li>
+                                -->
+                              </ul>
+
+                            </div>
+                          </div>
+
+                          <button class="btn btn-restart" href="index.html" id="newQuiz">Play Again</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- results-container -->
+                </div>
+
+                <div id="myQuiz" class="visible">
+
+                  <form class="quiz" action="">
+
+                      <!-- playing-area -->
+                      <div class="playing-area">
+
+                        <div class="panel-group" id="quiz-group" role="tablist">
+
+                          <div class="panel active close-0">
+
+                            <div id="question-0" class="panel-collapse collapse in" role="tabpanel">
+                              <div class="panel-body welcome-body">
+
+                                <!-- screen reader previous controls -->
+                                <div class="quiz-question welcome">
+
+                                  <section class="col-md-3 col-sm-1 hidden-xs"></section>
+                                  <section class="col-md-6 col-sm-10 col-xs-12">
+
+                                    <img src="./images/icons/thinkbubble.svg" class="header-image-0">
+
+                                    <h1 class="quiz-title">What’s your holiday spirit level?</h1>
+                                    <p class="quiz-instructions">
+                                      Watch the Wells Fargo “Snowman” commercial and take the quiz to gauge your level of holiday spirit.
+                                    </p>
+
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+
+                                        <label class="btn btn-start" id="q0">
+                                          <input type="radio" class="hidden" name="q0-ok-lets-do-it" value="creative_0"
+                                                 data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1">
+                                          <span class="response-text btn-start"> Take Quiz </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </section>
+                                  <section class="col-lg-4 col-md-3 col-sm-1 hidden-xs"></section>
+                                </div>
+
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-1">
+
+                            <div id="question-1" class="animated panel-collapse collapse" role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/gift.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>In the TV commercial, the boy’s gift is?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q1" value="nellie_100:king_100">
+                                          <span class="response-text"> A toy </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q1" value="al_100:buck_100">
+                                          <span class="response-text"> A hat </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q1" value="eltoro_100:mack_100">
+                                          <span class="response-text"> A fruitcake </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-2">
+
+                            <div id="question-2" class="animated  panel-collapse collapse " role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/snowman.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>What is the snowman’s name?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q2" value="nellie_100:mollie_100">
+                                          <span class="response-text"> Frosty </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q2" value="king_100:buck_100">
+                                          <span class="response-text"> Jack </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q2" value="snowflake_100:mollie_100">
+                                          <span class="response-text"> Ebenezer </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="animated panel close-3">
+
+                            <div id="question-3" class="animated panel-collapse collapse " role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/mittens.svg" class="question-header-image header-image-3">
+                                  <h2 class="quiz-title"><p>To keep warm, the stagecoach drivers prefer?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q3" value="king_100:eltoro_100">
+                                          <span class="response-text"> Coffee </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q3" value="king_100:al_100">
+                                          <span class="response-text"> Hot chocolate </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q3" value="prince_100:dandy_100">
+                                          <span class="response-text"> Figgy pudding </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-4">
+
+                            <div id="question-4" class="animated panel-collapse collapse " role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/hat.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>When the snowman tips his hat to the drivers, it is to say?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q4" value="buck_100:snowflake_100">
+                                          <span class="response-text"> “Happy Holidays!” </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q4" value="king_100:eltoro_100">
+                                          <span class="response-text"> “Safe travels!” </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q4" value="billy_100:nellie_100">
+                                          <span class="response-text"> “Got any fruitcake in there?” </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-5">
+
+                            <div id="question-5" class="animated  panel-collapse collapse" role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/thinkbubble.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>When he took the carrot from the snowman, the horse thought?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q5" value="buck_100:snowflake_100">
+                                          <span class="response-text"> “Got your nose!” </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q5" value="king_100:eltoro_100">
+                                          <span class="response-text"> “Bon appetite” </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q5" value="billy_100:nellie_100">
+                                          <span class="response-text"> “Tastes as good as it smells” </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-6">
+
+                            <div id="question-6" class="animated  panel-collapse collapse" role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/carrot.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>You would replace the snowman’s carrot with:</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q6" value="shamrock_100:eltoro_100">
+                                          <span class="response-text"> Coal </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q6" value="snowflake_100:buck_100">
+                                          <span class="response-text"> A button </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q6" value="snowflake_100:molly_100">
+                                          <span class="response-text"> Pinecone </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-7">
+
+                            <div id="question-7" class="animated panel-collapse collapse" role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/boxes.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>How many packages do you think the stagecoach can carry?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q7" value="shamrock_100:eltoro_100">
+                                          <span class="response-text"> More than 10 </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q7" value="snowflake_100:buck_100">
+                                          <span class="response-text"> More than 50 </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q7" value="snowflake_100:molly_100">
+                                          <span class="response-text"> More than 100 </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                          <div class="panel close-8">
+
+                            <div id="question-8" class="animated panel-collapse collapse " role="tabpanel">
+                              <div class="panel-body traditional">
+
+                                <div class="quiz-question">
+                                  <img src="./images/icons/truck.svg" class="question-header-image header-image-2">
+                                  <h2 class="quiz-title"><p>What happened to first package carrier’s vehicle?</p></h2>
+
+                                  <div class="responses">
+                                    <div class="form-group response-group-0">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q8" value="snowflake_100:king_100">
+                                          <span class="response-text"> Snowy roads </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-1">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q8" value="nellie_100:billy_100">
+                                          <span class="response-text"> Out of gas </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group response-group-2">
+                                      <div class="radio">
+                                        <label class="btn btn-quiz">
+                                          <input type="radio" class="hidden" name="q8" value="snowflake_100:molly_100">
+                                          <span class="response-text"> Too much fruitcake </span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-9">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <!--.panel-->
+
+                        </div>
+                        <!-- .panel-group -->
+                        <div class="progress-indicators" style="margin-top: -100px;">
+                          <div class="progress-button active" role="button" data-parent="#quiz-group" data-target="#question-0"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-1"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-2"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-3"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-4"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-5"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-6"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-7"></div>
+                          <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-8"></div>
+                        </div>
+                      </div>
+
+                  </form>
+
+                  <!--myQuiz-->
+                </div>
+
+                <!--page-wrap-->
+              </div>
+
+            <!-- END GAME -->
+          </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <img class="stage" src="../images/logos/wf_icon_en-blk.svg">
+
+            <p class="fineprint">
+              © 2015 Wells Fargo Bank, N.A. All rights reserved.
+            </p>
+
+          </div>
+        </footer>
+
+        <!-- END FRAME -->
+      </div>
+
+      <div class="modal">
+
+        <div class="dialog"><!-- async --></div>
+
+      </div>
+
+    </div></body>
+</html>

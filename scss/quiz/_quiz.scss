@@ -85,11 +85,12 @@ h1.quiz-title {
 }
 
 h2.quiz-title {
-    margin: 0 auto 50px auto;
+    font-family: $serif;
     font-size: 40px;
     font-weight: 500;
     line-height: 1.125;
-    font-family: $serif;
+    margin: 0 auto 50px auto;
+    max-width: 500px;
 
     @media (max-width: 600px) {
         font-size: 30px;
