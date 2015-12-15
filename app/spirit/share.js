@@ -34,17 +34,24 @@ define(['jquery'], function () {
         return false;
     };
 
-    tweak = function (pony) {
+    tweak = function (opt) {
         if (init) {
             init = init();
         }
-        var jpg = 'PonyTile_' + pony.replace(/\s/g, '') + '.jpg';
+        var opts = {
+            generic: 'I know my holiday spirit level. What’s yours? Take the quiz to find out.',
+            Loyal: 'I’m holiday loyal. Take the quiz to find out your holiday spirit level.',
+            Premier: 'My holidays start before the jack o’ lanterns are dark. Take the quiz to find out your holiday spirit level.',
+            Star: 'I’m a Fa-la-la-lious-maximus! Take the quiz to find out your holiday spirit level.'
+        };
 
-        share.score = 'I’m most like ' + pony + '.';
+        var jpg = 'PonyTile_' + opt.replace(/\s/g, '') + '.jpg';
+
+        share.score = opts[opt] || opts.generic;
         share.image = share.index + 'images/social/' + jpg;
 
-        share.short = share.score + ' ' + share.message;
-        share.long = share.score + ' ' + share.greet + ' ' + share.message;
+        share.short = share.score;
+        share.long = share.short;
         share.email = share.long + ' ' + share.index;
 
         updateLinks();
