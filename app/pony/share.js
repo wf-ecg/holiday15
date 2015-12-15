@@ -41,7 +41,7 @@ define(['jquery'], function () {
         var jpg = 'PonyTile_' + pony.replace(/\s/g, '') + '.jpg';
 
         share.score = 'I’m most like ' + pony + '.';
-        share.image = share.index + 'images/icons/social/ponies/' + jpg;
+        share.image = share.index + 'images/social/' + jpg;
 
         share.short = share.score + ' ' + share.message;
         share.long = share.score + ' ' + share.greet + ' ' + share.message;
