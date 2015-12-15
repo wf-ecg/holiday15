@@ -10,8 +10,9 @@
  ...
  */
 define(['jquery'], function () {
-    var W = W || window,
-        C = C || W.console;
+    'use strict';
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     var div, init, share, tweak;
 

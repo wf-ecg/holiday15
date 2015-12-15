@@ -2,10 +2,9 @@
 /*global define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 define(['jquery'], function ($) {
-    var W, C;
-
-    W = W || window;
-    C = C || W.console;
+    'use strict';
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     var panelRatio = 0.84;
 
