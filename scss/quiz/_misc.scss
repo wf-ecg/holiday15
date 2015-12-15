@@ -2,7 +2,7 @@
 /* QUIZ/_misc.scss */
 
 .ui-page-active {
-    @include background-image( url('../images/bkgrs/bubbles-red.jpg') ); // linear-gradient(top, $trans 66%, red 88%),
+    @include background-image( $Bkgrsrc ); // linear-gradient(top, $trans 66%, red 88%),
     background-size: cover;
 }
 

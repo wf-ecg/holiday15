@@ -23,7 +23,7 @@ h1 {
         text-align: center;
         text-transform: uppercase;
         &:hover {
-            background: #8b181b !important;
+            background: $Second !important;
         }
     }
     .btn-quiz {
@@ -127,39 +127,6 @@ p.quiz-instructions {
         margin: -1px;
         padding: 0;
         overflow: hidden;
-    }
-
-    .traditional .filler,
-    .linear .filler {
-        text-align: center;
-        color: #000;
-        line-height: 30px;
-        font-weight: bold;
-        display: block;
-        width: 30px;
-        height: 30px;
-        background-color: #FCC60A;
-        border-radius: 50%;
-        position: absolute;
-        left: -3px;
-        top: -3px;
-        cursor: pointer;
-    }
-
-    .traditional input[type='radio']:checked + .filler,
-        .linear input[type='radio']:checked + .filler {
-        background-color: white;
-        color: #8B181B;
-    }
-
-    .linear .filler {
-        content: '';
-        background-color: #AE1E23;
-        border: 2px solid #FCC60A;
-        width: 28px;
-        height: 28px;
-        left: 3px;
-        top: -2px;
     }
 
     .progress-indicators {
@@ -284,25 +251,6 @@ p.quiz-instructions {
 .quiz-finish-text {
     color: white;
 }
-
-.quiz-submit {
-    background: #0095C8;
-    border: 2px solid white;
-    padding: 15px 30px;
-    border-radius: 0;
-    margin-bottom: 30px;
-    color: #000;
-    font-size: 18px;
-
-    &:hover {
-        color: white;
-    }
-
-    &:focus, &:active {
-        outline: 0;
-    }
-}
-
 
 .pseudoHidden {
     border: none;
@@ -490,7 +438,7 @@ img.header-image-winner {
         }
 
         i {
-            color: #8B181B;
+            color: $Second;
             cursor: pointer;
         }
 
@@ -510,9 +458,6 @@ img.header-image-winner {
 }
 
 #question-0 {
-    .quiz-skip .quiz-skip-icon {
-        color: #BB0826;
-    }
 
     .quiz-title {
         @media (min-width: 768px) {
