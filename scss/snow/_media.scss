@@ -72,13 +72,5 @@ body {
     .logo.desktop { display: none; }
     .logo.mobile { display: block; }
 }
-/* TODO gareth */
-@media (min-width: 0px) and (max-width: 630px) {
-    .frame { width:100% !important; }
-    #Container { padding: 0.5em auto 3em auto; width: 100% !important; min-width: 300px; }
-    #Game { width:100% !important; min-width:300px !important; margin:auto; }
-    #Toy { float: none; margin: auto 0px; text-align: center; width: 100%; }
-    #Copy { float: none; margin: auto; text-align: center; width: auto; }
-}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
