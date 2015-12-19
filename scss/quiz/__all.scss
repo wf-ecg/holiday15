@@ -1,11 +1,12 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* PONY/_all.scss */
+/* QUIZ/_all.scss */
+
+$Prime: #75040c !default;
+$Second: #8b181b !default;
+$Bkgrsrc: url('../images/bkgrs/bubbles-magenta.jpg') !default;
 
 @import './_misc';
-//@import '../junk/_fonts';
-//@import '../junk/_wf';
-@import './_junk';
-@import './_media';
+@import './_panel';
 @import './_quiz';
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

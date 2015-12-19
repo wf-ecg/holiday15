@@ -137,7 +137,9 @@ define(['jquery', 'lodash', 'sequence', 'shuffle', 'data', 'message', 'skrollr']
         try {
             i = sequence.getNext();
         } catch (err) {
-            db(2) && C.log(err);
+            if (db(2)) {
+                C.log(err);
+            }
             return done();
         }
         l = correct[i];

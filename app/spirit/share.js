@@ -10,60 +10,49 @@
  ...
  */
 define(['jquery'], function () {
-    var W = W || window,
-        C = C || W.console;
+    'use strict';
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
     var div, init, share, tweak;
 
     div = '#shareBarDynamic';
     share = {
-        fb_id: '189445374730755',
-        greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game',
-        index: 'http://www.wellsfargomedia.com/irt/holidays/jingle-jumbles/',
+        fb_id: '744661099000077',
+        greet: 'What’s your holiday spirit level?',
+        index: 'http://www.wellsfargomedia.com/holidays/spirit/',
         link: '',
-        message: '',
+        message: 'Watch the Wells Fargo “Snowman” commercial and take the quiz to gauge your level of holiday spirit.',
         score: '',
-        subject: 'Wells Fargo Jingle Jumbles',
+        subject: 'What’s your holiday spirit level?',
         title: '',
     };
 
     init = function (sel) {
         div = $(sel || div);
 
-        if (!$('html').is('.wystar')) {
-            share.index += 'index.html';
-            share.greet += ' from Wells Fargo.';
-        } else {
-            share.index += 'wystar.html';
-            share.greet += ' from Wells Fargo and WyStar Global Retirement Solutions.';
-        }
-
         return false;
     };
 
-    tweak = function (score, rating) {
+    tweak = function (opt) {
         if (init) {
             init = init();
         }
-        share.score = 'I scored ' + score + '.';
+        var opts = {
+            generic: 'I know my holiday spirit level. What’s yours? Take the quiz to find out.',
+            Loyal: 'I’m holiday loyal. Take the quiz to find out your holiday spirit level.',
+            Premier: 'My holidays start before the jack o’ lanterns are dark. Take the quiz to find out your holiday spirit level.',
+            Star: 'I’m a Fa-la-la-lious-maximus! Take the quiz to find out your holiday spirit level.'
+        };
 
-        switch (rating) {
-            case 'okay':
-                share.title = share.score + ' I’m a Jingle Jumbles rock star.';
-                share.message = 'Now it’s your turn. ';
-                break;
-            case 'good':
-                share.title = share.score + ' I’m a Jingle Jumbles word master.';
-                share.message = 'I double-dog dare you to beat my score. ';
-                break;
-            default:
-                share.title = share.score + ' I’m a Jingle Jumbles natural.';
-                share.message = 'Can you beat my score? ';
-        }
+        var jpg = 'SpiritTile_' + opt.replace(/\s/g, '') + '.jpg';
 
-        share.message += 'See how many Jingle Jumbles you can solve.';
-        share.long = share.title + ' ' + share.message;
-        share.email = share.title + ' ' + share.message + ' ' + share.index;
+        share.score = opts[opt] || opts.generic;
+        share.image = share.index + 'images/social/' + jpg;
+        
+        share.short = share.score + ' ' + share.message;
+        share.long = share.score + ' ' + share.greet + ' ' + share.message;
+        share.email = share.long + ' ' + share.index;
 
         updateLinks();
     };
@@ -76,12 +65,13 @@ define(['jquery'], function () {
                 description: share.long,
                 display: 'popup',
                 link: share.index,
+                picture: share.image,
                 redirect_uri: share.index,
             }));
 
         div.find('a.icon-twitter')
             .attr('href', querify('https|//twitter.com/intent/tweet?', {
-                text: share.title,
+                text: share.short,
                 url: share.index,
             }));
 

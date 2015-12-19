@@ -102,8 +102,8 @@ define(['jquery', 'lodash'], function ($, _) {
         var ua = W.navigator.userAgent;
 
         $.watchResize(function () {
-            if (ua.match(/mobi/i)
-                || $(W).width() < 768) { // simulate
+            if (ua.match(/mobi/i) ||
+                $(W).width() < 768) { // simulate
                 $('html').addClass('mobi');
             } else {
                 $('html').removeClass('mobi');

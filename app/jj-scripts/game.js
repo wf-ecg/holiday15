@@ -153,9 +153,7 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             }
         }
 
-        function wireTile() { // accept ada type input
-            var self = this;
-
+        function wireTile(i, self) { // accept ada type input
             self.ele().on(ACT, function (evt) {
                 var key = evt.keyCode;
 
@@ -207,7 +205,9 @@ define(['jquery', 'lodash', 'data', 'letter', 'xtn'], function
             El.input.hide().empty();
             El.button.show().focus().on(ACT, function () {
                 $.publish('next.Game');
-                (typeof cb !== 'function') || cb(); //nextPuzzle();
+                if (typeof cb === 'function') {
+                    cb(); //nextPuzzle();
+                }
                 El.button.off(ACT).hide();
             });
         }

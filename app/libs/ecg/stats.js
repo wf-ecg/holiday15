@@ -56,9 +56,10 @@ define(['jquery', 'lodash', 'beacon'], function
         }
     }
     function _getString(me) {
-        return (me.children()[0] ||
-            me.get(0)).innerText ||
+        return (me.get(0)).innerText ||
             me.attr('href') ||
+            me.attr('id') ||
+            me.first().attr('alt') ||
             me.children().first().attr('alt');
     }
     function _makeMessage(evt) {
@@ -76,7 +77,7 @@ define(['jquery', 'lodash', 'beacon'], function
                     msg = ('Link:' + str);
                     break;
                 case 'BUTTON':
-                    msg = ('Button:' + me.get(0).textContent);
+                    msg = ('Button:' + me.get(0).textContent.replace(/\s+/g, ' '));
                     break;
                 default:
                     msg = me.parent().get(0).className;

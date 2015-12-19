@@ -42,7 +42,7 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
         Modal: Modal,
     });
 
-    $.ajaxSetup ({ // disable caching
+    $.ajaxSetup({// disable caching
         cache: false,
     });
 
@@ -110,7 +110,9 @@ define(['jquery', 'lodash', 'dialog', 'modal'], function
 
         $('.tile').on('mouseup', function (evt) {
             var a = $(evt.delegateTarget).find('a')[0];
-            a && a.click(); // make surrounding tile trigger button
+            if (a) {
+                a.click(); // make surrounding tile trigger button
+            }
         });
     }
 

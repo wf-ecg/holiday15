@@ -17,6 +17,9 @@
         width: 67%;
         z-index: 1;
 
+        .spirit & {
+            @include background-image( url("../images/bkgrs/original-bubbles-dark.png"), linear-gradient(top, $a_d_magenta 22%, $a_magenta 88%) );
+        }
         .pony & {
             @include background-image( url("../images/bkgrs/original-bubbles-dark.png"), linear-gradient(top, $a_d_red 22%, $a_warmred 88%) );
         }

@@ -98,8 +98,12 @@ define(['jquery'], function () {
     function querify(str, obj) {
         var url = str.replace('|', ':') + $.param(obj).replace(/\+/g, '%20');
 
-        db() && C.info(obj, url);
-        db(1) && W.open(url);
+        if (db()) {
+            C.info(obj, url);
+        }
+        if (db(1)) {
+            W.open(url);
+        }
         return url;
     }
 
