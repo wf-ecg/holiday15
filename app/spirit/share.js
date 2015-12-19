@@ -45,13 +45,13 @@ define(['jquery'], function () {
             Star: 'I’m a Fa-la-la-lious-maximus! Take the quiz to find out your holiday spirit level.'
         };
 
-        var jpg = 'PonyTile_' + opt.replace(/\s/g, '') + '.jpg';
+        var jpg = 'SpiritTile_' + opt.replace(/\s/g, '') + '.jpg';
 
         share.score = opts[opt] || opts.generic;
         share.image = share.index + 'images/social/' + jpg;
-
-        share.short = share.score;
-        share.long = share.short;
+        
+        share.short = share.score + ' ' + share.message;
+        share.long = share.score + ' ' + share.greet + ' ' + share.message;
         share.email = share.long + ' ' + share.index;
 
         updateLinks();
