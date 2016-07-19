@@ -20,7 +20,7 @@ define(['jquery'], function () {
     share = {
         fb_id: '744661099000077',
         greet: 'What’s your pony personality?',
-        index: 'http://www.wellsfargomedia.com/holidays/pony/',
+        index: '//www.wellsfargomedia.com/holidays/pony/',
         link: '',
         message: 'Take the quiz to find out at wellsfargo.com/holidays#pony. #WFpony',
         score: '',

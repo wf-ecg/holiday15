@@ -19,7 +19,7 @@ define(['jquery'], function () {
     share = {
         fb_id: '744661099000077',
         greet: 'Happy holidays! I thought you might like to play the holiday Jingle Jumbles anagram game from Wells Fargo.',
-        index: 'http://www.wellsfargomedia.com/holidays/jumbles/',
+        index: '//www.wellsfargomedia.com/holidays/jumbles/',
         link: '',
         message: '',
         score: '',

@@ -19,7 +19,7 @@ define(['jquery'], function () {
     share = {
         fb_id: '744661099000077',
         greet: 'Check out my snowman and make your own!',
-        index: 'http://www.wellsfargomedia.com/holidays/pony/',
+        index: '//www.wellsfargomedia.com/holidays/pony/',
         link: '',
         message: 'Create a snowman as cool as you with the Snowman Shuffle.',
         subject: 'Build Your Own Snowman',
