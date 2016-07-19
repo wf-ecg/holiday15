@@ -20,7 +20,7 @@ define(['jquery'], function () {
     share = {
         fb_id: '744661099000077',
         greet: 'What’s your holiday spirit level?',
-        index: 'http://www.wellsfargomedia.com/holidays/spirit/',
+        index: '//www.wellsfargomedia.com/holidays/spirit/',
         link: '',
         message: 'Watch the Wells Fargo “Snowman” commercial and take the quiz to gauge your level of holiday spirit.',
         score: '',
